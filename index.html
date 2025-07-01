@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Consumer Kanvas</title>
 
-  <!-- Updated Favicon Links -->
-  <link rel="icon" sizes="192x192" href="https://static.wixstatic.com/media/5a2e0e_c8953e2cfdbd4269805c94c1d4eaf58a~mv2.png" type="image/png">
-  <link rel="shortcut icon" href="https://static.wixstatic.com/media/5a2e0e_c8953e2cfdbd4269805c94c1d4eaf58a~mv2.png" type="image/png">
-  <link rel="apple-touch-icon" href="https://static.wixstatic.com/media/5a2e0e_c8953e2cfdbd4269805c94c1d4eaf58a~mv2.png" type="image/png">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png.png">
 
   <style>
     :root {
       --bg: #fdfdfd;
       --text: #222;
       --muted: #666;
-      --accent: #c44b33;
+      --accent: #b8322f;
+      --card: #ffffff;
+      --shadow: rgba(0, 0, 0, 0.1);
       --font: 'Helvetica Neue', sans-serif;
     }
 
@@ -36,44 +36,87 @@
 
     header {
       display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
       align-items: center;
-      text-align: left;
+      gap: 1.2rem;
       padding: 2rem;
-      background: #f1e8e6;
+      background: linear-gradient(to right, #fff5f2, #ffeae7);
+      box-shadow: 0 2px 8px var(--shadow);
     }
 
     header img {
       width: 60px;
-      margin-right: 1.2rem;
     }
 
     header h1 {
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       color: var(--accent);
     }
 
-    header p {
-      font-size: 1rem;
+    .tagline {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+
+    .tagline span {
+      font-size: 1.1rem;
       color: var(--muted);
-      margin-top: 0.4rem;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .tagline span:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .tagline span:nth-child(3) {
+      animation-delay: 0.8s;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .content {
-      padding: 2rem;
-      max-width: 700px;
+      padding: 3rem 2rem;
+      max-width: 960px;
       margin: auto;
     }
 
     .section {
-      margin-bottom: 2.5rem;
+      background: var(--card);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
     }
 
     .section h2 {
-      font-size: 1.5rem;
-      color: var(--accent);
+      font-size: 1.6rem;
       margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .section p,
+    .section li {
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
     }
 
     .footer {
@@ -101,45 +144,49 @@
       }
 
       header h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
 
       .content {
-        padding: 1.5rem;
+        padding: 2rem 1.2rem;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://static.wixstatic.com/media/5a2e0e_c8953e2cfdbd4269805c94c1d4eaf58a~mv2.png" alt="Consumer Kanvas Logo">
+    <img src="favicon.png.png" alt="Consumer Kanvas Logo">
     <div>
       <h1>Consumer Kanvas</h1>
-      <p>Brand & GTM strategies backed by real consumer insights</p>
+      <div class="tagline">
+        <span>Brand-led.</span>
+        <span>Business Growth.</span>
+        <span>Funnel strategies backed by real consumer insight.</span>
+      </div>
     </div>
   </header>
 
   <div class="content">
     <div class="section">
       <h2>We work with founders who are:</h2>
-      <p>Scaling but hitting a growth ceiling — or launching and want to start strong.<br><br>Our strategies are designed for clarity, traction, and sustainable scale.</p>
+      <p>Scaling but hitting a growth ceiling or launching and want to start strong. Our strategies are designed for clarity, traction, and sustainable scale.</p>
     </div>
 
     <div class="section">
       <h2>What We Deliver</h2>
-      <p>We don’t do guesswork. We use focus groups and deep consumer insight to build brand + funnel strategies.<br><br>You get a clean, quarterly action plan — from leads to loyalty.</p>
+      <p>We don’t do guesswork. We use focus groups and deep consumer insight to build brand and funnel strategies. You get a clean, quarterly action plan from leads to loyalty.</p>
     </div>
 
     <div class="section">
       <h2>Who We’ve Helped</h2>
-      <p>We’ve worked with D2C and service-led brands — helping early-stage teams find traction, and scaling brands cut through the noise to focus on what’s working.</p>
+      <p>We’ve worked with D2C and service-led brands, helping early-stage teams find traction and scaling brands cut through the noise to focus on what’s working.</p>
     </div>
 
     <div class="section">
       <h2>We are your partners throughout the Brand Life Cycle</h2>
       <ul>
-        <li><strong>LAUNCH</strong>: Enter with a clear identity & tested strategy.</li>
-        <li><strong>GROW</strong>: Expand reach & product with data-backed moves.</li>
+        <li><strong>LAUNCH</strong>: Enter with a clear identity and tested strategy.</li>
+        <li><strong>GROW</strong>: Expand reach and product with data-backed moves.</li>
         <li><strong>REINVENT</strong>: Refresh the brand to maintain edge.</li>
       </ul>
     </div>
