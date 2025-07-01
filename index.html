@@ -3,21 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Consumer Kanvas is a strategic research and insight partner helping brands grow through real conversations with real consumers." />
+  <meta name="description" content="Consumer Kanvas helps brands grow with real consumer insights through FGDs and strategy." />
   <title>Consumer Kanvas</title>
   <link rel="icon" href="logo.png" type="image/png" />
   <style>
+    :root {
+      --accent: #e67e22;
+      --bg: #fffdf9;
+      --text: #222;
+      --gray: #999;
+    }
+
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background: #fefefe;
-      color: #222;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
 
     header {
       background: #fff;
-      padding: 20px 40px;
+      padding: 16px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -26,50 +34,93 @@
 
     header img {
       height: 50px;
+      max-height: 10vw;
     }
 
     main {
-      padding: 40px 20px;
+      padding: 40px 24px;
       max-width: 800px;
       margin: auto;
     }
 
     h1 {
-      font-size: 36px;
-      color: #111;
+      font-size: 2rem;
       margin-bottom: 10px;
     }
 
     h2 {
-      color: #555;
-      font-size: 22px;
+      color: #444;
+      font-size: 1.3rem;
       margin-top: 40px;
     }
 
     p {
-      line-height: 1.6;
-      font-size: 16px;
-      color: #444;
+      font-size: 1rem;
+      margin-top: 0.8rem;
     }
 
     .highlight {
       background: #fff4e5;
-      border-left: 4px solid #e67e22;
-      padding: 15px 20px;
-      margin: 30px 0;
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      margin: 32px 0;
+      font-size: 1rem;
+    }
+
+    .cta-box {
+      margin: 40px 0;
+      background: #f5f5f5;
+      padding: 16px 20px;
+      border-left: 4px solid var(--text);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     footer {
       text-align: center;
-      padding: 40px 0;
-      color: #999;
+      padding: 40px 20px;
       font-size: 14px;
+      color: var(--gray);
     }
 
+    /* ✅ Mobile-First Enhancements */
     @media (max-width: 600px) {
       header {
         flex-direction: column;
         align-items: flex-start;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.7rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      p, .highlight {
+        font-size: 0.95rem;
+      }
+
+      header img {
+        height: 40px;
+        margin-bottom: 10px;
+      }
+
+      .highlight, .cta-box {
+        padding: 14px 16px;
+      }
+
+      main {
+        padding: 24px 16px;
       }
     }
   </style>
@@ -77,31 +128,31 @@
 <body>
 
   <header>
-    <!-- 🔁 Replace 'logo.png' with your actual logo filename -->
+    <!-- Replace 'logo.png' with your logo file -->
     <img src="logo.png" alt="Consumer Kanvas Logo">
   </header>
 
   <main>
     <h1>Consumer Kanvas</h1>
-    <p><strong>Real Insights. Real Impact.</strong></p>
+    <p><strong>Where real conversations power real brand strategy.</strong></p>
 
     <div class="highlight">
-      <p>We turn honest conversations into market-moving strategies. Whether you're launching, pivoting, or scaling — Consumer Kanvas helps you listen before you leap.</p>
+      <p>We help brands make confident decisions by listening to what consumers really think — through focused, insight-led discussions.</p>
     </div>
 
-    <h2>What We Do</h2>
-    <p>We run in-depth Focus Group Discussions (FGDs), consumer immersions, and strategic workshops. Our mission is to help brands decode what their consumers really think — not what they say on surveys.</p>
+    <h2>Why It Works</h2>
+    <p>Most brands rely on assumptions. We rely on first-hand insight. Our team facilitates immersive Focus Group Discussions (FGDs) that decode consumer behaviour with strategic clarity.</p>
 
-    <h2>Why It Matters</h2>
-    <p>Your marketing, GTM, and brand strategies are only as good as the insight they're built on. With Consumer Kanvas, you work with a team rooted in first-principles thinking — not guesswork.</p>
+    <h2>What You’ll Experience</h2>
+    <p>Participate in a curated, 90-minute discussion with other sharp minds — and enjoy a ₹1000 Starbucks voucher as a thank-you.</p>
 
-    <h2>Get Involved</h2>
-    <p>If you're a brand, a strategist, or someone who values meaningful consumer conversations — you're in the right place.</p>
-    <p><strong>Interested in joining our next FGD?</strong> Email us at <a href="mailto:hello@consumerkanvas.com">hello@consumerkanvas.com</a></p>
+    <div class="cta-box">
+      <p><strong>Reply “Interested”</strong> on WhatsApp or email <a href="mailto:hello@consumerkanvas.com">hello@consumerkanvas.com</a> to join the panel.</p>
+    </div>
   </main>
 
   <footer>
-    &copy; 2025 Consumer Kanvas. Built with insight.
+    &copy; 2025 Consumer Kanvas. Built on insight.
   </footer>
 
 </body>
