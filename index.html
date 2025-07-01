@@ -2,187 +2,193 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Consumer Kanvas</title>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png.png">
-
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
   <style>
     :root {
-      --bg: #fdfdfd;
-      --text: #222;
-      --muted: #666;
       --accent: #b8322f;
-      --card: #ffffff;
-      --shadow: rgba(0, 0, 0, 0.1);
-      --font: 'Helvetica Neue', sans-serif;
+      --bg: #1a1a1a;
+      --overlay: rgba(0,0,0,0.48);
+      --text: #fff;
+      --muted: #e0e0e0;
+      --card: #232323;
+      --shadow: rgba(0,0,0,0.15);
+      --font: 'Montserrat', sans-serif;
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    html,body { margin:0; padding:0; height:100%; }
     body {
       background: var(--bg);
       color: var(--text);
       font-family: var(--font);
-      line-height: 1.6;
+      min-height: 100vh;
       overflow-x: hidden;
-      scroll-behavior: smooth;
     }
-
-    header {
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      width: 100%;
+      overflow: hidden;
       display: flex;
       align-items: center;
-      gap: 1.2rem;
+      justify-content: center;
+    }
+    .hero video {
+      position: absolute;
+      top:0; left:0; width:100vw; height:100vh; object-fit:cover; z-index:1;
+      filter: brightness(0.7) blur(1px);
+    }
+    .hero .overlay {
+      position:absolute;
+      top:0; left:0; width:100vw; height:100vh; background: var(--overlay); z-index:2;
+      pointer-events:none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      color: #fff;
+      max-width: 650px;
+      margin: 0 auto;
       padding: 2rem;
-      background: linear-gradient(to right, #fff5f2, #ffeae7);
-      box-shadow: 0 2px 8px var(--shadow);
+      animation: fadeIn 1.2s ease;
     }
-
-    header img {
-      width: 60px;
+    .hero-logo {
+      width: 85px;
+      height: 85px;
+      margin: 0 auto 1.5rem;
+      filter: drop-shadow(0 2px 16px var(--accent));
+      transition: transform .2s;
     }
-
-    header h1 {
-      font-size: 2.4rem;
-      color: var(--accent);
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      margin-bottom: 0.8rem;
+      background: linear-gradient(90deg, #fff 70%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-
-    .tagline {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      margin-top: 0.5rem;
-    }
-
-    .tagline span {
-      font-size: 1.1rem;
+    .hero-content .tagline {
+      font-size: 1.25rem;
       color: var(--muted);
-      opacity: 0;
-      transform: translateY(15px);
-      animation: fadeUp 0.6s ease forwards;
+      margin-bottom: 2rem;
+      letter-spacing: 0.5px;
     }
-
-    .tagline span:nth-child(2) {
-      animation-delay: 0.4s;
+    .hero-content .cta-btn {
+      background: var(--accent);
+      color: #fff;
+      border:none;
+      font-size:1.1rem;
+      font-weight: 700;
+      padding: 1rem 2.2rem;
+      border-radius: 32px;
+      box-shadow: 0 6px 24px var(--shadow);
+      cursor:pointer;
+      transition: transform .15s, box-shadow .2s;
     }
-
-    .tagline span:nth-child(3) {
-      animation-delay: 0.8s;
+    .hero-content .cta-btn:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 12px 36px var(--accent);
     }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     .content {
-      padding: 3rem 2rem;
-      max-width: 960px;
-      margin: auto;
+      max-width: 980px;
+      margin: -120px auto 0;
+      padding: 3.5rem 1.5rem 2rem;
+      position: relative;
+      z-index: 4;
     }
-
     .section {
       background: var(--card);
-      padding: 2rem;
+      padding: 2.2rem;
       margin-bottom: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
     }
-
     .section:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+      transform: translateY(-6px) scale(1.012);
+      box-shadow: 0 18px 32px rgba(184,50,47,0.08);
     }
-
     .section h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
+      font-size: 1.7rem;
       color: var(--accent);
-    }
-
-    .section p,
-    .section li {
-      color: var(--text);
-      font-size: 1rem;
       margin-bottom: 1rem;
+      letter-spacing: -0.5px;
     }
-
-    ul {
-      padding-left: 1.2rem;
+    .section p, .section li {
+      font-size: 1.08rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
     }
-
+    ul { padding-left: 1.5rem; }
     .footer {
       background: var(--accent);
       color: #fff;
       text-align: center;
-      padding: 1.5rem;
+      padding: 2rem 1rem 1rem;
       font-weight: bold;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
     }
-
-    .footer a {
-      color: #fff;
-      text-decoration: none;
+    .footer a { color: #fff; text-decoration: underline; }
+    @media (max-width: 700px) {
+      .hero-content h1 { font-size: 2.1rem;}
+      .content { margin-top: -60px;}
+      .section { padding: 1.2rem;}
     }
-
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-      }
-
-      header img {
-        margin-bottom: 0.8rem;
-      }
-
-      header h1 {
-        font-size: 2rem;
-      }
-
-      .content {
-        padding: 2rem 1.2rem;
-      }
+    @media (max-width: 500px) {
+      .hero { min-height: 350px;}
+      .hero-logo { width: 50px; height: 50px;}
+      .hero-content { padding: 1rem;}
+      .hero-content h1 { font-size: 1.4rem;}
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: translateY(0);}
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="favicon.png.png" alt="Consumer Kanvas Logo">
-    <div>
+  <section class="hero">
+    <!-- Replace src with your video file, or use a stock video link -->
+    <video src="hero-bg.mp4" autoplay loop muted playsinline poster="hero-fallback.jpg"></video>
+    <div class="overlay"></div>
+    <div class="hero-content" data-aos="fade-up">
+      <img src="favicon.png" alt="Consumer Kanvas Logo" class="hero-logo"/>
       <h1>Consumer Kanvas</h1>
       <div class="tagline">
-        <span>Brand-led.</span>
-        <span>Business Growth.</span>
-        <span>Funnel strategies backed by real consumer insight.</span>
+        Brand-led. Business Growth.<br>
+        Funnel strategies backed by real consumer insight.
       </div>
+      <button class="cta-btn" onclick="window.location.href='tel:+919821379658'">
+        📞 Contact Us
+      </button>
     </div>
-  </header>
+  </section>
 
   <div class="content">
-    <div class="section">
+    <div class="section" data-aos="fade-up">
       <h2>We work with founders who are:</h2>
       <p>Scaling but hitting a growth ceiling or launching and want to start strong. Our strategies are designed for clarity, traction, and sustainable scale.</p>
     </div>
 
-    <div class="section">
+    <div class="section" data-aos="fade-up" data-aos-delay="100">
       <h2>What We Deliver</h2>
       <p>We don’t do guesswork. We use focus groups and deep consumer insight to build brand and funnel strategies. You get a clean, quarterly action plan from leads to loyalty.</p>
     </div>
 
-    <div class="section">
+    <div class="section" data-aos="fade-up" data-aos-delay="200">
       <h2>Who We’ve Helped</h2>
       <p>We’ve worked with D2C and service-led brands, helping early-stage teams find traction and scaling brands cut through the noise to focus on what’s working.</p>
     </div>
 
-    <div class="section">
+    <div class="section" data-aos="fade-up" data-aos-delay="300">
       <h2>We are your partners throughout the Brand Life Cycle</h2>
       <ul>
         <li><strong>LAUNCH</strong>: Enter with a clear identity and tested strategy.</li>
@@ -195,5 +201,10 @@
   <div class="footer">
     📞 Contact us: <a href="tel:+919821379658">+91 98213 79658</a>
   </div>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 900 });
+  </script>
 </body>
 </html>
