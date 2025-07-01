@@ -10,24 +10,21 @@
   <style>
     :root {
       --accent: #d72660;
-      --bg: linear-gradient(135deg, #fffbe7 0%, #fffbd3 100%); /* light yellow gradient */
-      --overlay: rgba(36, 0, 62, 0.14);
+      --brand-yellow: #fffbe7;
+      --brand-yellow2: #ffed99;
+      --headline: 'Playfair Display', serif;
+      --font: 'Montserrat', sans-serif;
       --text: #232323;
       --muted: #606060;
-      --card: rgba(255,255,255,0.99);
-      --shadow: 0 10px 48px 0 rgba(215,38,96,0.13), 0 1.5px 5px rgba(36,0,62,0.07);
-      --font: 'Montserrat', sans-serif;
-      --headline: 'Playfair Display', serif;
-      --blur-bg: blur(7px) brightness(1.08);
+      --card: #fff;
     }
-    html,body { margin:0; padding:0; height:100%; }
+    html, body { margin:0; padding:0; height:100%; }
     body {
-      background: var(--bg);
-      color: var(--text);
+      background: linear-gradient(135deg, var(--brand-yellow) 0%, var(--brand-yellow2) 100%);
       font-family: var(--font);
       min-height: 100vh;
-      overflow-x: hidden;
-      animation: animated-bg 18s ease-in-out infinite;
+      color: var(--text);
+      animation: animated-bg 16s linear infinite alternate;
       background-size: 300% 300%;
     }
     @keyframes animated-bg {
@@ -36,249 +33,249 @@
       100% {background-position: 0 50%;}
     }
 
+    /* HERO SECTION */
     .hero {
       position: relative;
-      height: 100vh;
-      min-height: 650px;
-      width: 100%;
-      overflow: hidden;
+      width: 100vw;
+      min-height: 60vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      background: var(--bg);
+      justify-content: flex-start;
+      overflow: hidden;
+      background: var(--brand-yellow);
+      padding-top: 36px;
+      padding-bottom: 36px;
     }
-    .hero-bg-video {
-      position: absolute;
-      top:0; left:0; width:100vw; height:100vh; object-fit:cover; z-index:1;
-      filter: blur(2px) brightness(0.7) grayscale(0.1);
-      opacity: 0.82;
-      transition: filter 0.4s;
-      pointer-events: none;
-    }
-    .hero .overlay,
-    .hero::after {
-      position:absolute;
-      top:0; left:0; width:100vw; height:100vh;
-      background: linear-gradient(120deg, #fffbe7cc 80%, #fff3b0cc 100%);
-      z-index:2;
-      pointer-events:none;
-      backdrop-filter: var(--blur-bg);
-      content: "";
+    .hero-logo {
+      width: 98px;
+      height: 98px;
+      margin: 0 auto 0.1rem;
+      filter: drop-shadow(0 2px 22px var(--accent)) drop-shadow(0 0px 2px #fff);
+      background: rgba(255,255,255,0.8);
+      border-radius: 50%;
+      padding: 0.7rem;
+      box-shadow: 0 5px 18px rgba(215,38,96,0.08);
       display: block;
+    }
+    .brand-title {
+      display: block;
+      margin: 0 auto 1.2rem auto;
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 2.1rem;
+      letter-spacing: 0.05em;
+      color: #232323;
+      text-align: center;
+      text-shadow: 0 1px 13px #fffbe7a8;
+      background: none;
+    }
+    .hero-video-mobile {
+      width: 96vw;
+      max-width: 500px;
+      height: auto;
+      margin: 0 auto 1.2rem auto;
+      border-radius: 22px;
+      box-shadow: 0 4px 22px rgba(215,38,96,0.11);
+      display: block;
+      background: #fffbe7;
+      object-fit: cover;
+    }
+    /* Only show this video on mobile */
+    @media (min-width: 700px) {
+      .hero-video-mobile { display: none !important; }
+    }
+
+    /* For desktop: background video */
+    .hero-bg-video-desktop {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100vw; height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      opacity: 0.80;
+      filter: blur(1.5px) brightness(0.88);
+      pointer-events: none;
+      transition: opacity 0.3s;
+      display: none;
+    }
+    @media (min-width: 700px) {
+      .hero-bg-video-desktop { display: block; }
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100vw; height: 100%;
+      background: linear-gradient(120deg, #fffbe7cc 60%, #fff3b0cc 100%);
+      z-index: 2;
+      pointer-events: none;
+      display: none;
+    }
+    @media (min-width: 700px) {
+      .hero-overlay { display: block; }
     }
     .hero-content {
       position: relative;
       z-index: 3;
-      text-align: center;
-      color: #232323;
-      max-width: 700px;
+      width: 100%;
+      max-width: 560px;
       margin: 0 auto;
-      padding: 2.5rem 2rem;
-      border-radius: 36px;
-      background: rgba(255, 255, 255, 0.30);
-      box-shadow: 0 12px 60px 0 rgba(36,0,62,0.12), 0 2px 10px rgba(215,38,96,0.12);
+      text-align: center;
+      padding: 2.2rem 1.2rem 1.6rem 1.2rem;
+      background: rgba(255,255,255,0.20);
+      border-radius: 32px;
+      box-shadow: 0 10px 40px rgba(215,38,96,0.10);
+      backdrop-filter: blur(3px) brightness(1.09);
       animation: fadeIn 1.2s cubic-bezier(.68,-0.55,.27,1.55);
-      backdrop-filter: blur(8px) brightness(1.11);
     }
-    .hero-logo {
-      width: 90px;
-      height: 90px;
-      margin: 0 auto 1.6rem;
-      filter: drop-shadow(0 2px 30px var(--accent)) drop-shadow(0 0px 2px #fff);
-      transition: transform .25s cubic-bezier(.5,1.5,.5,1.5);
-      background: rgba(255,255,255,0.7);
-      border-radius: 50%;
-      padding: 0.5rem;
-      box-shadow: 0 5px 18px rgba(215,38,96,0.10);
-      animation: logo-pop 1s cubic-bezier(.45,1.65,.5,1.05);
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
     }
-    @keyframes logo-pop {
-      0% { transform: scale(0.6) rotate(-30deg);}
-      70% { transform: scale(1.09) rotate(8deg);}
-      100% { transform: scale(1) rotate(0);}
-    }
-    .hero-content h1 {
+    .hero-headline {
       font-family: var(--headline);
-      font-size: 3.2rem;
+      font-size: 2.2rem;
       font-weight: 700;
-      letter-spacing: -1.5px;
-      margin-bottom: 1.2rem;
-      background: linear-gradient(90deg, #fff 60%, var(--accent) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      letter-spacing: -1px;
+      margin-bottom: 1.1rem;
+      color: var(--accent);
+      background: linear-gradient(90deg, var(--accent) 70%, #fbb034 100%);
       background-clip: text;
-      text-shadow: 0 2px 18px rgba(215,38,96,0.11);
-      animation: gradient-pop 1.3s cubic-bezier(.45,2,.5,.9);
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 18px rgba(215,38,96,0.08);
     }
-    @keyframes gradient-pop {
-      from { opacity:0; filter: blur(5px);}
-      to   { opacity:1; filter: blur(0);}
-    }
-    .hero-content .tagline {
+    .hero-tagline {
       font-family: var(--font);
-      font-size: 1.35rem;
-      color: #444;
-      margin-bottom: 2.2rem;
-      letter-spacing: 0.5px;
+      font-size: 1.22rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      letter-spacing: 0.4px;
       background: rgba(255,255,255,0.15);
-      border-radius: 12px;
-      padding: 1.1rem 1rem 1rem 1rem;
-      box-shadow: 0 1.5px 6px rgba(215,38,96,0.09);
-      animation: fadeIn 1.6s 0.3s backwards;
+      border-radius: 11px;
+      padding: 0.9rem 0.7rem 0.8rem 0.7rem;
+      box-shadow: 0 1.5px 6px rgba(215,38,96,0.07);
     }
-    .hero-content .cta-btn {
+    .cta-btn {
       background: linear-gradient(90deg, var(--accent), #fbb034 80%);
       color: #fff;
       border:none;
-      font-size:1.25rem;
+      font-size:1.13rem;
       font-weight: 700;
-      padding: 1rem 2.6rem;
+      padding: 0.9rem 2.2rem;
       border-radius: 36px;
-      box-shadow: 0 6px 34px rgba(215,38,96,0.13);
+      box-shadow: 0 6px 24px rgba(215,38,96,0.13);
       cursor:pointer;
-      transition: transform .15s, box-shadow .22s, background 0.6s;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
       outline: none;
-      position: relative;
-      overflow: hidden;
+      transition: transform .13s, box-shadow .18s, background 0.4s;
+      margin-top: 0.7rem;
     }
-    .hero-content .cta-btn::before {
-      content: "";
-      position: absolute;
-      left: -60%;
-      top: 0;
-      width: 45%;
-      height: 100%;
-      background: rgba(255,255,255,0.18);
-      transform: skewX(-22deg);
-      transition: left 0.6s cubic-bezier(.5,1.5,.5,.5);
-      z-index: 1;
-    }
-    .hero-content .cta-btn:hover::before {
-      left: 120%;
-    }
-    .hero-content .cta-btn:hover {
-      transform: translateY(-2px) scale(1.04) rotate(-1deg);
-      box-shadow: 0 18px 46px rgba(215,38,96,0.23);
+    .cta-btn:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 14px 36px var(--accent);
       background: linear-gradient(90deg, #fbb034, var(--accent) 100%);
     }
+
     /* Content sections */
     .content {
-      max-width: 1050px;
-      margin: -140px auto 0;
-      padding: 4rem 1.5rem 2rem;
+      max-width: 980px;
+      margin: -30px auto 0;
+      padding: 3rem 1.2rem 2rem;
       position: relative;
       z-index: 4;
     }
     .section {
       background: var(--card);
-      padding: 2.7rem 2.3rem;
-      margin-bottom: 2.5rem;
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      transition: transform 0.35s cubic-bezier(.45,2.2,.5,.95), box-shadow 0.3s;
-      position: relative;
-      border-left: 7px solid var(--accent);
+      padding: 2.1rem 1.5rem;
+      margin-bottom: 2.2rem;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(215,38,96,0.09);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-left: 6px solid var(--accent);
       overflow: hidden;
     }
-    .section::before {
-      content: '';
-      position: absolute;
-      left: -75px; top: 0;
-      width: 120px; height: 100%;
-      background: radial-gradient(circle, #fbb03422 65%, transparent 85%);
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.62;
-      filter: blur(7px);
-      animation: float-bubble 7s infinite alternate cubic-bezier(.45,2,.5,.95);
-    }
-    @keyframes float-bubble {
-      from { transform: translateY(0);}
-      to { transform: translateY(-19px);}
-    }
     .section:hover {
-      transform: translateY(-8px) scale(1.015) rotate(-0.5deg);
-      box-shadow: 0 22px 40px rgba(215,38,96,0.13);
+      transform: translateY(-6px) scale(1.012);
+      box-shadow: 0 18px 32px rgba(215,38,96,0.13);
       background: linear-gradient(100deg, #fff 85%, #fbb03422 120%);
     }
     .section h2 {
       font-family: var(--headline);
-      font-size: 2.1rem;
+      font-size: 1.5rem;
       color: var(--accent);
-      margin-bottom: 1.3rem;
+      margin-bottom: 1rem;
       letter-spacing: -0.5px;
-      text-shadow: 0 1px 7px rgba(215,38,96,0.08);
-      position: relative;
-      z-index: 2;
     }
     .section p, .section li {
-      font-size: 1.19rem;
+      font-size: 1.08rem;
       color: var(--muted);
-      margin-bottom: 0.7rem;
-      position: relative;
-      z-index: 2;
+      margin-bottom: 0.6rem;
     }
-    ul { padding-left: 1.6rem; }
+    ul { padding-left: 1.5rem; }
     .footer {
       background: linear-gradient(90deg, var(--accent) 70%, #fbb034);
       color: #fff;
       text-align: center;
-      padding: 2.2rem 1rem 1.5rem;
+      padding: 2rem 1rem 1rem;
       font-weight: bold;
-      font-size: 1.15rem;
-      letter-spacing: 0.6px;
-      border-radius: 24px 24px 0 0;
-      margin-top: 4rem;
-      box-shadow: 0 -3px 14px rgba(215,38,96,0.08);
-      text-shadow: 0 2px 7px rgba(36,0,62,0.07);
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      border-radius: 20px 20px 0 0;
+      margin-top: 3rem;
+      box-shadow: 0 -3px 14px rgba(215,38,96,0.09);
     }
     .footer a { color: #fff; text-decoration: underline; }
 
-    /* Responsive for world class look */
-    @media (max-width: 900px) {
-      .content { padding: 2.5rem 1rem 1rem; }
-      .section { padding: 1.5rem 1rem;}
-      .hero-content { padding: 1.2rem;}
-    }
+    /* Responsive */
     @media (max-width: 700px) {
-      .hero-content h1 { font-size: 2.2rem;}
-      .section h2 { font-size: 1.3rem;}
-      .content { margin-top: -60px;}
-      .hero-logo { width: 60px; height: 60px;}
-      .hero-bg-video { height: 60vh; }
+      .hero-content { padding: 1.2rem;}
+      .brand-title { font-size: 1.25rem;}
+      .hero-headline { font-size: 1.35rem;}
+      .section { padding: 1.1rem;}
+      .hero-logo { width: 54px; height: 54px;}
+      .content { margin-top: -15px;}
     }
-    @media (max-width: 500px) {
-      .hero { min-height: 350px;}
-      .hero-logo { width: 45px; height: 45px;}
-      .hero-content { padding: 1rem;}
-      .hero-content h1 { font-size: 1.2rem;}
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(25px);}
-      to { opacity: 1; transform: translateY(0);}
+    @media (max-width: 450px) {
+      .hero { min-height: 310px;}
+      .hero-content { padding: 0.7rem;}
+      .hero-headline { font-size: 1.1rem;}
+      .brand-title { font-size: 1rem;}
+      .section h2 { font-size: 1.05rem;}
+      .hero-logo { width: 39px; height: 39px;}
     }
   </style>
 </head>
 <body>
   <section class="hero">
-    <!-- Mobile-friendly welcome video with light yellow overlay -->
+    <img src="favicon.png.png" alt="Consumer Kanvas Logo" class="hero-logo"/>
+    <div class="brand-title">CONSUMER KANVAS</div>
+    <!-- Mobile video: always visible on mobile, hidden on desktop -->
     <video
+      class="hero-video-mobile"
       src="11904091_3840_2160_24fps.mp4"
       autoplay
       loop
       muted
       playsinline
       poster="favicon.png.png"
-      class="hero-bg-video"
+      controls
     ></video>
-    <div class="overlay"></div>
+    <!-- Desktop background video: only visible on desktop -->
+    <video
+      class="hero-bg-video-desktop"
+      src="11904091_3840_2160_24fps.mp4"
+      autoplay
+      loop
+      muted
+      playsinline
+      poster="favicon.png.png"
+    ></video>
+    <div class="hero-overlay"></div>
     <div class="hero-content" data-aos="fade-up">
-      <img src="favicon.png.png" alt="Consumer Kanvas Logo" class="hero-logo"/>
-      <h1>Consumer Kanvas</h1>
-      <div class="tagline">
-        Brand-led. Business Growth.<br>
-        Funnel strategies backed by real consumer insight.
+      <div class="hero-headline">Brand-led. Business Growth.</div>
+      <div class="hero-tagline">
+        Funnel strategies backed by <span style="color:var(--accent);font-weight:600;">real consumer insight.</span>
       </div>
       <button class="cta-btn" onclick="window.location.href='tel:+919821379658'">
         📞 Contact Us
