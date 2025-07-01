@@ -259,7 +259,6 @@
       muted
       playsinline
       poster="favicon.png.png"
-      controls
     ></video>
     <!-- Desktop background video: only visible on desktop -->
     <video
@@ -326,6 +325,14 @@
       iterations: Infinity,
       direction: 'alternate',
       easing: 'ease-in-out'
+    });
+    // Try to force play video on mobile (some mobile browsers need this)
+    window.addEventListener('DOMContentLoaded', function() {
+      var vid = document.querySelector('.hero-video-mobile');
+      if(vid) {
+        vid.muted = true;
+        vid.play().catch(function(){});
+      }
     });
   </script>
 </body>
