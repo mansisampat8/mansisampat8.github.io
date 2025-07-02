@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Consumer Kanvas</title>
   <link rel="icon" type="image/png" href="favicon.png.png"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Luxury fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
   <style>
     html {
@@ -18,9 +19,8 @@
       --rose-gold: #f7cac9;
       --headline: 'Playfair Display', serif;
       --font: 'Inter', 'Montserrat', sans-serif;
-      --charcoal: #2d2d2d;
+      --charcoal: #1a1918;
       --muted: #606060;
-      --card: #fff;
       --nav-height: 64px;
     }
     html, body { margin:0; padding:0; height:100%; }
@@ -40,14 +40,13 @@
       50% {background-position: 100% 80%;}
       100% {background-position: 0 20%;}
     }
-    /* Subtle shimmer overlay */
     body::before {
       content: "";
       pointer-events:none;
       position:fixed; left:0; top:0; width:100vw; height:100vh;
       z-index:0;
       background: url("https://www.transparenttextures.com/patterns/symphony.png") repeat;
-      opacity: 0.12;
+      opacity: 0.09;
       mix-blend-mode: lighten;
     }
 
@@ -57,8 +56,8 @@
       top: 0;
       left: 0;
       width: 100%;
-      background: rgba(252, 248, 243, 0.96);
-      box-shadow: 0 4px 28px 0 rgba(233,196,106,0.11);
+      background: rgba(252, 248, 243, 0.97);
+      box-shadow: 0 4px 28px 0 rgba(233,196,106,0.09);
       z-index: 100;
       height: var(--nav-height);
       display: flex;
@@ -101,10 +100,10 @@
     }
     @keyframes logoBounce {
       0%, 100% { transform: translateY(0);}
-      18% { transform: translateY(-14px);}
-      35% { transform: translateY(-20px);}
+      18% { transform: translateY(-10px);}
+      35% { transform: translateY(-15px);}
       50% { transform: translateY(0);}
-      70% { transform: translateY(-8px);}
+      70% { transform: translateY(-6px);}
       85% { transform: translateY(0);}
     }
     .nav-links {
@@ -207,35 +206,55 @@
       padding-bottom: 36px;
       z-index: 2;
     }
-    .hero-video-mobile,
-    .hero-bg-video-desktop {
+    .video-container {
+      position: relative;
       width: 96vw;
       max-width: 1100px;
-      height: auto;
+      margin: 1.1rem auto 1.7rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+    .video-container video {
+      width: 100%;
       border-radius: 28px;
       box-shadow: 0 8px 42px 0 #e9c46a33, 0 1.5px 12px #fffbe7c9;
-      background: #fffbe7;
       object-fit: cover;
-      margin: 1.1rem auto 1.7rem auto;
       display: block;
     }
-    .hero-bg-video-desktop {
-      position: relative;
-      top: 0; left: 0;
-      width: 100vw;
-      max-width: 100%;
-      height: 65vh;
-      min-height: 340px;
-      object-fit: cover;
-      z-index: 1;
-      border-radius: 0;
-      box-shadow: none;
-      margin: 0 0 1.9rem 0;
-      display: none;
+    .video-overlay-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: clamp(1.5rem, 7vw, 3.8rem);
+      color: #111;
+      text-shadow: 0 3px 16px rgba(255,255,255,0.20), 0 1px 1px #fffefc;
+      letter-spacing: -1.2px;
+      text-align: center;
+      width: 90%;
+      pointer-events: none;
+      user-select: none;
+      line-height: 1.12;
+      z-index: 2;
+      background: rgba(255,255,255,0.0);
+      border-radius: 12px;
+      padding: 0.12em 0.3em;
+      /* for contrast on bright video frames: */
+      /* mix-blend-mode: multiply; */
     }
-    @media (min-width: 700px) {
-      .hero-video-mobile { display: none !important; }
-      .hero-bg-video-desktop { display: block; }
+    @media (max-width: 700px) {
+      .video-container {
+        max-width: 100vw;
+        margin-bottom: 1.2rem;
+      }
+      .video-overlay-text {
+        font-size: clamp(1.1rem, 6vw, 2.2rem);
+        padding: 0 2vw;
+      }
     }
 
     /* --- HERO CONTENT --- */
@@ -246,7 +265,7 @@
       max-width: 820px;
       margin: 0 auto;
       text-align: center;
-      padding: 3.2rem 2.2rem 2.3rem 2.2rem;
+      padding: 2.7rem 2.2rem 2.3rem 2.2rem;
       background: rgba(255,255,255,0.34);
       border-radius: 36px;
       box-shadow: 0 10px 40px rgba(233,196,106,0.14);
@@ -259,24 +278,9 @@
       from { opacity: 0; transform: translateY(30px);}
       to { opacity: 1; transform: translateY(0);}
     }
-    .from-insight {
-      font-family: var(--headline);
-      font-size: clamp(2.1rem, 5vw, 3.5rem);
-      font-weight: 900;
-      letter-spacing: -1.5px;
-      margin-bottom: 1.27rem;
-      background: linear-gradient(90deg, var(--gold1) 10%, var(--rose-gold) 60%, var(--gold2) 100%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 2px 24px #ffe6a3a8;
-      line-height: 1.13;
-      word-break: break-word;
-    }
     .hero-headline {
       font-family: var(--headline);
-      font-size: clamp(1.1rem, 2.4vw, 2rem);
+      font-size: clamp(1.1rem, 2.4vw, 2.2rem);
       font-weight: 800;
       color: var(--charcoal);
       letter-spacing: 0.01em;
@@ -368,24 +372,21 @@
     /* Responsive perfection */
     @media (max-width: 900px) {
       .hero-content { max-width: 98vw;}
-      .from-insight { font-size: 2.1rem;}
     }
     @media (max-width: 700px) {
       .hero-content { padding: 1.05rem;}
-      .from-insight { font-size: 1.15rem;}
       .hero-headline { font-size: 1rem;}
       .hero-list { font-size: 0.99rem;}
       .nav-logo-img { width: 34px; height: 34px; }
       .footer { font-size: 1rem;}
-      .hero-bg-video-desktop { min-height: 180px; }
+      .video-container video { min-height: 120px; }
     }
     @media (max-width: 420px) {
       .hero-content { padding: 0.55rem;}
-      .from-insight { font-size: 0.9rem;}
       .hero-headline { font-size: 0.82rem;}
       .nav-logo-img { width: 25px; height: 25px;}
       .footer { font-size: 0.94rem;}
-      .hero-bg-video-desktop { min-height: 100px; }
+      .video-container video { min-height: 80px; }
     }
   </style>
 </head>
@@ -407,30 +408,34 @@
     </div>
   </header>
 
-  <!-- HERO SECTION: only the video -->
+  <!-- HERO SECTION: video & overlay text -->
   <section class="hero" id="home">
-    <!-- Mobile video -->
-    <video
-      class="hero-video-mobile"
-      src="10613972-hd_1920_1080_24fps.mp4"
-      autoplay
-      loop
-      muted
-      playsinline
-      poster="favicon.png.png"
-    ></video>
-    <!-- Desktop background video -->
-    <video
-      class="hero-bg-video-desktop"
-      src="10613972-hd_1920_1080_24fps.mp4"
-      autoplay
-      loop
-      muted
-      playsinline
-      poster="favicon.png.png"
-    ></video>
+    <div class="video-container">
+      <!-- Mobile video -->
+      <video
+        class="hero-video-mobile"
+        src="10613972-hd_1920_1080_24fps.mp4"
+        autoplay
+        loop
+        muted
+        playsinline
+        poster="favicon.png.png"
+      ></video>
+      <!-- Desktop background video -->
+      <video
+        class="hero-bg-video-desktop"
+        src="10613972-hd_1920_1080_24fps.mp4"
+        autoplay
+        loop
+        muted
+        playsinline
+        poster="favicon.png.png"
+      ></video>
+      <div class="video-overlay-text">
+        From Insight to Impact
+      </div>
+    </div>
     <div class="hero-content" data-aos="fade-up">
-      <div class="from-insight">From Insight to Impact</div>
       <div class="hero-headline">Business Growth Consulting Services</div>
       <div class="hero-tagline">
         Strengthen your market position, adapt to the continuously changing business landscape and identify opportunities to grow your brand through our business growth consulting services.
