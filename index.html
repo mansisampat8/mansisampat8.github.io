@@ -5,13 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Consumer Kanvas</title>
   <link rel="icon" type="image/png" href="favicon.png.png"/>
-  <!-- Luxury fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     :root {
       --champagne: #f9efe7;
       --gold1: #e9c46a;
@@ -49,7 +46,6 @@
       opacity: 0.09;
       mix-blend-mode: lighten;
     }
-
     /* --- NAVIGATION --- */
     .navbar {
       position: sticky;
@@ -154,12 +150,8 @@
       user-select: none;
     }
     @media (max-width: 900px) {
-      .nav-container {
-        padding: 0 1rem;
-      }
-      .nav-links {
-        gap: 1.3rem;
-      }
+      .nav-container { padding: 0 1rem; }
+      .nav-links { gap: 1.3rem; }
     }
     @media (max-width: 700px) {
       .nav-links {
@@ -186,11 +178,8 @@
         pointer-events: all;
         transition: transform 0.4s cubic-bezier(.5,1.5,.3,1), opacity 0.21s;
       }
-      .nav-toggle {
-        display: block;
-      }
+      .nav-toggle { display: block; }
     }
-
     /* --- HERO VIDEO --- */
     .hero {
       position: relative;
@@ -222,6 +211,7 @@
       box-shadow: 0 8px 42px 0 #e9c46a33, 0 1.5px 12px #fffbe7c9;
       object-fit: cover;
       display: block;
+      background: #fffbe7;
     }
     .video-overlay-text {
       position: absolute;
@@ -230,7 +220,7 @@
       transform: translate(-50%, -50%);
       font-family: 'Playfair Display', serif;
       font-weight: 900;
-      font-size: clamp(1.5rem, 7vw, 3.8rem);
+      font-size: clamp(1.2rem, 7vw, 3.8rem);
       color: #111;
       text-shadow: 0 3px 16px rgba(255,255,255,0.20), 0 1px 1px #fffefc;
       letter-spacing: -1.2px;
@@ -243,18 +233,16 @@
       background: rgba(255,255,255,0.0);
       border-radius: 12px;
       padding: 0.12em 0.3em;
-      /* for contrast on bright video frames: */
-      /* mix-blend-mode: multiply; */
+      opacity: 1;
+      transition: opacity 0.6s cubic-bezier(.8,-0.6,.4,1.5);
+    }
+    .video-overlay-text.hidden {
+      opacity: 0;
+      pointer-events: none;
     }
     @media (max-width: 700px) {
-      .video-container {
-        max-width: 100vw;
-        margin-bottom: 1.2rem;
-      }
-      .video-overlay-text {
-        font-size: clamp(1.1rem, 6vw, 2.2rem);
-        padding: 0 2vw;
-      }
+      .video-container { max-width: 100vw; margin-bottom: 1.2rem; }
+      .video-overlay-text { font-size: clamp(1.1rem, 6vw, 2.2rem); padding: 0 2vw; }
     }
 
     /* --- HERO CONTENT --- */
@@ -353,7 +341,6 @@
       background: linear-gradient(90deg, var(--gold2) 10%, var(--gold1) 100%);
       border-color: #e9c46a;
     }
-
     /* Footer */
     .footer {
       background: linear-gradient(90deg, var(--gold1) 70%, var(--gold2));
@@ -368,7 +355,6 @@
       box-shadow: 0 -3px 14px #e9c46a25;
     }
     .footer a { color: #fff; text-decoration: underline; }
-
     /* Responsive perfection */
     @media (max-width: 900px) {
       .hero-content { max-width: 98vw;}
@@ -408,12 +394,11 @@
     </div>
   </header>
 
-  <!-- HERO SECTION: video & overlay text -->
+  <!-- HERO SECTION: single video, overlay text only when playing -->
   <section class="hero" id="home">
     <div class="video-container">
-      <!-- Mobile video -->
       <video
-        class="hero-video-mobile"
+        id="heroVideo"
         src="10613972-hd_1920_1080_24fps.mp4"
         autoplay
         loop
@@ -421,17 +406,7 @@
         playsinline
         poster="favicon.png.png"
       ></video>
-      <!-- Desktop background video -->
-      <video
-        class="hero-bg-video-desktop"
-        src="10613972-hd_1920_1080_24fps.mp4"
-        autoplay
-        loop
-        muted
-        playsinline
-        poster="favicon.png.png"
-      ></video>
-      <div class="video-overlay-text">
+      <div class="video-overlay-text" id="videoOverlayText">
         From Insight to Impact
       </div>
     </div>
@@ -458,6 +433,7 @@
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({ once: true, duration: 1100, offset: 130 });
+
     // Mobile nav toggle
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('open');
@@ -484,14 +460,7 @@
         }
       });
     });
-    // Force video autoplay on mobile
-    window.addEventListener('DOMContentLoaded', function() {
-      var vid = document.querySelector('.hero-video-mobile');
-      if(vid) {
-        vid.muted = true;
-        vid.play().catch(function(){});
-      }
-    });
+
     // Make logo a home button (scroll to #home)
     document.getElementById('navLogo').addEventListener('click', function(e){
       e.preventDefault();
@@ -499,6 +468,29 @@
       document.querySelectorAll('.nav-links a').forEach(l=>l.classList.remove('active'));
       document.querySelector('.nav-links a[href="#home"]').classList.add('active');
     });
+
+    // Video overlay text only when video is playing
+    const video = document.getElementById('heroVideo');
+    const overlay = document.getElementById('videoOverlayText');
+    function setOverlayVisibility() {
+      if (!video.paused && !video.ended) {
+        overlay.classList.remove('hidden');
+      } else {
+        overlay.classList.add('hidden');
+      }
+    }
+    if (video) {
+      // Try to make sure video autoplays on all devices
+      video.muted = true;
+      video.play().catch(()=>{});
+
+      setOverlayVisibility();
+      video.addEventListener('play', setOverlayVisibility);
+      video.addEventListener('pause', setOverlayVisibility);
+      video.addEventListener('ended', setOverlayVisibility);
+    }
+    // Also auto-hide overlay if the user pauses via browser controls (as a fallback)
+    document.addEventListener('visibilitychange', setOverlayVisibility);
   </script>
 </body>
 </html>
