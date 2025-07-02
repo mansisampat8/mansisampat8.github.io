@@ -8,8 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     :root {
       --accent: #d72660;
+      --accent2: #fbb034;
       --brand-yellow: #fffbe7;
       --brand-yellow2: #ffed99;
       --headline: 'Playfair Display', serif;
@@ -17,6 +21,7 @@
       --text: #232323;
       --muted: #606060;
       --card: #fff;
+      --nav-height: 62px;
     }
     html, body { margin:0; padding:0; height:100%; }
     body {
@@ -31,22 +36,128 @@
       0% {background-position: 0 50%;}
       50% {background-position: 100% 50%;}
       100% {background-position: 0 50%;}
-    <!-- NAVIGATION MENU -->
-<header class="navbar">
-  <div class="nav-container">
-    <div class="nav-logo">Consumer Kanvas</div>
-    <nav class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#about">About Us</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-      <a href="#tools">Scorecards</a>
-    </nav>
-    <div class="nav-toggle" onclick="toggleMenu()">☰</div>
-  </div>
-</header>
     }
-    /* HERO SECTION */
+
+    /* NAVIGATION MENU */
+    .navbar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255,251,231,0.97);
+      box-shadow: 0 2px 18px rgba(215,38,96,0.06);
+      z-index: 100;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      transition: box-shadow 0.3s;
+    }
+    .nav-container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.2rem;
+      height: var(--nav-height);
+    }
+    .nav-logo {
+      font-family: var(--headline);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1px;
+      user-select: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.1rem;
+      align-items: center;
+      transition: none;
+    }
+    .nav-links a {
+      position: relative;
+      font-family: var(--font);
+      font-size: 1.09rem;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 2px 2px 6px 2px;
+      transition: color 0.23s;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .nav-links a::after {
+      content: "";
+      display: block;
+      height: 4px;
+      width: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2) 80%);
+      position: absolute;
+      bottom: 0; left: 0;
+      border-radius: 2px;
+      transform: scaleX(0);
+      transition: transform 0.25s cubic-bezier(.45,1.7,.7,1);
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent);
+    }
+    .nav-links a:hover::after, .nav-links a.active::after {
+      transform: scaleX(1);
+    }
+    .nav-toggle {
+      display: none;
+      font-size: 2.3rem;
+      color: var(--accent);
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 130;
+      margin-left: 18px;
+      user-select: none;
+    }
+
+    /* Mobile nav */
+    @media (max-width: 900px) {
+      .nav-container {
+        padding: 0 1rem;
+      }
+      .nav-links {
+        gap: 1.3rem;
+      }
+    }
+    @media (max-width: 700px) {
+      .nav-links {
+        position: fixed;
+        top: var(--nav-height);
+        right: 0;
+        height: calc(100vh - var(--nav-height));
+        background: #fffbe7;
+        box-shadow: -3px 0 22px rgba(215,38,96,0.08);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 1.7rem 1.2rem;
+        width: 82vw;
+        max-width: 320px;
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.35s cubic-bezier(.7,1.7,.3,1), opacity 0.25s;
+      }
+      .nav-links.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+        transition: transform 0.4s cubic-bezier(.5,1.5,.3,1), opacity 0.21s;
+      }
+      .nav-toggle {
+        display: block;
+      }
+    }
+
+    /* HERO SECTION (unchanged) */
     .hero {
       position: relative;
       width: 100vw;
@@ -94,12 +205,9 @@
       background: #fffbe7;
       object-fit: cover;
     }
-    /* Only show this video on mobile */
     @media (min-width: 700px) {
       .hero-video-mobile { display: none !important; }
     }
-
-    /* For desktop: background video */
     .hero-bg-video-desktop {
       position: absolute;
       top: 0; left: 0;
@@ -260,7 +368,22 @@
   </style>
 </head>
 <body>
-  <section class="hero">
+  <!-- NAVIGATION BAR -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">Consumer Kanvas</div>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="#tools">Scorecards</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
     <img src="favicon.png.png" alt="Consumer Kanvas Logo" class="hero-logo"/>
     <div class="brand-title">CONSUMER KANVAS</div>
     <!-- Mobile video: always visible on mobile, hidden on desktop -->
@@ -296,22 +419,22 @@
   </section>
 
   <div class="content">
-    <div class="section" data-aos="fade-up">
+    <div class="section" id="about" data-aos="fade-up">
       <h2>We work with founders who are:</h2>
       <p>Scaling but hitting a growth ceiling or launching and want to start strong. Our strategies are designed for clarity, traction, and sustainable scale.</p>
     </div>
 
-    <div class="section" data-aos="fade-up" data-aos-delay="100">
+    <div class="section" id="services" data-aos="fade-up" data-aos-delay="100">
       <h2>What We Deliver</h2>
       <p>We don’t do guesswork. We use focus groups and deep consumer insight to build brand and funnel strategies. You get a clean, quarterly action plan from leads to loyalty.</p>
     </div>
 
-    <div class="section" data-aos="fade-up" data-aos-delay="200">
+    <div class="section" id="tools" data-aos="fade-up" data-aos-delay="200">
       <h2>Who We’ve Helped</h2>
       <p>We’ve worked with D2C and service-led brands, helping early-stage teams find traction and scaling brands cut through the noise to focus on what’s working.</p>
     </div>
 
-    <div class="section" data-aos="fade-up" data-aos-delay="300">
+    <div class="section" id="contact" data-aos="fade-up" data-aos-delay="300">
       <h2>We are your partners throughout the Brand Life Cycle</h2>
       <ul>
         <li><strong>LAUNCH</strong>: Enter with a clear identity and tested strategy.</li>
@@ -339,7 +462,35 @@
       direction: 'alternate',
       easing: 'ease-in-out'
     });
-    // Try to force play video on mobile (some mobile browsers need this)
+
+    // Mobile nav toggle
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+    // Close nav on link click (for mobile)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', function() {
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+    // Smooth scroll and active link highlight
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const hash = this.getAttribute('href');
+        const target = document.querySelector(hash);
+        if(target) {
+          e.preventDefault();
+          window.scrollTo({
+            top: target.offsetTop - parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')),
+            behavior: 'smooth'
+          });
+          document.querySelectorAll('.nav-links a').forEach(l=>l.classList.remove('active'));
+          this.classList.add('active');
+        }
+      });
+    });
+
+    // Force video autoplay on mobile
     window.addEventListener('DOMContentLoaded', function() {
       var vid = document.querySelector('.hero-video-mobile');
       if(vid) {
