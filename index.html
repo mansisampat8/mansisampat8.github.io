@@ -5,52 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Consumer Kanvas</title>
   <link rel="icon" type="image/png" href="favicon.png.png"/>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
   <style>
     html {
       scroll-behavior: smooth;
     }
     :root {
-      --accent: #d72660;
-      --accent2: #fbb034;
-      --brand-yellow: #fffbe7;
-      --brand-yellow2: #ffed99;
+      --champagne: #f9efe7;
+      --gold1: #e9c46a;
+      --gold2: #f4a261;
+      --rose-gold: #f7cac9;
       --headline: 'Playfair Display', serif;
-      --font: 'Montserrat', sans-serif;
-      --text: #232323;
+      --font: 'Inter', 'Montserrat', sans-serif;
+      --charcoal: #2d2d2d;
       --muted: #606060;
       --card: #fff;
-      --nav-height: 62px;
+      --nav-height: 64px;
     }
     html, body { margin:0; padding:0; height:100%; }
     body {
-      background: linear-gradient(135deg, var(--brand-yellow) 0%, var(--brand-yellow2) 100%);
-      font-family: var(--font);
       min-height: 100vh;
-      color: var(--text);
-      animation: animated-bg 16s linear infinite alternate;
-      background-size: 300% 300%;
+      font-family: var(--font);
+      color: var(--charcoal);
+      background: linear-gradient(135deg, var(--champagne) 0%, var(--gold1) 100%);
+      background-attachment: fixed;
+      background-size: 400% 400%;
+      animation: bodyBG 24s ease-in-out infinite;
+      position: relative;
+      overflow-x: hidden;
     }
-    @keyframes animated-bg {
-      0% {background-position: 0 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0 50%;}
+    @keyframes bodyBG {
+      0% {background-position: 0 20%;}
+      50% {background-position: 100% 80%;}
+      100% {background-position: 0 20%;}
+    }
+    /* Subtle shimmer overlay */
+    body::before {
+      content: "";
+      pointer-events:none;
+      position:fixed; left:0; top:0; width:100vw; height:100vh;
+      z-index:0;
+      background: url("https://www.transparenttextures.com/patterns/symphony.png") repeat;
+      opacity: 0.12;
+      mix-blend-mode: lighten;
     }
 
-    /* NAVIGATION MENU */
+    /* --- NAVIGATION --- */
     .navbar {
       position: sticky;
       top: 0;
       left: 0;
       width: 100%;
-      background: rgba(255,251,231,0.97);
-      box-shadow: 0 2px 18px rgba(215,38,96,0.06);
+      background: rgba(252, 248, 243, 0.96);
+      box-shadow: 0 4px 28px 0 rgba(233,196,106,0.11);
       z-index: 100;
       height: var(--nav-height);
       display: flex;
       align-items: center;
       transition: box-shadow 0.3s;
+      backdrop-filter: blur(12px);
     }
     .nav-container {
       width: 100%;
@@ -65,37 +79,37 @@
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
       height: var(--nav-height);
     }
     .nav-logo-img {
-      width: 38px;
-      height: 38px;
-      background: rgba(255,255,255,0.8);
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 2px 10px rgba(215,38,96,0.13);
+      box-shadow:
+        0 0 20px 4px #ffe6a3,
+        0 0 34px 10px #e9c46a55,
+        0 2px 18px #f7cac9b0;
       filter:
-        drop-shadow(0 0 14px var(--accent))
-        drop-shadow(0 0 24px #fff)
-        drop-shadow(0 2px 22px var(--accent));
-      animation: bounce 1.9s infinite cubic-bezier(.68,-0.55,.27,1.55);
-      transition: filter 0.3s;
+        drop-shadow(0 0 18px var(--gold1))
+        drop-shadow(0 0 12px #fff)
+        drop-shadow(0 2px 22px #e9c46a77);
+      animation: logoBounce 3.8s cubic-bezier(.6,0,.4,1) infinite;
+      cursor: pointer;
+      transition: box-shadow 0.5s, filter 0.4s;
+      background: #fffdf7;
     }
-    @keyframes bounce {
+    @keyframes logoBounce {
       0%, 100% { transform: translateY(0);}
-      17% { transform: translateY(-10px);}
-      35% { transform: translateY(-14px);}
+      18% { transform: translateY(-14px);}
+      35% { transform: translateY(-20px);}
       50% { transform: translateY(0);}
-      70% { transform: translateY(-7px);}
+      70% { transform: translateY(-8px);}
       85% { transform: translateY(0);}
-    }
-    .nav-logo-text {
-      display: none;
     }
     .nav-links {
       display: flex;
-      gap: 2.1rem;
+      gap: 2.2rem;
       align-items: center;
       transition: none;
     }
@@ -103,7 +117,7 @@
       position: relative;
       font-family: var(--font);
       font-size: 1.09rem;
-      color: var(--text);
+      color: var(--charcoal);
       text-decoration: none;
       font-weight: 600;
       padding: 2px 2px 6px 2px;
@@ -114,17 +128,17 @@
     .nav-links a::after {
       content: "";
       display: block;
-      height: 4px;
+      height: 3.5px;
       width: 100%;
-      background: linear-gradient(90deg, var(--accent), var(--accent2) 80%);
+      background: linear-gradient(90deg, var(--gold1), var(--gold2) 80%);
       position: absolute;
       bottom: 0; left: 0;
       border-radius: 2px;
       transform: scaleX(0);
-      transition: transform 0.25s cubic-bezier(.45,1.7,.7,1);
+      transition: transform 0.29s cubic-bezier(.45,1.7,.7,1);
     }
     .nav-links a:hover, .nav-links a.active {
-      color: var(--accent);
+      color: var(--gold2);
     }
     .nav-links a:hover::after, .nav-links a.active::after {
       transform: scaleX(1);
@@ -132,7 +146,7 @@
     .nav-toggle {
       display: none;
       font-size: 2.3rem;
-      color: var(--accent);
+      color: var(--gold2);
       background: none;
       border: none;
       cursor: pointer;
@@ -154,12 +168,12 @@
         top: var(--nav-height);
         right: 0;
         height: calc(100vh - var(--nav-height));
-        background: #fffbe7;
-        box-shadow: -3px 0 22px rgba(215,38,96,0.08);
+        background: rgba(252, 248, 243, 0.99);
+        box-shadow: -3px 0 32px rgba(233,196,106,0.09);
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        padding: 1.7rem 1.2rem;
+        padding: 2.2rem 1.4rem;
         width: 82vw;
         max-width: 320px;
         transform: translateY(-120%);
@@ -178,287 +192,4 @@
       }
     }
 
-    /* HERO SECTION (video only) */
-    .hero {
-      position: relative;
-      width: 100vw;
-      min-height: 60vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      overflow: hidden;
-      background: var(--brand-yellow);
-      padding-top: 0;
-      padding-bottom: 36px;
-    }
-    .hero-video-mobile,
-    .hero-bg-video-desktop {
-      width: 96vw;
-      max-width: 1000px;
-      height: auto;
-      border-radius: 22px;
-      box-shadow: 0 4px 22px rgba(215,38,96,0.11);
-      background: #fffbe7;
-      object-fit: cover;
-      margin: 0 auto 1.2rem auto;
-      display: block;
-    }
-    .hero-bg-video-desktop {
-      position: relative;
-      top: 0; left: 0;
-      width: 100vw;
-      max-width: 100%;
-      height: 65vh;
-      min-height: 350px;
-      object-fit: cover;
-      z-index: 1;
-      border-radius: 0;
-      box-shadow: none;
-      margin: 0;
-      display: none;
-    }
-    @media (min-width: 700px) {
-      .hero-video-mobile { display: none !important; }
-      .hero-bg-video-desktop { display: block; }
-    }
-    /* HERO CONTENT */
-    .hero-content {
-      position: relative;
-      z-index: 3;
-      width: 100%;
-      max-width: 820px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 3.2rem 1.2rem 2.1rem 1.2rem;
-      background: rgba(255,255,255,0.12);
-      border-radius: 32px;
-      box-shadow: 0 10px 40px rgba(215,38,96,0.10);
-      backdrop-filter: blur(3px) brightness(1.09);
-      animation: fadeIn 1.2s cubic-bezier(.68,-0.55,.27,1.55);
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-    .from-insight {
-      font-family: var(--headline);
-      font-size: 2.9rem;
-      font-weight: 900;
-      letter-spacing: -1.5px;
-      margin-bottom: 1.2rem;
-      color: var(--accent);
-      background: linear-gradient(90deg, var(--accent) 70%, #fbb034 100%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 2px 18px rgba(215,38,96,0.10);
-      line-height: 1.1;
-    }
-    .hero-headline {
-      font-family: var(--font);
-      font-size: 1.7rem;
-      font-weight: 800;
-      color: #232323;
-      letter-spacing: 0.01em;
-      margin-bottom: 1.2rem;
-      text-shadow: 0 2px 18px #fffbe7b8;
-    }
-    .hero-tagline {
-      font-family: var(--font);
-      font-size: 1.18rem;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.4px;
-      background: rgba(255,255,255,0.13);
-      border-radius: 11px;
-      padding: 1.1rem 0.7rem 1rem 0.7rem;
-      box-shadow: 0 1.5px 6px rgba(215,38,96,0.07);
-      line-height: 1.7;
-      text-align: left;
-      max-width: 680px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .hero-list {
-      text-align: left;
-      margin: 0.6rem auto 1.5rem auto;
-      max-width: 580px;
-      padding-left: 1.3rem;
-      color: var(--accent);
-      font-size: 1.16rem;
-      font-family: var(--font);
-      font-weight: 600;
-      line-height: 1.65;
-    }
-    .cta-btn {
-      background: linear-gradient(90deg, var(--accent), #fbb034 80%);
-      color: #fff;
-      border:none;
-      font-size:1.18rem;
-      font-weight: 700;
-      padding: 1rem 2.3rem;
-      border-radius: 36px;
-      box-shadow: 0 6px 24px rgba(215,38,96,0.13);
-      cursor:pointer;
-      letter-spacing: 0.4px;
-      outline: none;
-      margin-top: 1.1rem;
-      animation: bounceBtn 1.45s infinite cubic-bezier(.68,-0.55,.27,1.55);
-      transition: transform .13s, box-shadow .18s, background 0.4s;
-    }
-    @keyframes bounceBtn {
-      0%, 100% { transform: translateY(0);}
-      17% { transform: translateY(-8px);}
-      35% { transform: translateY(-13px);}
-      50% { transform: translateY(0);}
-      70% { transform: translateY(-5px);}
-      85% { transform: translateY(0);}
-    }
-    .cta-btn:hover {
-      transform: scale(1.07) translateY(-3px);
-      box-shadow: 0 16px 35px var(--accent);
-      background: linear-gradient(90deg, #fbb034, var(--accent) 100%);
-    }
-
-    /* Footer */
-    .footer {
-      background: linear-gradient(90deg, var(--accent) 70%, #fbb034);
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem 1rem;
-      font-weight: bold;
-      font-size: 1.1rem;
-      letter-spacing: 0.5px;
-      border-radius: 20px 20px 0 0;
-      margin-top: 3rem;
-      box-shadow: 0 -3px 14px rgba(215,38,96,0.09);
-    }
-    .footer a { color: #fff; text-decoration: underline; }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hero-content { max-width: 98vw;}
-      .from-insight { font-size: 2.1rem;}
-    }
-    @media (max-width: 700px) {
-      .hero-content { padding: 1.2rem;}
-      .from-insight { font-size: 1.35rem;}
-      .hero-headline { font-size: 1.15rem;}
-      .hero-list { font-size: 1.02rem;}
-      .nav-logo-img { width: 32px; height: 32px; }
-      .footer { font-size: 1rem;}
-    }
-    @media (max-width: 450px) {
-      .hero { min-height: 310px;}
-      .hero-content { padding: 0.7rem;}
-      .from-insight { font-size: 1.07rem;}
-      .hero-headline { font-size: 1.02rem;}
-      .nav-logo-img { width: 26px; height: 26px;}
-      .footer { font-size: 0.95rem;}
-    }
-  </style>
-</head>
-<body>
-  <!-- NAVIGATION BAR -->
-  <header class="navbar">
-    <div class="nav-container">
-      <div class="nav-brand">
-        <img src="favicon.png.png" alt="Consumer Kanvas Logo" class="nav-logo-img"/>
-      </div>
-      <nav class="nav-links" id="navLinks">
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-        <a href="#tools">Scorecards</a>
-      </nav>
-      <button class="nav-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
-    </div>
-  </header>
-
-  <!-- HERO SECTION: only the video -->
-  <section class="hero" id="home">
-    <!-- Mobile video -->
-    <video
-      class="hero-video-mobile"
-      src="10613972-hd_1920_1080_24fps.mp4"
-      autoplay
-      loop
-      muted
-      playsinline
-      poster="favicon.png.png"
-    ></video>
-    <!-- Desktop background video -->
-    <video
-      class="hero-bg-video-desktop"
-      src="10613972-hd_1920_1080_24fps.mp4"
-      autoplay
-      loop
-      muted
-      playsinline
-      poster="favicon.png.png"
-    ></video>
-    <div class="hero-content" data-aos="fade-up">
-      <div class="from-insight">From Insight to Impact</div>
-      <div class="hero-headline">Business Growth Consulting Services</div>
-      <div class="hero-tagline">
-        Strengthen your market position, adapt to the continuously changing business landscape and identify opportunities to grow your brand through our business growth consulting services.
-      </div>
-      <ul class="hero-list">
-        <li>Diagnose And Analyze Business Challenges</li>
-        <li>Optimize Resource Allocation</li>
-        <li>Create A Strategic Roadmap For Growth</li>
-      </ul>
-      <button class="cta-btn" onclick="window.location.href='tel:+919821379658'">
-        📞 Contact Us
-      </button>
-    </div>
-  </section>
-
-  <div class="footer">
-    📞 Contact us: <a href="tel:+919821379658">+91 98213 79658</a>
-  </div>
-
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({ once: true, duration: 1100, offset: 130 });
-    // Mobile nav toggle
-    function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('open');
-    }
-    // Close nav on link click (for mobile)
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', function() {
-        document.getElementById('navLinks').classList.remove('open');
-      });
-    });
-    // Smooth scroll and active link highlight
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        const hash = this.getAttribute('href');
-        const target = document.querySelector(hash);
-        if(target) {
-          e.preventDefault();
-          window.scrollTo({
-            top: target.offsetTop - parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')),
-            behavior: 'smooth'
-          });
-          document.querySelectorAll('.nav-links a').forEach(l=>l.classList.remove('active'));
-          this.classList.add('active');
-        }
-      });
-    });
-
-    // Force video autoplay on mobile
-    window.addEventListener('DOMContentLoaded', function() {
-      var vid = document.querySelector('.hero-video-mobile');
-      if(vid) {
-        vid.muted = true;
-        vid.play().catch(function(){});
-      }
-    });
-  </script>
-</body>
-</html>
+    /* --- HERO VIDEO
