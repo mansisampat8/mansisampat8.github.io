@@ -62,9 +62,22 @@
       padding: 0 2.2rem;
       height: var(--nav-height);
     }
-    .nav-logo {
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .nav-logo-img {
+      width: 38px;
+      height: 38px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 2px 10px rgba(215,38,96,0.13);
+    }
+    .nav-logo-text {
       font-family: var(--headline);
-      font-size: 1.45rem;
+      font-size: 1.27rem;
       font-weight: 700;
       color: var(--accent);
       letter-spacing: 1px;
@@ -117,8 +130,6 @@
       margin-left: 18px;
       user-select: none;
     }
-
-    /* Mobile nav */
     @media (max-width: 900px) {
       .nav-container {
         padding: 0 1rem;
@@ -157,7 +168,7 @@
       }
     }
 
-    /* HERO SECTION (unchanged) */
+    /* HERO SECTION (video only) */
     .hero {
       position: relative;
       width: 100vw;
@@ -168,71 +179,38 @@
       justify-content: flex-start;
       overflow: hidden;
       background: var(--brand-yellow);
-      padding-top: 36px;
+      padding-top: 0;
       padding-bottom: 36px;
     }
-    .hero-logo {
-      width: 98px;
-      height: 98px;
-      margin: 0 auto 0.1rem;
-      filter: drop-shadow(0 2px 22px var(--accent)) drop-shadow(0 0px 2px #fff);
-      background: rgba(255,255,255,0.8);
-      border-radius: 50%;
-      padding: 0.7rem;
-      box-shadow: 0 5px 18px rgba(215,38,96,0.08);
-      display: block;
-    }
-    .brand-title {
-      display: block;
-      margin: 0 auto 1.2rem auto;
-      font-family: var(--font);
-      font-weight: 700;
-      font-size: 2.1rem;
-      letter-spacing: 0.05em;
-      color: #232323;
-      text-align: center;
-      text-shadow: 0 1px 13px #fffbe7a8;
-      background: none;
-    }
-    .hero-video-mobile {
+    .hero-video-mobile,
+    .hero-bg-video-desktop {
       width: 96vw;
-      max-width: 500px;
+      max-width: 1000px;
       height: auto;
-      margin: 0 auto 1.2rem auto;
       border-radius: 22px;
       box-shadow: 0 4px 22px rgba(215,38,96,0.11);
-      display: block;
       background: #fffbe7;
       object-fit: cover;
+      margin: 0 auto 1.2rem auto;
+      display: block;
+    }
+    .hero-bg-video-desktop {
+      position: relative;
+      top: 0; left: 0;
+      width: 100vw;
+      max-width: 100%;
+      height: 65vh;
+      min-height: 350px;
+      object-fit: cover;
+      z-index: 1;
+      border-radius: 0;
+      box-shadow: none;
+      margin: 0;
+      display: none;
     }
     @media (min-width: 700px) {
       .hero-video-mobile { display: none !important; }
-    }
-    .hero-bg-video-desktop {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100vw; height: 100%;
-      object-fit: cover;
-      z-index: 1;
-      opacity: 0.80;
-      filter: blur(1.5px) brightness(0.88);
-      pointer-events: none;
-      transition: opacity 0.3s;
-      display: none;
-    }
-    @media (min-width: 700px) {
       .hero-bg-video-desktop { display: block; }
-    }
-    .hero-overlay {
-      position: absolute;
-      top: 0; left: 0; width: 100vw; height: 100%;
-      background: linear-gradient(120deg, #fffbe7cc 60%, #fff3b0cc 100%);
-      z-index: 2;
-      pointer-events: none;
-      display: none;
-    }
-    @media (min-width: 700px) {
-      .hero-overlay { display: block; }
     }
     .hero-content {
       position: relative;
@@ -347,31 +325,16 @@
       box-shadow: 0 -3px 14px rgba(215,38,96,0.09);
     }
     .footer a { color: #fff; text-decoration: underline; }
-
-    /* Responsive */
-    @media (max-width: 700px) {
-      .hero-content { padding: 1.2rem;}
-      .brand-title { font-size: 1.25rem;}
-      .hero-headline { font-size: 1.35rem;}
-      .section { padding: 1.1rem;}
-      .hero-logo { width: 54px; height: 54px;}
-      .content { margin-top: -15px;}
-    }
-    @media (max-width: 450px) {
-      .hero { min-height: 310px;}
-      .hero-content { padding: 0.7rem;}
-      .hero-headline { font-size: 1.1rem;}
-      .brand-title { font-size: 1rem;}
-      .section h2 { font-size: 1.05rem;}
-      .hero-logo { width: 39px; height: 39px;}
-    }
   </style>
 </head>
 <body>
   <!-- NAVIGATION BAR -->
   <header class="navbar">
     <div class="nav-container">
-      <div class="nav-logo">Consumer Kanvas</div>
+      <div class="nav-brand">
+        <img src="favicon.png.png" alt="Consumer Kanvas Logo" class="nav-logo-img"/>
+        <div class="nav-logo-text">Consumer Kanvas</div>
+      </div>
       <nav class="nav-links" id="navLinks">
         <a href="#home" class="active">Home</a>
         <a href="#about">About Us</a>
@@ -383,10 +346,9 @@
     </div>
   </header>
 
+  <!-- HERO SECTION: only the video -->
   <section class="hero" id="home">
-    <img src="favicon.png.png" alt="Consumer Kanvas Logo" class="hero-logo"/>
-    <div class="brand-title">CONSUMER KANVAS</div>
-    <!-- Mobile video: always visible on mobile, hidden on desktop -->
+    <!-- Mobile video -->
     <video
       class="hero-video-mobile"
       src="10613972-hd_1920_1080_24fps.mp4"
@@ -396,7 +358,7 @@
       playsinline
       poster="favicon.png.png"
     ></video>
-    <!-- Desktop background video: only visible on desktop -->
+    <!-- Desktop background video -->
     <video
       class="hero-bg-video-desktop"
       src="10613972-hd_1920_1080_24fps.mp4"
@@ -406,7 +368,6 @@
       playsinline
       poster="favicon.png.png"
     ></video>
-    <div class="hero-overlay"></div>
     <div class="hero-content" data-aos="fade-up">
       <div class="hero-headline">Brand-led. Business Growth.</div>
       <div class="hero-tagline">
@@ -451,18 +412,6 @@
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({ once: true, duration: 1100, offset: 130 });
-    // Subtle floating animation for hero logo (for more drama)
-    document.querySelector('.hero-logo').animate([
-      { transform: 'translateY(0)' },
-      { transform: 'translateY(-8px)' },
-      { transform: 'translateY(0)' }
-    ], {
-      duration: 2400,
-      iterations: Infinity,
-      direction: 'alternate',
-      easing: 'ease-in-out'
-    });
-
     // Mobile nav toggle
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('open');
