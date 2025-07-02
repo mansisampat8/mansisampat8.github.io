@@ -66,6 +66,7 @@
       display: flex;
       align-items: center;
       gap: 0.6rem;
+      height: var(--nav-height);
     }
     .nav-logo-img {
       width: 38px;
@@ -74,14 +75,23 @@
       border-radius: 50%;
       object-fit: cover;
       box-shadow: 0 2px 10px rgba(215,38,96,0.13);
+      filter:
+        drop-shadow(0 0 14px var(--accent))
+        drop-shadow(0 0 24px #fff)
+        drop-shadow(0 2px 22px var(--accent));
+      animation: bounce 1.9s infinite cubic-bezier(.68,-0.55,.27,1.55);
+      transition: filter 0.3s;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0);}
+      17% { transform: translateY(-10px);}
+      35% { transform: translateY(-14px);}
+      50% { transform: translateY(0);}
+      70% { transform: translateY(-7px);}
+      85% { transform: translateY(0);}
     }
     .nav-logo-text {
-      font-family: var(--headline);
-      font-size: 1.27rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 1px;
-      user-select: none;
+      display: none;
     }
     .nav-links {
       display: flex;
@@ -212,15 +222,16 @@
       .hero-video-mobile { display: none !important; }
       .hero-bg-video-desktop { display: block; }
     }
+    /* HERO CONTENT */
     .hero-content {
       position: relative;
       z-index: 3;
       width: 100%;
-      max-width: 560px;
+      max-width: 820px;
       margin: 0 auto;
       text-align: center;
-      padding: 2.2rem 1.2rem 1.6rem 1.2rem;
-      background: rgba(255,255,255,0.20);
+      padding: 3.2rem 1.2rem 2.1rem 1.2rem;
+      background: rgba(255,255,255,0.12);
       border-radius: 32px;
       box-shadow: 0 10px 40px rgba(215,38,96,0.10);
       backdrop-filter: blur(3px) brightness(1.09);
@@ -230,88 +241,88 @@
       from { opacity: 0; transform: translateY(30px);}
       to { opacity: 1; transform: translateY(0);}
     }
-    .hero-headline {
+    .from-insight {
       font-family: var(--headline);
-      font-size: 2.2rem;
-      font-weight: 700;
-      letter-spacing: -1px;
-      margin-bottom: 1.1rem;
+      font-size: 2.9rem;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      margin-bottom: 1.2rem;
       color: var(--accent);
       background: linear-gradient(90deg, var(--accent) 70%, #fbb034 100%);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 2px 18px rgba(215,38,96,0.08);
+      text-shadow: 0 2px 18px rgba(215,38,96,0.10);
+      line-height: 1.1;
+    }
+    .hero-headline {
+      font-family: var(--font);
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #232323;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 2px 18px #fffbe7b8;
     }
     .hero-tagline {
       font-family: var(--font);
-      font-size: 1.22rem;
+      font-size: 1.18rem;
       color: var(--muted);
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       letter-spacing: 0.4px;
-      background: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.13);
       border-radius: 11px;
-      padding: 0.9rem 0.7rem 0.8rem 0.7rem;
+      padding: 1.1rem 0.7rem 1rem 0.7rem;
       box-shadow: 0 1.5px 6px rgba(215,38,96,0.07);
+      line-height: 1.7;
+      text-align: left;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-list {
+      text-align: left;
+      margin: 0.6rem auto 1.5rem auto;
+      max-width: 580px;
+      padding-left: 1.3rem;
+      color: var(--accent);
+      font-size: 1.16rem;
+      font-family: var(--font);
+      font-weight: 600;
+      line-height: 1.65;
     }
     .cta-btn {
       background: linear-gradient(90deg, var(--accent), #fbb034 80%);
       color: #fff;
       border:none;
-      font-size:1.13rem;
+      font-size:1.18rem;
       font-weight: 700;
-      padding: 0.9rem 2.2rem;
+      padding: 1rem 2.3rem;
       border-radius: 36px;
       box-shadow: 0 6px 24px rgba(215,38,96,0.13);
       cursor:pointer;
       letter-spacing: 0.4px;
       outline: none;
+      margin-top: 1.1rem;
+      animation: bounceBtn 1.45s infinite cubic-bezier(.68,-0.55,.27,1.55);
       transition: transform .13s, box-shadow .18s, background 0.4s;
-      margin-top: 0.7rem;
+    }
+    @keyframes bounceBtn {
+      0%, 100% { transform: translateY(0);}
+      17% { transform: translateY(-8px);}
+      35% { transform: translateY(-13px);}
+      50% { transform: translateY(0);}
+      70% { transform: translateY(-5px);}
+      85% { transform: translateY(0);}
     }
     .cta-btn:hover {
-      transform: translateY(-2px) scale(1.04);
-      box-shadow: 0 14px 36px var(--accent);
+      transform: scale(1.07) translateY(-3px);
+      box-shadow: 0 16px 35px var(--accent);
       background: linear-gradient(90deg, #fbb034, var(--accent) 100%);
     }
 
-    /* Content sections */
-    .content {
-      max-width: 980px;
-      margin: -30px auto 0;
-      padding: 3rem 1.2rem 2rem;
-      position: relative;
-      z-index: 4;
-    }
-    .section {
-      background: var(--card);
-      padding: 2.1rem 1.5rem;
-      margin-bottom: 2.2rem;
-      border-radius: 18px;
-      box-shadow: 0 8px 32px rgba(215,38,96,0.09);
-      transition: transform 0.3s, box-shadow 0.3s;
-      border-left: 6px solid var(--accent);
-      overflow: hidden;
-    }
-    .section:hover {
-      transform: translateY(-6px) scale(1.012);
-      box-shadow: 0 18px 32px rgba(215,38,96,0.13);
-      background: linear-gradient(100deg, #fff 85%, #fbb03422 120%);
-    }
-    .section h2 {
-      font-family: var(--headline);
-      font-size: 1.5rem;
-      color: var(--accent);
-      margin-bottom: 1rem;
-      letter-spacing: -0.5px;
-    }
-    .section p, .section li {
-      font-size: 1.08rem;
-      color: var(--muted);
-      margin-bottom: 0.6rem;
-    }
-    ul { padding-left: 1.5rem; }
+    /* Footer */
     .footer {
       background: linear-gradient(90deg, var(--accent) 70%, #fbb034);
       color: #fff;
@@ -325,6 +336,28 @@
       box-shadow: 0 -3px 14px rgba(215,38,96,0.09);
     }
     .footer a { color: #fff; text-decoration: underline; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-content { max-width: 98vw;}
+      .from-insight { font-size: 2.1rem;}
+    }
+    @media (max-width: 700px) {
+      .hero-content { padding: 1.2rem;}
+      .from-insight { font-size: 1.35rem;}
+      .hero-headline { font-size: 1.15rem;}
+      .hero-list { font-size: 1.02rem;}
+      .nav-logo-img { width: 32px; height: 32px; }
+      .footer { font-size: 1rem;}
+    }
+    @media (max-width: 450px) {
+      .hero { min-height: 310px;}
+      .hero-content { padding: 0.7rem;}
+      .from-insight { font-size: 1.07rem;}
+      .hero-headline { font-size: 1.02rem;}
+      .nav-logo-img { width: 26px; height: 26px;}
+      .footer { font-size: 0.95rem;}
+    }
   </style>
 </head>
 <body>
@@ -333,7 +366,6 @@
     <div class="nav-container">
       <div class="nav-brand">
         <img src="favicon.png.png" alt="Consumer Kanvas Logo" class="nav-logo-img"/>
-        <div class="nav-logo-text">Consumer Kanvas</div>
       </div>
       <nav class="nav-links" id="navLinks">
         <a href="#home" class="active">Home</a>
@@ -369,41 +401,21 @@
       poster="favicon.png.png"
     ></video>
     <div class="hero-content" data-aos="fade-up">
-      <div class="hero-headline">Brand-led. Business Growth.</div>
+      <div class="from-insight">From Insight to Impact</div>
+      <div class="hero-headline">Business Growth Consulting Services</div>
       <div class="hero-tagline">
-        Funnel strategies backed by <span style="color:var(--accent);font-weight:600;">real consumer insight.</span>
+        Strengthen your market position, adapt to the continuously changing business landscape and identify opportunities to grow your brand through our business growth consulting services.
       </div>
+      <ul class="hero-list">
+        <li>Diagnose And Analyze Business Challenges</li>
+        <li>Optimize Resource Allocation</li>
+        <li>Create A Strategic Roadmap For Growth</li>
+      </ul>
       <button class="cta-btn" onclick="window.location.href='tel:+919821379658'">
         📞 Contact Us
       </button>
     </div>
   </section>
-
-  <div class="content">
-    <div class="section" id="about" data-aos="fade-up">
-      <h2>We work with founders who are:</h2>
-      <p>Scaling but hitting a growth ceiling or launching and want to start strong. Our strategies are designed for clarity, traction, and sustainable scale.</p>
-    </div>
-
-    <div class="section" id="services" data-aos="fade-up" data-aos-delay="100">
-      <h2>What We Deliver</h2>
-      <p>We don’t do guesswork. We use focus groups and deep consumer insight to build brand and funnel strategies. You get a clean, quarterly action plan from leads to loyalty.</p>
-    </div>
-
-    <div class="section" id="tools" data-aos="fade-up" data-aos-delay="200">
-      <h2>Who We’ve Helped</h2>
-      <p>We’ve worked with D2C and service-led brands, helping early-stage teams find traction and scaling brands cut through the noise to focus on what’s working.</p>
-    </div>
-
-    <div class="section" id="contact" data-aos="fade-up" data-aos-delay="300">
-      <h2>We are your partners throughout the Brand Life Cycle</h2>
-      <ul>
-        <li><strong>LAUNCH</strong>: Enter with a clear identity and tested strategy.</li>
-        <li><strong>GROW</strong>: Expand reach and product with data-backed moves.</li>
-        <li><strong>REINVENT</strong>: Refresh the brand to maintain edge.</li>
-      </ul>
-    </div>
-  </div>
 
   <div class="footer">
     📞 Contact us: <a href="tel:+919821379658">+91 98213 79658</a>
