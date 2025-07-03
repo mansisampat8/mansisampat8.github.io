@@ -277,34 +277,52 @@
       filter: brightness(1.07) saturate(1.1) contrast(1.07);
       background: #fffbe7;
       pointer-events: none;
+      max-width: 100vw;
+      height: 60vh;
     }
-    .video-overlay-text {
-      position: absolute;
-      top: 55%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-family: 'Playfair Display', serif;
+    /* --- Typewriter Overlay Styles --- */
+    .video-overlay-text.typewriter {
+      font-family: 'Playfair Display', serif, monospace;
       font-weight: 900;
       font-size: clamp(1.2rem, 7vw, 3.8rem);
       color: #111;
       text-shadow: 0 3px 16px rgba(255,255,255,0.20), 0 1px 1px #fffefc;
-      letter-spacing: -1.2px;
-      text-align: center;
+      background: rgba(255,255,255,0.0);
+      border-radius: 12px;
+      padding: 0.12em 0.3em;
+      opacity: 0;
+      transition: opacity 0.6s cubic-bezier(.8,-0.6,.4,1.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 70px;
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       width: 90%;
       pointer-events: none;
       user-select: none;
       line-height: 1.12;
       z-index: 2;
-      background: rgba(255,255,255,0.00);
-      border-radius: 12px;
-      padding: 0.12em 0.3em;
-      opacity: 0;
-      transition: opacity 1.2s cubic-bezier(.8,-0.6,.4,1.5);
-      animation: overlayFadeIn 1.5s cubic-bezier(.7,-0.1,.4,1.2) 0.4s forwards;
+      word-break: break-word;
+      text-align: center;
     }
-    @keyframes overlayFadeIn {
-      from { opacity: 0; transform: translate(-50%, -30%);}
-      to   { opacity: 1; transform: translate(-50%, -50%);}
+    .video-overlay-text.typewriter.visible {
+      opacity: 1;
+      transition-delay: .2s;
+    }
+    .type-caret {
+      display: inline-block;
+      width: 1ch;
+      color: #f4a261;
+      font-weight: bold;
+      animation: blink 0.9s step-end infinite;
+      font-family: inherit;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
     .video-overlay-text.parallax {
       will-change: transform;
@@ -403,6 +421,8 @@
       /* for staggered animation */
       opacity: 0;
       transform: translateY(40px);
+      word-break: break-word;
+      text-align: left;
     }
     .lifecycle-card.aos-animate {
       opacity: 1 !important;
@@ -430,6 +450,8 @@
       margin-top: 0.2rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
+      text-align: center;
+      width: 100%;
     }
     .lifecycle-card .lifecycle-desc {
       font-family: var(--font);
@@ -440,33 +462,51 @@
       line-height: 1.7;
       margin-bottom: 0;
       text-align: left;
+      width: 100%;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
+      .nav-container { max-width: 98vw; }
+      .section-glass { max-width: 95vw; }
+      .lifecycle-section { max-width: 98vw; }
     }
     @media (max-width: 900px) {
-      .lifecycle-cards { gap: 1.1rem; }
-      .section-glass { padding: 1.5rem 0.8rem; font-size: 1.08rem; }
+      .nav-container { padding: 0 0.4rem; }
+      .nav-links { gap: 1.1rem; }
+      .section-glass { padding: 1.2rem 0.7rem; font-size: 1.08rem; }
       .lifecycle-title { font-size: 1.2rem; }
+      .lifecycle-cards { gap: 1rem; }
+      .lifecycle-card { padding: 1.5rem 1rem 1rem 1rem; max-width: 340px;}
     }
     @media (max-width: 700px) {
-      .video-container { max-width: 100vw; }
-      .section-glass { margin: 0 auto 1.2rem auto; padding: 1.1rem 0.7rem; font-size: 1.01rem; }
+      .nav-links { gap: 1.1rem; }
+      .video-parallax-bg video { height: 32vh; min-height: 32vh; }
+      .video-overlay-text.typewriter { font-size: 1.25rem; padding: 0.2em 0.1em; min-height: 36px; width: 98vw;}
+      .section-glass { margin: 0 auto 1.2rem auto; padding: 0.7rem 0.2rem; font-size: 1.01rem; max-width: 99vw;}
       .lifecycle-cards {
         flex-direction: column;
-        gap: 1.2rem;
+        gap: 0.8rem;
+        align-items: stretch;
       }
       .lifecycle-card {
-        max-width: 97vw;
+        max-width: 99vw;
         min-width: unset;
         width: 100%;
-        font-size: 1.02rem;
+        font-size: .98rem;
         margin-left: auto;
         margin-right: auto;
+        padding: 1.1rem 0.7rem 0.9rem 0.7rem;
       }
       .lifecycle-title { font-size: 1.07rem; }
+      .sticky-cta { bottom: 8px; }
+      .sticky-cta .cta-btn { font-size: 1rem; padding: 0.7em 1.2em; }
     }
     @media (max-width: 420px) {
       .section-glass { font-size: 0.97rem; }
-      .lifecycle-title { font-size: 0.96rem; }
-      .lifecycle-card { font-size: 0.95rem; }
+      .lifecycle-title { font-size: 0.96rem; margin-bottom: .9rem;}
+      .lifecycle-card { font-size: 0.93rem; padding: 0.7rem 0.3rem 0.7rem 0.3rem;}
+      .video-overlay-text.typewriter { font-size: 1rem; min-height: 24px;}
+      .sticky-cta .cta-btn { font-size: 0.98rem; }
     }
 
     /* Sticky CTA */
@@ -520,6 +560,7 @@
       border-radius: 20px 20px 0 0;
       margin-top: 2.5rem;
       box-shadow: 0 -3px 14px #e9c46a25;
+      word-break: break-word;
     }
     .footer a { color: #fff; text-decoration: underline; transition: color 0.21s;}
     .footer a:hover { color: #f9efe7; text-shadow: 0 1px 8px #e9c46a98;}
@@ -548,8 +589,8 @@
     <div class="video-parallax-bg" id="parallaxBg">
       <video id="heroVideo" src="10613972-hd_1920_1080_24fps.mp4" autoplay loop muted playsinline poster="favicon.png.png"></video>
     </div>
-    <div class="video-overlay-text parallax" id="videoOverlayText">
-      We Help Startups Scale Through Consumer Insight and Strategic Clarity.
+    <div class="video-overlay-text parallax typewriter" id="videoOverlayText">
+      <span id="typewriterText"></span><span class="type-caret" id="typeCaret">|</span>
     </div>
   </section>
 
@@ -636,12 +677,23 @@
 
   <!-- FOOTER WITH INTERNAL LINKS -->
   <div class="footer">
-    📞 Contact us: <a href="tel:+919821379658">+91 98213 79658</a> | 
-    <a href="#" title="Brand Strategy for Startups">Brand Strategy</a> ·
-    <a href="#" title="Consumer Research Services">Consumer Insight</a> ·
-    <a href="#" title="Go-To-Market Strategy">Go-To-Market</a> ·
-    <a href="#" title="Founder Blog">Founder Blog</a>
-  </div>
+  <a href="https://www.instagram.com/consumerkanvas/" target="_blank" rel="noopener" title="Check Us Out on Instagram" style="display:inline-flex;align-items:center;gap:7px;">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 448 512" style="vertical-align:middle;">
+      <linearGradient id="ig-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#f9ce34"/>
+        <stop offset="50%" stop-color="#ee2a7b"/>
+        <stop offset="100%" stop-color="#6228d7"/>
+      </linearGradient>
+      <path fill="url(#ig-gradient)" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9 0 63.6 51.3 114.9 114.9 114.9 63.6 0 114.9-51.3 114.9-114.9 0-63.6-51.3-114.9-114.9-114.9zm0 186.6c-39.6 0-71.7-32.1-71.7-71.7 0-39.6 32.1-71.7 71.7-71.7 39.6 0 71.7 32.1 71.7 71.7 0 39.6-32.1 71.7-71.7 71.7zm146.4-194.3c0 14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 27-27 27 12.1 27 27zm76.1 27.2c-1.7-35.3-9.9-66.7-36.2-92.9C405.7 9.9 374.3 1.7 339 0 303.6-1.7 256.4-1.7 221 0c-35.3 1.7-66.7 9.9-92.9 36.2C9.9 105.7 1.7 137.1 0 172.4c-1.7 35.3-1.7 82.5 0 117.9 1.7 35.3 9.9 66.7 36.2 92.9 26.2 26.2 57.6 34.5 92.9 36.2 35.3 1.7 82.5 1.7 117.9 0 35.3-1.7 66.7-9.9 92.9-36.2 26.2-26.2 34.5-57.6 36.2-92.9 1.7-35.3 1.7-82.5 0-117.9zm-48.6 218.1c-7.8 19.6-23 34.8-42.6 42.6-29.4 11.7-99.2 9-132.9 9s-103.5 2.6-132.9-9c-19.6-7.8-34.8-23-42.6-42.6-11.7-29.4-9-99.2-9-132.9s-2.6-103.5 9-132.9c7.8-19.6 23-34.8 42.6-42.6 29.4-11.7 99.2-9 132.9-9s103.5-2.6 132.9 9c19.6 7.8 34.8 23 42.6 42.6 11.7 29.4 9 99.2 9 132.9s2.6 103.5-9 132.9z"/>
+    </svg>
+    <span style="font-weight:bold;">Check Us Out on Instagram</span>
+  </a>
+  <span style="margin:0 7px;">|</span>
+  <a href="#" title="Brand Strategy for Startups">Brand Strategy</a> ·
+  <a href="#" title="Consumer Research Services">Consumer Insight</a> ·
+  <a href="#" title="Go-To-Market Strategy">Go-To-Market</a> ·
+  <a href="#" title="Founder Blog">Founder Blog</a>
+</div>
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
@@ -704,24 +756,52 @@
       });
     });
 
-    // Video overlay text fade-in on load, stays only if video is playing
+    // TYPEWRITER EFFECT ON HERO OVERLAY
+    const typewriterText = "We Help Startups Scale Through Consumer Truth and Strategic Clarity";
+    const textElem = document.getElementById('typewriterText');
+    const caretElem = document.getElementById('typeCaret');
+    const overlay = document.getElementById('videoOverlayText');
     const video = document.getElementById('heroVideo');
-    function setOverlayVisibility() {
+    let typingInterval = null;
+
+    function playTypewriterEffect() {
+      overlay.classList.add('visible');
+      textElem.textContent = "";
+      caretElem.style.display = "inline-block";
+      let i = 0;
+      if (typingInterval) clearInterval(typingInterval);
+      typingInterval = setInterval(() => {
+        if (i <= typewriterText.length) {
+          textElem.textContent = typewriterText.slice(0, i);
+          i++;
+        } else {
+          clearInterval(typingInterval);
+          caretElem.style.display = "none";
+        }
+      }, 33); // ~30 chars/sec
+    }
+
+    function hideOverlay() {
+      overlay.classList.remove('visible');
+      textElem.textContent = "";
+      caretElem.style.display = "none";
+      if (typingInterval) clearInterval(typingInterval);
+    }
+
+    // Show typewriter when video plays
+    video.addEventListener('play', () => {
+      playTypewriterEffect();
+    });
+    // Hide overlay when video ends or is paused
+    video.addEventListener('ended', hideOverlay);
+    video.addEventListener('pause', hideOverlay);
+
+    // On initial load, if autoplay works, show overlay
+    window.addEventListener('load', () => {
       if (!video.paused && !video.ended) {
-        overlayText.classList.remove('hidden');
-      } else {
-        overlayText.classList.add('hidden');
+        playTypewriterEffect();
       }
-    }
-    if (video) {
-      video.muted = true;
-      video.play().catch(()=>{});
-      setOverlayVisibility();
-      video.addEventListener('play', setOverlayVisibility);
-      video.addEventListener('pause', setOverlayVisibility);
-      video.addEventListener('ended', setOverlayVisibility);
-    }
-    document.addEventListener('visibilitychange', setOverlayVisibility);
+    });
 
     // Animate .lifecycle-card in when in viewport, staggered
     function revealCardsOnScroll() {
