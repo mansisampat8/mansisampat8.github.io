@@ -18,8 +18,7 @@
     "url": "https://www.consumerkanvas.com",
     "logo": "https://www.consumerkanvas.com/favicon.png.png",
     "sameAs": [
-      "https://www.linkedin.com/company/consumerkanvas",
-      "https://www.instagram.com/consumerkanvas/"
+      "https://www.linkedin.com/company/consumerkanvas"
     ]
   }
   </script>
@@ -51,7 +50,7 @@
         "name": "Is this only for VC-funded startups?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. We work with ambitious founders, funded or bootstrapped, who value clarity, truth, and traction."
+          "text": "No. We work with ambitious founders funded or bootstrapped — who value clarity, truth, and traction."
         }
       }
     ]
@@ -71,18 +70,10 @@
       --font: 'Inter', 'Montserrat', sans-serif;
       --charcoal: #1a1918;
       --muted: #606060;
-      --nav-height: 56px;
+      --nav-height: 64px;
       --glass-bg: rgba(255,255,255,0.33);
       --glass-border: rgba(233,196,106,0.22);
-      --glass-blur: blur(14px);
-      --footer-bg: linear-gradient(90deg, var(--gold1) 70%, var(--gold2));
-      --footer-radius: 18px 18px 0 0;
-      --footer-padding: 1rem 0.4rem 0.7rem;
-      --footer-font: 1rem;
-      --footer-gap: 0.5rem;
-      --note-yellow: #fffbe7;
-      --note-orange: #ffe3c9;
-      --note-gold: #f4a261;
+      --glass-blur: blur(18px);
     }
     html, body { margin:0; padding:0; height:100%; }
     body {
@@ -132,7 +123,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 1.2rem;
+      padding: 0 2.2rem;
       height: var(--nav-height);
     }
     .nav-brand {
@@ -141,16 +132,21 @@
       height: var(--nav-height);
     }
     .nav-logo-img {
-      width: 38px;
-      height: 38px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 0 20px 4px #ffe6a3, 0 0 34px 10px #e9c46a55, 0 2px 18px #f7cac9b0;
-      filter: drop-shadow(0 0 18px var(--gold1))
-              drop-shadow(0 0 12px #fff)
-              drop-shadow(0 2px 22px #e9c46a77);
+      box-shadow:
+        0 0 20px 4px #ffe6a3,
+        0 0 34px 10px #e9c46a55,
+        0 2px 18px #f7cac9b0;
+      filter:
+        drop-shadow(0 0 18px var(--gold1))
+        drop-shadow(0 0 12px #fff)
+        drop-shadow(0 2px 22px #e9c46a77);
       animation: logoBounce 3.8s cubic-bezier(.6,0,.4,1) infinite;
       cursor: pointer;
+      transition: box-shadow 0.5s, filter 0.4s;
       background: #fffdf7;
     }
     @keyframes logoBounce {
@@ -163,31 +159,33 @@
     }
     .nav-links {
       display: flex;
-      gap: 1.2rem;
+      gap: 2.2rem;
       align-items: center;
+      transition: none;
     }
     .nav-links a {
+      position: relative;
       font-family: var(--font);
-      font-size: 1rem;
+      font-size: 1.09rem;
       color: var(--charcoal);
       text-decoration: none;
       font-weight: 600;
-      padding: 1px 2px 5px 2px;
+      padding: 2px 2px 6px 2px;
+      transition: color 0.23s;
       border-radius: 5px;
-      transition: color 0.18s;
-      position: relative;
+      overflow: hidden;
     }
     .nav-links a::after {
       content: "";
       display: block;
-      height: 2.5px;
+      height: 3.5px;
       width: 100%;
       background: linear-gradient(90deg, var(--gold1), var(--gold2) 80%);
       position: absolute;
       bottom: 0; left: 0;
       border-radius: 2px;
       transform: scaleX(0);
-      transition: transform 0.21s cubic-bezier(.45,1.7,.7,1);
+      transition: transform 0.29s cubic-bezier(.45,1.7,.7,1);
     }
     .nav-links a:hover, .nav-links a.active {
       color: var(--gold2);
@@ -197,18 +195,18 @@
     }
     .nav-toggle {
       display: none;
-      font-size: 2rem;
+      font-size: 2.3rem;
       color: var(--gold2);
       background: none;
       border: none;
       cursor: pointer;
       z-index: 130;
-      margin-left: 10px;
+      margin-left: 18px;
       user-select: none;
     }
     @media (max-width: 900px) {
-      .nav-container { padding: 0 0.5rem; }
-      .nav-links { gap: 0.6rem; }
+      .nav-container { padding: 0 1rem; }
+      .nav-links { gap: 1.3rem; }
     }
     @media (max-width: 700px) {
       .nav-links {
@@ -221,18 +219,19 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        padding: 1.5rem 0.7rem;
+        padding: 2.2rem 1.4rem;
         width: 82vw;
         max-width: 320px;
         transform: translateY(-120%);
         opacity: 0;
         pointer-events: none;
-        transition: transform 0.32s cubic-bezier(.7,1.7,.3,1), opacity 0.19s;
+        transition: transform 0.35s cubic-bezier(.7,1.7,.3,1), opacity 0.25s;
       }
       .nav-links.open {
         transform: translateY(0);
         opacity: 1;
         pointer-events: all;
+        transition: transform 0.4s cubic-bezier(.5,1.5,.3,1), opacity 0.21s;
       }
       .nav-toggle { display: block; }
     }
@@ -249,14 +248,14 @@
       overflow: hidden;
       background: transparent;
       padding-top: 0;
-      padding-bottom: 6px;
+      padding-bottom: 36px;
       z-index: 2;
     }
     .video-container {
       position: relative;
-      width: 98vw;
-      max-width: 900px;
-      margin: 0.3rem auto 0 auto;
+      width: 96vw;
+      max-width: 1100px;
+      margin: 1.1rem auto 0 auto;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -264,8 +263,8 @@
     }
     .video-container video {
       width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 18px 0 #e9c46a33, 0 1.5px 8px #fffbe7c9;
+      border-radius: 28px;
+      box-shadow: 0 8px 42px 0 #e9c46a33, 0 1.5px 12px #fffbe7c9;
       object-fit: cover;
       display: block;
       background: #fffbe7;
@@ -277,21 +276,21 @@
       transform: translate(-50%, -50%);
       font-family: 'Playfair Display', serif;
       font-weight: 900;
-      font-size: clamp(1rem, 5vw, 2rem);
+      font-size: clamp(1.2rem, 7vw, 3.8rem);
       color: #111;
-      text-shadow: 0 2px 8px rgba(255,255,255,0.16), 0 1px 1px #fffefc;
-      letter-spacing: -1px;
+      text-shadow: 0 3px 16px rgba(255,255,255,0.20), 0 1px 1px #fffefc;
+      letter-spacing: -1.2px;
       text-align: center;
-      width: 92%;
+      width: 90%;
       pointer-events: none;
       user-select: none;
-      line-height: 1.1;
+      line-height: 1.12;
       z-index: 2;
       background: rgba(255,255,255,0.0);
-      border-radius: 7px;
-      padding: 0.1em 0.22em;
+      border-radius: 12px;
+      padding: 0.12em 0.3em;
       opacity: 1;
-      transition: opacity 0.5s cubic-bezier(.8,-0.6,.4,1.5);
+      transition: opacity 0.6s cubic-bezier(.8,-0.6,.4,1.5);
     }
     .video-overlay-text.hidden {
       opacity: 0;
@@ -300,106 +299,154 @@
 
     /* --- GLASSMORPHISM EFFECT FOR STRATEGY PARTNER SECTION --- */
     .section-glass {
-      margin: 0 auto 0.6rem auto;
+      margin: 0 auto 2.2rem auto;
       max-width: 800px;
-      padding: 1rem 0.6rem;
-      border-radius: 15px;
-      box-shadow: 0 7px 17px 0 #e9c46a33, 0 2px 6px #fffbe7c9;
+      padding: 2.2rem 1.6rem;
+      border-radius: 32px;
+      box-shadow: 0 18px 50px 0 #e9c46a44, 0 2px 12px #fffbe7c9;
       background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
+      border: 1.8px solid var(--glass-border);
       backdrop-filter: var(--glass-blur);
       -webkit-backdrop-filter: var(--glass-blur);
       font-family: var(--font);
-      font-size: 0.99rem;
+      font-size: 1.22rem;
       color: var(--charcoal);
       font-weight: 600;
       text-align: center;
       letter-spacing: 0.01em;
-      line-height: 1.5;
+      line-height: 1.64;
       position: relative;
       overflow: hidden;
       animation: fadeInUp 1.1s cubic-bezier(.68,-0.55,.27,1.55);
     }
-
-    /* --- FANCY NOTE SECTION --- */
-    .fancy-note-section {
-      max-width: 720px;
-      margin: 0.2rem auto 0.8rem auto;
-      padding: 1.1rem 1rem 0.95rem 1rem;
-      border-radius: 16px;
-      background: linear-gradient(135deg, var(--note-yellow) 65%, var(--note-orange) 100%);
-      box-shadow: 0 5px 24px 0 #e9c46a33, 0 2px 5px #fffbe7b9;
-      border: 1.5px solid #f4a26144;
-      position: relative;
-      font-family: var(--font);
-      color: var(--charcoal);
-      text-align: left;
-      font-size: 1.03rem;
-      overflow: visible;
-      letter-spacing: 0.01em;
+    @keyframes borderShine {
+      0% { filter: blur(10px) brightness(1.07);}
+      50% { filter: blur(16px) brightness(1.23);}
+      100% { filter: blur(10px) brightness(1.07);}
     }
-    .fancy-note-section:before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      border-radius: 16px;
-      background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" fill="none" opacity="0.08" xmlns="http://www.w3.org/2000/svg"><path d="M10 80 Q 52 60 90 90" stroke="%23f4a261" stroke-width="2" fill="none"/><circle cx="14" cy="88" r="2.5" fill="%23f4a261" /></svg>') repeat-x;
-      background-size: 140px 36px;
-      bottom: 0;
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: translateY(0);}
     }
-    .note-title {
+    .section-glass > * { position: relative; z-index: 1; }
+    .section-glass strong {
       font-family: var(--headline);
-      font-size: 1.18rem;
+      font-size: 1.3em;
       font-weight: 900;
       color: var(--gold2);
-      margin-bottom: 0.7em;
-      letter-spacing: 0.02em;
-      text-shadow: 0 2px 10px #ffe6a3aa;
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
+      letter-spacing: 0.03em;
     }
-    .note-title:before {
-      content: "📝";
-      font-size: 1.3em;
-      vertical-align: middle;
-      margin-right: 0.14em;
-      opacity: 0.85;
+    /* --- LIFE CYCLE SECTION --- */
+    .lifecycle-section {
+      margin: 0 auto 2.2rem auto;
+      max-width: 900px;
+      padding: 1rem 0 2.1rem 0;
+      text-align: center;
     }
-    .note-body {
-      background: rgba(255,255,255,0.9);
-      border-radius: 10px;
-      padding: 1em 1em 0.6em 1em;
-      border-left: 5px solid var(--gold2);
-      font-family: var(--font);
-      font-size: 1.02rem;
+    .lifecycle-title {
+      font-family: var(--headline);
+      font-size: 1.7rem;
       color: var(--charcoal);
-      box-shadow: 0 2px 8px #f4a26122;
-      font-style: italic;
-      position: relative;
+      font-weight: 900;
+      margin-bottom: 2.3rem;
+      letter-spacing: 0.01em;
+      text-shadow: 0 2px 18px #fffbe7a8;
     }
-    .note-body:after {
-      content: "✦";
-      position: absolute;
-      right: 10px;
-      bottom: 8px;
-      color: #f4a261;
-      font-size: 1.07em;
-      opacity: 0.39;
+    .lifecycle-cards {
+      display: flex;
+      gap: 2.2rem;
+      justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+    .lifecycle-card {
+      flex: 1 1 240px;
+      min-width: 220px;
+      max-width: 320px;
+      background: var(--glass-bg);
+      border: 1.8px solid var(--glass-border);
+      box-shadow: 0 8px 30px #e9c46a1c;
+      border-radius: 26px;
+      margin-bottom: 1.3rem;
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      padding: 2rem 1.4rem 1.3rem 1.4rem;
+      transition: transform 0.21s cubic-bezier(.58,1.9,.38,1), box-shadow .24s;
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .lifecycle-card:hover {
+      transform: translateY(-8px) scale(1.025);
+      box-shadow: 0 18px 44px #e9c46a38;
+      background: rgba(255,255,255,0.41);
+    }
+    .lifecycle-card .lifecycle-label {
+      font-family: var(--headline);
+      font-size: 1.28rem;
+      color: var(--gold2);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.6rem;
+      margin-top: 0.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+    .lifecycle-card .lifecycle-desc {
+      font-family: var(--font);
+      font-size: 1.05rem;
+      color: var(--charcoal);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 1.7;
+      margin-bottom: 0;
+      text-align: left;
+    }
+    @media (max-width: 900px) {
+      .lifecycle-cards { gap: 1.1rem; }
+      .section-glass { padding: 1.5rem 0.8rem; font-size: 1.08rem; }
+      .lifecycle-title { font-size: 1.2rem; }
     }
     @media (max-width: 700px) {
-      .fancy-note-section { padding: 0.8rem 0.5rem 0.5rem 0.5rem; font-size: 0.96rem;}
-      .note-title { font-size: 1.02rem; }
-      .note-body { padding: 0.7em 0.5em 0.7em 0.7em; font-size: 0.9rem;}
+      .video-container { max-width: 100vw; }
+      .section-glass { margin: 0 auto 1.2rem auto; padding: 1.1rem 0.7rem; font-size: 1.01rem; }
+      .lifecycle-cards {
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      .lifecycle-card {
+        max-width: 97vw;
+        min-width: unset;
+        width: 100%;
+        font-size: 1.02rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .lifecycle-title { font-size: 1.07rem; }
     }
-    @media (max-width: 400px) {
-      .fancy-note-section { font-size: 0.85rem; }
-      .note-title { font-size: 0.88rem; }
-      .note-body { font-size: 0.81rem;}
+    @media (max-width: 420px) {
+      .section-glass { font-size: 0.97rem; }
+      .lifecycle-title { font-size: 0.96rem; }
+      .lifecycle-card { font-size: 0.95rem; }
     }
-    /* ...rest of your CSS unchanged ... */
+
+    /* Footer */
+    .footer {
+      background: linear-gradient(90deg, var(--gold1) 70%, var(--gold2));
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+      font-weight: bold;
+      font-size: 1.15rem;
+      letter-spacing: 0.5px;
+      border-radius: 20px 20px 0 0;
+      margin-top: 2.5rem;
+      box-shadow: 0 -3px 14px #e9c46a25;
+    }
+    .footer a { color: #fff; text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -425,29 +472,20 @@
     <div class="video-container">
       <video id="heroVideo" src="10613972-hd_1920_1080_24fps.mp4" autoplay loop muted playsinline poster="favicon.png.png"></video>
       <div class="video-overlay-text" id="videoOverlayText">
-        We Help Startups Scale Through Consumer Insights and Strategic Clarity.
+        We Help Startups Scale Through Consumer Truth and Strategic Clarity
       </div>
     </div>
-    <button class="cta-btn" id="ctaBtn">
-      <span class="cta-emoji">💬</span> Validate Your Positioning In One Call
-    </button>
   </section>
 
-  <!-- INTRO SECTION: PART 1 -->
-  <section class="section-glass" data-aos="fade-up" style="margin-bottom:0.3rem;">
-    <p><strong>Consumer Kanvas</strong> helps founders unlock growth through brand-led strategies powered by real consumer insight, not assumptions.</p>
-  </section>
-  <!-- INTRO SECTION: PART 2 -->
-  <section class="fancy-note-section" data-aos="fade-up">
-    <div class="note-title">Note From Consumer Kanvas</div>
-    <div class="note-body">
-      <p>You’re building fast. Every decision counts. At Consumer Kanvas, we work with early-stage and scaling startups to sharpen brand clarity, validate market fit, and deliver positioning that converts. We bridge the gap between founder instinct and consumer truth, so you can grow with traction, not noise.</p>
-    </div>
+  <!-- INTRO SECTION -->
+  <section class="section-glass" data-aos="fade-up">
+    <p><strong>Consumer Kanvas</strong> helps founders unlock growth through brand-led strategies powered by real consumer insight — not assumptions.</p>
+    <p>You’re building fast. Every decision counts. At Consumer Kanvas, we work with early-stage and scaling startups to sharpen brand clarity, validate market fit, and deliver positioning that converts. We bridge the gap between founder instinct and consumer truth — so you can grow with traction, not noise.</p>
   </section>
 
   <!-- VALUE PROPOSITION SECTION -->
   <section class="lifecycle-section" data-aos="fade-up">
-    <div class="lifecycle-title">Why Founders Work with Us?</div>
+    <div class="lifecycle-title">Why Founders Work with Us</div>
     <div class="lifecycle-cards">
       <div class="lifecycle-card">
         <div class="lifecycle-label">🔍 Clarity Before You Scale</div>
@@ -486,8 +524,8 @@
   <!-- TESTIMONIALS SECTION -->
   <section class="section-glass" data-aos="fade-up">
     <div class="lifecycle-title">Startups We’ve Helped Find Their Edge</div>
-    <p>“We pivoted our entire positioning thanks to the insight we got from Consumer Kanvas.” <span>Service Based Startup Founder</span></p>
-    <p>“The clarity and confidence we gained through the brand strategy sprint was a game changer.” <span>D2C Wellness Founder</span></p>
+    <p>“We pivoted our entire positioning thanks to the insight we got from Consumer Kanvas.” — <em>Early-stage Fintech Founder</em></p>
+    <p>“The clarity and confidence we gained through the brand strategy sprint was a game changer.” — <em>D2C Wellness Founder</em></p>
   </section>
 
   <!-- FAQ SECTION (Visible + Schema) -->
@@ -504,7 +542,7 @@
       </div>
       <div class="lifecycle-card">
         <div class="lifecycle-label">Is this only for VC-funded startups?</div>
-        <div class="lifecycle-desc">No. We work with ambitious founders, funded or bootstrapped, who value clarity, truth, and traction.</div>
+        <div class="lifecycle-desc">No. We work with ambitious founders — funded or bootstrapped — who value clarity, truth, and traction.</div>
       </div>
     </div>
   </section>
@@ -512,35 +550,16 @@
   <!-- CTA SECTION -->
   <section class="section-glass" data-aos="fade-up">
     <p><strong>Let’s turn your brand into your growth engine.</strong><br>
-    <a class="cta-btn" id="footerCtaBtn" href="tel:+919821379658"><span class="cta-emoji">💬</span> Get Clarity</a></p>
+    <a href="#contact">Get Clarity. Unlock Growth. Book a 20-min Founder Strategy Call →</a></p>
   </section>
 
-  <!-- FOOTER WITH INTERNAL LINKS AND INSTA -->
+  <!-- FOOTER WITH INTERNAL LINKS -->
   <div class="footer">
-    <span>💬 DM us: <a href="tel:+919821379658">+91 98213 79658</a></span> 
-    <span>|</span>
-    <a href="#" title="Brand Strategy for Startups">Brand Strategy</a>
-    <span>·</span>
-    <a href="#" title="Consumer Research Services">Consumer Insight</a>
-    <span>·</span>
-    <a href="#" title="Go-To-Market Strategy">Go-To-Market</a>
-    <span>·</span>
+    📞 Contact us: <a href="tel:+919821379658">+91 98213 79658</a> | 
+    <a href="#" title="Brand Strategy for Startups">Brand Strategy</a> ·
+    <a href="#" title="Consumer Research Services">Consumer Insight</a> ·
+    <a href="#" title="Go-To-Market Strategy">Go-To-Market</a> ·
     <a href="#" title="Founder Blog">Founder Blog</a>
-    <span>·</span>
-    <a href="https://www.instagram.com/consumerkanvas/" target="_blank" title="Instagram" rel="noopener">
-      <svg class="insta-logo" viewBox="0 0 448 448" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="448" height="448" rx="100" fill="#fff" opacity="0.11"/>
-        <linearGradient id="ig" x1="0" y1="0" x2="448" y2="448" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#f9ce34"/>
-          <stop offset="0.33" stop-color="#ee2a7b"/>
-          <stop offset="0.66" stop-color="#6228d7"/>
-        </linearGradient>
-        <rect x="40" y="40" width="368" height="368" rx="80" fill="url(#ig)" />
-        <circle cx="224" cy="224" r="87" stroke="#fff" stroke-width="40" fill="none"/>
-        <circle cx="337" cy="111" r="17" fill="#fff"/>
-      </svg>
-      @consumerkanvas
-    </a>
   </div>
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
@@ -601,11 +620,6 @@
       video.addEventListener('ended', setOverlayVisibility);
     }
     document.addEventListener('visibilitychange', setOverlayVisibility);
-
-    // CTA click to call phone
-    document.getElementById('ctaBtn').addEventListener('click', function(e){
-      window.location.href = 'tel:+919821379658';
-    });
   </script>
 </body>
 </html>
