@@ -277,7 +277,7 @@
       display: block;
       background: #fffbe7;
     }
-    .video-overlay-text {
+    .video-overlay-text.typewriter {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -286,17 +286,36 @@
       background: rgba(255,255,255,0.85);
       padding: 0.7em 1.2em;
       border-radius: 14px;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Playfair Display', serif, monospace;
       font-size: 2rem;
       font-weight: 900;
       text-align: center;
       box-shadow: 0 4px 18px #e9c46a22;
       line-height: 1.15;
       max-width: 90vw;
+      opacity: 0;
+      transition: opacity 0.6s;
+      min-height: 50px;
+      z-index: 2;
+    }
+    .video-overlay-text.typewriter.visible {
+      opacity: 1;
+    }
+    .type-caret {
+      display: inline-block;
+      width: 1ch;
+      color: #f4a261;
+      font-weight: bold;
+      animation: blink 0.9s step-end infinite;
+      font-family: inherit;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
     @media (max-width: 700px) {
       .video-container video { height: 32vh; }
-      .video-overlay-text { font-size: 1.1rem; padding: 0.4em 0.6em;}
+      .video-overlay-text.typewriter { font-size: 1.1rem; padding: 0.4em 0.6em;}
     }
 
     /* --- GLASSMORPHISM EFFECT FOR STRATEGY PARTNER SECTION --- */
@@ -531,7 +550,7 @@
     @media (max-width: 700px) {
       .nav-links { gap: 1.1rem; }
       .video-container video { height: 32vh; }
-      .video-overlay-text { font-size: 1.1rem; padding: 0.4em 0.6em;}
+      .video-overlay-text.typewriter { font-size: 1.1rem; padding: 0.4em 0.6em;}
       .section-glass { margin: 0 auto 1.2rem auto; padding: 0.7rem 0.2rem; font-size: 1.01rem; max-width: 99vw;}
       .lifecycle-cards {
         flex-direction: column;
@@ -558,7 +577,7 @@
       .section-glass { font-size: 0.97rem; }
       .lifecycle-title { font-size: 0.96rem; margin-bottom: .9rem;}
       .lifecycle-card { font-size: 0.93rem; padding: 0.7rem 0.3rem 0.7rem 0.3rem;}
-      .video-overlay-text { font-size: 1rem; min-height: 24px;}
+      .video-overlay-text.typewriter { font-size: 1rem; min-height: 24px;}
       .sticky-cta .cta-btn { font-size: 0.98rem; }
     }
 
@@ -654,8 +673,8 @@
   <section class="hero" id="home">
     <div class="video-container">
       <video id="heroVideo" src="10613972-hd_1920_1080_24fps.mp4" autoplay loop muted playsinline poster="favicon.png.png"></video>
-      <div class="video-overlay-text" id="videoOverlayText">
-        We Help Startups Scale Through Consumer Insights and Strategic Clarity.
+      <div class="video-overlay-text typewriter" id="videoOverlayText">
+        <span id="typewriterText"></span><span class="type-caret" id="typeCaret">|</span>
       </div>
     </div>
   </section>
@@ -830,6 +849,53 @@
       cards.forEach((card, i) => {
         card.style.transitionDelay = (0.08*i + 0.12) + 's';
       });
+    });
+
+    // --- HERO TYPEWRITER EFFECT ---
+    const typewriterText = "We Help Startups Scale Through Consumer Insights and Strategic Clarity.";
+    const textElem = document.getElementById('typewriterText');
+    const caretElem = document.getElementById('typeCaret');
+    const overlay = document.getElementById('videoOverlayText');
+    const video = document.getElementById('heroVideo');
+    let typingInterval = null;
+
+    function playTypewriterEffect() {
+      overlay.classList.add('visible');
+      textElem.textContent = "";
+      caretElem.style.display = "inline-block";
+      let i = 0;
+      if (typingInterval) clearInterval(typingInterval);
+      typingInterval = setInterval(() => {
+        if (i <= typewriterText.length) {
+          textElem.textContent = typewriterText.slice(0, i);
+          i++;
+        } else {
+          clearInterval(typingInterval);
+          caretElem.style.display = "none";
+        }
+      }, 33); // ~30 chars/sec
+    }
+
+    function hideOverlay() {
+      overlay.classList.remove('visible');
+      textElem.textContent = "";
+      caretElem.style.display = "none";
+      if (typingInterval) clearInterval(typingInterval);
+    }
+
+    // Show typewriter when video plays
+    video.addEventListener('play', () => {
+      playTypewriterEffect();
+    });
+    // Hide overlay when video ends or is paused
+    video.addEventListener('ended', hideOverlay);
+    video.addEventListener('pause', hideOverlay);
+
+    // On initial load, if autoplay works, show overlay
+    window.addEventListener('load', () => {
+      if (!video.paused && !video.ended) {
+        playTypewriterEffect();
+      }
     });
 
     // Animate .lifecycle-card in when in viewport, staggered
