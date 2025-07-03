@@ -3,8 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Consumer Kanvas</title>
-  <link rel="icon" type="image/png" href="favicon.png.png"/>
+  <title>Brand Strategy for Startups | Consumer Kanvas</title>
+  <meta name="description" content="Consumer Kanvas helps startups and founders craft brand-led growth strategies powered by real consumer insight. Scale with clarity, purpose and traction.">
+  <meta name="keywords" content="brand strategy for startups, consumer insight for startups, startup growth strategy, market research startups, founder branding, go-to-market research">
+  <link rel="canonical" href="https://www.consumerkanvas.com/">
+  <link rel="icon" type="image/png" href="favicon.png.png">
+
+  <!-- Schema Markup for Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Consumer Kanvas",
+    "url": "https://www.consumerkanvas.com",
+    "logo": "https://www.consumerkanvas.com/favicon.png.png",
+    "sameAs": [
+      "https://www.linkedin.com/company/consumerkanvas"
+    ]
+  }
+  </script>
+
+  <!-- Schema for FAQ (Visible Questions) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do I need consumer research if I already know my audience?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gut feel is a great starting point. But when you're scaling, real growth comes from real data. We help you test assumptions before they cost you."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "At what stage should I bring in brand strategy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The earlier the better. If you're pre-launch or mid-scale without clarity, we help you build strong from the ground up."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this only for VC-funded startups?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. We work with ambitious founders, funded or bootstrapped, who value clarity, truth, and traction."
+        }
+      }
+    ]
+  }
+  </script>
   <!-- Luxury fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
@@ -23,8 +74,6 @@
       --glass-bg: rgba(255,255,255,0.33);
       --glass-border: rgba(233,196,106,0.22);
       --glass-blur: blur(18px);
-      --accent: #e76f51;
-      --cta-ripple: rgba(244, 162, 97, 0.32);
     }
     html, body { margin:0; padding:0; height:100%; }
     body {
@@ -43,15 +92,14 @@
       50% {background-position: 100% 80%;}
       100% {background-position: 0 20%;}
     }
-    /* SVG patterns for background */
-    .svg-bg-pattern {
-      position: fixed;
-      left: 0; top: 0;
-      width: 100vw; height: 100vh;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.22;
-      filter: blur(1px);
+    body::before {
+      content: "";
+      pointer-events:none;
+      position:fixed; left:0; top:0; width:100vw; height:100vh;
+      z-index:0;
+      background: url("https://www.transparenttextures.com/patterns/symphony.png") repeat;
+      opacity: 0.09;
+      mix-blend-mode: lighten;
     }
     /* --- NAVIGATION --- */
     .navbar {
@@ -59,17 +107,13 @@
       top: 0;
       left: 0;
       width: 100%;
-      background: transparent;
+      background: rgba(252, 248, 243, 0.97);
+      box-shadow: 0 4px 28px 0 rgba(233,196,106,0.09);
       z-index: 100;
       height: var(--nav-height);
       display: flex;
       align-items: center;
-      transition: background 0.4s, box-shadow 0.3s;
-      backdrop-filter: blur(0px);
-    }
-    .navbar.scrolled {
-      background: rgba(252, 248, 243, 0.92);
-      box-shadow: 0 4px 28px 0 rgba(233,196,106,0.09);
+      transition: box-shadow 0.3s;
       backdrop-filter: blur(12px);
     }
     .nav-container {
@@ -88,8 +132,8 @@
       height: var(--nav-height);
     }
     .nav-logo-img {
-      width: 50px;
-      height: 50px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       object-fit: cover;
       box-shadow:
@@ -102,20 +146,15 @@
         drop-shadow(0 2px 22px #e9c46a77);
       animation: logoBounce 3.8s cubic-bezier(.6,0,.4,1) infinite;
       cursor: pointer;
-      transition: box-shadow 0.5s, filter 0.4s, width 0.19s, height 0.19s;
+      transition: box-shadow 0.5s, filter 0.4s;
       background: #fffdf7;
-    }
-    .navbar.scrolled .nav-logo-img {
-      width: 38px;
-      height: 38px;
-      transition: width 0.22s, height 0.22s;
     }
     @keyframes logoBounce {
       0%, 100% { transform: translateY(0);}
-      18% { transform: translateY(-9px);}
-      35% { transform: translateY(-10px);}
+      18% { transform: translateY(-10px);}
+      35% { transform: translateY(-15px);}
       50% { transform: translateY(0);}
-      70% { transform: translateY(-4px);}
+      70% { transform: translateY(-6px);}
       85% { transform: translateY(0);}
     }
     .nav-links {
@@ -209,67 +248,26 @@
       overflow: hidden;
       background: transparent;
       padding-top: 0;
-      padding-bottom: 0;
+      padding-bottom: 36px;
       z-index: 2;
     }
     .video-container {
       position: relative;
-      width: 100vw;
+      width: 96vw;
       max-width: 1100px;
-      margin: 1.1rem auto 0 auto; /* NO space below video */
+      margin: 1.1rem auto 0 auto;
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 2;
     }
     .video-container video {
-      width: 100vw;
-      max-width: 1100px;
-      aspect-ratio: 16/9;
+      width: 100%;
       border-radius: 28px;
       box-shadow: 0 8px 42px 0 #e9c46a33, 0 1.5px 12px #fffbe7c9;
       object-fit: cover;
       display: block;
       background: #fffbe7;
-      margin: 0 auto;
-    }
-    .hero-gradient-overlay {
-      position: absolute;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 3;
-      background: linear-gradient(120deg,rgba(233,196,106,0.16) 0%,rgba(244,162,97,0.17) 33%,rgba(247,202,201,0.18) 66%,rgba(233,196,106,0.11) 100%);
-      mix-blend-mode: overlay;
-      animation: gradientMove 18s linear infinite alternate;
-    }
-    @keyframes gradientMove {
-      0% { background-position: 0 0;}
-      100% { background-position: 100% 100%;}
-    }
-    @media (max-width: 1100px) {
-      .video-container { max-width: 100vw; }
-      .video-container video { max-width: 100vw; }
-    }
-    @media (max-width: 700px) {
-      .video-container { padding: 0; margin-top: 0.6rem;}
-      .video-container video {
-        border-radius: 12px;
-        min-width: 100vw;
-        width: 100vw;
-        height: 44vw;
-        aspect-ratio: 16/9;
-        min-height: 180px;
-        max-height: 52vw;
-      }
-    }
-    @media (max-width: 500px) {
-      .video-container video {
-        border-radius: 8px;
-        min-height: 150px;
-        height: 50vw;
-        max-height: 300px;
-      }
     }
     .video-overlay-text {
       position: absolute;
@@ -287,7 +285,7 @@
       pointer-events: none;
       user-select: none;
       line-height: 1.12;
-      z-index: 4;
+      z-index: 2;
       background: rgba(255,255,255,0.0);
       border-radius: 12px;
       padding: 0.12em 0.3em;
@@ -297,68 +295,6 @@
     .video-overlay-text.hidden {
       opacity: 0;
       pointer-events: none;
-    }
-    .typewriter {
-      border-right: .14em solid var(--accent);
-      white-space: nowrap;
-      overflow: hidden;
-      animation: blink-caret .75s step-end infinite;
-    }
-    @keyframes blink-caret {
-      from, to { border-color: transparent; }
-      50% { border-color: var(--accent);}
-    }
-
-    /* CTA BUTTON WITH RIPPLE */
-    .cta-btn {
-      appearance: none;
-      outline: none;
-      border: none;
-      background: linear-gradient(90deg, var(--accent) 0%, var(--gold2) 100%);
-      color: #fff;
-      font-size: 1.18rem;
-      font-family: var(--font);
-      font-weight: 700;
-      border-radius: 32px;
-      padding: 1rem 2.5rem;
-      cursor: pointer;
-      box-shadow: 0 4px 20px var(--gold2)33;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.3s, box-shadow 0.3s, transform 0.15s;
-      margin: 2.2rem auto 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 0.7em;
-    }
-    .cta-btn:active {
-      transform: scale(0.96);
-    }
-    .cta-btn .cta-emoji {
-      font-size: 1.4em;
-      animation: emojiPop 1.1s infinite alternate;
-      display: inline-block;
-      transform-origin: 60% 90%;
-    }
-    @keyframes emojiPop {
-      0% { transform: scale(1) rotate(-12deg);}
-      100% { transform: scale(1.15) rotate(7deg);}
-    }
-    /* Ripple effect */
-    .cta-btn .ripple {
-      position: absolute;
-      border-radius: 50%;
-      transform: scale(0);
-      animation: ripple 0.6s linear;
-      background: var(--cta-ripple);
-      pointer-events: none;
-      z-index: 1;
-    }
-    @keyframes ripple {
-      to {
-        transform: scale(4);
-        opacity: 0;
-      }
     }
 
     /* --- GLASSMORPHISM EFFECT FOR STRATEGY PARTNER SECTION --- */
@@ -383,6 +319,15 @@
       overflow: hidden;
       animation: fadeInUp 1.1s cubic-bezier(.68,-0.55,.27,1.55);
     }
+    @keyframes borderShine {
+      0% { filter: blur(10px) brightness(1.07);}
+      50% { filter: blur(16px) brightness(1.23);}
+      100% { filter: blur(10px) brightness(1.07);}
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
     .section-glass > * { position: relative; z-index: 1; }
     .section-glass strong {
       font-family: var(--headline);
@@ -391,15 +336,6 @@
       color: var(--gold2);
       letter-spacing: 0.03em;
     }
-    /* SVG shape divider below glass section */
-    .glass-divider {
-      width: 100vw;
-      height: 48px;
-      margin: -1.5em 0 0 0;
-      display: block;
-      z-index: 2;
-    }
-
     /* --- LIFE CYCLE SECTION --- */
     .lifecycle-section {
       margin: 0 auto 2.2rem auto;
@@ -435,20 +371,18 @@
       backdrop-filter: var(--glass-blur);
       -webkit-backdrop-filter: var(--glass-blur);
       padding: 2rem 1.4rem 1.3rem 1.4rem;
-      transition: transform 0.29s cubic-bezier(.58,1.9,.38,1), box-shadow .24s, background 0.28s;
+      transition: transform 0.21s cubic-bezier(.58,1.9,.38,1), box-shadow .24s;
       position: relative;
       z-index: 3;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      cursor: pointer;
     }
-    .lifecycle-card:hover, .lifecycle-card:focus-within {
-      transform: translateY(-8px) scale(1.04) rotate(-1deg);
+    .lifecycle-card:hover {
+      transform: translateY(-8px) scale(1.025);
       box-shadow: 0 18px 44px #e9c46a38;
       background: rgba(255,255,255,0.41);
-      outline: 2.5px solid var(--gold2);
     }
     .lifecycle-card .lifecycle-label {
       font-family: var(--headline);
@@ -460,7 +394,6 @@
       margin-top: 0.2rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      transition: color 0.15s;
     }
     .lifecycle-card .lifecycle-desc {
       font-family: var(--font);
@@ -471,20 +404,6 @@
       line-height: 1.7;
       margin-bottom: 0;
       text-align: left;
-      transition: color 0.14s;
-    }
-    .lifecycle-card .lifecycle-emoji {
-      font-size: 2.1rem;
-      margin-bottom: 0.4em;
-      animation: emojiPop 1.1s infinite alternate;
-    }
-    /* Parallax SVG behind lifecycle section */
-    .parallax-svg {
-      position: absolute;
-      left: 0; right: 0; top: -60px; width: 100vw; height: 180px;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.13;
     }
     @media (max-width: 900px) {
       .lifecycle-cards { gap: 1.1rem; }
@@ -492,6 +411,8 @@
       .lifecycle-title { font-size: 1.2rem; }
     }
     @media (max-width: 700px) {
+      .video-container { max-width: 100vw; }
+      .section-glass { margin: 0 auto 1.2rem auto; padding: 1.1rem 0.7rem; font-size: 1.01rem; }
       .lifecycle-cards {
         flex-direction: column;
         gap: 1.2rem;
@@ -526,197 +447,124 @@
       box-shadow: 0 -3px 14px #e9c46a25;
     }
     .footer a { color: #fff; text-decoration: underline; }
-
-    /* Accessibility focus */
-    a:focus, button:focus, .lifecycle-card:focus {
-      outline: 2.5px solid var(--accent);
-      outline-offset: 2px;
-    }
-    /* Animated counter */
-    .counter {
-      font-size: 2.1rem;
-      font-family: var(--headline);
-      color: var(--gold2);
-      font-weight: 900;
-      margin-bottom: 0.6em;
-      transition: color 0.2s;
-    }
-    /* Testimonials slider */
-    .testimonials {
-      max-width: 800px;
-      margin: 1.8em auto 2.5em auto;
-      background: var(--glass-bg);
-      border-radius: 23px;
-      box-shadow: 0 6px 18px #e9c46a30;
-      padding: 1.8em 1.1em 2em 1em;
-      overflow: hidden;
-      position: relative;
-      text-align: center;
-    }
-    .testimonial-text {
-      font-size: 1.12rem;
-      line-height: 1.6;
-      font-family: var(--font);
-      color: var(--charcoal);
-      margin-bottom: 1em;
-    }
-    .testimonial-author {
-      font-family: var(--headline);
-      font-size: 1.05em;
-      color: var(--gold2);
-      letter-spacing: 0.03em;
-      margin-bottom: 0.3em;
-      font-weight: bold;
-    }
-    .testimonial-nav {
-      display: flex;
-      justify-content: center;
-      gap: 1.4em;
-      margin-top: 0.5em;
-    }
-    .testimonial-dot {
-      width: 13px; height: 13px;
-      border-radius: 50%;
-      background: #e9c46a77;
-      border: 2px solid var(--gold2);
-      cursor: pointer;
-      transition: background 0.2s, border 0.2s;
-      margin-top: 0.3em;
-    }
-    .testimonial-dot.active {
-      background: var(--gold2);
-      border: 2px solid var(--rose-gold);
-    }
   </style>
 </head>
 <body>
-  <!-- SVG BG Pattern -->
-  <svg class="svg-bg-pattern" aria-hidden="true">
-    <defs>
-      <pattern id="dots" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
-        <circle cx="8" cy="8" r="1.5" fill="#e9c46a" />
-        <circle cx="24" cy="24" r="1.5" fill="#f7cac9" />
-      </pattern>
-    </defs>
-    <rect width="100%" height="100%" fill="url(#dots)" />
-  </svg>
   <!-- NAVIGATION BAR -->
-  <header class="navbar" aria-label="Main Navigation">
+  <header class="navbar">
     <div class="nav-container">
       <div class="nav-brand">
-        <img src="favicon.png.png" alt="Consumer Kanvas Logo" class="nav-logo-img" id="navLogo" tabindex="0"/>
+        <img src="favicon.png.png" alt="Consumer Kanvas Logo" class="nav-logo-img" id="navLogo"/>
       </div>
-      <nav class="nav-links" id="navLinks" aria-label="Main site links">
-        <a href="#home" class="active" aria-current="page" tabindex="0">Home</a>
-        <a href="#about" tabindex="0">About Us</a>
-        <a href="#services" tabindex="0">Services</a>
-        <a href="#contact" tabindex="0">Contact</a>
-        <a href="#tools" tabindex="0">Business Health Check Scorecards</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="#tools">Scorecards</a>
       </nav>
-      <button class="nav-toggle" aria-label="Menu" onclick="toggleMenu()" tabindex="0">☰</button>
+      <button class="nav-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
     </div>
   </header>
 
-  <!-- HERO SECTION: single video, overlay text only when playing -->
-  <section class="hero" id="home" aria-label="Hero">
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
     <div class="video-container">
-      <video
-        id="heroVideo"
-        src="10613972-hd_1920_1080_24fps.mp4"
-        poster="favicon.png.png"
-        autoplay
-        loop
-        muted
-        playsinline
-        loading="lazy"
-        aria-label="Brand video"
-      ></video>
-      <div class="hero-gradient-overlay"></div>
+      <video id="heroVideo" src="10613972-hd_1920_1080_24fps.mp4" autoplay loop muted playsinline poster="favicon.png.png"></video>
       <div class="video-overlay-text" id="videoOverlayText">
-        <span class="typewriter" id="typewriter"></span>
+        We Help Startups Scale Through Consumer Insight and Strategic Clarity.
       </div>
     </div>
-    <button class="cta-btn" id="ctaBtn" aria-label="Call us">
-      <span class="cta-emoji" aria-hidden="true">📞</span>
-      Contact Us
-    </button>
   </section>
 
-  <!-- Glassmorphism divider -->
-  <svg class="glass-divider" aria-hidden="true" viewBox="0 0 1440 48" preserveAspectRatio="none">
-    <path d="M0,36 Q360,48 720,24 T1440,36 V48 H0Z" fill="#fff9" />
-  </svg>
-
-  <!-- GLASSMORPHISM STRATEGY SECTION with animated border and fade-in -->
-  <section class="section-glass" id="about" data-aos="fade-up" aria-label="About Consumer Kanvas">
-    Consumer Kanvas is a strategy partner that builds annual, brand-led growth strategies powered by real consumer insight helping ambitious brands scale with clarity and traction.
-    <div class="counter" id="counter1" aria-label="Brands helped"></div>
-    <div style="font-size: 1rem; color: #f4a261;">brands helped</div>
+  <!-- INTRO SECTION -->
+  <section class="section-glass" data-aos="fade-up">
+    <p><strong>Consumer Kanvas</strong> helps founders unlock growth through brand-led strategies powered by real consumer insight, not assumptions.</p>
+    <p>You’re building fast. Every decision counts. At Consumer Kanvas, we work with early-stage and scaling startups to sharpen brand clarity, validate market fit, and deliver positioning that converts. We bridge the gap between founder instinct and consumer truth, so you can grow with traction, not noise.</p>
   </section>
 
-  <!-- SVG Parallax pattern above lifecycle -->
-  <svg class="parallax-svg" aria-hidden="true">
-    <ellipse cx="350" cy="90" rx="190" ry="70" fill="#e9c46a"/>
-    <ellipse cx="950" cy="120" rx="110" ry="40" fill="#f7cac9"/>
-  </svg>
-
-  <!-- LIFE CYCLE SECTION -->
-  <section class="lifecycle-section" id="services" data-aos="fade-up" aria-label="Brand Life Cycle">
-    <div class="lifecycle-title">
-      We are your partners throughout the Brand Life Cycle
-    </div>
+  <!-- VALUE PROPOSITION SECTION -->
+  <section class="lifecycle-section" data-aos="fade-up">
+    <div class="lifecycle-title">Why Founders Work with Us</div>
     <div class="lifecycle-cards">
-      <div class="lifecycle-card" tabindex="0">
-        <div class="lifecycle-emoji" aria-hidden="true">🚀</div>
-        <div class="lifecycle-label">LAUNCH</div>
-        <div class="lifecycle-desc">
-          Establish a strong foundation and clear direction &amp; enter the market with a distinct and compelling identity &amp; communication strategy.
-        </div>
+      <div class="lifecycle-card">
+        <div class="lifecycle-label">🔍 Clarity Before You Scale</div>
+        <div class="lifecycle-desc">We help you define what your brand truly stands for and who it's really for.</div>
       </div>
-      <div class="lifecycle-card" tabindex="0">
-        <div class="lifecycle-emoji" aria-hidden="true">🌎</div>
-        <div class="lifecycle-label">GROW</div>
-        <div class="lifecycle-desc">
-          Expand reach and product offerings and scale efforts with targeted insights and strategic guidance.
-        </div>
+      <div class="lifecycle-card">
+        <div class="lifecycle-label">🧭 Know Your Consumer’s Voice</div>
+        <div class="lifecycle-desc">We get you closer to the real people you're building for through insight-led research.</div>
       </div>
-      <div class="lifecycle-card" tabindex="0">
-        <div class="lifecycle-emoji" aria-hidden="true">🔄</div>
-        <div class="lifecycle-label">REINVENT</div>
-        <div class="lifecycle-desc">
-          Maintain leadership, innovate and reinvent to stay relevant and competitive.
-        </div>
+      <div class="lifecycle-card">
+        <div class="lifecycle-label">📣 A Story That Sticks</div>
+        <div class="lifecycle-desc">We help you shape a narrative that scales with you.</div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS SLIDER (simple, JS-based) -->
-  <section class="testimonials" id="testimonials" aria-label="Testimonials">
-    <div class="testimonial-text" id="testimonialText"></div>
-    <div class="testimonial-author" id="testimonialAuthor"></div>
-    <div class="testimonial-nav" id="testimonialNav"></div>
+  <!-- SERVICES SECTION -->
+  <section class="lifecycle-section" data-aos="fade-up">
+    <div class="lifecycle-title">Brand Strategy for Startups, Backed by Insight</div>
+    <div class="lifecycle-cards">
+      <div class="lifecycle-card">
+        <div class="lifecycle-label">🎯 Positioning Strategy</div>
+        <div class="lifecycle-desc">Define your unique market fit with messaging rooted in consumer truth.</div>
+      </div>
+      <div class="lifecycle-card">
+        <div class="lifecycle-label">🧠 Consumer Research Services</div>
+        <div class="lifecycle-desc">Use qualitative research and focus groups to understand the people you’re building for.</div>
+      </div>
+      <div class="lifecycle-card">
+        <div class="lifecycle-label">🚀 Go-To-Market Planning</div>
+        <div class="lifecycle-desc">Launch with a clear story, tested narratives, and audience-validated strategy.</div>
+      </div>
+    </div>
   </section>
 
-  <div class="footer" aria-label="Footer">
-    📞 Contact us: <a href="tel:+919821379658" aria-label="Call Consumer Kanvas">+91 98213 79658</a>
+  <!-- TESTIMONIALS SECTION -->
+  <section class="section-glass" data-aos="fade-up">
+    <div class="lifecycle-title">Startups We’ve Helped Find Their Edge</div>
+    <p>“We pivoted our entire positioning thanks to the insight we got from Consumer Kanvas.” <span>Early-stage Fintech Founder</span></p>
+    <p>“The clarity and confidence we gained through the brand strategy sprint was a game changer.” <span>D2C Wellness Founder</span></p>
+  </section>
+
+  <!-- FAQ SECTION (Visible + Schema) -->
+  <section class="lifecycle-section" id="faq">
+    <div class="lifecycle-title">Founders Often Ask Us…</div>
+    <div class="lifecycle-cards">
+      <div class="lifecycle-card">
+        <div class="lifecycle-label">Do I need consumer research if I already know my audience?</div>
+        <div class="lifecycle-desc">Gut feel is a great starting point. But when you're scaling, real growth comes from real data. We help you test assumptions before they cost you.</div>
+      </div>
+      <div class="lifecycle-card">
+        <div class="lifecycle-label">At what stage should I bring in brand strategy?</div>
+        <div class="lifecycle-desc">The earlier the better. If you're pre-launch or mid-scale without clarity, we help you build strong from the ground up.</div>
+      </div>
+      <div class="lifecycle-card">
+        <div class="lifecycle-label">Is this only for VC-funded startups?</div>
+        <div class="lifecycle-desc">No. We work with ambitious founders, funded or bootstrapped, who value clarity, truth, and traction.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="section-glass" data-aos="fade-up">
+    <p><strong>Let’s turn your brand into your growth engine.</strong><br>
+    <a href="#contact">Get Clarity. Unlock Growth. Book a 20-min Founder Strategy Call →</a></p>
+  </section>
+
+  <!-- FOOTER WITH INTERNAL LINKS -->
+  <div class="footer">
+    📞 Contact us: <a href="tel:+919821379658">+91 98213 79658</a> | 
+    <a href="#" title="Brand Strategy for Startups">Brand Strategy</a> ·
+    <a href="#" title="Consumer Research Services">Consumer Insight</a> ·
+    <a href="#" title="Go-To-Market Strategy">Go-To-Market</a> ·
+    <a href="#" title="Founder Blog">Founder Blog</a>
   </div>
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <!-- Lottie for animated icons (optional, demo) -->
-  <script src="https://unpkg.com/lottie-web@5.10.2/build/player/lottie.min.js"></script>
   <script>
-    // AOS for scroll animations
     AOS.init({ once: true, duration: 1100, offset: 130 });
-
-    // Sticky nav color on scroll
-    window.addEventListener('scroll', function() {
-      const navbar = document.querySelector('.navbar');
-      if(window.scrollY > 32) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
 
     // Mobile nav toggle
     function toggleMenu() {
@@ -753,56 +601,7 @@
       document.querySelector('.nav-links a[href="#home"]').classList.add('active');
     });
 
-    // Logo morph on scroll (already handled in CSS)
-    // -- Additional animation could be added with JS if desired
-
-    // HERO: Typewriter animation for headline
-    const phrases = [
-      "From Insight to Impact",
-      "Growth Driven by" 
-      "Real Consumer Understanding",
-      "Brand-led Business Strategies"
-    ];
-    let currentPhrase = 0, currentLetter = 0, typewriterEl = document.getElementById('typewriter');
-    function typeWriter() {
-      let phrase = phrases[currentPhrase];
-      if(currentLetter <= phrase.length) {
-        typewriterEl.textContent = phrase.substring(0, currentLetter);
-        currentLetter++;
-        setTimeout(typeWriter, 70);
-      } else {
-        setTimeout(() => {
-          currentLetter = 0;
-          currentPhrase = (currentPhrase + 1) % phrases.length;
-          typeWriter();
-        }, 1850);
-      }
-    }
-    typeWriter();
-
-    // CTA ripple effect and call action
-    const ctaBtn = document.getElementById('ctaBtn');
-    ctaBtn.addEventListener('click', function(e){
-      // Ripple
-      const circle = document.createElement('span');
-      circle.classList.add('ripple');
-      const rect = ctaBtn.getBoundingClientRect();
-      circle.style.left = (e.clientX - rect.left) + 'px';
-      circle.style.top = (e.clientY - rect.top) + 'px';
-      ctaBtn.appendChild(circle);
-      setTimeout(() => circle.remove(), 600);
-      // Call action
-      setTimeout(() => { window.location.href='tel:+919821379658' }, 150);
-    });
-
-    // Accessibility: allow CTA by keyboard
-    ctaBtn.addEventListener('keydown', function(e) {
-      if(e.key === 'Enter' || e.key === ' ') {
-        ctaBtn.click();
-      }
-    });
-
-    // Video overlay text only when video is playing (not needed for typewriter, but keep for accessibility)
+    // Video overlay text only when video is playing
     const video = document.getElementById('heroVideo');
     const overlay = document.getElementById('videoOverlayText');
     function setOverlayVisibility() {
@@ -821,81 +620,6 @@
       video.addEventListener('ended', setOverlayVisibility);
     }
     document.addEventListener('visibilitychange', setOverlayVisibility);
-
-    // Animated counter
-    function animateCounter(id, target, duration = 1600) {
-      let el = document.getElementById(id);
-      let start = 0;
-      let increment = Math.ceil(target / (duration/24));
-      let current = 0;
-      function step() {
-        current += increment;
-        if(current > target) current = target;
-        el.textContent = current;
-        if(current < target) requestAnimationFrame(step);
-      }
-      step();
-    }
-    animateCounter('counter1', 74, 1200);
-
-    // Testimonials slider
-    const testimonials = [
-      {
-        text: "Consumer Kanvas helped us find our true brand voice and scale our business with clarity. Their consumer insight is unmatched.",
-        author: "Riya, D2C Beauty Founder"
-      },
-      {
-        text: "The way CK delivered actionable plans backed by real market research changed our trajectory.",
-        author: "Amit, SaaS Startup CEO"
-      },
-      {
-        text: "We love the energy and the focus on consumer truth. The team’s strategy was a game changer.",
-        author: "Neha, Lifestyle Brand"
-      }
-    ];
-    let testiIdx = 0, testiText = document.getElementById('testimonialText'), testiAuthor = document.getElementById('testimonialAuthor'), testiNav = document.getElementById('testimonialNav');
-    function showTestimonial(idx) {
-      testiText.textContent = testimonials[idx].text;
-      testiAuthor.textContent = testimonials[idx].author;
-      testiNav.innerHTML = '';
-      testimonials.forEach((_,i) => {
-        const dot = document.createElement('div');
-        dot.className = 'testimonial-dot' + (i===idx?' active':'');
-        dot.setAttribute('aria-label', 'Show testimonial ' + (i+1));
-        dot.setAttribute('tabindex', '0');
-        dot.addEventListener('click', ()=>showTestimonial(i));
-        dot.addEventListener('keydown', e=>{
-          if(e.key==="Enter"||e.key===" ") showTestimonial(i);
-        });
-        testiNav.appendChild(dot);
-      });
-    }
-    showTestimonial(testiIdx);
-    setInterval(()=>{testiIdx=(testiIdx+1)%testimonials.length;showTestimonial(testiIdx);}, 6000);
-
-    // Parallax effect for SVG above lifecycle
-    window.addEventListener('scroll', ()=>{
-      const svg = document.querySelector('.parallax-svg');
-      if(svg) {
-        let y = window.scrollY || window.pageYOffset;
-        svg.style.transform = 'translateY(' + (y*0.18) + 'px)';
-      }
-    });
-
-    // Keyboard navigation for lifecycle cards
-    document.querySelectorAll('.lifecycle-card').forEach(card => {
-      card.addEventListener('keydown', e=>{
-        if(e.key === 'Enter' || e.key === ' ') {
-          card.classList.add('hover');
-          setTimeout(()=>card.classList.remove('hover'),350);
-        }
-      });
-    });
-
-    // Accessibility: allow keyboard navigation for nav toggle
-    document.querySelector('.nav-toggle').addEventListener('keydown', function(e){
-      if(e.key === 'Enter' || e.key === ' ') this.click();
-    });
   </script>
 </body>
 </html>
