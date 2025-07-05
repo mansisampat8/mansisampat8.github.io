@@ -68,7 +68,7 @@ function playTypewriterEffect() {
       clearInterval(typingInterval);
       caretElem.style.display = "none";
     }
-  }, 33); // ~30 chars/sec
+  }, 100); // ~10 chars/sec
 }
 
 function hideOverlay() {
