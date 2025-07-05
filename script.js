@@ -3,7 +3,8 @@ AOS.init({ once: true, duration: 1100, offset: 130 });
 
 // Mobile nav toggle
 function toggleMenu() {
-  document.getElementById('navLinks').classList.toggle('open');
+  var links = document.getElementById('navLinks');
+  links.classList.toggle('open');
 }
 // Close nav on link click (for mobile)
 document.querySelectorAll('.nav-links a').forEach(link => {
