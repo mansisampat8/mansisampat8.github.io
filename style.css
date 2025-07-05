@@ -215,20 +215,23 @@ body::before {
   display: block;
   background: #fffbe7;
 }
+/* THIS IS THE BLOCK YOU NEED TO CHANGE: */
 .video-overlay-text.typewriter {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #111;
-  background: rgba(255,255,255,0.85);
+  color: #fff; /* Use white text for blending */
+  background: none; /* Remove the background */
+  /* Subtle text shadow for readability on light video, not a glow: */
+  text-shadow: 0 1px 9px rgba(0,0,0,0.16);
   padding: 0.7em 1.2em;
   border-radius: 14px;
   font-family: 'Playfair Display', serif, monospace;
   font-size: 2rem;
   font-weight: 900;
   text-align: center;
-  box-shadow: 0 4px 18px #e9c46a22;
+  box-shadow: none;
   line-height: 1.15;
   max-width: 90vw;
   opacity: 0;
