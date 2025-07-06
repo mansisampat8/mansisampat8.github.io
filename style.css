@@ -13,7 +13,7 @@ html { scroll-behavior: smooth; }
   --glass-bg: rgba(255,255,255,0.33);
   --glass-border: rgba(233,196,106,0.22);
   --glass-blur: blur(18px);
-  --section-diag: linear-gradient(135deg, #fffbe7 80%, #f4a26127 100%);
+  --section-diag: #fff;
   --section-dark: #f9efe7;
   --shadow-bubble: 0 10px 30px 0 #e9c46a38, 0 4px 18px #f7cac9b0;
   --transition: 0.28s cubic-bezier(.68,-0.55,.27,1.55);
@@ -533,7 +533,7 @@ body::before {
 }
 .sticky-cta .cta-btn {
   pointer-events: all;
-  background: linear-gradient(90deg, var(--gold2) 90%, var(--rose-gold));
+  background: --section-diag: #fff;
   color: #fff;
   font-family: var(--headline);
   font-size: 1.18rem;
@@ -587,4 +587,8 @@ body::before {
   55% { transform: translateY(0);}
   70% { transform: translateY(-3px);}
   85% { transform: translateY(0);}
+}
+h1, h2, h3, h4, h5, h6,
+p, span, div, a, li, strong {
+  color: #000 !important;
 }
