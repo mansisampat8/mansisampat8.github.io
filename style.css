@@ -1,22 +1,9 @@
 html { scroll-behavior: smooth; }
 :root {
-  --champagne: #f9efe7;
-  --gold1: #e9c46a;
-  --gold2: #f4a261;
-  --rose-gold: #f7cac9;
-  --headline: 'Playfair Display', serif;
-  --font: 'Inter', 'Montserrat', sans-serif;
-  --founder-script: 'Pacifico', cursive;
-  --charcoal: #1a1918;
-  --muted: #606060;
-  --nav-height: 64px;
-  --glass-bg: rgba(255,255,255,0.33);
-  --glass-border: rgba(233,196,106,0.22);
-  --glass-blur: blur(18px);
-  --section-diag: #fff;
-  --section-dark: #f9efe7;
-  --shadow-bubble: 0 10px 30px 0 #e9c46a38, 0 4px 18px #f7cac9b0;
-  --transition: 0.28s cubic-bezier(.68,-0.55,.27,1.55);
+  --charcoal: #000;      /* black text */
+  --champagne: #fff;     /* white background */
+  --section-dark: #fff;  /* white for section backgrounds */
+  /* ...other variables... */
 }
 html, body { margin:0; padding:0; height:100%; }
 body {
