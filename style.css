@@ -22,11 +22,8 @@ html, body { margin:0; padding:0; height:100%; }
 body {
   min-height: 100vh;
   font-family: var(--font);
-  color: var(--charcoal);
-  background: linear-gradient(135deg, var(--champagne) 0%, var(--gold1) 100%);
-  background-attachment: fixed;
-  background-size: 400% 400%;
-  animation: bodyBG 24s ease-in-out infinite;
+  color: #000;            /* black text */
+  background: #fff;       /* white background */
   position: relative;
   overflow-x: hidden;
 }
