@@ -1,8 +1,9 @@
 html { scroll-behavior: smooth; }
 :root {
-  --charcoal: #000;      /* black text */
+ --charcoal: #000;      /* black text */
   --champagne: #fff;     /* white background */
   --section-dark: #fff;  /* white for section backgrounds */
+  --nav-height: 66px;    /* Set your nav height here */
   /* ...other variables... */
 }
 html, body { margin:0; padding:0; height:100%; }
@@ -27,8 +28,7 @@ body::before {
   background: url("https://www.transparenttextures.com/patterns/symphony.png") repeat;
   opacity: 0.09;
   mix-blend-mode: lighten;
-}
-/* --- NAVIGATION --- */
+}/* --- NAVIGATION --- */
 .navbar {
   position: sticky;
   top: 0;
@@ -132,6 +132,8 @@ body::before {
   margin-left: 18px;
   user-select: none;
 }
+
+/* --- Responsive Navigation --- */
 @media (max-width: 900px) {
   .nav-container { padding: 0 1rem; }
   .nav-links { gap: 1.3rem; }
@@ -139,9 +141,9 @@ body::before {
 @media (max-width: 700px) {
   .nav-links {
     position: fixed;
-    top: var(--nav-height);
+    top: var(--nav-height, 66px);
     right: 0;
-    height: calc(100vh - var(--nav-height));
+    height: calc(100vh - var(--nav-height, 66px));
     background: rgba(252, 248, 243, 0.99);
     box-shadow: -3px 0 32px rgba(233,196,106,0.09);
     flex-direction: column;
@@ -150,14 +152,13 @@ body::before {
     padding: 2.2rem 1.4rem;
     width: 82vw;
     max-width: 320px;
-    display: none;           /* Hide by default */
+    display: flex;  /* Always flex, use opacity/pointer-events for visibility */
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.25s;
     z-index: 999;
   }
   .nav-links.open {
-    display: flex;           /* Show when open */
     opacity: 1;
     pointer-events: all;
     transition: opacity 0.21s;
