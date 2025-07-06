@@ -3,13 +3,17 @@ AOS.init({ once: true, duration: 1100, offset: 130 });
 
 // Mobile nav toggle
 function toggleMenu() {
-  var links = document.getElementById('navLinks');
-  links.classList.toggle('open');
+  const links = document.getElementById('navLinks');
+  const navOpen = links.classList.toggle('open');
+  document.body.style.overflow = navOpen ? 'hidden' : '';
 }
+
 // Close nav on link click (for mobile)
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', function() {
-    document.getElementById('navLinks').classList.remove('open');
+    const links = document.getElementById('navLinks');
+    links.classList.remove('open');
+    document.body.style.overflow = ''; // Unlock scroll!
   });
 });
 
