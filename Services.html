@@ -9,33 +9,38 @@
   <meta property="og:image" content="https://www.consumerkanvas.com/images/services-hero.jpg">
   <meta property="og:url" content="https://www.consumerkanvas.com/services.html">
   <meta property="og:type" content="website">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Google Fonts for luxury effect -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;900&family=Pacifico&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png.png">
+
+  <!-- External CSS -->
   <link rel="stylesheet" href="style.css">
-  <!-- The inline style block is now REMOVED so your external style.css takes over -->
 </head>
 <body>
+
   <!-- NAVIGATION BAR -->
-<header class="navbar">
-  <div class="nav-container">
-    <div class="nav-brand">
-      <a href="index.html" style="display:flex;align-items:center;">
-        <img src="favicon.png.png" alt="Consumer Kanvas Logo" class="nav-logo-img" id="navLogo"/>
-      </a>
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="index.html" style="display:flex;align-items:center;">
+          <img src="favicon.png.png" alt="Consumer Kanvas Logo" class="nav-logo-img" id="navLogo">
+        </a>
+      </div>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About Us</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="startup-scorecard.html">Startup Scorecard</a>
+        <a href="index.html#tools">CK Blogs</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" onclick="toggleMenu()">☰</button>
     </div>
-    <nav class="nav-links" id="navLinks">
-      <a href="index.html#home" class="active">Home</a>
-      <a href="index.html#about">About Us</a>
-      <a href="services.html">Services</a>
-      <a href="index.html#contact">Contact</a>
-      <a href="startup-scorecard.html">Startup Scorecard</a>
-      <a href="index.html#tools">CK Blogs</a>
-    </nav>
-    <button class="nav-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
-  </div>
-</header>
+  </header>
 
   <!-- PAGE HERO -->
   <section>
@@ -45,12 +50,14 @@
     </div>
     <img src="images/services-hero.jpg" alt="Consumer Kanvas Services" class="hero-image" loading="lazy" />
   </section>
+
+  <!-- MAIN SERVICES -->
   <main>
     <!-- Founder Clarity Suite -->
     <section class="service-section">
       <div class="suite-badge">Founder Clarity Suite</div>
-      <div class="suite-title">Validate your market. Hear your customer. Build something people actually want.</div>
-      <div class="suite-tagline">Perfect for early-stage founders or MVP brands who want to test before they invest—on product, messaging, or branding.</div>
+      <h2 class="suite-title">Validate your market. Hear your customer. Build something people actually want.</h2>
+      <p class="suite-tagline">Perfect for early-stage founders or MVP brands who want to test before they invest—on product, messaging, or branding.</p>
       <ul class="suite-includes">
         <li><strong>Business Viability Report:</strong> Competitive mapping, pricing trends, and white space analysis</li>
         <li><strong>IDI or FGD (Your Choice):</strong> 6–8 respondent deep-dive with real consumers, moderated by our experts</li>
@@ -61,16 +68,17 @@
         <li>Market-tested product, positioning, or feature cues</li>
         <li>Confidence to move forward with direction—not guesswork</li>
       </ul>
-      <div class="suite-bestfor">🎯 Best For: Pre-launch founders, early MVP testers, or D2C startups exploring a pivot</div>
+      <p class="suite-bestfor">🎯 Best For: Pre-launch founders, early MVP testers, or D2C startups exploring a pivot</p>
       <div class="suite-cta">
         <button class="suite-cta-btn" onclick="window.location.href='contact.html'">Request a Clarity Call</button>
       </div>
     </section>
+
     <!-- Scaling Strategy Suite -->
     <section class="service-section">
       <div class="suite-badge">Scaling Strategy Suite</div>
-      <div class="suite-title">Build traction, not chaos. A customer-first growth strategy for the next 12 months.</div>
-      <div class="suite-tagline">For funded startups and post-launch brands who know what to build—now it’s time to scale with precision.</div>
+      <h2 class="suite-title">Build traction, not chaos. A customer-first growth strategy for the next 12 months.</h2>
+      <p class="suite-tagline">For funded startups and post-launch brands who know what to build—now it’s time to scale with precision.</p>
       <ul class="suite-includes">
         <li><strong>FGD or IDI (if not already done):</strong> Validate your value prop, audience segments, or GTM narrative</li>
         <li><strong>Insight-Led Brand Strategy:</strong> Clear positioning, persona refinement, and messaging map</li>
@@ -81,15 +89,17 @@
         <li>Strategic clarity across messaging, media, and acquisition</li>
         <li>Internal alignment with a repeatable growth engine</li>
       </ul>
-      <div class="suite-bestfor">🎯 Best For: Post-launch D2C brands, funded startups, and service-led founders preparing for scale</div>
+      <p class="suite-bestfor">🎯 Best For: Post-launch D2C brands, funded startups, and service-led founders preparing for scale</p>
       <div class="suite-cta">
         <button class="suite-cta-btn" onclick="window.location.href='contact.html'">Book a Growth Strategy Call</button>
       </div>
     </section>
   </main>
+
+  <!-- SCRIPT -->
   <script>
     function toggleMenu() {
-      var links = document.getElementById('navLinks');
+      const links = document.getElementById('navLinks');
       links.classList.toggle('open');
     }
   </script>
