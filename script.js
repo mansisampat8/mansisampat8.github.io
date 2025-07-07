@@ -1,11 +1,16 @@
 // Init AOS with once:true and animation duration
 AOS.init({ once: true, duration: 1100, offset: 130 });
 
+// --- MOBILE NAV LOGIC ---
 // Mobile nav toggle
 function toggleMenu() {
   const links = document.getElementById('navLinks');
   const navOpen = links.classList.toggle('open');
   document.body.style.overflow = navOpen ? 'hidden' : '';
+  // Prevent nav from being cut off on mobile by scrolling page to top if menu is opened
+  if (navOpen) {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
 }
 
 // Close nav on link click (for mobile)
