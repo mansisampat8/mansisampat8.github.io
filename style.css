@@ -1,6 +1,6 @@
 html { scroll-behavior: smooth; }
 :root {
- --charcoal: #000;      /* black text */
+  --charcoal: #000;      /* black text */
   --champagne: #fff;     /* white background */
   --section-dark: #fff;  /* white for section backgrounds */
   --nav-height: 66px;    /* Set your nav height here */
@@ -28,7 +28,9 @@ body::before {
   background: url("https://www.transparenttextures.com/patterns/symphony.png") repeat;
   opacity: 0.09;
   mix-blend-mode: lighten;
-}/* --- NAVIGATION --- */
+}
+
+/* --- NAVIGATION --- */
 .navbar {
   position: sticky;
   top: 0;
@@ -152,16 +154,20 @@ body::before {
     padding: 2.2rem 1.4rem;
     width: 82vw;
     max-width: 320px;
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
     display: flex;  /* Always flex, use opacity/pointer-events for visibility */
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.25s;
+    right: -100vw;
+    transition: right 0.34s cubic-bezier(.68,-0.55,.27,1.55), opacity 0.25s;
     z-index: 999;
   }
   .nav-links.open {
+    right: 0;
     opacity: 1;
     pointer-events: all;
-    transition: opacity 0.21s;
+    transition: right 0.34s cubic-bezier(.68,-0.55,.27,1.55), opacity 0.21s;
   }
   .nav-toggle { display: block; }
 }
@@ -614,132 +620,4 @@ body::before {
   object-fit: cover;
 }
 
-/* --- SERVICE SECTIONS --- */
-.service-section {
-  background: var(--section-dark, #fff);
-  border-radius: 26px;
-  box-shadow: 0 8px 35px #e9c46a18;
-  margin: 2.5rem auto;
-  max-width: 780px;
-  padding: 2.2rem 1.6rem 1.7rem 1.6rem;
-  font-family: var(--font, 'Inter', sans-serif);
-  color: #222;
-  position: relative;
-  overflow: hidden;
-  border: 1.5px solid #f3e2c7;
-  animation: fadeInUp 1s cubic-bezier(.68,-0.55,.27,1.55);
-}
-
-.suite-badge {
-  display: inline-block;
-  background: linear-gradient(90deg, var(--gold1, #e9c46a), var(--gold2, #f4a261) 85%);
-  color: #fff;
-  padding: 0.34em 1.2em;
-  border-radius: 1.2em;
-  font-family: var(--headline, 'Playfair Display', serif);
-  font-size: 1.09rem;
-  font-weight: 900;
-  margin-bottom: 1.2em;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  box-shadow: 0 3px 18px #e9c46a22;
-}
-
-.suite-title {
-  font-family: var(--headline, 'Playfair Display', serif);
-  font-size: 1.45rem;
-  font-weight: 900;
-  color: var(--gold2, #f4a261);
-  margin: 0.4em 0 0.6em 0;
-  letter-spacing: 0.02em;
-  text-align: left;
-}
-
-.suite-tagline {
-  font-family: var(--font, 'Inter', sans-serif);
-  font-size: 1.07rem;
-  color: #444;
-  font-weight: 600;
-  margin: 0.3em 0 1.1em 0;
-  text-align: left;
-}
-
-.suite-includes, .suite-walkaway {
-  list-style: disc inside;
-  margin: 1.1em 0 0.7em 1.2em;
-  padding: 0;
-  font-size: 1.02rem;
-  color: #222;
-}
-
-.suite-includes li strong,
-.suite-walkaway li strong {
-  font-family: var(--headline, 'Playfair Display', serif);
-  color: var(--gold1, #e9c46a);
-  font-weight: 900;
-}
-
-.suite-bestfor {
-  font-family: var(--font, 'Inter', sans-serif);
-  font-size: 1rem;
-  font-weight: 600;
-  color: #f4a261;
-  margin: 1.2em 0 0.7em 0;
-  text-align: left;
-}
-
-.suite-cta {
-  margin-top: 1.3em;
-  text-align: left;
-}
-
-.suite-cta-btn {
-  font-family: var(--headline, 'Playfair Display', serif);
-  font-size: 1.11rem;
-  font-weight: 900;
-  background: linear-gradient(90deg, var(--gold1, #e9c46a) 70%, var(--gold2, #f4a261));
-  color: #fff;
-  border: none;
-  border-radius: 13px;
-  padding: 0.7em 2em;
-  box-shadow: 0 3px 18px #e9c46a36;
-  cursor: pointer;
-  transition: transform 0.18s, box-shadow 0.2s, background 0.2s;
-  outline: none;
-  letter-spacing: 0.02em;
-  margin-top: 0.9em;
-}
-
-.suite-cta-btn:hover, .suite-cta-btn:focus {
-  transform: scale(1.04) translateY(-3px);
-  background: linear-gradient(90deg, var(--gold2, #f4a261) 80%, var(--gold1, #e9c46a));
-  box-shadow: 0 9px 20px #e9c46a64;
-}
-
-.suite-cta-btn:active {
-  transform: scale(0.97) translateY(-1px);
-  background: var(--gold2, #f4a261);
-}
-
-/* Responsive adjustments for services page */
-@media (max-width: 900px) {
-  .headline-gradient { font-size: 1.55rem; }
-  .service-section { padding: 1.2rem 0.7rem 1.1rem 0.7rem; }
-  .hero-image { border-radius: 16px; }
-}
-
-@media (max-width: 600px) {
-  .headline-gradient { font-size: 1.09rem; }
-  .service-section { border-radius: 13px; padding: 0.7rem 0.3rem 0.6rem 0.3rem; }
-  .hero-image { border-radius: 8px; }
-}
-
-@media (max-width: 440px) {
-  .headline-gradient { font-size: 0.99rem; }
-  .hero-image { margin-bottom: 0.7rem; }
-  .service-section { font-size: 0.97rem; }
-}
-h1, h2, h3, h4, h5, h6,
-p, span, div, a, li, strong {
-  color: #000 !important;
-}
+/* --- SERVICE SECTIONS ---
