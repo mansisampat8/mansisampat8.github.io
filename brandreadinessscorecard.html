@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brand Readiness Scorecard</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f9fafb;
+      color: #111827;
+      padding: 2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .star {
+      color: #f59e0b;
+    }
+    p {
+      margin-bottom: 2rem;
+    }
+    .question {
+      margin-bottom: 1.5rem;
+    }
+    .question h3 {
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    input[type="radio"] {
+      margin-right: 0.5rem;
+    }
+    button {
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <h1><span class="star">⭐</span> How strong is your startup's brand?</h1>
+  <p>Take this quiz to measure your positioning, messaging, and emotional connection!</p>
+
+  <form id="scorecard">
+    <div class="question">
+      <h3>1. Do your customers immediately understand what you offer?</h3>
+      <label><input type="radio" name="q1" value="3"> Yes, crystal clear</label>
+      <label><input type="radio" name="q1" value="2"> Somewhat, but needs polish</label>
+      <label><input type="radio" name="q1" value="1"> Not really</label>
+    </div>
+
+    <div class="question">
+      <h3>2. Is your brand story consistent across channels?</h3>
+      <label><input type="radio" name="q2" value="3"> Consistent and memorable</label>
+      <label><input type="radio" name="q2" value="2"> Fairly consistent</label>
+      <label><input type="radio" name="q2" value="1"> All over the place</label>
+    </div>
+
+    <div class="question">
+      <h3>3. Does your messaging create an emotional connection?</h3>
+      <label><input type="radio" name="q3" value="3"> Deep connection</label>
+      <label><input type="radio" name="q3" value="2"> Mild connection</label>
+      <label><input type="radio" name="q3" value="1"> Not really</label>
+    </div>
+
+    <div class="question">
+      <h3>4. Are you positioned clearly against competitors?</h3>
+      <label><input type="radio" name="q4" value="3"> Very clear & differentiated</label>
+      <label><input type="radio" name="q4" value="2"> Somewhat, could improve</label>
+      <label><input type="radio" name="q4" value="1"> Not sure or unclear</label>
+    </div>
+
+    <div class="question">
+      <h3>5. Can your team articulate your brand in one sentence?</h3>
+      <label><input type="radio" name="q5" value="3"> Absolutely, with confidence</label>
+      <label><input type="radio" name="q5" value="2"> Sort of, varies by person</label>
+      <label><input type="radio" name="q5" value="1"> No, we all say something different</label>
+    </div>
+
+    <button type="button" onclick="calculateScore()">See Your Score</button>
+  </form>
+
+  <div id="result" style="margin-top: 2rem; font-weight: 600;"></div>
+
+  <script>
+    function calculateScore() {
+      const form = document.getElementById("scorecard");
+      const formData = new FormData(form);
+      let score = 0;
+      let answered = 0;
+
+      for (let [key, value] of formData.entries()) {
+        score += parseInt(value);
+        answered++;
+      }
+
+      const result = document.getElementById("result");
+
+      if (answered < 5) {
+        result.textContent = "Please answer all questions to get your score.";
+        return;
+      }
+
+      if (score >= 13) {
+        result.textContent = "🔥 Your brand is in great shape! Keep investing in clarity and connection.";
+      } else if (score >= 9) {
+        result.textContent = "⚙️ You're on your way — but there's room to sharpen your brand story.";
+      } else {
+        result.textContent = "🚧 Your brand needs focus. Let’s build clarity and emotional resonance.";
+      }
+    }
+  </script>
+
+</body>
+</html>
