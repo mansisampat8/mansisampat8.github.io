@@ -181,7 +181,33 @@
       <button class="nav-toggle" aria-label="Toggle navigation menu" onclick="toggleMenu()">☰</button>
     </div>
   </header>
-   
+   <!-- Modal Form -->
+<div id="userFormModal">
+  <form id="startupForm">
+    <h2 style="margin-top:0;">Fill this before taking the quiz</h2>
+
+    <label for="name">Your Name*</label>
+    <input type="text" id="name" required>
+
+    <label for="email">Email*</label>
+    <input type="email" id="email" required>
+
+    <label for="startup">Startup Name*</label>
+    <input type="text" id="startup" required>
+
+    <label for="stage">Startup Stage*</label>
+    <select id="stage" required>
+      <option value="">Select Stage</option>
+      <option value="idea">Idea Stage</option>
+      <option value="MVP">MVP Built</option>
+      <option value="launched">Launched</option>
+      <option value="funded">Funded</option>
+    </select>
+
+    <button type="submit">Start the Quiz</button>
+  </form>
+</div>
+
   <main>
     <section id="startup-scorecard" style="max-width:1080px; margin:0 auto; padding:2.7rem 1.1rem 2rem 1.1rem;">
       <div class="scorecard-hero">
