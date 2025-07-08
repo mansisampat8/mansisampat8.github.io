@@ -1,1 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Us | Consumer Kanvas</title>
+  <meta name="description" content="Meet the founders of Consumer Kanvas—Mansi Sampat and Nishita Mantry. Discover our multi-disciplinary approach to research, brand strategy, and empowering women entrepreneurs across India and beyond.">
+  <meta property="og:title" content="Meet the Founders | Consumer Kanvas">
+  <meta property="og:description" content="Mansi Sampat and Nishita Mantry drive Consumer Kanvas with insight, empathy, and bold strategy. Learn their stories.">
+  <meta property="og:image" content="https://www.consumerkanvas.com/images/about-hero.jpg">
+  <meta property="og:url" content="https://www.consumerkanvas.com/about.html">
+  <meta property="og:type" content="website">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png.png">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+  :root {
+    --gold1: #e9c46a;
+    --gold2: #f4a261;
+    --gold-gradient: linear-gradient(90deg, #e9c46a, #f4a261 70%, #fffbe7 100%);
+    --bg-glass: rgba(255,255,255,0.28);
+    --border-glass: rgba(233,196,106,0.19);
+    --shadow-glass: 0 8px 40px #e9c46a22, 0 2px 16px #fffbe7c7;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+  }
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background: #fffdf7;
+    min-height: 100vh;
+    color: #2f2a22;
+  }
+  .about-hero {
+    width: 100vw;
+    min-height: 36vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    padding: 4.2rem 1.2rem 3rem 1.2rem;
+    background: linear-gradient(112deg, #fffbe7 60%, #f4a26122 100%);
+    overflow: hidden;
+  }
+  .about-hero-title {
+    font-family: var(--font-serif);
+    font-size: 3.2rem;
+    font-weight: 900;
+    background: var(--gold-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.01em;
+    animation: gradient-move 8s linear infinite alternate;
+  }
+  .about-hero-sub {
+    font-size: 1.25rem;
+    font-family: var(--font-sans);
+    color: #a3751d;
+    margin-bottom: 0;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  /* --- Founders Section --- */
+  .founders-section {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    align-items: stretch;
+    margin: 0 auto 4rem auto;
+    max-width: 1200px;
+    padding: 0 1.4rem;
+    flex-wrap: wrap;
+  }
+  .founder-card {
+    background: var(--bg-glass);
+    border: 2px solid var(--border-glass);
+    border-radius: 32px;
+    box-shadow: var(--shadow-glass);
+    padding: 2.7rem 2.2rem 2.5rem 2.2rem;
+    min-width: 320px;
+    max-width: 500px;
+    flex: 1 1 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(17px) saturate(1.22);
+    margin-top: 3.5rem;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.7s, transform 0.7s;
+    position: relative;
+    overflow: hidden;
+  }
+  .founder-card.animated {
+    opacity: 1;
+    transform: none;
+  }
+  .founder-photo {
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 4px 32px #e9c46a33, 0 3px 14px #fffbe7cc;
+    border: 4px solid #fffbe7;
+    background: #fffbe7;
+  }
+  .founder-name {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 0.3rem;
+    color: #1a1202;
+    background: var(--gold-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: 0.01em;
+  }
+  .founder-title {
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: #a26b1e;
+    margin-bottom: 1.15rem;
+    font-family: var(--font-sans);
+    letter-spacing: 0.01em;
+    text-align: center;
+  }
+  .founder-bio {
+    font-size: 1.09rem;
+    line-height: 1.68;
+    color: #3b3735;
+    font-family: var(--font-sans);
+    margin-bottom: 1.6rem;
+    text-align: left;
+  }
+  .founder-quote {
+    font-size: 1.09rem;
+    color: #8c6f0a;
+    background: #fffbe7c7;
+    padding: 0.55em 1.5em;
+    border-radius: 12px;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+  }
+  .founder-cta-btn {
+    font-family: var(--font-sans);
+    font-weight: 900;
+    font-size: 1.11rem;
+    background: var(--gold-gradient);
+    color: #fff;
+    border: none;
+    border-radius: 28px;
+    padding: 0.85em 2.5em;
+    box-shadow: 0 3px 24px #e9c46a55;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.14s, box-shadow 0.22s;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .founder-cta-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 28px;
+    background: linear-gradient(120deg, #fffbe7 10%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .founder-cta-btn:hover, .founder-cta-btn:focus {
+    background: linear-gradient(90deg, #f4a261, #e9c46a 100%);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 32px #e9c46a87;
+  }
+  .founder-cta-btn:hover::after, .founder-cta-btn:focus::after { opacity: 0.13; }
+
+  /* Responsive */
+  @media (max-width: 1000px) {
+    .founders-section { flex-direction: column; gap: 2.8rem; align-items: center; }
+    .founder-card { max-width: 98vw; }
+  }
+  @media (max-width: 600px) {
+    .about-hero-title { font-size: 2rem; }
+    .founder-card { padding: 1.4rem 0.7rem; border-radius: 18px; }
+    .founder-photo { width: 82px; height: 82px; }
+  }
+  @keyframes gradient-move {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR (copy your existing navbar here for consistency) -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="index.html" style="display:flex;align-items:center;">
+          <img src="favicon.png.png" alt="Consumer Kanvas Logo" class="nav-logo-img" id="navLogo">
+        </a>
+      </div>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about" class="active">About Us</a>
+        <a href="Services.html">Services</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="startup-scorecard.html">Startup Scorecard</a>
+        <a href="index.html#tools">CK Blogs</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="about-hero">
+    <h1 class="about-hero-title">Meet the Minds<br>Behind <span style="white-space:nowrap;">Consumer Kanvas</span></h1>
+    <div class="about-hero-sub">Where bold ideas meet real consumer insight</div>
+  </section>
+
+  <!-- FOUNDERS SECTION -->
+  <section class="founders-section">
+    <!-- Mansi Sampat -->
+    <div class="founder-card" data-animate>
+      <img src="images/mansi-sampat.jpg" alt="Mansi Sampat - Co-Founder" class="founder-photo"
+        onerror="this.src='images/avatar-female-gold.png'">
+      <div class="founder-name">Mansi Sampat</div>
+      <div class="founder-title">Co-Founder, Research Strategist &amp; Insight Partner</div>
+      <div class="founder-bio">
+        I’ve always believed that bold ideas deserve rigorous validation. With a career built at the intersection of law, literature, advertising, and consumer behavior, I bring a rare multi-disciplinary lens to business strategy.<br><br>
+        After completing my Bachelor's in Mass Media (Advertising), I pursued a Law degree, followed by a Master’s in English Literature—each layer refining how I read people, patterns, and the stories that move them. Five years in legal research at a leading LPO honed my investigative precision and cross-industry analysis.<br><br>
+        But my true calling was always in understanding why people buy, what they believe, and how brands can speak to that truth.<br><br>
+        At Consumer Kanvas, I specialize in qualitative research, FGDs (focus group discussions), and IDIs (in-depth interviews) to uncover what most brands overlook: real consumer voice. Whether it’s a founder exploring product-market fit or a scaling brand refining their GTM, I help decode market signals into sharp strategy.<br><br>
+        If you’re looking for a thinking partner who brings empathy, logic, and clarity to every business decision, you’re in the right place.
+      </div>
+      <div class="founder-quote">Let’s turn your business into something your customer can’t live without.</div>
+      <a href="contact.html" style="text-decoration:none;">
+        <button class="founder-cta-btn">Request a Research Consultation</button>
+      </a>
+    </div>
+
+    <!-- Nishita Mantry -->
+    <div class="founder-card" data-animate>
+      <img src="images/nishita-mantry.jpg" alt="Nishita Mantry - Co-Founder" class="founder-photo"
+        onerror="this.src='images/avatar-female-gold.png'">
+      <div class="founder-name">Nishita Mantry</div>
+      <div class="founder-title">Co-Founder, Brand Strategist &amp; Mentor to 2500+ Women Entrepreneurs</div>
+      <div class="founder-bio">
+        Nishita Mantry is the force behind 300+ winning brands and the trusted strategist for over 500 women-led startups. As the Co-Founder of Consumer Kanvas, she blends brand building expertise with deep empathy for first-time founders.<br><br>
+        <strong>Her mission?</strong><br>
+        To empower women to create businesses they love, and earn money they truly own.<br>
+        As she says, “The taste of your own money is the sweetest.”<br><br>
+        Nishita began her journey with nothing but a laptop and a burning drive. She knows first-hand that for women, entrepreneurship is about far more than revenue—it’s about identity, self-worth, and freedom. With over 2,500 women entrepreneurs trained and 1,000 business ideas mentored, she brings real-world insight, practical strategy, and heartfelt mentorship to every founder she works with.<br><br>
+        Recognized as a distinguished innovator, Nishita was personally invited to Delhi for the launch of the “Start-Up India, Stand-Up India” initiative in 2016—an honor bestowed on just 2,000 leading entrepreneurs across the country.<br><br>
+        Today, her approach is simple but powerful:
+      </div>
+      <div class="founder-quote">“I consider myself a small business owner first. I’ve made the mistakes, tried the formulas, and found what works. Now, I bring that journey to help you shape yours.”</div>
+      <a href="contact.html" style="text-decoration:none;">
+        <button class="founder-cta-btn">Book a Brand Strategy Call</button>
+      </a>
+    </div>
+  </section>
+
+  <!-- Animate on Scroll Script -->
+  <script>
+    // Mobile nav toggle
+    function toggleMenu() {
+      const links = document.getElementById('navLinks');
+      links.classList.toggle('open');
+    }
+    // Animate founder cards on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      function animateOnScroll() {
+        document.querySelectorAll('[data-animate]').forEach(function(el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 80) {
+            el.classList.add('animated');
+          }
+        });
+      }
+      animateOnScroll();
+      window.addEventListener('scroll', animateOnScroll);
+    });
+  </script>
+</body>
+</html>
