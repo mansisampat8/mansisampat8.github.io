@@ -215,7 +215,7 @@
       </div>
       <nav class="nav-links" id="navLinks">
         <a href="index.html#home">Home</a>
-        <a href="index.html#about" class="active">About Us</a>
+        <a href="about-us.html" class="active">About Us</a>
         <a href="Services.html">Services</a>
         <a href="index.html#contact">Contact</a>
         <a href="startup-scorecard.html">Startup Scorecard</a>
