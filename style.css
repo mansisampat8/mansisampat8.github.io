@@ -29,6 +29,18 @@ body::before {
   opacity: 0.09;
   mix-blend-mode: lighten;
 }
+logo-text {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: #000; /* Or #f4a261 if you want to match your palette */
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  display: inline-block;
+}
+.logo-text:hover {
+  opacity: 0.85;
+}
 
 /* --- NAVIGATION --- */
 .navbar {
