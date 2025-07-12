@@ -77,9 +77,7 @@ function playTypewriterEffect() {
     } else {
       clearInterval(typingInterval);
       caretElem.style.display = "none";
-    }
-  }, 100);
-}; // ~10 chars/sec
+   }, 100);
 }
 
 function hideOverlay() {
