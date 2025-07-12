@@ -29,7 +29,7 @@ body::before {
   opacity: 0.09;
   mix-blend-mode: lighten;
 }
-logo-text {
+.logo-text {
   font-family: 'League Spartan', sans-serif;
   font-weight: 900;
   font-size: 1.8rem;
@@ -37,9 +37,17 @@ logo-text {
   letter-spacing: 0.04em;
   text-decoration: none;
   display: inline-block;
+  
+}
+.nav-brand {
+  display: flex;
+  align-items: center;
 }
 .logo-text:hover {
   opacity: 0.85;
+}
+.logo-text {
+  margin-right: 1rem; /* optional spacing from nav links */
 }
 
 /* --- NAVIGATION --- */
