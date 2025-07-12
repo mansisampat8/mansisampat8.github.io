@@ -59,7 +59,7 @@ document.querySelectorAll('.lifecycle-cards').forEach(cardsContainer => {
 // --- HERO TYPEWRITER EFFECT ---
 const typewriterText = "We Help Startups Scale Through Consumer Insights and Strategic Clarity.";
 const textElem = document.getElementById('typewriterText');
-const caretElem = document.getElementById('typeCaret');
+const caretElem = document.querySelector('.type-caret');
 const overlay = document.getElementById('videoOverlayText');
 const video = document.getElementById('heroVideo');
 let typingInterval = null;
@@ -78,7 +78,8 @@ function playTypewriterEffect() {
       clearInterval(typingInterval);
       caretElem.style.display = "none";
     }
-  }, 100); // ~10 chars/sec
+  }, 100);
+}; // ~10 chars/sec
 }
 
 function hideOverlay() {
