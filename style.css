@@ -28,7 +28,7 @@ body::before {
   background: url("https://www.transparenttextures.com/patterns/symphony.png") repeat;
   opacity: 0.09;
   mix-blend-mode: lighten;
-  
+  }
 .logo-text {
   font-family: 'League Spartan', sans-serif;
   font-weight: 900;
