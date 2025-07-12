@@ -28,26 +28,38 @@ body::before {
   background: url("https://www.transparenttextures.com/patterns/symphony.png") repeat;
   opacity: 0.09;
   mix-blend-mode: lighten;
+  
+.logo-text {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: #000;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap; /* ✅ prevent wrapping */
+  animation: bounce 2s infinite;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
 }
 .logo-text {
   font-family: 'League Spartan', sans-serif;
   font-weight: 900;
   font-size: 1.8rem;
-  color: #000; /* Or #f4a261 if you want to match your palette */
+  color: #000;
   letter-spacing: 0.04em;
   text-decoration: none;
   display: inline-block;
-  
+  margin-right: 1rem;
+  white-space: nowrap;      /* 🔒 Keeps 'Consumer Kanvas' on one line */
+   animation: logoBounce 2.4s ease-in-out infinite;
 }
-.nav-brand {
-  display: flex;
-  align-items: center;
-}
+
 .logo-text:hover {
   opacity: 0.85;
-}
-.logo-text {
-  margin-right: 1rem; /* optional spacing from nav links */
 }
 
 /* --- NAVIGATION --- */
@@ -74,11 +86,15 @@ body::before {
   justify-content: space-between;
   padding: 0 2.2rem;
   height: var(--nav-height);
+  flex-wrap: nowrap; /* ✅ Prevents logo and nav from wrapping on small screens */
+  overflow: hidden;   /* ✅ Avoids content overflow causing layout shifts */
 }
+
 .nav-brand {
   display: flex;
   align-items: center;
   height: var(--nav-height);
+  white-space: nowrap; /* ✅ Prevents "Consumer Kanvas" from breaking into two lines */
 }
 .nav-logo-img {
   width: 44px;
