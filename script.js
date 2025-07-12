@@ -70,6 +70,7 @@ function playTypewriterEffect() {
   caretElem.style.display = "inline-block";
   let i = 0;
   if (typingInterval) clearInterval(typingInterval);
+
   typingInterval = setInterval(() => {
     if (i <= typewriterText.length) {
       textElem.textContent = typewriterText.slice(0, i);
@@ -77,8 +78,9 @@ function playTypewriterEffect() {
     } else {
       clearInterval(typingInterval);
       caretElem.style.display = "none";
-   }, 100);
-}
+    }
+  }, 100); // ✅ closes setInterval properly
+} // ✅ closes the function
 
 function hideOverlay() {
   overlay.classList.remove('visible');
