@@ -243,6 +243,9 @@ body::before {
   display: block;
   background: #fffbe7;
 }
+.video-container {
+  position: relative;
+}
 /* THIS IS THE BLOCK YOU NEED TO CHANGE: */
 .video-overlay-text.typewriter {
   position: absolute;
@@ -286,7 +289,6 @@ body::before {
   .video-container video { height: 32vh; }
   .video-overlay-text.typewriter { font-size: 1.1rem; padding: 0.4em 0.6em;}
 }
-
 /* --- GLASSMORPHISM EFFECT FOR STRATEGY PARTNER SECTION --- */
 .section-glass {
   margin: 0 auto 2.2rem auto;
