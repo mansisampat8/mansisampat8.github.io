@@ -66,3 +66,20 @@ if (contactForm) {
     e.target.reset();
   });
 }
+
+// DROPDOWN TOGGLE FOR MOBILE (Our Solutions submenu)
+document.querySelectorAll('.nav-links li.dropdown > a.dropbtn').forEach(dropBtn => {
+  dropBtn.addEventListener('click', e => {
+    e.preventDefault();
+    const dropdown = dropBtn.nextElementSibling;
+    const isVisible = dropdown.style.display === 'block';
+
+    // Close all other dropdown menus first
+    document.querySelectorAll('.dropdown-content').forEach(menu => {
+      menu.style.display = 'none';
+    });
+
+    // Toggle current dropdown menu
+    dropdown.style.display = isVisible ? 'none' : 'block';
+  });
+});
