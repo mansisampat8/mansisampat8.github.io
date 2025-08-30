@@ -69,6 +69,58 @@ nav ul li a.active {
   color: #ffc845;
   border-bottom-color: #ffc845;
 }
+.nav-links li.dropdown {
+  position: relative;
+}
+
+/* Dropdown menu hidden by default */
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #0d3b66;
+  border-radius: 6px;
+  min-width: 220px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  display: none;
+  z-index: 500;
+  padding: 0.5rem 0;
+}
+
+.dropdown-content li a {
+  color: white;
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+  display: block;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content li a:hover {
+  background-color: #ffc845;
+  color: #0d3b66;
+  font-weight: 700;
+}
+
+/* Show dropdown menu on hover (desktop only) */
+.nav-links li.dropdown:hover > .dropdown-content {
+  display: block;
+}
+
+/* Add caret symbol */
+.dropbtn::after {
+  content: ' ▼';
+  font-size: 0.7em;
+  color: #ffc845;
+  margin-left: 4px;
+}
+
+/* Disable hover dropdown on mobile; use JS click toggle instead */
+@media (max-width: 768px) {
+  .nav-links li.dropdown:hover > .dropdown-content {
+    display: none;
+  }
+}
 
 .menu-toggle {
   display: none;
