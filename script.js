@@ -5,7 +5,7 @@ if (typeof AOS !== 'undefined') {
 
 // MOBILE NAVIGATION TOGGLE
 const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('nav ul.nav-links');
+const navLinks = document.querySelector('ul.nav-links');
 
 menuToggle.addEventListener('click', () => {
   navLinks.classList.toggle('show');
