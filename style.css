@@ -115,11 +115,9 @@ nav ul li a.active {
   margin-left: 4px;
 }
 
-/* Disable hover dropdown on mobile; use JS click toggle instead */
-@media (max-width: 768px) {
-  .nav-links li.dropdown:hover > .dropdown-content {
-    display: none;
-  }
+.menu-toggle {
+  position: relative;
+  z-index: 9999;
 }
 
 .menu-toggle {
