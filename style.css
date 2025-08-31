@@ -201,13 +201,18 @@ nav ul.nav-links li a.active {
     font-weight: 600;
   }
 
-  /* Show dropdown when toggled by JS (style="display: block") */
-  .nav-links li.dropdown .dropdown-content[style*="display: block"] {
-    display: block;
+ /* Mobile: dropdown hidden by default, shown only when JS sets inline style */
+@media (max-width: 768px) {
+  .dropdown-content {
+    display: none;
+    position: static;
+    min-width: unset;
+    box-shadow: none;
+    border-radius: 0;
+    background-color: inherit;
+    padding: 0;
   }
-
-  /* Hide dropdown arrow on mobile if desired */
-  /* .dropbtn::after { display: none; } */
+  /* Remove: .nav-links li.dropdown .dropdown-content[style*="display: block"] */
 }
 /* Hero Section */
 .hero {
