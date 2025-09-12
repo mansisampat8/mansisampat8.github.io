@@ -39,11 +39,25 @@ header {
 .logo {
   font-family: 'League Spartan', sans-serif;
   font-weight: 900;
-  font-size: 1.8rem;
+  font-size: 1.8rem; /* desktop size */
   color: white;
   text-decoration: none;
   cursor: pointer;
 }
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 1.4rem; /* smaller to fit hamburger */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.2rem; /* tiny screens */
+  }
+}
+
 
 .logo:hover {
   color: #ffc845;
