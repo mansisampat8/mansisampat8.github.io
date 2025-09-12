@@ -153,7 +153,7 @@ nav ul li a.active {
 .hero p {
   font-size: 1.3rem;
   margin-bottom: 2rem;
-  line-height: 1.4;
+  line-height: 1.6;
 }
 
 /* Buttons */
@@ -429,7 +429,7 @@ footer {
 
 /* Tiny screens */
 @media (max-width: 480px) {
-  .logo { font-size: 1.2rem; }
+  .logo { font-size: 1.3rem; }
   .hero-content h1 { font-size: 1.45rem; }
   .container { padding: 10px; }
   .experience-section { flex-direction: column; gap: 1.5em; }
