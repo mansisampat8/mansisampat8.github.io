@@ -158,12 +158,48 @@ nav ul li a.active {
   margin-bottom: 1rem;
 }
 
+/* Hero Section */
+.hero {
+  background-image: linear-gradient(to bottom, rgba(13,59,102,0.85), rgba(13,59,102,0.6)),
+    url('smartworks-coworking-Uz8THWPXwhI-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  min-height: 70vh;          /* changed from height to min-height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+  position: relative;        /* allows for layering if needed */
+}
+
+/* Add a box around the hero content for clarity */
+.hero-content {
+  max-width: 600px;
+  background: rgba(28,37,65,0.95); /* semi-transparent blue box */
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(13, 59, 102, 0.18);
+  padding: 2.5rem 2rem 2.5rem 2rem; /* enough space for text & button */
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+  color: #ffc845;
+}
+
 .hero p {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   margin-bottom: 2rem;
   line-height: 1.6;
 }
 
+/* Buttons */
 .btn-primary, .btn-secondary {
   border-radius: 8px;
   font-weight: 700;
@@ -174,14 +210,13 @@ nav ul li a.active {
   padding: 0.85rem 2.5rem;
   user-select: none;
   text-align: center;
-  margin-top: 0.5rem;
+  margin-top: 0.5rem; /* slight space above button */
 }
 
 .btn-primary {
   background-color: #ffc845;
   color: #0d3b66;
   border: none;
-  box-shadow: 0 2px 12px rgba(255,200,69,0.18);
 }
 
 .btn-primary:hover {
@@ -191,7 +226,7 @@ nav ul li a.active {
 .btn-secondary {
   background-color: transparent;
   border: 2px solid #ffc845;
-  color: #ffc845;
+  color: #0d3b66;
 }
 
 .btn-secondary:hover {
