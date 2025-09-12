@@ -198,6 +198,26 @@ nav ul li a.active {
   margin-bottom: 2rem;
   line-height: 1.6;
 }
+/* Existing styles remain above */
+
+/* Responsive adjustments for mobile */
+@media (max-width: 600px) {
+  .hero-content {
+    max-width: 96vw;      /* Make box fit the viewport */
+    padding: 1.2rem 0.7rem 1.5rem 0.7rem; /* Less padding on mobile */
+    border-radius: 12px;
+  }
+  .hero h1 {
+    font-size: 1.4rem;    /* Smaller font for h1 */
+    line-height: 1.18;
+    word-break: break-word;
+    hyphens: auto;
+  }
+  .hero p {
+    font-size: 1rem;      /* Reduce paragraph font size */
+    margin-bottom: 1.2rem;
+  }
+}
 
 /* Buttons */
 .btn-primary, .btn-secondary {
