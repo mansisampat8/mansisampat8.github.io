@@ -464,3 +464,86 @@ footer {
     max-width: 100%;
   }
 }
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5em;
+  list-style: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+}
+
+.dropdown:focus-within .dropdown-content,
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* MOBILE STYLES */
+@media (max-width: 800px) {
+  .menu-toggle {
+    display: block;
+  }
+  nav {
+    width: 100%;
+  }
+  .nav-links {
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 64px; /* match your header height */
+    left: 0;
+    width: 100%;
+    display: none;
+    padding: 1em 0;
+    z-index: 1001;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-links li {
+    text-align: center;
+    padding: 0.5em 0;
+    position: relative;
+  }
+  .dropdown-content {
+    position: static;
+    background: #f5f5f5;
+  }
+  .header-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* Add responsive for hero, section, etc. */
+@media (max-width: 600px) {
+  .hero-content h1 {
+    font-size: 1.45rem;
+  }
+  .container {
+    padding: 10px;
+  }
+  .experience-section {
+    flex-direction: column;
+    gap: 1.5em;
+  }
+}
