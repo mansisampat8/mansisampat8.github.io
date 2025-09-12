@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Consumer Kanvas</title>
+  <meta name="description" content="Get in touch with Consumer Kanvas. Contact Mansi Sampat & Nishita Mantry for research, brand strategy, and growth insights. Let's grow your startup.">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body {
+      font-family: 'League Spartan', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #2f2a22;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 5rem 1.5rem 3rem;
+      background: #fefae0;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 0.8rem;
+      color: #2f2a22;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #6b4e16;
+      font-weight: 500;
+    }
+
+    /* CONTACT SECTION */
+    .contact-container {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .contact-details p {
+      font-size: 1.1rem;
+      margin: 0.8rem 0;
+    }
+
+    .contact-details a {
+      color: #a26b1e;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .contact-details a:hover {
+      color: #f4a261;
+    }
+
+    /* FORM */
+    form {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    input, textarea {
+      padding: 0.9rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-family: 'League Spartan', sans-serif;
+    }
+
+    textarea { min-height: 140px; }
+
+    .btn-primary {
+      font-family: 'League Spartan', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      background: #e9c46a;
+      color: #2f2a22;
+      border: none;
+      border-radius: 28px;
+      padding: 0.8em 2em;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.05);
+      background: #f4a261;
+      color: #2f2a22;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .contact-details p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER / NAV -->
+  <header>
+    <div class="container header-container">
+      <a href="index.html" class="logo">Consumer Kanvas</a>
+      <button class="menu-toggle" aria-label="Toggle Menu" onclick="toggleMenu()">☰</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blogs.html">Blogs & Insights</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Contact Consumer Kanvas</h1>
+    <p>We’d love to hear about your startup journey and how we can help you grow.</p>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-container">
+    <div class="contact-details">
+      <h2>Reach Us Directly</h2>
+      <p><strong>Email:</strong> survey@consumerkanvas.com</p>
+      <p><strong>Location:</strong> Mumbai, India</p>
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/consumerkanvas" target="_blank">@consumerkanvas</a></p>
+    </div>
+
+    <form action="mailto:survey@consumerkanvas.com" method="POST" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn-primary">Send Message</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-container">
+      <p>© 2025 Consumer Kanvas. The Founder’s Edge System. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    function toggleMenu() {
+      const links = document.querySelector('.nav-links');
+      links.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
