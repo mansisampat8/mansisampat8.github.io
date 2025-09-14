@@ -139,36 +139,49 @@ nav ul li a.active {
   cursor: pointer;
 }
 
-/* Hero Section */
-.hero {
-  background-image: linear-gradient(to bottom, rgba(13,59,102,0.85), rgba(13,59,102,0.6)),
-    url(smartworks-coworking-Uz8THWPXwhI-unsplash.jpg);
-  background-size: cover;
-  background-position: center;
-  color: white;
-  height: 70vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 1rem;
-}
-
 .hero-content {
-  max-width: 600px;
+  max-width: 98vw;
+  background: linear-gradient(120deg, #0d62ae 60%, #1c2541 100%);
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(13,59,102,0.12);
+  padding: 2.2rem 1.1rem 2rem 1.1rem;
+  text-align: left;
+  animation: fadeInUp 0.8s cubic-bezier(.4,2,.2,1) both;
 }
 
 .hero h1 {
   font-family: 'League Spartan', sans-serif;
+  font-size: clamp(1.6rem, 6vw, 2.6rem);
+  color: #ffc845;
   font-weight: 900;
-  font-size: clamp(2rem, 5vw, 3rem); /* Fluid responsive font */
   margin-bottom: 1rem;
+  line-height: 1.17;
+  letter-spacing: -1px;
 }
 
 .hero p {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-  line-height: 1.4;
+  font-size: 1.09rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg,#ffc845 60%,#0d62ae 100%);
+  color: #1c2541;
+  font-size: 1.14rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 1rem 0;
+  width: 100%;
+  box-shadow: 0 2px 12px rgba(13,59,102,0.13);
+  transition: box-shadow .22s;
+  margin-top: 1.2rem;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px);}
+  to { opacity: 1; transform: none;}
 }
 
 /* Buttons */
