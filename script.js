@@ -90,3 +90,15 @@ document.querySelectorAll('.nav-links li.dropdown > a.dropbtn').forEach(dropBtn 
     dropdown.style.display = isVisible ? 'none' : 'block';
   });
 });
+
+// CLOSE MOBILE NAV WHEN CLICKING OUTSIDE
+document.addEventListener('click', (e) => {
+  const menuOpen = nav.classList.contains('show');
+  const clickInsideNav = nav.contains(e.target) || menuToggle.contains(e.target);
+
+  if (menuOpen && !clickInsideNav) {
+    nav.classList.remove('show');
+    menuToggle.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+});
