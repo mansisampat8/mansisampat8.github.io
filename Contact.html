@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us | Consumer Kanvas</title>
-  <meta name="description" content="Get in touch with Consumer Kanvas for research, brand strategy, and growth insights. Connect with Mansi Sampat & Nishita Mantry.">
+  <meta name="description" content="Get in touch with Consumer Kanvas. Contact Mansi Sampat & Nishita Mantry for research, brand strategy, and growth insights.">
 
   <link rel="icon" type="image/png" href="favicon.png">
   
@@ -21,72 +21,58 @@
       padding: 5rem 1.5rem 3rem;
       background: #fefae0;
       opacity: 0;
-      transform: translateY(40px);
-      animation: fadeInUp 0.7s forwards;
-      animation-delay: 0.3s;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
     }
-
+    .hero.slide-up {
+      opacity: 1;
+      transform: translateY(0);
+    }
     .hero h1 {
       font-size: 2.5rem;
       font-weight: 900;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
       color: #2f2a22;
     }
-
     .hero p {
       font-size: 1.2rem;
       color: #6b4e16;
       font-weight: 500;
     }
 
-    @keyframes fadeInUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     /* CONTACT SECTION */
     .contact-container {
       max-width: 800px;
-      margin: 2.5rem auto 5rem;
+      margin: 3rem auto;
       padding: 0 1.5rem;
-    }
-
-    .contact-details h2 {
-      font-family: 'League Spartan', sans-serif;
-      font-size: 2rem;
-      font-weight: 900;
-      color: #2f2a22;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    .contact-details p {
-      font-size: 1.1rem;
-      margin: 0.8rem 0;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      font-size: 1.1rem;
       color: #2f2a22;
     }
 
-    .contact-details a {
+    .contact-info a {
       color: #a26b1e;
-      text-decoration: none;
       font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .contact-details a:hover {
+    .contact-info a:hover {
       color: #f4a261;
-    }
-
-    .contact-details img {
-      width: 20px;
-      height: 20px;
     }
 
     /* FORM */
     form {
-      margin-top: 2.5rem;
       display: flex;
       flex-direction: column;
       gap: 1.2rem;
@@ -98,8 +84,8 @@
       border: 1px solid #ccc;
       border-radius: 10px;
       font-family: 'League Spartan', sans-serif;
+      width: 100%;
     }
-
     textarea { min-height: 140px; }
 
     .btn-primary {
@@ -115,7 +101,7 @@
       text-decoration: none;
       display: inline-block;
       transition: transform 0.2s;
-      margin: 0 auto;
+      align-self: flex-start;
     }
 
     .btn-primary:hover {
@@ -128,7 +114,7 @@
     @media (max-width: 600px) {
       .hero h1 { font-size: 2rem; }
       .hero p { font-size: 1rem; }
-      .contact-details p { font-size: 1rem; }
+      .contact-info { font-size: 1rem; }
     }
   </style>
 </head>
@@ -138,20 +124,19 @@
     <div class="container header-container">
       <a href="index.html" class="logo">Consumer Kanvas</a>
       <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
-      
       <nav>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="blogs.html">Blogs & Insights</a></li>
           <li><a href="about-us.html">About Us</a></li>
-          <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a href="Contact.html" class="active">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="container hero-content">
       <h1>We’d love to hear from you</h1>
       <p>Reach out to us for research, brand strategy, and growth insights for your startup.</p>
@@ -160,23 +145,15 @@
 
   <!-- CONTACT SECTION -->
   <section class="contact-container">
-    <div class="contact-details">
-      <h2>Reach Us Directly</h2>
-      <p>
-        <img src="whatsapp-logo.png" alt="WhatsApp">
-        <strong>WhatsApp:</strong> <a href="https://wa.me/919821379658" target="_blank">9821379658</a>
-      </p>
-      <p>
-        <img src="instagram-logo.png" alt="Instagram">
-        <strong>Instagram:</strong> <a href="https://instagram.com/consumerkanvas" target="_blank">@consumerkanvas</a>
-      </p>
-      <p>
-        <strong>Email:</strong> <a href="mailto:survey@consumerkanvas.com">survey@consumerkanvas.com</a>
-      </p>
-      <p><strong>Location:</strong> Mumbai, India</p>
+    <!-- QUICK CONTACT -->
+    <div class="contact-info">
+      <a href="tel:+919821379658"><img src="whatsapp-icon.png" alt="WhatsApp" width="20"> 9821379658</a>
+      <a href="mailto:survey@consumerkanvas.com"><img src="email-icon.png" alt="Email" width="20"> survey@consumerkanvas.com</a>
+      <a href="https://instagram.com/consumerkanvas" target="_blank"><img src="instagram-icon.png" alt="Instagram" width="20"> @consumerkanvas</a>
     </div>
 
-    <form action="mailto:survey@consumerkanvas.com" method="POST" enctype="text/plain">
+    <!-- CONTACT FORM -->
+    <form action="YOUR_FORM_HANDLER_URL" method="POST">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" placeholder="Your Message" required></textarea>
@@ -191,6 +168,11 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // Hero slide-up animation
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('hero').classList.add('slide-up');
+    });
+  </script>
 </body>
 </html>
