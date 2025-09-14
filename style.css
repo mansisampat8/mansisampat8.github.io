@@ -153,6 +153,8 @@ nav {
   min-height: 75vh;
   background: linear-gradient(to bottom, rgba(13,59,102,0.85), rgba(13,59,102,0.6)),
     url('smartworks-coworking-Uz8THWPXwhI-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
