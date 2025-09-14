@@ -107,19 +107,20 @@
 <body>
   <!-- HEADER / NAV -->
   <header>
-    <div class="container header-container">
-      <a href="index.html" class="logo">Consumer Kanvas</a>
-      <button class="menu-toggle" aria-label="Toggle Menu" onclick="toggleMenu()">☰</button>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="blogs.html">Blogs & Insights</a></li>
-          <li><a href="about-us.html" class="active">About Us</a></li>
-          <li><a href="Contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <div class="container header-container">
+    <a href="index.html" class="logo">Consumer Kanvas</a>
+    <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+    
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="blogs.html">Blogs & Insights</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="Contact.html">Contact</a></li> 
+      </ul>
+    </nav>
+  </div>
+</header>
 
   <!-- HERO -->
   <section class="hero">
@@ -172,13 +173,6 @@
       <p>© 2025 Consumer Kanvas. The Founder’s Edge System. All rights reserved.</p>
     </div>
   </footer>
-
-  <script>
-  // Mobile nav toggle
-  function toggleMenu() {
-    const links = document.querySelector('.nav-links');
-    links.classList.toggle('show');
-  }
-</script>
+  
 </body>
 </html>
