@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us | Consumer Kanvas</title>
-  <meta name="description" content="Get in touch with Consumer Kanvas. Contact Mansi Sampat & Nishita Mantry for research, brand strategy, and growth insights. Let's grow your startup.">
+  <meta name="description" content="Get in touch with Consumer Kanvas for research, brand strategy, and growth insights. Connect with Mansi Sampat & Nishita Mantry.">
 
   <link rel="icon" type="image/png" href="favicon.png">
   
@@ -15,24 +15,21 @@
   <link rel="stylesheet" href="style.css" />
 
   <style>
-    body {
-      font-family: 'League Spartan', sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #2f2a22;
-    }
-
     /* HERO */
     .hero {
       text-align: center;
       padding: 5rem 1.5rem 3rem;
       background: #fefae0;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 0.7s forwards;
+      animation-delay: 0.3s;
     }
 
     .hero h1 {
       font-size: 2.5rem;
       font-weight: 900;
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
       color: #2f2a22;
     }
 
@@ -42,16 +39,34 @@
       font-weight: 500;
     }
 
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* CONTACT SECTION */
     .contact-container {
       max-width: 800px;
-      margin: 3rem auto;
+      margin: 2.5rem auto 5rem;
       padding: 0 1.5rem;
+    }
+
+    .contact-details h2 {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #2f2a22;
+      margin-bottom: 1rem;
+      text-align: center;
     }
 
     .contact-details p {
       font-size: 1.1rem;
       margin: 0.8rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: #2f2a22;
     }
 
     .contact-details a {
@@ -62,6 +77,11 @@
 
     .contact-details a:hover {
       color: #f4a261;
+    }
+
+    .contact-details img {
+      width: 20px;
+      height: 20px;
     }
 
     /* FORM */
@@ -95,6 +115,7 @@
       text-decoration: none;
       display: inline-block;
       transition: transform 0.2s;
+      margin: 0 auto;
     }
 
     .btn-primary:hover {
@@ -116,7 +137,8 @@
   <header>
     <div class="container header-container">
       <a href="index.html" class="logo">Consumer Kanvas</a>
-      <button class="menu-toggle" aria-label="Toggle Menu" onclick="toggleMenu()">☰</button>
+      <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+      
       <nav>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
@@ -130,16 +152,28 @@
 
   <!-- HERO -->
   <section class="hero">
-    <h1>We’d love to hear about your startup journey and how we can help you grow.</h1>
+    <div class="container hero-content">
+      <h1>We’d love to hear from you</h1>
+      <p>Reach out to us for research, brand strategy, and growth insights for your startup.</p>
+    </div>
   </section>
 
   <!-- CONTACT SECTION -->
   <section class="contact-container">
     <div class="contact-details">
       <h2>Reach Us Directly</h2>
-      <p><strong>Email:</strong> survey@consumerkanvas.com</p>
+      <p>
+        <img src="whatsapp-logo.png" alt="WhatsApp">
+        <strong>WhatsApp:</strong> <a href="https://wa.me/919821379658" target="_blank">9821379658</a>
+      </p>
+      <p>
+        <img src="instagram-logo.png" alt="Instagram">
+        <strong>Instagram:</strong> <a href="https://instagram.com/consumerkanvas" target="_blank">@consumerkanvas</a>
+      </p>
+      <p>
+        <strong>Email:</strong> <a href="mailto:survey@consumerkanvas.com">survey@consumerkanvas.com</a>
+      </p>
       <p><strong>Location:</strong> Mumbai, India</p>
-      <p><strong>Instagram:</strong> <a href="https://instagram.com/consumerkanvas" target="_blank">@consumerkanvas</a></p>
     </div>
 
     <form action="mailto:survey@consumerkanvas.com" method="POST" enctype="text/plain">
@@ -157,7 +191,6 @@
     </div>
   </footer>
 
- <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
-
