@@ -1,40 +1,33 @@
-// Initialize AOS animations (if you use the AOS library)
+// Initialize AOS animations (if present)
 if (typeof AOS !== 'undefined') {
   AOS.init({ once: true, duration: 1100, offset: 130 });
 }
 
 // MOBILE NAVIGATION TOGGLE
 const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('ul.nav-links');
+const nav = document.querySelector('nav');            // changed from ul.nav-links to nav
+const navLinks = document.querySelector('.nav-links'); // still need the UL for links
 
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('show');
-  // Lock/unlock body scroll when menu is open/closed
-  document.body.style.overflow = navLinks.classList.contains('show') ? 'hidden' : '';
-});
-
-// CLOSE MOBILE NAV ON NAV LINK CLICK
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    if (navLinks.classList.contains('show')) {
-      navLinks.classList.remove('show');
-      document.body.style.overflow = '';
-    }
+if (menuToggle && nav && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('show');                     // toggle class on nav instead of ul
+    menuToggle.classList.toggle('active');            // animate the hamburger
+    document.body.style.overflow = nav.classList.contains('show') ? 'hidden' : '';
   });
-});
 
-// CLOSE MOBILE NAV ON NAV LINK CLICK
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    if (navLinks.classList.contains('active')) {
-      navLinks.classList.remove('active');
-      menuToggle.classList.remove('active');
-      document.body.style.overflow = '';
-    }
+  // CLOSE NAV WHEN A LINK IS CLICKED
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (nav.classList.contains('show')) {
+        nav.classList.remove('show');
+        menuToggle.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
   });
-});
+}
 
-// SMOOTH SCROLL FOR INTERNAL LINKS & ACTIVE NAV HIGHLIGHT
+// SMOOTH SCROLL + ACTIVE LINK HIGHLIGHT
 document.querySelectorAll('nav ul.nav-links a, .btn-primary, .btn-secondary').forEach(link => {
   link.addEventListener('click', e => {
     const href = link.getAttribute('href');
@@ -45,21 +38,24 @@ document.querySelectorAll('nav ul.nav-links a, .btn-primary, .btn-secondary').fo
       const topPos = target.getBoundingClientRect().top + window.pageYOffset - offset;
       window.scrollTo({ top: topPos, behavior: 'smooth' });
 
-      // Update active class on nav links
+      // Update active link state
       document.querySelectorAll('nav ul.nav-links a').forEach(navLink => navLink.classList.remove('active'));
       link.classList.add('active');
     }
   });
 });
 
-// MICRO-INTERACTIONS FOR BUTTONS (mousedown and mouseup effects)
+// MICRO-INTERACTIONS FOR BUTTONS
 document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
-  btn.addEventListener('mousedown', () => btn.classList.add('active'));
-  btn.addEventListener('mouseup', () => btn.classList.remove('active'));
-  btn.addEventListener('mouseleave', () => btn.classList.remove('active'));
+  ['mousedown', 'mouseup', 'mouseleave'].forEach(evt => {
+    btn.addEventListener(evt, () => {
+      if (evt === 'mousedown') btn.classList.add('active');
+      else btn.classList.remove('active');
+    });
+  });
 });
 
-// OPTIONAL: Form submission handlers with alerts (adjust selectors if forms exist)
+// OPTIONAL: Form submission handlers
 const scheduleForm = document.querySelector('.schedule-form');
 if (scheduleForm) {
   scheduleForm.addEventListener('submit', e => {
@@ -78,19 +74,19 @@ if (contactForm) {
   });
 }
 
-// DROPDOWN TOGGLE FOR MOBILE (Our Solutions submenu)
+// DROPDOWN TOGGLE FOR MOBILE
 document.querySelectorAll('.nav-links li.dropdown > a.dropbtn').forEach(dropBtn => {
   dropBtn.addEventListener('click', e => {
     e.preventDefault();
     const dropdown = dropBtn.nextElementSibling;
     const isVisible = dropdown.style.display === 'block';
 
-    // Close all other dropdown menus first
+    // Close all dropdowns
     document.querySelectorAll('.dropdown-content').forEach(menu => {
       menu.style.display = 'none';
     });
 
-    // Toggle current dropdown menu
+    // Toggle this dropdown
     dropdown.style.display = isVisible ? 'none' : 'block';
   });
 });
