@@ -21,13 +21,12 @@ body {
 
 /* Header */
 header {
-  background-color: #0d3b66;
-  color: white;
-  padding: 1rem 0;
+  background: #0d3b66;
+  color: #fff;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 3px 8px rgba(13, 59, 102, 0.4);
+  box-shadow: 0 3px 8px rgba(13,59,102,0.13);
 }
 
 .header-container {
