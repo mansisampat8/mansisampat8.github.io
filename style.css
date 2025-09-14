@@ -8,7 +8,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.62;
   background: #f5f7fa;
   color: #222;
@@ -43,7 +43,7 @@ header {
   font-family: 'League Spartan', sans-serif;
   font-weight: 900;
   font-size: 2rem;
-  color: #ffc845;
+  color: #fff;
   text-decoration: none;
   letter-spacing: -1px;
   transition: color 0.23s;
@@ -52,6 +52,63 @@ header {
 .logo:hover {
   color: #fff;
 }
+}
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+.menu-icon {
+  display: block;
+  width: 32px;
+  height: 3px;
+  background: #fff;
+  border-radius: 3px;
+  position: relative;
+  transition: background .3s;
+}
+.menu-icon::before,
+.menu-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  background: #fff;
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+.menu-icon::before { top: -10px; }
+.menu-icon::after { top: 10px; }
+
+/* Hamburger animation for open state */
+.menu-toggle.active .menu-icon {
+  background: transparent;
+}
+.menu-toggle.active .menu-icon::before {
+  transform: rotate(45deg) translate(5px,5px);
+}
+.menu-toggle.active .menu-icon::after {
+  transform: rotate(-45deg) translate(5px,-5px);
+}
+
+/* Mobile only */
+@media (max-width: 700px) {
+  nav {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    flex-direction: column;
+    background: #0A2540;
+    width: 180px;
+    padding: 1rem 0;
+    border-radius: 0 0 0 16px;
+    box-shadow: 0 2px 12px rgba(13,59,102,0.15);
+    display: none; /* start hidden */
+  }
+
 
 /* === NAVIGATION === */
 nav {
