@@ -513,27 +513,3 @@ footer {
   .experience-section { flex-direction: column; gap: 1.5em; }
 }
 }
-
-@media (max-width: 700px) {
-  .menu-toggle {
-    display: block;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    flex-direction: column;
-    background: #0A2540;
-    width: 180px;
-    padding: 1rem 0;
-    border-radius: 0 0 0 16px;
-    box-shadow: 0 2px 12px rgba(13,59,102,0.15);
-  }
-  .nav-links.show { display: flex; }
-  .nav-links a {
-    color: #fff;
-    font-weight: 600;
-    padding: 1rem 1.5rem;
-    text-decoration: none;
-    transition: background .2s;
-  }
-  .nav-links a:hover { background: #162e54; }
-}
