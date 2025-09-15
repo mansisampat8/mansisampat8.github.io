@@ -5,17 +5,16 @@ if (typeof AOS !== 'undefined') {
 
 // MOBILE NAVIGATION TOGGLE
 const menuToggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('nav');            // changed from ul.nav-links to nav
-const navLinks = document.querySelector('.nav-links'); // still need the UL for links
+const nav = document.querySelector('nav');
+const navLinks = document.querySelector('.nav-links');
 
 if (menuToggle && nav && navLinks) {
   menuToggle.addEventListener('click', () => {
-    nav.classList.toggle('show');                     // toggle class on nav instead of ul
-    menuToggle.classList.toggle('active');            // animate the hamburger
+    nav.classList.toggle('show');
+    menuToggle.classList.toggle('active');
     document.body.style.overflow = nav.classList.contains('show') ? 'hidden' : '';
   });
 
-  // CLOSE NAV WHEN A LINK IS CLICKED
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       if (nav.classList.contains('show')) {
@@ -38,7 +37,6 @@ document.querySelectorAll('nav ul.nav-links a, .btn-primary, .btn-secondary').fo
       const topPos = target.getBoundingClientRect().top + window.pageYOffset - offset;
       window.scrollTo({ top: topPos, behavior: 'smooth' });
 
-      // Update active link state
       document.querySelectorAll('nav ul.nav-links a').forEach(navLink => navLink.classList.remove('active'));
       link.classList.add('active');
     }
@@ -81,20 +79,19 @@ document.querySelectorAll('.nav-links li.dropdown > a.dropbtn').forEach(dropBtn 
     const dropdown = dropBtn.nextElementSibling;
     const isVisible = dropdown.style.display === 'block';
 
-    // Close all dropdowns
     document.querySelectorAll('.dropdown-content').forEach(menu => {
       menu.style.display = 'none';
     });
 
-    // Toggle this dropdown
     dropdown.style.display = isVisible ? 'none' : 'block';
   });
 });
 
 // CLOSE MOBILE NAV WHEN CLICKING OUTSIDE
 document.addEventListener('click', (e) => {
+  if (!nav) return;
   const menuOpen = nav.classList.contains('show');
-  const clickInsideNav = nav.contains(e.target) || menuToggle.contains(e.target);
+  const clickInsideNav = nav.contains(e.target) || (menuToggle && menuToggle.contains(e.target));
 
   if (menuOpen && !clickInsideNav) {
     nav.classList.remove('show');
@@ -102,45 +99,48 @@ document.addEventListener('click', (e) => {
     document.body.style.overflow = '';
   }
 });
-const cards = document.querySelectorAll('.card');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-let current = 0;
-let autoRotateTimer = null;
 
-function showCard(i) {
-  cards.forEach((card, idx) => {
-    card.classList.toggle('active', idx === i);
+// === HERO CAROUSEL ROTATION ===
+const heroCarousel = document.querySelector('.hero-carousel');
+if (heroCarousel) {
+  const cards = heroCarousel.querySelectorAll('.card');
+  const prevBtn = heroCarousel.querySelector('.prev');
+  const nextBtn = heroCarousel.querySelector('.next');
+  let current = 0;
+  let autoRotateTimer = null;
+
+  function showCard(i) {
+    cards.forEach((card, idx) => {
+      card.classList.toggle('active', idx === i);
+    });
+  }
+
+  function nextCard() {
+    current = (current + 1) % cards.length;
+    showCard(current);
+    restartAutoRotate();
+  }
+
+  function prevCard() {
+    current = (current - 1 + cards.length) % cards.length;
+    showCard(current);
+    restartAutoRotate();
+  }
+
+  function restartAutoRotate() {
+    clearInterval(autoRotateTimer);
+    autoRotateTimer = setInterval(nextCard, 4000); // 4s
+  }
+
+  // Keyboard navigation (optional, accessibility)
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight') nextCard();
+    if (e.key === 'ArrowLeft') prevCard();
   });
-}
 
-function nextCard() {
-  current = (current + 1) % cards.length;
+  if (nextBtn) nextBtn.addEventListener('click', nextCard);
+  if (prevBtn) prevBtn.addEventListener('click', prevCard);
+
   showCard(current);
   restartAutoRotate();
 }
-
-function prevCard() {
-  current = (current - 1 + cards.length) % cards.length;
-  showCard(current);
-  restartAutoRotate();
-}
-
-function restartAutoRotate() {
-  clearInterval(autoRotateTimer);
-  autoRotateTimer = setInterval(nextCard, 4000); // 4s
-}
-
-// Keyboard navigation (optional, accessibility)
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'ArrowRight') nextCard();
-  if (e.key === 'ArrowLeft') prevCard();
-});
-
-// Button clicks
-nextBtn.addEventListener('click', nextCard);
-prevBtn.addEventListener('click', prevCard);
-
-// Initial setup
-showCard(current);
-restartAutoRotate();
