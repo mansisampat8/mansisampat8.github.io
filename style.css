@@ -175,6 +175,19 @@ nav {
   text-align: center;
 }
 
+/* === HERO CAROUSEL === */
+.hero-carousel {
+  position: relative;
+  max-width: 700px;
+  margin: 48px auto 0 auto;
+  padding: 2rem 1.5rem;
+  background: rgba(28,37,65,0.96);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(13,59,102,0.13);
+  overflow: hidden;
+  text-align: center;
+}
+
 .hero-carousel .card {
   display: none;
   position: absolute;
@@ -211,11 +224,14 @@ nav {
   color: #ffc845;
 }
 
-.hero-carousel .card p {
+.hero-carousel .card .subhead {
   color: #22223b;
   font-size: 1.13rem;
   margin-bottom: 0;
   line-height: 1.52;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 500;
+  margin-top: 0.5rem;
 }
 
 .hero-carousel button.prev,
@@ -240,11 +256,15 @@ nav {
   opacity: 1;
 }
 
-/* Left/Right Button Positioning */
 .hero-carousel button.prev { left: 1rem; }
 .hero-carousel button.next { right: 1rem; }
 
-/* Responsive for hero carousel */
+/* === ANIMATIONS === */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px);}
+  to { opacity: 1; transform: none;}
+}
+
 @media (max-width: 900px) {
   .hero-carousel {
     max-width: 98vw;
