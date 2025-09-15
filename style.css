@@ -150,46 +150,52 @@ nav {
 
 /* === HERO SECTION === */
 .hero {
-  min-height: 75vh;
-  background: linear-gradient(to bottom, rgba(13,59,102,0.85), rgba(13,59,102,0.6)),
-    url('smartworks-coworking-Uz8THWPXwhI-unsplash.jpg');
-  background-size: cover;
-  background-position: center;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 0 1rem;
-  position: relative;
-}
-
-.hero-content {
-  background: rgba(28,37,65,0.94);
-  border-radius: 24px;
-  box-shadow: 0 8px 32px rgba(13,59,102,0.13);
-  max-width: 420px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 2.3rem 1.3rem 2rem 1.3rem;
+  align-items: center;
+  height: 100vh;
+  background: #0d0d0d;
+  color: white;
+  padding: 2rem;
   text-align: center;
-  animation: fadeInUp 0.8s cubic-bezier(.4,2,.2,1) both;
 }
 
-.hero h1 {
-  font-family: 'League Spartan', sans-serif;
-  font-weight: 900;
-  font-size: clamp(1.6rem, 7vw, 2.6rem);
-  color: #ffc845;
+.card-container {
+  position: relative;
+  max-width: 700px;
+  height: 320px;
+  perspective: 1000px;
+}
+
+.card {
+  position: absolute;
+  inset: 0;
+  padding: 2rem;
+  background: #1a1a1a;
+  border-radius: 16px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  opacity: 0;
+  transform: rotateY(90deg);
+  transition: transform 0.8s ease, opacity 0.6s ease;
+}
+
+.card h2 {
+  font-size: 1.8rem;
   margin-bottom: 1rem;
-  line-height: 1.15;
-  letter-spacing: -1px;
+  color: #ffcc00; /* highlight */
 }
 
-.hero p {
-  font-size: 1.1rem;
-  color: #fff;
-  margin-bottom: 1.5rem;
-  line-height: 1.5;
+.card p {
+  font-size: 1rem;
+  line-height: 1.6;
 }
+
+.card.active {
+  opacity: 1;
+  transform: rotateY(0deg);
+  z-index: 1;
+}
+
 
 .hero-content strong {
   color: #ffc845;
