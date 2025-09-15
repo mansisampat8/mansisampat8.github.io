@@ -162,165 +162,77 @@ nav {
   position: relative;
 }
 
-/* === HERO CAROUSEL === */
-.hero-carousel {
-  position: relative;
-  max-width: 700px;
-  margin: 48px auto 0 auto;
-  padding: 2rem 1.5rem;
-  background: rgba(28,37,65,0.96);
-  border-radius: 1.5rem;
+.hero-content {
+  background: rgba(28,37,65,0.94);
+  border-radius: 24px;
   box-shadow: 0 8px 32px rgba(13,59,102,0.13);
-  overflow: hidden;
-  text-align: center;
-}
-
-/* === HERO CAROUSEL === */
-.hero-carousel {
-  position: relative;
-  max-width: 700px;
-  margin: 48px auto 0 auto;
-  padding: 2rem 1.5rem;
-  background: rgba(28,37,65,0.96);
-  border-radius: 1.5rem;
-  box-shadow: 0 8px 32px rgba(13,59,102,0.13);
-  overflow: hidden;
-  text-align: center;
-}
-
-.hero-carousel .card {
-  display: none;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff;
-  /* NEW: Add max-width and width */
   max-width: 420px;
   width: 100%;
-  padding: 2.3rem 1.5rem 2.2rem 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 2px 8px rgba(13,59,102,0.06);
-  opacity: 0;
-  z-index: 1;
-  text-align: center; /* center text for card feel */
-  animation: fadeInUp 0.7s cubic-bezier(.4,2,.2,1) both;
+  margin: 0 auto;
+  padding: 2.3rem 1.3rem 2rem 1.3rem;
+  text-align: center;
+  animation: fadeInUp 0.8s cubic-bezier(.4,2,.2,1) both;
 }
 
-.hero-carousel .card.active {
-  display: block;
-  opacity: 1;
-  z-index: 2;
-}
-/* Responsive: make max-width smaller and padding tighter on mobile */
-@media (max-width: 900px) {
-  .hero-carousel .card {
-    max-width: 98vw;
-    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
-    border-radius: 1rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .hero-carousel .card {
-    max-width: 98vw;
-    padding: 0.7rem 0.22rem 0.8rem 0.22rem;
-    border-radius: 0.8rem;
-  }
-}
-.hero-carousel .card h1,
-.hero-carousel .card h2 {
+.hero h1 {
   font-family: 'League Spartan', sans-serif;
   font-weight: 900;
-  font-size: clamp(1.4rem, 6vw, 2.2rem);
-  color: #0d3b66;
-  margin-bottom: 1.05rem;
+  font-size: clamp(1.6rem, 7vw, 2.6rem);
+  color: #ffc845;
+  margin-bottom: 1rem;
   line-height: 1.15;
   letter-spacing: -1px;
 }
 
-.hero-carousel .card h1 {
+.hero p {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.hero-content strong {
   color: #ffc845;
 }
 
-.hero-carousel .card .subhead {
-  color: #22223b;
-  font-size: 1.13rem;
-  margin-bottom: 0;
-  line-height: 1.52;
-  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 500;
-  margin-top: 0.5rem;
-}
-
-.hero-carousel button.prev,
-.hero-carousel button.next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #e0e0e0;
-  border: none;
-  font-size: 2rem;
-  border-radius: 50%;
-  width: 2.5rem;
-  height: 2.5rem;
+/* === BUTTONS === */
+.btn-primary, .btn-secondary {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin: 1rem auto 0 auto;
   cursor: pointer;
-  z-index: 10;
-  opacity: 0.7;
+  transition: box-shadow 0.2s, background 0.2s, color 0.2s;
+  box-shadow: 0 2px 12px rgba(13,59,102,0.10);
+  border: none;
 }
 
-.hero-carousel button.prev:hover,
-.hero-carousel button.next:hover {
+.btn-primary {
+  background: linear-gradient(90deg, #ffc845 60%, #0d62ae 100%);
+  color: #1c2541;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  box-shadow: 0 4px 24px #ffc84560;
+  background: linear-gradient(90deg, #ffb400 60%, #0d62ae 100%);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #ffc845;
+  color: #ffc845;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
   background: #ffc845;
-  opacity: 1;
-}
-
-.hero-carousel button.prev { left: 1rem; }
-.hero-carousel button.next { right: 1rem; }
-
-/* === ANIMATIONS === */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(24px);}
-  to { opacity: 1; transform: none;}
-}
-
-@media (max-width: 900px) {
-  .hero-carousel {
-    max-width: 98vw;
-    padding: 1.2rem 0.5rem;
-  }
-  .hero-carousel .card {
-    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
-    border-radius: 1rem;
-    max-width: 98vw;
-  }
-  .hero-carousel button.prev,
-  .hero-carousel button.next {
-    font-size: 1.6rem;
-    width: 2rem;
-    height: 2rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .hero-carousel {
-    padding: 0.8rem 0.2rem;
-    border-radius: 1rem;
-  }
-  .hero-carousel .card {
-    padding: 0.7rem 0.22rem 0.8rem 0.22rem;
-    border-radius: 0.8rem;
-  }
-  .hero-carousel .card h1,
-  .hero-carousel .card h2 {
-    font-size: 1.12rem;
-  }
-  .hero-carousel button.prev,
-  .hero-carousel button.next {
-    font-size: 1.2rem;
-    width: 1.7rem;
-    height: 1.7rem;
-  }
+  color: #1c2541;
 }
 
 /* === EXPERIENCE SECTION === */
@@ -576,6 +488,13 @@ footer {
     padding: 0.8rem 0;
     width: 100%;
   }
+}
+
+@media (max-width: 480px) {
+  .logo { font-size: 1.2rem; }
+  .hero-content { padding: 0.8rem 0.2rem 1rem 0.2rem; }
+  .hero-content h1 { font-size: 1.02rem; }
+  .container { padding: 0.5rem; }
 }
 
 /* === UTILS === */
