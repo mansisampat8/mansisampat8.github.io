@@ -102,3 +102,45 @@ document.addEventListener('click', (e) => {
     document.body.style.overflow = '';
   }
 });
+const cards = document.querySelectorAll('.card');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+let current = 0;
+let autoRotateTimer = null;
+
+function showCard(i) {
+  cards.forEach((card, idx) => {
+    card.classList.toggle('active', idx === i);
+  });
+}
+
+function nextCard() {
+  current = (current + 1) % cards.length;
+  showCard(current);
+  restartAutoRotate();
+}
+
+function prevCard() {
+  current = (current - 1 + cards.length) % cards.length;
+  showCard(current);
+  restartAutoRotate();
+}
+
+function restartAutoRotate() {
+  clearInterval(autoRotateTimer);
+  autoRotateTimer = setInterval(nextCard, 4000); // 4s
+}
+
+// Keyboard navigation (optional, accessibility)
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight') nextCard();
+  if (e.key === 'ArrowLeft') prevCard();
+});
+
+// Button clicks
+nextBtn.addEventListener('click', nextCard);
+prevBtn.addEventListener('click', prevCard);
+
+// Initial setup
+showCard(current);
+restartAutoRotate();
