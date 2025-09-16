@@ -159,35 +159,34 @@ nav {
   background-size: cover;
   background-position: center;
   color: white;
-  padding: 2rem;
+  padding: 6rem 1rem 2rem; /* top padding to clear header, bottom padding for breathing room */
   text-align: center;
   font-family: 'League Spartan', sans-serif;
 }
 
 ..card-container {
+  .card-container {
   position: relative;
-  width: 18rem;        /* match CodePen width */
-  height: 22rem;       /* match CodePen height */
-  margin: 0 auto;
-  perspective: 1000px;  /* if you want 3D depth effects */
+  width: 100%;
+  max-width: 700px; /* matches CodePen */
+  height: auto;
+  perspective: 1000px;
+  margin: 0 auto; /* centers it */
 }
 
 .card {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: calc(100% - 2rem);   /* match padding offset */
-  height: calc(100% - 2rem);
-  padding: 1rem;
+  inset: 0;
+  padding: 2rem;
+  width: 100%;
+  max-width: 700px; /* matches container */
   background: #1a1a1a;
   border-radius: 16px;
   box-shadow: 0 15px 30px rgba(0,0,0,0.3);
   opacity: 0;
   transform: rotateY(90deg);
   transition: transform 0.8s ease, opacity 0.6s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  box-sizing: border-box;
 }
 
 .card h2 {
