@@ -150,19 +150,16 @@ nav {
 
 /* === HERO SECTION === */
 .hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* align top */
-  padding: 2rem 1rem 2rem;
-  height: auto; /* let it grow naturally */
+  min-height: 75vh;
   background: linear-gradient(to bottom, rgba(13,59,102,0.85), rgba(13,59,102,0.6)),
-  url('smartworks-coworking-Uz8THWPXwhI-unsplash.jpg');
+    url('smartworks-coworking-Uz8THWPXwhI-unsplash.jpg');
   background-size: cover;
   background-position: center;
-  color: white;
-  padding: 3rem 1rem 2rem; /* top padding to clear header, bottom padding for breathing room */
-  text-align: center;
-  font-family: 'League Spartan', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  position: relative;
 }
 
 .card-container {
