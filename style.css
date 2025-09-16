@@ -164,8 +164,7 @@ nav {
   font-family: 'League Spartan', sans-serif;
 }
 
-..card-container {
-  .card-container {
+.card-container {
   position: relative;
   width: 100%;
   max-width: 700px; /* matches CodePen */
