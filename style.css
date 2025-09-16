@@ -158,12 +158,14 @@ nav {
   color: white;
   padding: 2rem;
   text-align: center;
+  font-family: 'League Spartan', sans-serif;
 }
 
 .card-container {
   position: relative;
   max-width: 700px;
-  height: 320px;
+  width: 100%;
+  height: 350px; /* fixed height so content doesn't jump */
   perspective: 1000px;
 }
 
@@ -175,30 +177,53 @@ nav {
   border-radius: 16px;
   box-shadow: 0 15px 30px rgba(0,0,0,0.3);
   opacity: 0;
-  transform: rotateY(90deg);
+  transform: rotateY(90deg) scale(0.95);
   transition: transform 0.8s ease, opacity 0.6s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
   color: #ffcc00; /* highlight */
 }
 
 .card p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.6;
+  color: #ddd;
 }
 
 .card.active {
   opacity: 1;
-  transform: rotateY(0deg);
-  z-index: 1;
+  transform: rotateY(0deg) scale(1);
+  z-index: 2;
 }
-
 
 .hero-content strong {
   color: #ffc845;
+}
+
+/* optional: smoother transition if cards are very different lengths */
+@media (max-width: 768px) {
+  .card-container {
+    height: auto;
+    min-height: 300px;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .card h2 {
+    font-size: 1.5rem;
+  }
+
+  .card p {
+    font-size: 1rem;
+  }
 }
 
 /* === BUTTONS === */
