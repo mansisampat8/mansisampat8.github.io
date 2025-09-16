@@ -163,8 +163,9 @@ nav {
 }
 
 .card-container {
+  position: relative;
   width: 18rem;
-  height: auto; /* let it grow with content */
+  height: 22rem;
   margin: 0 auto;
   perspective: 1000px;
 }
