@@ -164,8 +164,8 @@ nav {
 
 .card-container {
   position: relative;
-  width: 18rem;        /* match CodePen width */
-  height: 22rem;       /* match CodePen height */
+  width: 30rem;        /* match CodePen width */
+  height: 24rem;       /* match CodePen height */
   margin: 0 auto;
   perspective: 1000px;  /* if you want 3D depth effects */
 }
@@ -186,6 +186,8 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;     /* horizontally center children */
+  text-align: center;      /* center text in children */
 }
 
 .card h2 {
@@ -211,18 +213,34 @@ nav {
 }
 
 /* optional: smoother transition if cards are very different lengths */
+/* Responsive adjustments for card carousel and cards */
 @media (max-width: 768px) {
   .card-container {
-    height: auto;
+    width: 96vw;
+    max-width: 100vw;
     min-height: 300px;
+    height: auto;
+    margin: 0 auto;
   }
 
   .card {
-    padding: 1.5rem;
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem 0.75rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* center flex children horizontally */
+    justify-content: center;
+    text-align: center;       /* center text */
+    font-size: 1rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    overflow-y: auto;         /* allow vertical scroll if content is long */
   }
 
   .card h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .card p {
