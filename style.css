@@ -154,7 +154,10 @@ nav {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #0d0d0d;
+  background: linear-gradient(to bottom, rgba(13,59,102,0.85), rgba(13,59,102,0.6)),
+  url('smartworks-coworking-Uz8THWPXwhI-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
   color: white;
   padding: 2rem;
   text-align: center;
