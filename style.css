@@ -176,6 +176,7 @@ nav {
   left: 0;
   width: calc(100% - 2rem);   /* match padding offset */
   height: calc(100% - 2rem);
+  overflow: hidden;
   padding: 1rem;
   background: #0d3b66;
   border-radius: 16px;
