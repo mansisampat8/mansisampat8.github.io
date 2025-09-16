@@ -129,7 +129,7 @@ if (heroCarousel) {
 
   function restartAutoRotate() {
     clearInterval(autoRotateTimer);
-    autoRotateTimer = setInterval(nextCard, 4000); // 4s
+    autoRotateTimer = setInterval(nextCard, 8000); // 8s
   }
 
   // Keyboard navigation (optional, accessibility)
