@@ -153,13 +153,13 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
   background: linear-gradient(to bottom, rgba(13,59,102,0.85), rgba(13,59,102,0.6)),
   url('smartworks-coworking-Uz8THWPXwhI-unsplash.jpg');
   background-size: cover;
   background-position: center;
   color: white;
-  padding: 6rem 1rem 2rem; /* top padding to clear header, bottom padding for breathing room */
+  padding: 3rem 1rem 2rem; /* top padding to clear header, bottom padding for breathing room */
   text-align: center;
   font-family: 'League Spartan', sans-serif;
 }
