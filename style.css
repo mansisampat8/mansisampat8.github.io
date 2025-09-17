@@ -288,6 +288,70 @@ nav {
   color: #1c2541;
 }
 
+.impact-section {
+  background: #f9fafb;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+.impact-title {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: #234567;
+  font-weight: 700;
+}
+.impact-subtitle {
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+  color: #6c7a89;
+}
+.impact-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.impact-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 14px rgba(44, 62, 80, 0.09);
+  padding: 2rem 1.5rem;
+  text-align: left;
+  transition: box-shadow 0.2s;
+}
+.impact-card:hover {
+  box-shadow: 0 4px 24px rgba(44, 62, 80, 0.20);
+}
+.impact-card h3 {
+  font-size: 1.3rem;
+  color: #1866ab;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+.card-shift strong, .card-outcome strong {
+  display: block;
+  color: #273c75;
+  margin-bottom: 0.5em;
+}
+.card-shift ul {
+  margin: 0 0 0.9em 1.1em;
+  padding: 0;
+  color: #333;
+}
+.card-shift ul li {
+  margin-bottom: 0.3em;
+  font-size: 1rem;
+}
+.card-outcome {
+  margin-top: 1em;
+  font-size: 1.05rem;
+  color: #44bd32;
+}
+@media (max-width: 600px) {
+  .impact-card {
+    padding: 1.25rem 0.7rem;
+  }
+}
 /* === EXPERIENCE SECTION === */
 .experience-section {
   display: flex;
