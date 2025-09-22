@@ -1,0 +1,10 @@
+title: "Consumer Kanvas Blog"
+description: "Insights that turn ideas into investor-ready startups"
+# If your site will be served as a repo page (username.github.io/reponame), set baseurl to the repo name:
+# baseurl: "/consumerkanvas-blogs"
+# If using a custom domain (blogs.consumerkanvas.com) remove baseurl or set to ""
+baseurl: ""
+url: "https://blogs.consumerkanvas.com"   # set to your final url (custom domain) or https://<yourusername>.github.io
+theme: minima
+plugins:
+  - jekyll-feed
