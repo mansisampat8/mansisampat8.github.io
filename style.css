@@ -299,13 +299,13 @@ nav {
 .impact-title {
   font-size: 2.2rem;
   margin-bottom: 0.5rem;
-  color: #234567;
+  color: #fff;
   font-weight: 700;
 }
 .impact-subtitle {
   font-size: 1.15rem;
   margin-bottom: 2rem;
-  color: #6c7a89;
+  color: #fff;
 }
 .impact-cards {
   display: grid;
