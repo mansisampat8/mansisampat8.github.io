@@ -5,6 +5,6 @@ description: "Insights that turn ideas into investor-ready startups"
 # If using a custom domain (blogs.consumerkanvas.com) remove baseurl or set to ""
 baseurl: ""
 url: "https://blogs.consumerkanvas.com"   # set to your final url (custom domain) or https://<yourusername>.github.io
-theme: minima
+theme: beautiful-jekyll
 plugins:
   - jekyll-feed
