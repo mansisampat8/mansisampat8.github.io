@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Product-Market Fit: What It Is and How to Find It"
+title: "Product-Market Fit: What It Is and How to Find It?"
 date: 2025-09-23
 categories: strategy startup
 ---
