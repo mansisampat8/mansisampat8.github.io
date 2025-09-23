@@ -95,19 +95,20 @@
 <body>
   <!-- HEADER / NAV -->
   <header>
-    <div class="container header-container">
-      <a href="index.html" class="logo">Consumer Kanvas</a>
-      <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="blogs.html">Blogs & Insights</a></li>
-          <li><a href="about-us.html">About Us</a></li>
-          <li><a href="Contact.html" class="active">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <div class="container header-container">
+    <a href="index.html" class="logo">Consumer Kanvas</a>
+    <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+    
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="blogs.html">Blogs & Insights</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="Contact.html">Contact</a></li> 
+      </ul>
+    </nav>
+  </div>
+</header>
 
   <!-- HERO -->
   <section id="hero" class="hero about-hero">
@@ -147,18 +148,12 @@
     </form>
   </section>
 
-  <!-- FOOTER -->
+<!-- FOOTER -->
   <footer>
     <div class="container footer-container">
       <p>© 2025 Consumer Kanvas. The Founder’s Edge System. All rights reserved.</p>
     </div>
   </footer>
-
-  <script>
-    // Hero slide-up animation
-   window.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('hero').classList.add('slide-up');
-});
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
