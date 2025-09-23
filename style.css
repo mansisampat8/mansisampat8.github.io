@@ -256,7 +256,7 @@ nav {
   padding: 1rem 2rem;
   text-decoration: none;
   text-align: center;
-  display: block;
+  display: inline-block;
   margin: 1rem auto 0 auto;
   cursor: pointer;
   transition: box-shadow 0.2s, background 0.2s, color 0.2s;
