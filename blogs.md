@@ -4,7 +4,8 @@ title: "Blogs & Insights"
 description: "Read Consumer Kanvas blogs on startup growth, customer insights, product-market fit, lowering CAC, boosting LTV, and building investor-ready businesses in India."
 ---
 
-<!-- NAVIGATION (will be handled by your layout, but this matches your structure) -->
+<!-- The navigation below is only needed if your default layout does NOT include it. 
+     If your layout already provides navigation, REMOVE this <nav> block for consistency. -->
 <nav>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -14,7 +15,7 @@ description: "Read Consumer Kanvas blogs on startup growth, customer insights, p
   </ul>
 </nav>
 
-<!-- HERO SECTION styled like your about page -->
+<!-- HERO SECTION styled to match About Us / Contact style -->
 <section id="hero" class="hero blogs-hero">
   <div class="about-card">
     <h1>Consumer Insights That Drive Startup Growth in India</h1>
@@ -30,7 +31,7 @@ description: "Read Consumer Kanvas blogs on startup growth, customer insights, p
 </section>
 
 <!-- BLOG LIST SECTION -->
-<section class="blogs-list">
+<section class="blogs-list container">
   <h2>Latest Insights</h2>
   <div class="blog-grid">
     {% for post in site.posts limit:6 %}
@@ -49,7 +50,7 @@ description: "Read Consumer Kanvas blogs on startup growth, customer insights, p
 </section>
 
 <!-- CATEGORIES SECTION -->
-<section class="blog-categories">
+<section class="blog-categories container">
   <h2>Browse by Category</h2>
   <ul>
     {% for category in site.categories %}
@@ -61,17 +62,28 @@ description: "Read Consumer Kanvas blogs on startup growth, customer insights, p
 </section>
 
 <!-- CTA SECTION -->
-<section class="blogs-cta">
-  <div class="container">
-    <h2>Turn Insights Into Growth</h2>
-    <p>
-      Don’t just read about strategies—test them live with your customers. Our Founder’s Edge System helps you validate, scale, and win faster in India.
-    </p>
-    <a href="/Contact.html" class="btn-primary">Book a Free Consultation</a>
-  </div>
+<section class="blogs-cta container">
+  <h2>Turn Insights Into Growth</h2>
+  <p>
+    Don’t just read about strategies—test them live with your customers. Our Founder’s Edge System helps you validate, scale, and win faster in India.
+  </p>
+  <a href="/Contact.html" class="btn-primary">Book a Free Consultation</a>
 </section>
 
 <!-- WhatsApp Floating Button -->
 <a href="https://wa.me/9821379658" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
 </a>
+
+<!-- 
+  For full consistency, ensure your style.css contains CSS for:
+    - .container
+    - .about-card
+    - .hero.blogs-hero
+    - .search-bar
+    - .blogs-list, .blog-grid, .blog-card, .blog-meta
+    - .blog-categories
+    - .blogs-cta, .btn-primary
+    - .whatsapp-float
+  You can copy CSS from About/Contact pages if needed!
+-->
