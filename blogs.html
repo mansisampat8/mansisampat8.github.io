@@ -6,13 +6,15 @@
   <title>Blogs & Insights | Consumer Kanvas</title>
   <meta name="description" content="Read Consumer Kanvas blogs on startup growth, customer insights, product-market fit, lowering CAC, boosting LTV, and building investor-ready businesses in India.">
   <link rel="icon" type="image/png" href="favicon.png">
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
-  
+
   <!-- Main CSS -->
   <link rel="stylesheet" href="style.css" />
-  
+
+  <!-- Blog-specific styling -->
+  <link rel="stylesheet" href="blogs.css" />
 </head>
 <body>
   <!-- HEADER -->
@@ -31,7 +33,7 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- HERO -->
   <section class="blogs-hero">
     <div class="container">
       <h1>Consumer Insights That Drive Startup Growth in India</h1>
@@ -43,8 +45,8 @@
     </div>
   </section>
 
-  <!-- Blog Listing -->
-  <section class="blogs-list container">
+  <!-- BLOG LIST -->
+  <section class="blogs-list">
     <h2>Latest Insights</h2>
     <div class="blog-grid">
       {% for post in site.posts %}
@@ -54,7 +56,7 @@
               <img src="{{ post.image }}" alt="{{ post.title }}">
             {% endif %}
             <h3>{{ post.title }}</h3>
-            <p>{{ post.excerpt }}</p>
+            <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
           </a>
           <span class="blog-meta">{{ post.date | date: "%B %Y" }} | {{ post.categories | join: ', ' }}</span>
         </article>
@@ -62,12 +64,11 @@
     </div>
   </section>
 
-  <!-- Categories -->
-  <section class="blog-categories container">
+  <!-- CATEGORIES -->
+  <section class="blog-categories">
     <h2>Browse by Category</h2>
     <ul>
-      {% assign categories = site.categories %}
-      {% for category in categories %}
+      {% for category in site.categories %}
         <li><a href="/categories/{{ category[0] | slugify }}/">{{ category[0] }}</a></li>
       {% endfor %}
     </ul>
@@ -89,10 +90,11 @@
     </div>
   </footer>
 
-  <!-- Sticky WhatsApp Button -->
+  <!-- WhatsApp Button -->
   <a href="https://wa.me/9821379658" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
   </a>
+
+  <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
