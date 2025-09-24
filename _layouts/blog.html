@@ -87,30 +87,23 @@
     <div class="about-card">
       <h1>Blogs & Insights</h1>
       <p>Ideas, strategies, and research-driven insights to help you reduce ad spend and strengthen your product market fit.</p>
+      <form class="search-bar" action="/search.html" method="get">
+  <input type="text" name="q" placeholder="Search insights..." aria-label="Search blog posts" />
+  <button type="submit">Search</button>
+</form>
     </div>
   </section>
 
-  <!-- BLOG LIST -->
-  <section class="blogs-container">
-    <!-- Blog Example -->
+ <!-- BLOG LIST -->
+<section class="blogs-container">
+  {% for post in site.posts %}
     <div class="blog-card">
-      <h2>Why Most Indian Startups Fail</h2>
-      <p>We break down unfiltered consumer insights and founder mistakes that lead to failure — and how to avoid them.</p>
-      <a href="#">Read More →</a>
+      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      <p>{{ post.excerpt | strip_html | truncate: 140 }}</p>
+      <a href="{{ post.url }}">Read More →</a>
     </div>
-
-    <div class="blog-card">
-      <h2>The Founder’s Edge System Explained</h2>
-      <p>Our 3-step framework that gives founders sales certainty without burning budgets on ads.</p>
-      <a href="#">Read More →</a>
-    </div>
-
-    <div class="blog-card">
-      <h2>FGDs: The Secret Weapon for Startups</h2>
-      <p>How focus group discussions unlock insights that surveys and dashboards simply can’t capture.</p>
-      <a href="#">Read More →</a>
-    </div>
-  </section>
+  {% endfor %}
+</section>
 
   <!-- FOOTER -->
   <footer>
