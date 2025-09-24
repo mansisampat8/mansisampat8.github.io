@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blogs & Insights | Consumer Kanvas</title>
+  <meta name="description" content="Read blogs and insights from Consumer Kanvas on product market fit, brand strategy, and growth.">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css" />
+<style>
+  /* BLOGS PAGE */
+  .blogs-container {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    display: grid;
+    gap: 2rem;
+  }
+
+  .blog-card {
+    border: 1px solid #eee;
+    border-radius: 14px;
+    padding: 2rem;
+    background: #fffdf8;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  }
+
+  .blog-card h2 {
+    font-size: 1.6rem;
+    color: #2f2a22;
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-card p {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 1rem;
+  }
+
+  .blog-card a {
+    font-weight: 700;
+    color: #a26b1e;
+    text-decoration: none;
+  }
+
+  .blog-card a:hover {
+    color: #f4a261;
+  }
+
+  @media (max-width: 600px) {
+    .blog-card h2 { font-size: 1.3rem; }
+    .blog-card p { font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+  <!-- HEADER / NAV -->
+  <header>
+  <div class="container header-container">
+    <a href="index.html" class="logo">Consumer Kanvas</a>
+    <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+    
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blogs.html" class="active">Blogs & Insights</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="Contact.html">Contact</a></li> 
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <!-- HERO -->
+  <section id="hero" class="hero about-hero">
+    <div class="about-card">
+      <h1>Blogs & Insights</h1>
+      <p>Ideas, strategies, and research-driven insights to help you reduce ad spend and strengthen your product market fit.</p>
+    </div>
+  </section>
+
+  <!-- BLOG LIST -->
+  <section class="blogs-container">
+    <!-- Blog Example -->
+    <div class="blog-card">
+      <h2>Why Most Indian Startups Fail</h2>
+      <p>We break down unfiltered consumer insights and founder mistakes that lead to failure — and how to avoid them.</p>
+      <a href="#">Read More →</a>
+    </div>
+
+    <div class="blog-card">
+      <h2>The Founder’s Edge System Explained</h2>
+      <p>Our 3-step framework that gives founders sales certainty without burning budgets on ads.</p>
+      <a href="#">Read More →</a>
+    </div>
+
+    <div class="blog-card">
+      <h2>FGDs: The Secret Weapon for Startups</h2>
+      <p>How focus group discussions unlock insights that surveys and dashboards simply can’t capture.</p>
+      <a href="#">Read More →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-container">
+      <p>© 2025 Consumer Kanvas. The Founder’s Edge System. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
