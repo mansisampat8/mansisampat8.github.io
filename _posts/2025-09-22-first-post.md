@@ -2,7 +2,9 @@
 layout: post
 title: "Product-Market Fit: What It Is and How to Find It?"
 date: 2025-09-23
-categories: strategy startup
+categories: 
+  - product-market-fit
+  - PMF
 ---
 
 You spend months refining your product idea, building an MVP, and even running early tests. The feedback looks positive, but when you finally launch, the numbers just don’t add up sales crawl, reviews dip, and momentum fizzles.  
