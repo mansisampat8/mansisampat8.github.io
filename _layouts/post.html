@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | Consumer Kanvas</title>
+  <link rel="stylesheet" href="/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/blogs/" class="logo">Consumer Kanvas</a>
+      <nav>
+        <a href="/blogs/">Home</a>
+        <a href="/about-us.html">About Us</a>
+        <a href="/Contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO / POST HEADER -->
+  <section class="post-hero">
+    <div class="container">
+      <h1>{{ page.title }}</h1>
+      {% if page.author %}
+        <p>By {{ page.author }}</p>
+      {% endif %}
+      <p>{{ page.date | date: "%B %d, %Y" }}</p>
+      {% if page.image %}
+        <img src="{{ page.image }}" alt="{{ page.title }}">
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- POST CONTENT -->
+  <main class="post-content container">
+    {{ content }}
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2025 Consumer Kanvas. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
