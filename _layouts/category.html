@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ page.title }} | Consumer Kanvas</title>
+  <meta name="description" content="All posts on {{ page.title }} from Consumer Kanvas.">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <!-- HEADER / NAV -->
+  <header>
+    <div class="container header-container">
+      <a href="/index.html" class="logo">Consumer Kanvas</a>
+      <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/blogs.html">Blogs & Insights</a></li>
+          <li><a href="/about-us.html">About Us</a></li>
+          <li><a href="/Contact.html">Contact</a></li> 
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="hero about-hero">
+    <div class="about-card">
+      <h1>{{ page.title }}</h1>
+      <p>All posts under the category: {{ page.title }}</p>
+    </div>
+  </section>
+
+  <!-- POSTS FOR THIS CATEGORY -->
+  <section class="blogs-container">
+    {% assign cat_posts = site.categories[page.category] %}
+    {% for post in cat_posts %}
+      <div class="blog-card">
+        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        <p>{{ post.excerpt | strip_html | truncate: 140 }}</p>
+        <a href="{{ post.url }}">Read More →</a>
+      </div>
+    {% endfor %}
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-container">
+      <p>© 2025 Consumer Kanvas. The Founder’s Edge System. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
 
