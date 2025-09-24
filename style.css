@@ -149,6 +149,16 @@ nav {
 }
 
 /* === HERO SECTION === */
+.hero-h1 {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 900;
+  font-size: 2.4rem;
+  text-align: center;
+  margin: 0 0 2rem 0;
+  color: #1c2541;
+  line-height: 1.2;
+}
+
 .hero {
   min-height: 75vh;
   background: linear-gradient(to bottom, rgba(13,59,102,0.85), rgba(13,59,102,0.6)),
