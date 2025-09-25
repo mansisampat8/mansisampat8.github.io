@@ -144,3 +144,24 @@ if (heroCarousel) {
   showCard(current);
   restartAutoRotate();
 }
+
+function createSparkles(x, y) {
+  for (let i = 0; i < 8; i++) {
+    const sparkle = document.createElement("span");
+    sparkle.className = "sparkle";
+    sparkle.style.left = x + "px";
+    sparkle.style.top = y + "px";
+    sparkle.style.setProperty("--dx", (Math.random() - 0.5) * 100 + "px");
+    sparkle.style.setProperty("--dy", (Math.random() - 0.5) * 100 + "px");
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => sparkle.remove(), 1000);
+  }
+}
+
+// run only on touch devices
+document.addEventListener("touchstart", (e) => {
+  const touch = e.touches[0];
+  createSparkles(touch.pageX, touch.pageY);
+});
+
