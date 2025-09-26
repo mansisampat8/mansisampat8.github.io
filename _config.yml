@@ -7,3 +7,8 @@ baseurl: ""
 url: "https://blogs.consumerkanvas.com"   # set to your final url (custom domain) or https://<yourusername>.github.io
 plugins:
   - jekyll-feed
+  
+collections:
+  quizzes:
+    output: true
+    permalink: /quizzes/:name/
