@@ -700,4 +700,84 @@ footer {
   background-color: #0d3b66;
   color: #fff;
 }
+.post-hero h1 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #1c2541;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.post-hero p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.post-hero img {
+  width: 100%;
+  height: auto;
+  margin-top: 1.5rem;
+  border-radius: 12px;
+}
+.post-content {
+  max-width: 720px;
+  margin: 2rem auto;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #333;
+}
+
+.post-content h2 {
+  font-size: 1.8rem;
+  margin: 2rem 0 1rem 0;
+  font-weight: 700;
+  color: #0d3b66;
+}
+
+.post-content h3 {
+  font-size: 1.5rem;
+  margin: 1.5rem 0 0.75rem 0;
+  font-weight: 600;
+  color: #1866ab;
+}
+
+.post-content p {
+  margin-bottom: 1rem;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+}
+
+.post-content blockquote {
+  padding: 1rem 1.5rem;
+  border-left: 4px solid #ffc845;
+  background: #f7f8fc;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #555;
+}
+.post-content a {
+  color: #0d3b66;
+  text-decoration: underline;
+}
+
+.post-content ul,
+.post-content ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.post-content code {
+  background: #f2f2f2;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
 
