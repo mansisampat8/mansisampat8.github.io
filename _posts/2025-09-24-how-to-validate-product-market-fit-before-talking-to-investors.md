@@ -1,3 +1,4 @@
+---
 layout: post
 title: "How to Validate Product-Market Fit (PMF) Before Talking to Investors"
 date: 2025-09-24
@@ -8,6 +9,7 @@ categories:
 description: "Learn step-by-step how Indian startups can validate product-market fit (PMF) before approaching investors, using real consumer insights to boost credibility and growth."
 canonical_url: "https://www.consumerkanvas.com/"
 ---
+
 Product-Market Fit (PMF) is one of the most critical milestones for any startup. It means your product effectively solves a real problem for a specific group of customers who find enough value to keep using it. In the Indian market with diverse consumer needs and rising digital adoption, validating PMF before approaching investors can be a game-changer.
 
 In this blog, we’ll explore easy steps, examples, and templates on how to validate PMF and why **consumer insights** are your secret weapon to gain investor trust and grow confidently.
