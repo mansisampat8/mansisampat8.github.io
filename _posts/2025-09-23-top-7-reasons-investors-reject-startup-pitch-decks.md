@@ -120,7 +120,7 @@ A winning pitch deck is **simple, credible, and story-driven**. Avoid clutter, s
 
 A polished pitch deck not only improves your **chances of getting funding** but also builds **long-term investor trust**.  
 
-🚀 *Ready to refine your pitch deck? At Consumer Kanvas, we help startups craft funding-ready narratives that investors remember.*  
+🚀 *Ready to refine your pitch deck? At Consumer Kanvas, we make your pitch deck impossible to ignore; we add the consumer insights investors actually care about, so your story lands and funding follows.*  
 
 ---
 
