@@ -11,4 +11,5 @@ plugins:
 collections:
   quizzes:
     output: true
+    # baseurl: "/consumerkanvas-quizzes"
     permalink: /quizzes/:name/
