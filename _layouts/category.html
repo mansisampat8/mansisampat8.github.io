@@ -35,17 +35,21 @@
     </div>
   </section>
 
-  <!-- POSTS FOR THIS CATEGORY -->
-  <section class="blogs-container">
-    {% assign cat_posts = site.categories[page.category] %}
+<!-- POSTS FOR THIS CATEGORY -->
+<section class="blogs-container container">
+  {% assign cat_posts = site.categories[page.category] %}
+  {% if cat_posts %}
     {% for post in cat_posts %}
       <div class="blog-card">
-        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
         <p>{{ post.excerpt | strip_html | truncate: 140 }}</p>
-        <a href="{{ post.url }}">Read More →</a>
+        <a href="{{ post.url | relative_url }}">Read More →</a>
       </div>
     {% endfor %}
-  </section>
+  {% else %}
+    <p>No posts found in this category.</p>
+  {% endif %}
+</section>
 
   <!-- FOOTER -->
   <footer>
