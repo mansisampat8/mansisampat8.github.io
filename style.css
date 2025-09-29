@@ -1,10 +1,3 @@
-Of course. Here is the complete, final CSS file with all changes integrated, including the fixes for the carousel overlap and the addition of the hamburger menu.
-
-You can confidently replace your entire `style.css` file with this single block of code. It is a full rewrite that maintains all your original class and ID names while applying the new, `designcraft.me`-inspired design.
-
-### Final & Complete `style.css`
-
-```css
 /* === ROOT & GENERAL STYLES === */
 :root {
     --primary-color: #6a5acd; /* Modern purple */
@@ -499,4 +492,3 @@ footer {
         min-height: 320px;
     }
 }
-```
