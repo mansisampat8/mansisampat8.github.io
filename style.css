@@ -1,9 +1,16 @@
+Of course. Here is the complete, final CSS file with all changes integrated, including the fixes for the carousel overlap and the addition of the hamburger menu.
+
+You can confidently replace your entire `style.css` file with this single block of code. It is a full rewrite that maintains all your original class and ID names while applying the new, `designcraft.me`-inspired design.
+
+### Final & Complete `style.css`
+
+```css
 /* === ROOT & GENERAL STYLES === */
 :root {
-    --primary-color: #6a5acd; /* A vibrant, modern purple */
+    --primary-color: #6a5acd; /* Modern purple */
     --dark-color: #1c202b;
     --light-color: #ffffff;
-    --bg-color: #f7f9fc; /* A very light, cool gray */
+    --bg-color: #f7f9fc;
     --text-color: #333333;
     --text-light: #5e5e5e;
     --border-color: #e5e5e5;
@@ -64,7 +71,7 @@ nav { display: flex; align-items: center; }
     color: var(--text-light);
     text-decoration: none;
     font-weight: 600;
-    padding-bottom: 5px; /* For hover effect */
+    padding-bottom: 5px;
     border-bottom: 2px solid transparent;
     transition: color 0.3s, border-color 0.3s;
 }
@@ -72,8 +79,51 @@ nav { display: flex; align-items: center; }
     color: var(--primary-color);
     border-bottom-color: var(--primary-color);
 }
-.menu-toggle { display: none; background: none; border: none; font-size: 2rem; cursor: pointer; }
 
+/* === HAMBURGER MENU & MOBILE NAVIGATION === */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1100;
+}
+
+.menu-icon {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: var(--dark-color);
+  border-radius: 3px;
+  position: relative;
+  transition: background 0.3s ease-in-out;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--dark-color);
+  border-radius: 3px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-icon::before { top: -8px; }
+.menu-icon::after { top: 8px; }
+
+.menu-toggle.active .menu-icon {
+  background: transparent;
+}
+.menu-toggle.active .menu-icon::before {
+  transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.active .menu-icon::after {
+  transform: translateY(-8px) rotate(-45deg);
+}
 
 /* === HERO SECTION === */
 .hero {
@@ -110,10 +160,9 @@ nav { display: flex; align-items: center; }
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
-    flex-direction: row; /* Ensure horizontal layout on desktop */
+    flex-direction: row;
 }
 
-/* === BUTTONS === */
 .btn-primary, .btn-secondary {
     font-family: var(--font-body);
     font-weight: 700;
@@ -154,28 +203,77 @@ nav { display: flex; align-items: center; }
     background: var(--light-color);
     padding: 80px 0;
 }
-.hero-carousel { max-width: 800px; margin: 0 auto; }
-.card-container { /* Retain for JS */ }
-.card {
-    background: var(--dark-color);
-    color: var(--light-color);
-    /* Retaining original carousel transition styles */
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 2rem; border-radius: 16px; box-shadow: 0 15px 30px rgba(0,0,0,0.2); opacity: 0; transform: rotateY(90deg); transition: transform 0.8s ease, opacity 0.6s ease; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+.hero-carousel {
+    max-width: 800px;
+    margin: 0 auto;
 }
-.card.active { opacity: 1; transform: rotateY(0deg); z-index: 2; }
-.card h2 { color: var(--primary-color); }
-.card p { color: #eee; }
+.card-container {
+    position: relative;
+    width: 30rem;
+    height: 26rem; /* Fixes carousel overlap */
+    margin: 0 auto;
+    perspective: 1000px;
+}
+.card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--dark-color);
+    border-radius: 16px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--light-color);
+    opacity: 0;
+    transform: rotateY(90deg);
+    transition: transform 0.8s ease, opacity 0.6s ease;
+    text-align: center;
+}
+.card.active {
+    opacity: 1;
+    transform: rotateY(0deg);
+    z-index: 2;
+}
+.card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+.card p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #eee;
+}
 
 /* === IMPACT SECTION === */
 .impact-section {
     background: var(--bg-color);
     padding: 80px 0;
-    border-radius: 0; /* Remove old border-radius */
+    border-radius: 0;
     color: var(--text-color);
 }
-.impact-title { font-size: 2.8rem; text-align: center; margin-bottom: 15px; color: var(--dark-color); }
-.impact-subtitle { font-size: 1.1rem; color: var(--text-light); text-align: center; max-width: 700px; margin: 0 auto 50px auto; }
-.impact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.impact-title {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+}
+.impact-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+}
+.impact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
 .impact-card {
     background: var(--light-color);
     padding: 30px;
@@ -184,11 +282,22 @@ nav { display: flex; align-items: center; }
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     text-align: left;
 }
-.impact-card:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.08); }
-.impact-card h3 { color: var(--primary-color); }
-.card-shift strong, .card-outcome strong { color: var(--dark-color); }
-.card-shift ul { padding-left: 20px; }
-.card-outcome { color: #28a745; font-weight: bold; } /* Green for positive outcome */
+.impact-card:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+.impact-card h3 {
+    color: var(--primary-color);
+}
+.card-shift strong, .card-outcome strong {
+    color: var(--dark-color);
+}
+.card-shift ul {
+    padding-left: 20px;
+}
+.card-outcome {
+    color: #28a745;
+    font-weight: bold;
+}
 
 /* === EXPERIENCE (STATS) SECTION === */
 #experience, .experience-section {
@@ -207,8 +316,17 @@ nav { display: flex; align-items: center; }
     box-shadow: none;
     flex: 1 1 200px;
 }
-.experience-item h2 { font-size: 3.5rem; color: var(--primary-color); }
-.experience-item p { color: var(--text-light); font-weight: 600; }
+.experience-item h2 {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+.experience-item p {
+    font-weight: 600;
+    color: var(--text-light);
+}
 
 /* === SOLUTIONS (EDGE SYSTEM) SECTION === */
 #solutions, .solutions-section {
@@ -217,20 +335,36 @@ nav { display: flex; align-items: center; }
     border-radius: 0;
     color: var(--text-color);
 }
-.solutions-section h2 { color: var(--dark-color); text-align: center; font-size: 2.8rem; }
-.solutions-subtitle { text-align: center; max-width: 700px; margin: 0 auto 50px; color: var(--text-light); }
+.solutions-section h2 {
+    color: var(--dark-color);
+    text-align: center;
+    font-size: 2.8rem;
+}
+.solutions-subtitle {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    color: var(--text-light);
+}
 .edge-step {
     background: var(--light-color);
     border: 1px solid var(--border-color);
     padding: 30px;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
     text-align: left;
     max-width: 700px;
 }
-.edge-step h3 { color: var(--dark-color); }
-.edge-step p { color: var(--text-light); }
-
+.edge-step h3 {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    color: var(--dark-color);
+    margin-bottom: 0.75rem;
+}
+.edge-step p {
+    font-size: 1rem;
+    color: var(--text-light);
+}
 
 /* === FAQ SECTION === */
 #faq, .faq-section {
@@ -239,8 +373,12 @@ nav { display: flex; align-items: center; }
     border-radius: 0;
     box-shadow: none;
 }
-.faq-section .container { max-width: 800px; }
-.faq-section h2 { color: var(--dark-color); }
+.faq-section .container {
+    max-width: 800px;
+}
+.faq-section h2 {
+    color: var(--dark-color);
+}
 .faq-item {
     background: transparent;
     border-bottom: 1px solid var(--border-color);
@@ -249,8 +387,13 @@ nav { display: flex; align-items: center; }
     box-shadow: none;
     border-radius: 0;
 }
-.faq-item h3 { color: var(--dark-color); font-size: 1.25rem; }
-.faq-item p { color: var(--text-light); }
+.faq-item h3 {
+    color: var(--dark-color);
+    font-size: 1.25rem;
+}
+.faq-item p {
+    color: var(--text-light);
+}
 
 /* === FOOTER === */
 footer {
@@ -264,30 +407,96 @@ footer {
 /* === WHATSAPP FLOAT BUTTON === */
 .whatsapp-float {
     position: fixed;
-    width: 60px; height: 60px;
-    bottom: 40px; right: 40px;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
     background-color: #25d366;
     border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     z-index: 1000;
 }
-.whatsapp-float img { width: 35px; }
-
-/* === BLOG POST STYLES === */
-.post-hero h1, .post-content h2, .post-content h3 { color: var(--dark-color); }
-.post-content { max-width: 720px; margin: 2rem auto; }
-.post-content blockquote { border-left-color: var(--primary-color); background: var(--bg-color); }
-.post-content a { color: var(--primary-color); }
-.post-content table th { background-color: var(--dark-color); color: var(--light-color); }
-
-
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-    .nav-links { display: none; }
-    .menu-toggle { display: block; }
-    .hero-card h1 { font-size: 2.8rem; }
-    .experience-section, .hero-buttons { flex-direction: column; gap: 30px; }
-    .card-container { width: 90vw; }
+.whatsapp-float img {
+    width: 35px;
 }
 
+/* === BLOG POST STYLES === */
+.post-hero h1, .post-content h2, .post-content h3 {
+    color: var(--dark-color);
+}
+.post-content {
+    max-width: 720px;
+    margin: 2rem auto;
+}
+.post-content blockquote {
+    border-left-color: var(--primary-color);
+    background: var(--bg-color);
+}
+.post-content a {
+    color: var(--primary-color);
+}
+.post-content table th {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+/* === RESPONSIVE STYLES === */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: var(--light-color);
+        width: 250px;
+        flex-direction: column;
+        padding: 1rem 0;
+        border-radius: 0 0 0 10px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        gap: 0;
+    }
+    
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 1rem 1.5rem;
+        color: var(--dark-color);
+        border-bottom: none;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+        background: var(--bg-color);
+        color: var(--primary-color);
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .hero-card h1 {
+        font-size: 2.8rem;
+    }
+    
+    #experience, .hero-buttons {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .card-container, .card, .edge-step {
+        max-width: 90vw; /* Use viewport width for better fit on small devices */
+        width: auto;
+    }
+
+    .card-container {
+        height: auto; /* Allow height to adjust on mobile */
+        min-height: 320px;
+    }
+}
+```
