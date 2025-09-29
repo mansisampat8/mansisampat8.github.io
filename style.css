@@ -1,3 +1,16 @@
+/* === ROOT VARIABLES === */
+:root {
+  --primary-color: #6a5acd; /* Modern purple */
+  --dark-color: #1c202b;
+  --light-color: #ffffff;
+  --bg-color: #f7f9fc;
+  --text-color: #333333;
+  --text-light: #5e5e5e;
+  --border-color: #e5e5e5;
+  --font-heading: 'League Spartan', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
 /* === RESET & BASE === */
 *,
 *::before,
@@ -8,10 +21,10 @@
 }
 
 body {
-  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   line-height: 1.62;
-  background: #f5f7fa;
-  color: #222;
+  background: var(--bg-color);
+  color: var(--text-color);
 }
 
 /* === CONTAINER === */
@@ -23,12 +36,12 @@ body {
 
 /* === HEADER === */
 header {
-  background: #0d3b66;
-  color: #fff;
+  background: var(--dark-color);
+  color: var(--light-color);
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 3px 8px rgba(13,59,102,0.13);
+  box-shadow: 0 3px 8px rgba(28, 32, 43, 0.13);
 }
 
 .header-container {
@@ -40,17 +53,17 @@ header {
 }
 
 .logo {
-  font-family: 'League Spartan', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 900;
   font-size: 2rem;
-  color: #fff;
+  color: var(--light-color);
   text-decoration: none;
   letter-spacing: -1px;
   transition: color 0.23s;
 }
 
 .logo:hover {
-  color: #fff;
+  color: var(--light-color);
 }
 .menu-toggle {
   display: none;
@@ -63,7 +76,7 @@ header {
   display: block;
   width: 32px;
   height: 3px;
-  background: #fff;
+  background: var(--light-color);
   border-radius: 3px;
   position: relative;
   transition: background .3s;
@@ -73,7 +86,7 @@ header {
   content: '';
   position: absolute;
   left: 0;
-  background: #fff;
+  background: var(--light-color);
   width: 100%;
   height: 3px;
   border-radius: 3px;
@@ -100,14 +113,14 @@ header {
     top: 60px;
     right: 0;
     flex-direction: column;
-    background: #0A2540;
+    background: var(--dark-color);
     width: 180px;
     padding: 1rem 0;
     border-radius: 0 0 0 16px;
-    box-shadow: 0 2px 12px rgba(13,59,102,0.15);
+    box-shadow: 0 2px 12px rgba(28, 32, 43, 0.15);
     display: none; /* start hidden */
   }
-} 
+}
 
 /* === NAVIGATION === */
 nav {
@@ -123,7 +136,7 @@ nav {
 
 .nav-links li a {
   font-family: inherit;
-  color: #fff;
+  color: var(--light-color);
   font-weight: 600;
   text-decoration: none;
   padding-bottom: 2px;
@@ -133,8 +146,8 @@ nav {
 
 .nav-links li a:hover,
 .nav-links li a.active {
-  color: #ffc845;
-  border-bottom-color: #ffc845;
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
 }
 
 /* Hamburger */
@@ -143,29 +156,29 @@ nav {
   font-size: 2rem;
   background: none;
   border: none;
-  color: #ffc845;
+  color: var(--primary-color);
   cursor: pointer;
   margin-left: 1rem;
 }
 
 .hero-card {
-  background: rgba(13, 59, 102, 0.95); /* dark blue with slight transparency */
+  background: rgba(28, 32, 43, 0.95); /* dark with slight transparency */
   border-radius: 12px;
   padding: 1.5rem;
   max-width: 100%;
   text-align: center;
-  color: #fff;
+  color: var(--light-color);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-  margin-top: 0; 
+  margin-top: 0;
   margin-bottom: 0.25rem;
 }
 
 .hero-card h1 {
-  font-family: 'League Spartan', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 900;
   font-size: 1.8rem;
   margin-bottom: 1rem;
-  color: #ffc845; /* highlight */
+  color: var(--primary-color); /* highlight */
   line-height: 1.3;
 }
 
@@ -173,7 +186,7 @@ nav {
   font-size: 1rem;
   line-height: 1.5;
   margin-bottom: 1.5rem;
-  color: #fff;
+  color: var(--light-color);
 }
 
 .hero-buttons {
@@ -191,12 +204,12 @@ nav {
 
 /* === HERO SECTION === */
 .hero-h1 {
-  font-family: 'League Spartan', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 900;
   font-size: 2.4rem;
   text-align: center;
   margin: 0 0 2rem 0;
-  color: #1c2541;
+  color: var(--dark-color);
   line-height: 1.2;
 }
 
@@ -205,8 +218,8 @@ nav {
   min-height: 75vh;
   background: linear-gradient(
       to bottom,
-      rgba(13, 59, 102, 0.85),
-      rgba(13, 59, 102, 0.6)
+      rgba(28, 32, 43, 0.85),
+      rgba(28, 32, 43, 0.6)
     ),
     url('smartworks-coworking-Uz8THWPXwhI-unsplash.jpg');
   background-size: cover;
@@ -233,8 +246,8 @@ nav {
 
 .card-container {
   position: relative;
-  width: 30rem;        /* match CodePen width */
-  height: 24rem;       /* match CodePen height */
+  width: 30rem;      /* match CodePen width */
+  height: 24rem;      /* match CodePen height */
   margin: 0 auto;
   perspective: 1000px;  /* if you want 3D depth effects */
 }
@@ -246,7 +259,7 @@ nav {
   width: 100%;
   height: 100%;
   padding: 1rem;
-  background: #0d3b66;
+  background: var(--dark-color);
   border-radius: 16px;
   box-shadow: 0 15px 30px rgba(0,0,0,0.3);
   opacity: 0;
@@ -262,7 +275,7 @@ nav {
 .card h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #ffcc00; /* highlight */
+  color: var(--primary-color); /* highlight */
 }
 
 .card p {
@@ -278,7 +291,7 @@ nav {
 }
 
 .hero-content strong {
-  color: #ffc845;
+  color: var(--primary-color);
 }
 
 /* optional: smoother transition if cards are very different lengths */
@@ -301,11 +314,11 @@ nav {
     flex-direction: column;
     align-items: center;      /* center flex children horizontally */
     justify-content: center;
-    text-align: center;       /* center text */
+    text-align: center;      /* center text */
     font-size: 1rem;
     word-break: break-word;
     overflow-wrap: break-word;
-    overflow-y: auto;         /* allow vertical scroll if content is long */
+    overflow-y: auto;        /* allow vertical scroll if content is long */
   }
 
   .card h2 {
@@ -319,7 +332,7 @@ nav {
 
 /* === BUTTONS === */
 .btn-primary, .btn-secondary {
-  font-family: 'League Spartan', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   border-radius: 999px;
   padding: 1rem 2rem;
@@ -329,37 +342,37 @@ nav {
   margin: 1rem auto 0 auto;
   cursor: pointer;
   transition: box-shadow 0.2s, background 0.2s, color 0.2s;
-  box-shadow: 0 2px 12px rgba(13,59,102,0.10);
+  box-shadow: 0 2px 12px rgba(28, 32, 43, 0.10);
   border: none;
 }
 
 .btn-primary {
-  background: linear-gradient(90deg, #ffc845 60%, #0d62ae 100%);
-  color: #1c2541;
+  background: linear-gradient(90deg, #836FFF 0%, var(--primary-color) 100%);
+  color: var(--light-color);
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-  box-shadow: 0 4px 24px #ffc84560;
-  background: linear-gradient(90deg, #ffb400 60%, #0d62ae 100%);
-  color: #fff;
+  box-shadow: 0 4px 24px rgba(106, 90, 205, 0.4);
+  background: linear-gradient(90deg, #9a85ff 0%, #7c6ee6 100%);
+  color: var(--light-color);
 }
 
 .btn-secondary {
   background: transparent;
-  border: 2px solid #ffc845;
-  color: #ffc845;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
 }
 
 .btn-secondary:hover,
 .btn-secondary:focus {
-  background: #ffc845;
-  color: #1c2541;
+  background: var(--primary-color);
+  color: var(--light-color);
 }
 /* === ABOUT HERO CARD === */
 .about-hero {
   min-height: 75vh;
-  background: linear-gradient(to bottom, rgba(13,59,102,0.85), rgba(13,59,102,0.6)),
+  background: linear-gradient(to bottom, rgba(28, 32, 43, 0.85), rgba(28, 32, 43, 0.6)),
     url('smartworks-coworking-Uz8THWPXwhI-unsplash.jpg');
   background-size: cover;
   background-position: center;
@@ -371,8 +384,8 @@ nav {
 }
 
 .about-card {
-  background: #0d3b66;
-  color: #fff;
+  background: var(--dark-color);
+  color: var(--light-color);
   border-radius: 16px;
   padding: 2rem;
   max-width: 600px;
@@ -383,7 +396,7 @@ nav {
 .about-card h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #ffcc00;
+  color: var(--primary-color);
 }
 
 .about-card p {
@@ -392,8 +405,8 @@ nav {
 }
 
 .impact-section {
-  background: #0d3b66;
-  color: #fff;
+  background: var(--dark-color);
+  color: var(--light-color);
   border-radius: 20px;
   padding: 3rem 1.5rem;
   text-align: center;
@@ -402,13 +415,13 @@ nav {
 .impact-title {
   font-size: 2.2rem;
   margin-bottom: 0.5rem;
-  color: #fff;
+  color: var(--light-color);
   font-weight: 700;
 }
 .impact-subtitle {
   font-size: 1.15rem;
   margin-bottom: 2rem;
-  color: #fff;
+  color: var(--light-color);
 }
 .impact-cards {
   display: grid;
@@ -419,7 +432,7 @@ nav {
   box-sizing: border-box;
 }
 .impact-card {
-  background: #fff;
+  background: var(--light-color);
   border-radius: 12px;
   box-shadow: 0 2px 14px rgba(44, 62, 80, 0.09);
   padding: 2rem 1.5rem;
@@ -431,19 +444,19 @@ nav {
 }
 .impact-card h3 {
   font-size: 1.3rem;
-  color: #1866ab;
+  color: var(--primary-color);
   margin-bottom: 0.75rem;
   font-weight: 600;
 }
 .card-shift strong, .card-outcome strong {
   display: block;
-  color: #273c75;
+  color: var(--dark-color);
   margin-bottom: 0.5em;
 }
 .card-shift ul {
   margin: 0 0 0.9em 1.1em;
   padding: 0;
-  color: #333;
+  color: var(--text-color);
 }
 .card-shift ul li {
   margin-bottom: 0.3em;
@@ -452,7 +465,7 @@ nav {
 .card-outcome {
   margin-top: 1em;
   font-size: 1.05rem;
-  color: #44bd32;
+  color: var(--primary-color);
 }
 @media (max-width: 600px) {
   .impact-card {
@@ -465,9 +478,9 @@ nav {
   justify-content: space-between;
   align-items: stretch;
   gap: 2rem;
-  background: #0d3b66;
+  background: var(--dark-color);
   border-radius: 20px;
-  box-shadow: 0 4px 18px rgba(13,59,102,0.08);
+  box-shadow: 0 4px 18px rgba(28, 32, 43, 0.08);
   margin: 2.5rem auto;
   padding: 2.5rem 1rem;
   text-align: center;
@@ -479,31 +492,31 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #f7f8fc;
+  background: var(--light-color);
   border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(13,59,102,0.06);
+  box-shadow: 0 2px 8px rgba(28, 32, 43, 0.06);
   padding: 1.2rem 0.8rem;
   margin: 0 0.5rem;
 }
 
 .experience-item h2 {
-  font-family: 'League Spartan', sans-serif;
+  font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 900;
-  color: #0d3b66;
+  color: var(--primary-color);
   margin-bottom: 0.45rem;
 }
 
 .experience-item p {
   font-size: 1.1rem;
-  color: #444;
+  color: var(--text-light);
   font-weight: 600;
 }
 
 /* === EDGE SYSTEM === */
 .solutions-section {
-  background: #0d3b66;
-  color: #fff;
+  background: var(--dark-color);
+  color: var(--light-color);
   border-radius: 20px;
   padding: 3rem 1.5rem;
   text-align: center;
@@ -511,23 +524,23 @@ nav {
 }
 
 .solutions-section h2 {
-  font-family: 'League Spartan', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 900;
   font-size: 2.2rem;
   margin-bottom: 0.7rem;
 }
 
 .solutions-subtitle {
-  font-family: 'League Spartan', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.25rem;
   margin-bottom: 1.1rem;
 }
 
 .edge-step {
-  background: #1c2541;
+  background: #2a2e3b;
   border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(13,59,102,0.10);
+  box-shadow: 0 2px 8px rgba(28, 32, 43, 0.10);
   margin: 1rem auto;
   max-width: 500px;
   padding: 1.2rem 1rem;
@@ -535,64 +548,64 @@ nav {
 }
 
 .edge-step h3 {
-  font-family: 'League Spartan', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 800;
   font-size: 1.1rem;
-  color: #ffc845;
+  color: var(--primary-color);
   margin-bottom: 0.45rem;
 }
 
 .edge-step p {
   font-size: 1rem;
-  color: #fff;
+  color: var(--light-color);
 }
 
 /* === FAQ SECTION === */
 .faq-section {
-  background: #f8f9fa;
+  background: var(--bg-color);
   border-radius: 18px;
-  box-shadow: 0 4px 12px rgba(13,59,102,0.03);
+  box-shadow: 0 4px 12px rgba(28, 32, 43, 0.03);
   padding: 3rem 1.2rem;
   max-width: 900px;
   margin: 2.5rem auto;
 }
 
 .faq-section h2 {
-  font-family: 'League Spartan', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 900;
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #0d3b66;
+  color: var(--dark-color);
   text-align: center;
 }
 
 .faq-item {
-  background: #fff;
+  background: var(--light-color);
   border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(13,59,102,0.07);
+  box-shadow: 0 2px 8px rgba(28, 32, 43, 0.07);
   padding: 1rem 0.9rem;
   margin-bottom: 1.2rem;
 }
 
 .faq-item h3 {
-  font-family: 'League Spartan', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.05rem;
   margin-bottom: 0.5rem;
-  color: #0d3b66;
+  color: var(--dark-color);
 }
 
 .faq-item p {
   font-size: 0.97rem;
-  color: #444;
+  color: var(--text-light);
   font-weight: 500;
   line-height: 1.5;
 }
 
 /* === FOOTER === */
 footer {
-  background: #0d3b66;
-  color: #fff;
+  background: var(--dark-color);
+  color: var(--light-color);
   text-align: center;
   padding: 1.2rem 0;
   font-size: 1rem;
@@ -682,10 +695,10 @@ footer {
     position: absolute;
     top: 60px;
     right: 0;
-    background: #0d3b66;
+    background: var(--dark-color);
     width: 200px;
     border-radius: 0 0 0 14px;
-    box-shadow: 0 2px 12px rgba(13,59,102,0.12);
+    box-shadow: 0 2px 12px rgba(28, 32, 43, 0.12);
     display: none;
     flex-direction: column;
     z-index: 1001;
@@ -729,7 +742,7 @@ footer {
   position: absolute;
   width: 6px;
   height: 6px;
-  background: radial-gradient(circle, gold, transparent);
+  background: radial-gradient(circle, var(--primary-color), transparent);
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
@@ -750,27 +763,27 @@ footer {
 
 .post-content th,
 .post-content td {
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   padding: 0.6rem 1rem;
   text-align: left;
 }
 
 .post-content th {
-  background-color: #0d3b66;
-  color: #fff;
+  background-color: var(--dark-color);
+  color: var(--light-color);
 }
 .post-hero h1 {
-  font-family: 'League Spartan', sans-serif;
+  font-family: var(--font-heading);
   font-size: 2.8rem;
   font-weight: 900;
-  color: #1c2541;
+  color: var(--dark-color);
   margin-bottom: 0.5rem;
   line-height: 1.2;
 }
 
 .post-hero p {
   font-size: 1rem;
-  color: #555;
+  color: var(--text-light);
   margin-bottom: 1rem;
 }
 
@@ -785,21 +798,21 @@ footer {
   margin: 2rem auto;
   font-size: 1.05rem;
   line-height: 1.75;
-  color: #333;
+  color: var(--text-color);
 }
 
 .post-content h2 {
   font-size: 1.8rem;
   margin: 2rem 0 1rem 0;
   font-weight: 700;
-  color: #0d3b66;
+  color: var(--dark-color);
 }
 
 .post-content h3 {
   font-size: 1.5rem;
   margin: 1.5rem 0 0.75rem 0;
   font-weight: 600;
-  color: #1866ab;
+  color: var(--primary-color);
 }
 
 .post-content p {
@@ -815,14 +828,14 @@ footer {
 
 .post-content blockquote {
   padding: 1rem 1.5rem;
-  border-left: 4px solid #ffc845;
-  background: #f7f8fc;
+  border-left: 4px solid var(--primary-color);
+  background: var(--bg-color);
   margin: 2rem 0;
   font-style: italic;
-  color: #555;
+  color: var(--text-light);
 }
 .post-content a {
-  color: #0d3b66;
+  color: var(--primary-color);
   text-decoration: underline;
 }
 
@@ -833,12 +846,12 @@ footer {
 }
 
 .post-content code {
-  background: #f2f2f2;
+  background: var(--border-color);
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
   font-family: monospace;
 }
 .pain-points {
   padding-top: 5rem; /* or adjust to match visual preference */
-  background: #f9fafb; /* optional contrast from hero */
+  background: var(--bg-color); /* optional contrast from hero */
 }
