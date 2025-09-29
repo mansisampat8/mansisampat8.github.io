@@ -779,5 +779,8 @@ footer {
   border-radius: 4px;
   font-family: monospace;
 }
-
+.pain-points {
+  padding-top: 5rem; /* or adjust to match visual preference */
+  background: #f9fafb; /* optional contrast from hero */
+}
 
