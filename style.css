@@ -148,6 +148,45 @@ nav {
   margin-left: 1rem;
 }
 
+.hero-card {
+  background: rgba(13, 59, 102, 0.95); /* dark blue with slight transparency */
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  max-width: 720px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.hero-card h1 {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 900;
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: #ffc845; /* highlight */
+  line-height: 1.2;
+}
+
+.hero-card h2 {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column; /* stack buttons on mobile */
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-buttons a {
+  width: 100%;
+  max-width: 260px;
+}
+
 /* === HERO SECTION === */
 .hero-h1 {
   font-family: 'League Spartan', sans-serif;
