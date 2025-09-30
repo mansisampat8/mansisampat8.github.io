@@ -369,6 +369,65 @@ nav {
   background: var(--primary-color);
   color: var(--light-color);
 }
+
+.what-we-do-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.what-we-do-section .section-title {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 40px;
+}
+
+.what-we-do-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.what-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  text-align: left;
+  scroll-margin-top: 80px; /* adjust this to your header height */
+}
+
+.what-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.card-subtitle {
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.what-card p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.card-outcomes strong {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.card-outcomes ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.card-outcomes li {
+  margin-bottom: 6px;
+}
+
 /* === ABOUT HERO CARD === */
 .about-hero {
   min-height: 75vh;
@@ -854,4 +913,8 @@ footer {
 .pain-points {
   padding-top: 5rem; /* or adjust to match visual preference */
   background: var(--bg-color); /* optional contrast from hero */
+}
+
+html {
+  scroll-behavior: smooth;
 }
