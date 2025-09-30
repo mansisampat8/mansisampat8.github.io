@@ -933,32 +933,32 @@ footer {
 .bubble {
   position: absolute;
   /* The animation will make the bubbles float */
-  animation: bubble-float 20s ease-in-out infinite;
+  animation: bubble-float 15s ease-in-out infinite;
   opacity: 0; /* Start with bubbles hidden, will be faded in by Webflow's JS or custom JS */
 }
 
 /* Positioning for each bubble */
-.hero-image-1 { top: 10%; left: 15%; width: 8vw; max-width: 100px; animation-delay: 0s; }
-.hero-image-2 { top: 20%; left: 85%; width: 7vw; max-width: 90px; animation-delay: 2s; }
-.hero-image-3 { top: 65%; left: 5%;  width: 12vw; max-width: 150px; animation-delay: 4s; }
-.hero-image-4 { top: 75%; left: 80%; width: 9vw; max-width: 110px; animation-delay: 6s; }
-.hero-image-5 { top: 40%; left: 50%; width: 10vw; max-width: 130px; animation-delay: 8s; }
-.hero-image-6 { top: 5%;  left: 45%; width: 14vw; max-width: 180px; animation-delay: 10s; }
-.hero-image-7 { top: 85%; left: 30%; width: 8vw; max-width: 100px; animation-delay: 12s; }
+.hero-image-1 { top: 15%; left: 10%; width: 10vw; max-width: 120px; animation-delay: 0s; }
+.hero-image-2 { top: 25%; left: 85%; width: 8vw; max-width: 100px; animation-delay: 2s; }
+.hero-image-3 { top: 70%; left: 5%; width: 12vw; max-width: 150px; animation-delay: 4s; }
+.hero-image-4 { top: 80%; left: 90%; width: 9vw; max-width: 110px; animation-delay: 6s; }
+.hero-image-5 { top: 50%; left: 50%; width: 14vw; max-width: 170px; animation-delay: 1s; }
+.hero-image-6 { top: 5%; left: 40%; width: 16vw; max-width: 200px; animation-delay: 3s; }
+.hero-image-7 { top: 90%; left: 30%; width: 8vw; max-width: 100px; animation-delay: 5s; }
 
 /* The floating animation */
 @keyframes bubble-float {
   0% {
     transform: translateY(0) translateX(0);
-    opacity: 0;
+    opacity: 0.8;
   }
-  10%, 90% {
-    transform: translateY(-20px) translateX(15px) rotate(10deg);
+  50% {
+    transform: translateY(-25px) translateX(15px) rotate(15deg);
     opacity: 1;
   }
   100% {
     transform: translateY(0) translateX(0);
-    opacity: 0;
+    opacity: 0.8;
   }
 }
 
@@ -973,14 +973,18 @@ html {
   scroll-behavior: smooth;
 }
 
-/* 6. Mobile Bubble Positioning (Screens 767px wide or smaller) */
-/* This media query overrides the desktop styles on mobile */
+/* --- Responsive Bubble Sizes for Mobile --- */
 @media (max-width: 767px) {
-  .hero-image-1 { top: 8%;  left: 5%;  width: 18vw; max-width: 70px; }
-  .hero-image-2 { top: 15%; left: 70%; width: 15vw; max-width: 60px; }
-  .hero-image-3 { top: 25%; left: 10%; width: 22vw; max-width: 85px; }
-  .hero-image-4 { top: 40%; left: 80%; width: 16vw; max-width: 65px; }
-  .hero-image-5 { top: 55%; left: 15%; width: 20vw; max-width: 80px; }
-  .hero-image-6 { top: 65%; left: 65%; width: 25vw; max-width: 100px; }
-  .hero-image-7 { top: 80%; left: 30%; width: 18vw; max-width: 70px; }
+  /*
+   * These styles will ONLY apply on screens 767px wide or smaller.
+   * They override the large desktop sizes with smaller, mobile-friendly ones.
+  */
+
+  .hero-image-1 { width: 12vw; max-width: 60px; }
+  .hero-image-2 { width: 10vw; max-width: 50px; }
+  .hero-image-3 { width: 15vw; max-width: 75px; }
+  .hero-image-4 { width: 11vw; max-width: 55px; }
+  .hero-image-5 { width: 16vw; max-width: 85px; }
+  .hero-image-6 { width: 18vw; max-width: 100px; }
+  .hero-image-7 { width: 10vw; max-width: 50px; }
 }
