@@ -911,6 +911,55 @@ footer {
   padding-top: 5rem; /* or adjust to match visual preference */
   background: var(--bg-color); /* optional contrast from hero */
 }
+/* Make sure your hero section is a positioned container */
+.hero-section {
+  position: relative;
+  /* other hero styles */
+}
+
+.hero-bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* This allows clicks to go through the bubbles to elements behind them */
+  overflow: hidden;
+  z-index: 1; /* Adjust z-index if bubbles need to be behind hero content */
+}
+
+.bubble {
+  position: absolute;
+  /* The animation will make the bubbles float */
+  animation: bubble-float 15s ease-in-out infinite;
+  opacity: 0; /* Start with bubbles hidden, will be faded in by Webflow's JS or custom JS */
+}
+
+/* Positioning for each bubble */
+.hero-image-1 { top: 15%; left: 10%; width: 5vw; max-width: 60px; animation-delay: 0s; }
+.hero-image-2 { top: 25%; left: 85%; width: 4vw; max-width: 50px; animation-delay: 2s; }
+.hero-image-3 { top: 70%; left: 5%; width: 6vw; max-width: 75px; animation-delay: 4s; }
+.hero-image-4 { top: 80%; left: 90%; width: 4.5vw; max-width: 55px; animation-delay: 6s; }
+.hero-image-5 { top: 50%; left: 50%; width: 7vw; max-width: 85px; animation-delay: 1s; }
+.hero-image-6 { top: 5%; left: 40%; width: 8vw; max-width: 100px; animation-delay: 3s; }
+.hero-image-7 { top: 90%; left: 30%; width: 4vw; max-width: 50px; animation-delay: 5s; }
+
+/* The floating animation */
+@keyframes bubble-float {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-25px) translateX(15px) rotate(15deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.8;
+  }
+}
+
 
 html {
   scroll-behavior: smooth;
