@@ -938,13 +938,13 @@ footer {
 }
 
 /* Positioning for each bubble */
-.hero-image-1 { top: 15%; left: 10%; width: 5vw; max-width: 60px; animation-delay: 0s; }
-.hero-image-2 { top: 25%; left: 85%; width: 4vw; max-width: 50px; animation-delay: 2s; }
-.hero-image-3 { top: 70%; left: 5%; width: 6vw; max-width: 75px; animation-delay: 4s; }
-.hero-image-4 { top: 80%; left: 90%; width: 4.5vw; max-width: 55px; animation-delay: 6s; }
-.hero-image-5 { top: 50%; left: 50%; width: 7vw; max-width: 85px; animation-delay: 1s; }
-.hero-image-6 { top: 5%; left: 40%; width: 8vw; max-width: 100px; animation-delay: 3s; }
-.hero-image-7 { top: 90%; left: 30%; width: 4vw; max-width: 50px; animation-delay: 5s; }
+.hero-image-1 { top: 15%; left: 10%; width: 10vw; max-width: 120px; animation-delay: 0s; }
+.hero-image-2 { top: 25%; left: 85%; width: 8vw; max-width: 100px; animation-delay: 2s; }
+.hero-image-3 { top: 70%; left: 5%; width: 12vw; max-width: 150px; animation-delay: 4s; }
+.hero-image-4 { top: 80%; left: 90%; width: 9vw; max-width: 110px; animation-delay: 6s; }
+.hero-image-5 { top: 50%; left: 50%; width: 14vw; max-width: 170px; animation-delay: 1s; }
+.hero-image-6 { top: 5%; left: 40%; width: 16vw; max-width: 200px; animation-delay: 3s; }
+.hero-image-7 { top: 90%; left: 30%; width: 8vw; max-width: 100px; animation-delay: 5s; }
 
 /* The floating animation */
 @keyframes bubble-float {
