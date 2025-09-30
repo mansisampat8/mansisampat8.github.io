@@ -170,7 +170,7 @@ border-bottom-color: var(--primary-color);
 .hero-card h1 {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1.375rem;
+  font-size: 2rem;
   margin-bottom: 20px;
   color: var(--dark-color);
   line-height: 1.3;
