@@ -165,3 +165,16 @@ document.addEventListener("touchstart", (e) => {
   createSparkles(touch.pageX, touch.pageY);
 });
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const bubbles = document.querySelectorAll('.bubble');
+  bubbles.forEach((bubble, index) => {
+    // Stagger the fade-in animation
+    setTimeout(() => {
+      bubble.style.transition = 'opacity 1s ease-in-out';
+      bubble.style.opacity = '1';
+    }, index * 200); // 200ms delay between each bubble appearing
+  });
+});
+</script>
+
