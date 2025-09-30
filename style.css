@@ -962,6 +962,12 @@ footer {
   }
 }
 
+/* This wrapper contains the bubbles to the header and hero sections */
+.hero-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
 
 html {
   scroll-behavior: smooth;
