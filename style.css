@@ -495,7 +495,7 @@ nav {
   border-radius: 12px;
   box-shadow: 0 2px 14px rgba(44, 62, 80, 0.09);
   padding: 2rem 1.5rem;
-  text-align: Center;
+  text-align: left;
   transition: box-shadow 0.2s;
 }
 .impact-card:hover {
@@ -516,6 +516,8 @@ nav {
   margin: 0 0 0.9em 1.1em;
   padding: 0;
   color: var(--text-color);
+  text-align: left; /* ensures bullets align left */
+  list-style-position: inside; 
 }
 .card-shift ul li {
   margin-bottom: 0.3em;
