@@ -36,8 +36,9 @@ body {
 
 /* === HEADER === */
 header {
-  background: var(--dark-color);
+  background: color: var(--light-color);
   color: var(--light-color);
+  border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -55,8 +56,8 @@ header {
 .logo {
   font-family: var(--font-heading);
   font-weight: 900;
-  font-size: 2rem;
-  color: var(--light-color);
+  font-size: 1.8rem;
+  color: var(--dark-color);
   text-decoration: none;
   letter-spacing: -1px;
   transition: color 0.23s;
@@ -136,18 +137,18 @@ nav {
 
 .nav-links li a {
   font-family: inherit;
-  color: var(--light-color);
+  color: var(--dark-color);
   font-weight: 600;
   text-decoration: none;
   padding-bottom: 2px;
   border-bottom: 2px solid transparent;
-  transition: color 0.2s, border-bottom-color 0.2s;
+  transition: color 0.3s, border-bottom-color 0.3s;
 }
 
 .nav-links li a:hover,
 .nav-links li a.active {
-  color: var(--primary-color);
-  border-bottom-color: var(--primary-color);
+ color: var(--primary-color);
+ border-bottom: 2px solid var(--primary-color);
 }
 
 /* Hamburger */
