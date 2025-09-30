@@ -56,7 +56,7 @@ header {
   font-family: var(--font-heading);
   font-weight: 900;
   font-size: 1.8rem;
-  color: var(--dark-color);
+  color: var(--primary-color);
   text-decoration: none;
   letter-spacing: -1px;
   transition: color 0.23s;
@@ -156,7 +156,7 @@ border-bottom-color: var(--primary-color);
   font-size: 2rem;
   background: none;
   border: none;
-  color: : var(--dark-color);
+ color: var(--primary-color);
   cursor: pointer;
   margin-left: 1rem;
 }
