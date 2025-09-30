@@ -973,11 +973,22 @@ html {
   scroll-behavior: smooth;
 }
 
-/* --- Responsive Bubble Sizes for Mobile --- */
-/* --- Correct & Complete Responsive Bubble Sizes for Mobile --- */
+/* ======================================================= */
+/* === BULLETPROOF RESPONSIVE BUBBLE SIZES FOR MOBILE === */
+/* ======================================================= */
 @media (max-width: 767px) {
-  /* This block now controls BOTH size and placement on mobile */
+  /*
+   * This block forces both size and placement on mobile.
+   * The !important rule ensures these styles win any CSS conflicts.
+  */
 
+  /* First, ensure all bubbles are visible and animating */
+  .bubble {
+    opacity: 1 !important; /* Forces the bubble to be visible */
+    animation-play-state: running !important; /* Ensures the animation is active */
+  }
+
+  /* Second, define the specific placement and size for each bubble */
   .hero-image-1 { top: 8%;  left: 5%;  width: 18vw; max-width: 70px; }
   .hero-image-2 { top: 15%; left: 70%; width: 15vw; max-width: 60px; }
   .hero-image-3 { top: 25%; left: 10%; width: 22vw; max-width: 85px; }
@@ -986,3 +997,4 @@ html {
   .hero-image-6 { top: 65%; left: 65%; width: 25vw; max-width: 100px; }
   .hero-image-7 { top: 80%; left: 30%; width: 18vw; max-width: 70px; }
 }
+
