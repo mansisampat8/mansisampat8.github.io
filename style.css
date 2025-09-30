@@ -136,7 +136,7 @@ nav {
 
 .nav-links li a {
   font-family: inherit;
-  color: var(--text-light);
+  color: var(--primary-color);;
   font-weight: 600;
   text-decoration: none;
   padding-bottom: 5px;
@@ -170,7 +170,8 @@ border-bottom-color: var(--primary-color);
 .hero-card h1 {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 3rem;
+  margin-top: 20px; 
   margin-bottom: 20px;
   color: var(--dark-color);
   line-height: 1.3;
