@@ -101,10 +101,10 @@ header {
   background: transparent;
 }
 .menu-toggle.active .menu-icon::before {
-  transform: rotate(45deg) translate(5px,5px);
+  transform: rotate(45deg) translate(8px);
 }
 .menu-toggle.active .menu-icon::after {
-  transform: rotate(-45deg) translate(5px,-5px);
+  transform: rotate(-45deg) translate(-8px);
 }
 
 /* Mobile only */
