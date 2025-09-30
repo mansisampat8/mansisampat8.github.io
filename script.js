@@ -165,4 +165,21 @@ document.addEventListener("touchstart", (e) => {
   createSparkles(touch.pageX, touch.pageY);
 });
 
+<script>
+  // This script fades in the bubbles on page load
+  document.addEventListener("DOMContentLoaded", function() {
+    const bubbles = document.querySelectorAll('.bubble');
+    
+    bubbles.forEach((bubble, index) => {
+      // Stagger the fade-in for a more dynamic effect
+      setTimeout(() => {
+        bubble.style.opacity = '1';
+      }, index * 200); // 200ms delay between each bubble appearing
+    });
+  });
+</script>
+
+<!-- Your existing script.js file should be right above or below this -->
+<script src="script.js"></script>
+</body>
 
