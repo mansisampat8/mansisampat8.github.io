@@ -130,24 +130,24 @@ nav {
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 30px;
   list-style: none;
 }
 
 .nav-links li a {
   font-family: inherit;
-  color: var(--dark-color);
+  color: var(--text-light);
   font-weight: 600;
   text-decoration: none;
-  padding-bottom: 2px;
+  padding-bottom: 5px;
   border-bottom: 2px solid transparent;
   transition: color 0.3s, border-bottom-color 0.3s;
 }
 
 .nav-links li a:hover,
 .nav-links li a.active {
- color: var(--dark-color);
- border-bottom: 2px solid var(--primary-color);
+ color:: var(--primary-color);
+border-bottom-color: var(--primary-color);
 }
 
 /* Hamburger */
