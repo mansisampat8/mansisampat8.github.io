@@ -609,7 +609,7 @@ border-bottom-color: var(--primary-color);
 /* This hides the new content by default */
 .stages-content {
   display: none;
-  background: #2a2e3b; /* Matches the .edge-step background */
+  background: #ffffff;
   border-radius: 14px;
   padding: 1.5rem;
   margin-top: 2rem;
@@ -651,7 +651,7 @@ border-bottom-color: var(--primary-color);
 .stage-promise {
   margin-top: 1rem;
   font-style: italic;
-  color: #c0c0c0; /* A slightly lighter text color for emphasis */
+  color: #ffffff;
 }
 
 @media (max-width: 600px) {
