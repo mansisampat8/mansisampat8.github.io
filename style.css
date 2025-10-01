@@ -425,6 +425,54 @@ border-bottom-color: var(--primary-color);
   margin-bottom: 6px;
 }
 
+/* --- Styles for Outcome Toggle in "What We Do" Cards --- */
+
+/* Wrapper for the whole outcome section inside a card */
+.outcome-toggle-wrapper {
+  margin-top: 1rem;
+  border-top: 1px solid #eee; /* Adds a nice separator line */
+  padding-top: 1rem;
+}
+
+/* The clickable header area */
+.outcome-header {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between; /* Pushes the arrow to the right */
+  align-items: center;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+/* The arrow icon */
+.outcome-arrow {
+  font-size: 1rem;
+  transition: transform 0.4s ease;
+  color: var(--primary-color); /* Uses your theme's primary color */
+}
+
+/* The collapsible content area */
+.outcome-content {
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  transition: height 0.4s ease-out, opacity 0.3s ease-out;
+  padding-left: 1.2rem; /* Indents the list slightly */
+  color: #555; /* Softer text color for the list items */
+}
+
+.outcome-content ul {
+  margin-top: 0.75rem; /* Space between header and list */
+}
+
+/* --- Active State (when content is visible) --- */
+
+/* Rotates the arrow when the wrapper is active */
+.outcome-toggle-wrapper.active .outcome-arrow {
+  transform: rotate(180deg);
+}
+
+
 /* === ABOUT HERO CARD === */
 .about-hero {
   min-height: 75vh;
