@@ -1387,13 +1387,13 @@ border-bottom-color: var(--primary-color);
 .impact-title {
   font-size: 2.2rem;
   margin-bottom: 0.5rem;
-  color: var(--light-color);
+  color: var(--dark-color);
   font-weight: 700;
 }
 .impact-subtitle {
   font-size: 1.15rem;
   margin-bottom: 2rem;
-  color: var(--light-color);
+  color: var(--dark-color);
 }
 .impact-cards {
   display: grid;
