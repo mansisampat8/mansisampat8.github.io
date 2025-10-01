@@ -617,6 +617,35 @@ border-bottom-color: var(--primary-color);
   color: var(--light-color);
 }
 
+/* Makes the header section clickable and adds an arrow */
+.toggle-wrapper {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; /* Adjust spacing between title and arrow */
+}
+
+/* Styles for the arrow icon */
+.toggle-arrow {
+  font-size: 1.2rem;
+  transition: transform 0.4s ease;
+}
+
+/* Rotates the arrow when the section is open */
+.solutions-section.active .toggle-arrow {
+  transform: rotate(180deg);
+}
+
+/* Container for the content that will be toggled */
+.toggle-content {
+  /* IMPORTANT: These properties create the smooth animation */
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  transition: height 0.5s ease-out, opacity 0.4s ease-out 0.1s;
+}
+
 /* === FAQ SECTION === */
 .faq-section {
   background: var(--bg-color);
