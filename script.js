@@ -241,3 +241,35 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  // --- Script for the FAQ Toggle Items ---
+  
+  // 1. Find all the clickable question headers
+  const allFaqQuestions = document.querySelectorAll('.faq-question');
+  
+  // 2. Loop through each question and add the click functionality
+  allFaqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+      
+      // 3. Find the main parent item of the question that was clicked
+      const faqItem = question.parentElement;
+      
+      // 4. Find the answer content within that specific item
+      const answer = faqItem.querySelector('.faq-answer');
+      
+      // 5. Toggle the 'active' class on the item to trigger the CSS
+      faqItem.classList.toggle('active');
+      
+      // 6. Check if it's now active and adjust the height to animate it open/closed
+      if (faqItem.classList.contains('active')) {
+        answer.style.height = answer.scrollHeight + 'px';
+        answer.style.opacity = '1';
+      } else {
+        answer.style.height = '0';
+        answer.style.opacity = '0';
+      }
+    });
+  });
+});
+
+
