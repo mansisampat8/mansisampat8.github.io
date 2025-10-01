@@ -672,7 +672,6 @@ border-bottom-color: var(--primary-color);
   padding: 2.5rem 1rem;
   text-align: center;
   flex-wrap: wrap;
-  border-top: 4px solid var(--primary-color);
 }
 
 .experience-item {
@@ -685,6 +684,7 @@ border-bottom-color: var(--primary-color);
   box-shadow: 0 2px 8px rgba(28, 32, 43, 0.06);
   padding: 1.2rem 0.8rem;
   margin: 0 0.5rem;
+  border-top: 4px solid var(--primary-color);
 }
 
 .experience-item h2 {
