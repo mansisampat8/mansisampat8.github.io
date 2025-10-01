@@ -166,27 +166,31 @@ document.addEventListener("touchstart", (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  const solutionsSection = document.querySelector('.solutions-section');
-  const toggleWrapper = document.querySelector('.toggle-wrapper');
-  const toggleContent = document.querySelector('.toggle-content');
+  // 1. Find ALL toggle headers on the page
+  const allToggles = document.querySelectorAll('.toggle-wrapper');
 
-  // Check if all elements exist before adding the event listener
-  if (solutionsSection && toggleWrapper && toggleContent) {
-    
-    toggleWrapper.addEventListener('click', () => {
-      // Add or remove the 'active' class on the main section
-      solutionsSection.classList.toggle('active');
+  // 2. Loop through each one we found
+  allToggles.forEach(toggle => {
+    // For each toggle header, add our click logic
+    toggle.addEventListener('click', () => {
+      
+      // 3. Find the parent <section> of the header that was just clicked
+      const parentSection = toggle.parentElement;
+      
+      // 4. Find the '.toggle-content' that is INSIDE that specific parent
+      const content = parentSection.querySelector('.toggle-content');
+      
+      // 5. Add or remove the 'active' class on that specific parent
+      parentSection.classList.toggle('active');
 
-      if (solutionsSection.classList.contains('active')) {
-        // If the section is now active, open the content
-        toggleContent.style.height = toggleContent.scrollHeight + 'px';
-        toggleContent.style.opacity = '1';
+      // 6. Check if THAT section is now active and show/hide its content
+      if (parentSection.classList.contains('active')) {
+        content.style.height = content.scrollHeight + 'px';
+        content.style.opacity = '1';
       } else {
-        // If the section is not active, close the content
-        toggleContent.style.height = '0';
-        toggleContent.style.opacity = '0';
+        content.style.height = '0';
+        content.style.opacity = '0';
       }
     });
-  }
+  });
 });
-
