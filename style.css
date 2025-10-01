@@ -461,8 +461,7 @@ border-bottom-color: var(--primary-color);
 }
 
 .impact-section {
-  background: var(--dark-color);
-  color: var(--light-color);
+  background-color: var(--bg-color);
   border-radius: 20px;
   padding: 3rem 1.5rem;
   text-align: center;
