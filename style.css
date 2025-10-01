@@ -266,6 +266,7 @@ border-bottom-color: var(--primary-color);
   justify-content: center;
   align-items: center;     /* horizontally center children */
   text-align: center;      /* center text in children */
+  border-top: 4px solid var(--primary-color);
 }
 
 .card h2 {
