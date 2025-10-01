@@ -392,6 +392,7 @@ border-bottom-color: var(--primary-color);
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   text-align: left;
   scroll-margin-top: 80px; /* adjust this to your header height */
+  border-top: 4px solid var(--primary-color);
 }
 
 .what-card h3 {
