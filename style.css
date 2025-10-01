@@ -824,6 +824,61 @@ border-bottom-color: var(--primary-color);
   font-weight: 500;
   line-height: 1.5;
 }
+/* --- Styles for the FAQ Toggle Section --- */
+
+/* The container for each individual FAQ item (question + answer) */
+.faq-toggle-item {
+  border-bottom: 1px solid #e0e0e0; /* Separator line */
+  padding: 1.5rem 0;
+}
+
+.faq-toggle-item:last-child {
+  border-bottom: none; /* No line on the last item */
+}
+
+/* The clickable question header */
+.faq-question {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between; /* Pushes the arrow to the right */
+  align-items: center;
+}
+
+.faq-question h3 {
+  margin: 0; /* Removes default heading margin */
+  font-size: 1.2rem;
+  color: var(--text-color);
+}
+
+/* The animated arrow */
+.faq-arrow {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  transition: transform 0.3s ease;
+}
+
+/* The hidden answer container */
+.faq-answer {
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  transition: height 0.4s ease, opacity 0.3s ease;
+}
+
+.faq-answer p {
+  margin-top: 1rem;
+  padding-right: 2rem; /* Adds space so text doesn't hit the edge */
+  color: #555; /* Softer text color for the answer */
+  line-height: 1.6;
+}
+
+/* --- Active State (when the answer is visible) --- */
+
+/* Rotates the arrow when the item is active */
+.faq-toggle-item.active .faq-arrow {
+  transform: rotate(180deg);
+}
+
 
 /* === FOOTER === */
 footer {
