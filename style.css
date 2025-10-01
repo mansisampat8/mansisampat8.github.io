@@ -713,7 +713,7 @@ border-bottom-color: var(--primary-color);
   font-weight: 900;
   font-size: 2rem;
   margin-bottom: 0.7rem;
-  color: var(--light-color);
+  color: var(--dark-color);
 }
 
 .solutions-subtitle {
