@@ -1376,13 +1376,14 @@ border-bottom-color: var(--primary-color);
 }
 
 .impact-section {
-  background: var(--dark-color);
-  color: var(--light-color);
-  border-radius: 20px;
+  background: transparent; /* removes the background */
+  color: var(--dark-color); /* adjust text color if needed */
+  border-radius: 0; /* optional if you want a flush look */
   padding: 3rem 1.5rem;
   text-align: center;
   margin: 2.5rem auto 3rem auto;
 }
+
 .impact-title {
   font-size: 2.2rem;
   margin-bottom: 0.5rem;
