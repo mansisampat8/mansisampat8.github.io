@@ -255,7 +255,7 @@ border-bottom-color: var(--primary-color);
   width: 100%;
   height: 100%;
   padding: 1rem;
-  background: background: #fff;
+  background: #fff;
   border-radius: 16px;
   box-shadow: 0 15px 30px rgba(0,0,0,0.3);
   opacity: 0;
@@ -278,7 +278,7 @@ border-bottom-color: var(--primary-color);
 .card p {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #ddd;
+  color: var(--dark-color);
 }
 
 .card.active {
