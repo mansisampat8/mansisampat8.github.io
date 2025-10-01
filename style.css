@@ -665,13 +665,14 @@ border-bottom-color: var(--primary-color);
   justify-content: space-between;
   align-items: stretch;
   gap: 2rem;
-  background: var(--dark-color);
+  background: #fff;
   border-radius: 20px;
   box-shadow: 0 4px 18px rgba(28, 32, 43, 0.08);
   margin: 2.5rem auto;
   padding: 2.5rem 1rem;
   text-align: center;
   flex-wrap: wrap;
+  border-top: 4px solid var(--primary-color);
 }
 
 .experience-item {
@@ -696,7 +697,7 @@ border-bottom-color: var(--primary-color);
 
 .experience-item p {
   font-size: 1.1rem;
-  color: var(--text-light);
+  color: var(--dark-color);
   font-weight: 600;
 }
 
