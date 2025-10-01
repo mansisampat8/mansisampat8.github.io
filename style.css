@@ -937,30 +937,34 @@ html {
   z-index: 1; /* Places bubbles behind the content */
 }
 
-/* 3. The floating animation keyframes */
-@keyframes bubble-float {
+@keyframes bubble-motion {
   0% {
-    transform: translateY(0) translateX(0);
-    opacity: 0.8; /* Start visible */
+    transform: translate3d(0, 0, 0) scale3d(1,1,1) rotateZ(0deg);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translate3d(20px, -30px, 0) scale3d(1.05,1.05,1) rotateZ(5deg);
+    opacity: 1;
   }
   50% {
-    transform: translateY(-25px) translateX(15px) rotate(15deg);
+    transform: translate3d(-10px, -60px, 0) scale3d(1,1,1) rotateZ(-5deg);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translate3d(15px, -90px, 0) scale3d(1.08,1.08,1) rotateZ(8deg);
     opacity: 1;
   }
   100% {
-    transform: translateY(0) translateX(0);
-    opacity: 0.8; /* End visible */
+    transform: translate3d(0, -120px, 0) scale3d(1,1,1) rotateZ(0deg);
+    opacity: 0;
   }
 }
 
 /* 4. Base style for a single bubble */
 .bubble {
   position: absolute;
-  /* Apply the animation to all bubbles */
-  animation-name: bubble-float;
-  animation-duration: 20s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
+  animation: bubble-motion 20s ease-in-out infinite;
+  transform-style: preserve-3d;
 }
 
 /* 5. Desktop Bubble Positioning (Screens wider than 767px) */
