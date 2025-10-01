@@ -194,3 +194,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  // --- Script for the "Find Your Stage" Button ---
+  
+  const findStageBtn = document.querySelector('#find-stage-btn');
+  const stagesContent = document.querySelector('#stages-content');
+
+  // Check if both the button and the content exist on the page
+  if (findStageBtn && stagesContent) {
+    findStageBtn.addEventListener('click', () => {
+      // Toggle the 'active' class on the content to show/hide it
+      stagesContent.classList.toggle('active');
+    });
+  }
+});
