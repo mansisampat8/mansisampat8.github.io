@@ -524,6 +524,36 @@ border-bottom-color: var(--primary-color);
   font-size: 1.05rem;
   color: var(--primary-color);
 }
+/* --- Styles for Toggle Functionality --- */
+
+/* Makes the wrapper for the title clickable */
+.toggle-wrapper {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; /* Adjusts space between title and arrow */
+}
+
+/* Base style for the arrow */
+.toggle-arrow {
+  font-size: 1.2rem;
+  transition: transform 0.4s ease;
+}
+
+/* Rotates the arrow when the parent section has the 'active' class */
+.active .toggle-arrow {
+  transform: rotate(180deg);
+}
+
+/* Hides the content by default and sets up the animation */
+.toggle-content {
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  transition: height 0.5s ease-out, opacity 0.4s ease-out;
+}
+
 @media (max-width: 600px) {
   .impact-card {
     padding: 1.25rem 0.7rem;
