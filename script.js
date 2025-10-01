@@ -165,3 +165,28 @@ document.addEventListener("touchstart", (e) => {
   createSparkles(touch.pageX, touch.pageY);
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const solutionsSection = document.querySelector('.solutions-section');
+  const toggleWrapper = document.querySelector('.toggle-wrapper');
+  const toggleContent = document.querySelector('.toggle-content');
+
+  // Check if all elements exist before adding the event listener
+  if (solutionsSection && toggleWrapper && toggleContent) {
+    
+    toggleWrapper.addEventListener('click', () => {
+      // Add or remove the 'active' class on the main section
+      solutionsSection.classList.toggle('active');
+
+      if (solutionsSection.classList.contains('active')) {
+        // If the section is now active, open the content
+        toggleContent.style.height = toggleContent.scrollHeight + 'px';
+        toggleContent.style.opacity = '1';
+      } else {
+        // If the section is not active, close the content
+        toggleContent.style.height = '0';
+        toggleContent.style.opacity = '0';
+      }
+    });
+  }
+});
+
