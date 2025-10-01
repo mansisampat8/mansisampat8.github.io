@@ -702,10 +702,11 @@ border-bottom-color: var(--primary-color);
 /* === OPTION 3: Elevated & Emphasized === */
 
 .solutions-section {
-  background: transparent;
+ background: transparent !important;
   padding: 60px 20px;
   text-align: center;
   margin: 2.5rem auto 3rem auto;
+  box-shadow: none
 }
 
 .solutions-section h2 {
@@ -721,7 +722,7 @@ border-bottom-color: var(--primary-color);
   font-weight: 400;
   font-size: 1.1rem;
   margin-bottom: 2rem;
-  color: var(--text-light);
+ color: var(--text-light);
   max-width: 750px;
   margin-left: auto;
   margin-right: auto;
