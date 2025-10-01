@@ -209,3 +209,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  // --- Script for the "Outcomes" Toggle in "What We Do" Cards ---
+  
+  // 1. Find all the clickable outcome headers on the page
+  const allOutcomeHeaders = document.querySelectorAll('.outcome-header');
+  
+  // 2. Loop through each one and add the click functionality
+  allOutcomeHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+      
+      // 3. Find the main wrapper for the header that was just clicked
+      const wrapper = header.parentElement;
+      
+      // 4. Find the content area within that specific wrapper
+      const content = wrapper.querySelector('.outcome-content');
+      
+      // 5. Toggle the 'active' class on the wrapper to trigger the CSS
+      wrapper.classList.toggle('active');
+      
+      // 6. Check if it's now active and adjust the height to animate it open/closed
+      if (wrapper.classList.contains('active')) {
+        content.style.height = content.scrollHeight + 'px';
+        content.style.opacity = '1';
+      } else {
+        content.style.height = '0';
+        content.style.opacity = '0';
+      }
+    });
+  });
+});
+
