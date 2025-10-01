@@ -699,11 +699,11 @@ border-bottom-color: var(--primary-color);
 }
 
 /* === EDGE SYSTEM === */
+/* === OPTION 3: Elevated & Emphasized === */
+
 .solutions-section {
-  background: var(--dark-color);
-  color: var(--light-color);
-  border-radius: 20px;
-  padding: 3rem 1.5rem;
+  background: var(--bg-color);
+  padding: 60px 20px;
   text-align: center;
   margin: 2.5rem auto 3rem auto;
 }
@@ -711,39 +711,47 @@ border-bottom-color: var(--primary-color);
 .solutions-section h2 {
   font-family: var(--font-heading);
   font-weight: 900;
-  font-size: 2.2rem;
+  font-size: 2rem;
   margin-bottom: 0.7rem;
+  color: var(--dark-color);
 }
 
 .solutions-subtitle {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.25rem;
-  margin-bottom: 1.1rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: var(--text-light);
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .edge-step {
-  background: #2a2e3b;
-  border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(28, 32, 43, 0.10);
-  margin: 1rem auto;
-  max-width: 500px;
-  padding: 1.2rem 1rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  margin: 1.5rem auto;
+  max-width: 650px;
+  padding: 25px;
   text-align: left;
+  border-top: 4px solid var(--primary-color); /* Adds a colored accent bar */
 }
 
 .edge-step h3 {
+  color: var(--dark-color); /* Darker heading for better contrast */
   font-family: var(--font-heading);
   font-weight: 800;
-  font-size: 1.1rem;
-  color: var(--primary-color);
-  margin-bottom: 0.45rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
 .edge-step p {
+  color: var(--text-light);
   font-size: 1rem;
-  color: var(--light-color);
+  line-height: 1.6;
 }
+
 
 /* Makes the header section clickable and adds an arrow */
 .toggle-wrapper {
