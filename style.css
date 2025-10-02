@@ -1140,83 +1140,6 @@ html {
   scroll-behavior: smooth; /* smooth scroll */
 }
 
-/* ===== HERO SECTION ===== */
-.hero {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem 10%;
-  gap: 3rem;
-  background: #fff; /* adjust if using gradient */
-}
-
-/* Left side: text container */
-.hero-container {
-  flex: 1;
-  max-width: 600px;
-}
-
-.hero-card h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  margin-bottom: 1.2rem;
-  line-height: 1.2;
-  color: #0a2540; /* Stripe's deep blue */
-}
-
-.hero-card h2 {
-  font-size: 1.25rem;
-  font-weight: 400;
-  margin-bottom: 2rem;
-  color: #444;
-  line-height: 1.5;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.9rem 1.6rem;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-}
-
-.btn-primary {
-  background: #635bff; /* Stripe purple */
-  color: #fff;
-}
-
-.btn-primary:hover {
-  background: #5145cd;
-}
-
-.btn-secondary {
-  border: 1px solid rgba(0,0,0,0.2);
-  color: #0a2540;
-  background: transparent;
-}
-
-.btn-secondary:hover {
-  background: rgba(99,91,255,0.08);
-  border-color: #635bff;
-  color: #635bff;
-}
-
-/* Right side: product image */
-.hero-animation {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  perspective: 1200px;
-}
-
 .stripe-hero-img {
   width: 100%;
   max-width: 500px;
@@ -1231,7 +1154,6 @@ html {
   transform: rotate(0deg) scale(1.03);
 }
 
-/* Floating animation */
 @keyframes float {
   0%, 100% {
     transform: rotate(-2deg) translateY(0);
@@ -1240,29 +1162,3 @@ html {
     transform: rotate(-2deg) translateY(-14px);
   }
 }
-
-/* Responsive design */
-@media (max-width: 900px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 4rem 2rem;
-  }
-
-  .hero-container {
-    max-width: 100%;
-  }
-
-  .hero-buttons {
-    justify-content: center;
-  }
-
-  .hero-animation {
-    margin-top: 3rem;
-  }
-
-  .stripe-hero-img {
-    max-width: 90%;
-  }
-}
-
