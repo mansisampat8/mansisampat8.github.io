@@ -1140,39 +1140,99 @@ html {
   scroll-behavior: smooth; /* smooth scroll */
 }
 
+/* === HERO SECTION === */
+/* The main container for the entire hero area */
 .hero {
-  position: relative;
+  position: relative; /* Establishes a positioning context for the absolute image */
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 90vh;              /* big hero */
-  padding: 6rem 10% 4rem 10%;
-  background: #fff;
-  overflow: hidden;              /* so img edges don’t break out */
+  align-items: center; /* Vertically aligns the text content */
+  justify-content: flex-start; /* Aligns the text content to the left */
+  min-height: 90vh; /* Gives the hero section plenty of height */
+  padding: 4rem 8%; /* Adjust padding as needed */
+  background: #fff; /* Simple white background */
+  overflow: hidden; /* IMPORTANT: Prevents the oversized image from creating a horizontal scrollbar */
 }
 
+/* === HERO CONTENT (The Text) === */
+/* Wrapper for your H1, H2, and buttons */
 .hero-container {
-  position: relative;
-  z-index: 2;                    /* keep text above image */
-  max-width: 600px;
+  position: relative; /* Ensures it can be placed above the image */
+  z-index: 2; /* Keeps the text on top of the image */
+  max-width: 550px; /* Limits the width of the text content */
 }
 
+/* Your existing .hero-card, h1, h2, and button styles are fine */
+/* No changes needed there */
+
+
+/* === STRIPE-STYLE IMAGE ANIMATION === */
+
+/* The wrapper div for the floating image */
 .hero-animation {
   position: absolute;
-  top: 0;
-  right: -5%;                    /* push slightly out for Stripe feel */
-  width: 65%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  z-index: 1;
+  top: 5%; /* Position from the top */
+  right: -10%; /* Pushes the image slightly off-screen to the right for an angled, cut-off look */
+  width: 60%; /* Controls how much of the hero section the image area takes up */
+  height: 90%; /* Controls the height of the image area */
+  z-index: 1; /* Places it behind the text content */
 }
 
+/* The actual image */
 .stripe-hero-img {
-  width: 120%;                   /* deliberately oversized */
+  width: 120%; /* Makes the image larger than its container for an oversized feel */
   max-width: none;
-  transform: rotate(-6deg);
-  border-radius: 24px;
-  box-shadow: 0 30px 70px rgba(0,0,0,0.25);
-  animation: float 6s ease-in
+  height: auto;
+  border-radius: 24px; /* Soft rounded corners */
+  transform: rotate(-6deg); /* The iconic Stripe angle */
+  box-shadow: 0 30px 60px -20px rgba(28, 32, 43, 0.25), 
+              0 15px 30px -15px rgba(28, 32, 43, 0.15); /* A deep shadow to create a "lifting" effect */
+  
+  /* The animation */
+  animation: float-and-sway 8s ease-in-out infinite alternate;
+}
+
+/* === KEYFRAMES FOR THE ANIMATION === */
+/* This creates the subtle floating and swaying motion */
+@keyframes float-and-sway {
+  from {
+    transform: translateY(0px) rotate(-6deg);
+  }
+  to {
+    transform: translateY(-20px) rotate(-4deg); /* Moves up and slightly reduces rotation */
+  }
+}
+
+/* === RESPONSIVE ADJUSTMENTS === */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column; /* Stack text on top of the image on smaller screens */
+    text-align: center;
+    padding: 3rem 5%;
+  }
+
+  .hero-container {
+    max-width: 100%; /* Allow text to take full width */
+    margin-bottom: 2rem;
+  }
+  
+  .hero-card h1,
+  .hero-card h2 {
+    text-align: center; /* Center-align the headings on mobile */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-animation {
+    position: relative; /* Change from absolute to relative to place it in the document flow */
+    width: 100%;
+    right: auto;
+    top: auto;
+    margin-top: 2rem;
+  }
+
+  .stripe-hero-img {
+    width: 100%; /* Make the image fit within the screen */
+    transform: rotate(0deg); /* Remove rotation on mobile for a cleaner look */
+    animation: none; /* Disable the animation on smaller screens */
+  }
+}
