@@ -1140,72 +1140,60 @@ html {
   scroll-behavior: smooth; /* smooth scroll */
 }
 
-/* === HERO SECTION === */
 .hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 6rem 8%;
-  min-height: 100vh;            /* full screen */
+  min-height: 100vh;
   background: #f7f9fc;
   overflow: hidden;
 }
 
-/* text content */
-.hero-container {
+/* text on left */
+.hero-text {
   max-width: 600px;
   z-index: 2;
 }
 
-/* floating image container */
-.hero-animation {
-  flex: 1;                      /* take right side space */
-  height: 100vh;                /* make it stretch full height */
-  position: relative;
-  z-index: 1;
-  pointer-events: none;
+/* image panel on right */
+.hero-image {
+  flex: 1;
+  height: 100vh;              /* fills full height */
+  max-width: 1000px;          /* similar to Stripe’s size */
   margin-left: 2rem;
-  overflow: hidden;
   border-radius: 40px;
+  overflow: hidden;
   box-shadow: 0 20px 60px -20px rgba(0,0,0,0.3);
+  position: relative;
 }
 
-/* actual image inside container */
-.stripe-hero-img {
+.hero-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;             /* stretch + crop */
-  transform: scale(1.2) rotate(-3deg); /* zoom a bit + tilt */
+  object-fit: cover;          /* stretches 1440×600 cleanly */
+  transform: scale(1.2) rotate(-3deg);
   animation: float 12s ease-in-out infinite alternate;
 }
 
 /* floating effect */
 @keyframes float {
-  from {
-    transform: translateY(-15px) scale(1.2) rotate(-3deg);
-  }
-  to {
-    transform: translateY(15px) scale(1.2) rotate(-2deg);
-  }
+  from { transform: translateY(-15px) scale(1.2) rotate(-3deg); }
+  to   { transform: translateY(15px) scale(1.2) rotate(-2deg); }
 }
 
-/* === MOBILE === */
+/* mobile fallback */
 @media (max-width: 900px) {
   .hero {
     flex-direction: column;
     text-align: center;
     padding: 3rem 1.5rem;
     min-height: 80vh;
-    
-    /* swap floating panel for bg image */
-    background-image: 
-      linear-gradient(rgba(247, 249, 252, 0.7), rgba(247, 249, 252, 0.9)),
-      url('stripe.png');
+    background-image: linear-gradient(rgba(247,249,252,0.7), rgba(247,249,252,0.9)),
+                      url('stripe.png');
     background-size: cover;
     background-position: center;
   }
-
-  .hero-animation {
-    display: none; /* hide floating image on mobile */
-  }
+  .hero-image { display: none; }
 }
+
