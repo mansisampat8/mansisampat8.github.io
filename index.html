@@ -66,23 +66,28 @@
   </header>
   
 <section class="hero">
-  <!-- Gradient background -->
-  <div class="hero-bg"></div>
- <div class="hero-slant">
-    <img src="stripe.png" alt="Stripe Mockup" />
+  <!-- New wrapper for all slanted elements -->
+  <div class="slanted-wrapper">
+    <!-- Gradient background (now inside the wrapper) -->
+    <div class="hero-bg"></div>
+    <!-- Image (now inside the wrapper) -->
+    <div class="hero-slant">
+      <img src="stripe.png" alt="Stripe Mockup" />
+    </div>
   </div>
-  <!-- Main content -->
+
+  <!-- Main content (stays outside the wrapper) -->
   <div class="hero-container">
       <h1>We give founders the proof they need to scale confidently and win investors’ trust.</h1>
       <h2>
-        Consumer insights that turn uncertainty into evidence helping founders grow smarter, validate faster, 
+        Consumer insights that turn uncertainty into evidence helping founders grow smarter, validate faster,
         and pitch investors with confidence.
       </h2>
       <div class="hero-buttons">
         <a href="#pre-sales" class="btn btn-primary">I Need Proof Before Sales</a>
         <a href="#post-sales" class="btn btn-secondary">I Have Sales, Need Investor Edge</a>
       </div>
-    </div>
+  </div>
 </section>
 
 <section id="pain-points" class="pain-points">
