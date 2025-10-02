@@ -1140,70 +1140,129 @@ html {
   scroll-behavior: smooth; /* smooth scroll */
 }
 
-/* ======================================= */
-/* === STRIPE-INSPIRED HERO SECTION === */
-/* ======================================= */
-
-/* 1. The main hero container with the slant */
+/* ===== HERO SECTION ===== */
 .hero {
-  position: relative;
-  background-color: var(--bg-color);
-  /* The clip-path creates the diagonal line. */
-  /* The percentages are: top-left, top-right, bottom-right, bottom-left. */
-  /* Adjust the '88%' value to make the slant more or less steep. */
-  clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 100%);
-  overflow: hidden; /* Ensures the animated shapes stay inside */
-  min-height: 75vh;
   display: flex;
-  align-items: center; /* Vertically center content */
-  justify-content: center;
-  padding: 0 1rem;
-  clip-path: none;
-  padding-bottom: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem 10%;
+  gap: 3rem;
+  background: #fff; /* adjust if using gradient */
 }
 
-/* 2. Container for the animated shapes */
-.hero-animation {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* Allows clicking through the shapes */
-  z-index: 0; /* Behind the content */
+/* Left side: text container */
+.hero-container {
+  flex: 1;
+  max-width: 600px;
 }
 
-/* 3. Individual animated shape style */
-.shape {
-  position: absolute;
-  border-radius: 50%;
-  background: var(--primary-color);
-  opacity: 0.1; /* Start with low opacity */
-  animation: float 25s ease-in-out infinite;
+.hero-card h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  line-height: 1.2;
+  color: #0a2540; /* Stripe's deep blue */
 }
 
-/* 4. Different sizes and positions for the shapes */
-.shape-1 { width: 400px; height: 400px; top: -150px; left: -150px; animation-delay: 0s; }
-.shape-2 { width: 300px; height: 300px; top: 50%; right: -100px; animation-delay: 5s; }
-.shape-3 { width: 250px; height: 250px; bottom: -120px; left: 30%; animation-delay: 10s; }
-
-/* 5. Keyframes for the floating animation */
-@keyframes float {
-  0% {
-    transform: translateY(0px) scale(1);
-  }
-  50% {
-    transform: translateY(-40px) scale(1.1);
-    opacity: 0.15;
-  }
-  100% {
-    transform: translateY(0px) scale(1);
-  }
+.hero-card h2 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: #444;
+  line-height: 1.5;
 }
 
-/* Ensure your hero content is on top */
-.hero-card {
-  position: relative;
-  z-index: 2;
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.9rem 1.6rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: #635bff; /* Stripe purple */
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #5145cd;
+}
+
+.btn-secondary {
+  border: 1px solid rgba(0,0,0,0.2);
+  color: #0a2540;
   background: transparent;
 }
+
+.btn-secondary:hover {
+  background: rgba(99,91,255,0.08);
+  border-color: #635bff;
+  color: #635bff;
+}
+
+/* Right side: product image */
+.hero-animation {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px;
+}
+
+.stripe-hero-img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  transform: rotate(-2deg);
+  animation: float 6s ease-in-out infinite;
+  transition: transform 0.6s ease;
+}
+
+.stripe-hero-img:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: rotate(-2deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-2deg) translateY(-14px);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+
+  .hero-container {
+    max-width: 100%;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-animation {
+    margin-top: 3rem;
+  }
+
+  .stripe-hero-img {
+    max-width: 90%;
+  }
+}
+
