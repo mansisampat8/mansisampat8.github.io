@@ -1140,162 +1140,104 @@ html {
   scroll-behavior: smooth; /* smooth scroll */
 }
 
-/* ======================================= */
-/* === HERO BUBBLE ANIMATION & STYLING === */
-/* ======================================= */
-
-/* 1. Main wrapper for the hero section */
-.hero-wrapper {
+/* === Hero Section === */
+.hero {
   position: relative;
-  overflow: hidden; /* This clips the bubbles and keeps them contained */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
 }
 
-/* 2. Container for all the bubble images */
-.hero-bubbles {
+/* Background SVG */
+.hero-bg {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; /* Allows clicking through the bubbles */
-  z-index: 1; /* Places bubbles behind the content */
+  z-index: 0;
+  animation: bgShift 12s infinite alternate ease-in-out;
 }
 
-/* Base bubble animation */
-.bubble {
+@keyframes bgShift {
+  0%   { filter: url(#turbulence); }
+  100% { filter: url(#turbulence); transform: scale(1.05); }
+}
+
+/* Static image layer */
+.hero-image {
   position: absolute;
-  animation: bubble-motion 15s ease-in-out infinite;
-  transform-style: preserve-3d;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  pointer-events: none;
 }
 
-/* Keyframes */
-@keyframes bubble-motion {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1) rotateZ(0deg);
-    opacity: 0.8;
-  }
-  25% {
-    transform: translate3d(20px, -40px, 0) scale(1.05) rotateZ(5deg);
-    opacity: 1;
-  }
-  50% {
-    transform: translate3d(-15px, -80px, 0) scale(1) rotateZ(-5deg);
-    opacity: 0.9;
-  }
-  75% {
-    transform: translate3d(15px, -120px, 0) scale(1.08) rotateZ(8deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translate3d(0, -160px, 0) scale(1) rotateZ(0deg);
-    opacity: 0;
-  }
+.hero-image img {
+  max-width: 70%;
+  height: auto;
+  opacity: 0.9;
 }
 
-/* 5. Desktop Bubble Positioning (Screens wider than 767px) */
-/* This is the default state */
-.hero-image-1 { top: 10%; left: 15%; width: 8vw; max-width: 100px; animation-delay: 0s; }
-.hero-image-2 { top: 20%; left: 85%; width: 7vw; max-width: 90px;  animation-delay: 2s; }
-.hero-image-3 { top: 65%; left: 5%;  width: 12vw; max-width: 150px; animation-delay: 4s; }
-.hero-image-4 { top: 75%; left: 80%; width: 9vw; max-width: 110px;  animation-delay: 6s; }
-.hero-image-5 { top: 40%; left: 50%; width: 10vw; max-width: 130px; animation-delay: 8s; }
-.hero-image-6 { top: 5%;  left: 45%; width: 14vw; max-width: 180px; animation-delay: 10s; }
-.hero-image-7 { top: 85%; left: 30%; width: 8vw; max-width: 100px;  animation-delay: 12s; }
-
-/* 6. Mobile Bubble Positioning (Screens 767px wide or smaller) */
-/* This media query overrides the desktop styles on mobile */
-@media (max-width: 767px) {
-  /* On mobile, we remove the animation delay so all bubbles appear instantly */
-  .bubble {
-    animation-delay: 0s !important;
-  }
-
-  /* And we give them new positions and sizes */
-  .hero-image-1 { top: 8%;  left: 5%;  width: 18vw; max-width: 70px; }
-  .hero-image-2 { top: 15%; left: 70%; width: 15vw; max-width: 60px; }
-  .hero-image-3 { top: 25%; left: 10%; width: 22vw; max-width: 85px; }
-  .hero-image-4 { top: 40%; left: 80%; width: 16vw; max-width: 65px; }
-  .hero-image-5 { top: 55%; left: 15%; width: 20vw; max-width: 80px; }
-  .hero-image-6 { top: 65%; left: 65%; width: 25vw; max-width: 100px; }
-  .hero-image-7 { top: 80%; left: 30%; width: 18vw; max-width: 70px; }
-}
-/* ======================================= */
-/* === HERO BUBBLE ANIMATION & STYLING === */
-/* ======================================= */
-
-/* 1. Main wrapper for the hero section */
-.hero-wrapper {
+/* Content container */
+.hero-container {
   position: relative;
-  overflow: hidden; /* This clips the bubbles and keeps them contained */
+  z-index: 2;
+  max-width: 900px;
+  padding: 0 20px;
 }
 
-/* 2. Container for all the bubble images */
-.hero-bubbles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* Allows clicking through the bubbles */
-  z-index: 1; /* Places bubbles behind the content */
+.hero-card h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
-/* Base bubble animation */
-.bubble {
-  position: absolute;
-  animation: bubble-motion 15s ease-in-out infinite;
-  transform-style: preserve-3d;
+.hero-card h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #e0e0e0;
 }
 
-/* Keyframes */
-@keyframes bubble-motion {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1) rotateZ(0deg);
-    opacity: 0.8;
-  }
-  25% {
-    transform: translate3d(20px, -40px, 0) scale(1.05) rotateZ(5deg);
-    opacity: 1;
-  }
-  50% {
-    transform: translate3d(-15px, -80px, 0) scale(1) rotateZ(-5deg);
-    opacity: 0.9;
-  }
-  75% {
-    transform: translate3d(15px, -120px, 0) scale(1.08) rotateZ(8deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translate3d(0, -160px, 0) scale(1) rotateZ(0deg);
-    opacity: 0;
-  }
+/* Buttons */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-/* 5. Desktop Bubble Positioning (Screens wider than 767px) */
-/* This is the default state */
-.hero-image-1 { top: 10%; left: 15%; width: 8vw; max-width: 100px; animation-delay: 0s; }
-.hero-image-2 { top: 20%; left: 85%; width: 7vw; max-width: 90px;  animation-delay: 2s; }
-.hero-image-3 { top: 65%; left: 5%;  width: 12vw; max-width: 150px; animation-delay: 4s; }
-.hero-image-4 { top: 75%; left: 80%; width: 9vw; max-width: 110px;  animation-delay: 6s; }
-.hero-image-5 { top: 40%; left: 50%; width: 10vw; max-width: 130px; animation-delay: 8s; }
-.hero-image-6 { top: 5%;  left: 45%; width: 14vw; max-width: 180px; animation-delay: 10s; }
-.hero-image-7 { top: 85%; left: 30%; width: 8vw; max-width: 100px;  animation-delay: 12s; }
+.btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
 
-/* 6. Mobile Bubble Positioning (Screens 767px wide or smaller) */
-/* This media query overrides the desktop styles on mobile */
-@media (max-width: 767px) {
-  /* On mobile, we remove the animation delay so all bubbles appear instantly */
-  .bubble {
-    animation-delay: 0s !important;
-  }
+.btn-primary {
+  background: #007cf0;
+  color: #fff;
+}
 
-  /* And we give them new positions and sizes */
-  .hero-image-1 { top: 8%;  left: 5%;  width: 18vw; max-width: 70px; }
-  .hero-image-2 { top: 15%; left: 70%; width: 15vw; max-width: 60px; }
-  .hero-image-3 { top: 25%; left: 10%; width: 22vw; max-width: 85px; }
-  .hero-image-4 { top: 40%; left: 80%; width: 16vw; max-width: 65px; }
-  .hero-image-5 { top: 55%; left: 15%; width: 20vw; max-width: 80px; }
-  .hero-image-6 { top: 65%; left: 65%; width: 25vw; max-width: 100px; }
-  .hero-image-7 { top: 80%; left: 30%; width: 18vw; max-width: 70px; }
+.btn-primary:hover {
+  background: #005bb5;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.1);
 }
 
