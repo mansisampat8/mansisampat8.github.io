@@ -1140,99 +1140,90 @@ html {
   scroll-behavior: smooth; /* smooth scroll */
 }
 
-/* === HERO SECTION === */
-/* The main container for the entire hero area */
+/* === HERO SECTION: SLANTED BACKGROUND IMAGE === */
+
+/* 1. Main Hero Container */
 .hero {
-  position: relative; /* Establishes a positioning context for the absolute image */
+  position: relative; /* This is essential for positioning child elements */
   display: flex;
-  align-items: center; /* Vertically aligns the text content */
-  justify-content: flex-start; /* Aligns the text content to the left */
-  min-height: 90vh; /* Gives the hero section plenty of height */
-  padding: 4rem 8%; /* Adjust padding as needed */
-  background: #fff; /* Simple white background */
-  overflow: hidden; /* IMPORTANT: Prevents the oversized image from creating a horizontal scrollbar */
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 90vh;
+  padding: 4rem 8%;
+  background-color: #f7f9fc; /* Use your --bg-color */
+  overflow: hidden; /* Prevents scrollbars from the oversized image */
 }
 
-/* === HERO CONTENT (The Text) === */
-/* Wrapper for your H1, H2, and buttons */
+/* 2. Text Content Wrapper */
 .hero-container {
-  position: relative; /* Ensures it can be placed above the image */
-  z-index: 2; /* Keeps the text on top of the image */
-  max-width: 550px; /* Limits the width of the text content */
+  position: relative; /* Must have a position to use z-index */
+  z-index: 2; /* **CRITICAL: Places the text ON TOP of the image** */
+  max-width: 600px;
 }
 
-/* Your existing .hero-card, h1, h2, and button styles are fine */
-/* No changes needed there */
-
-
-/* === STRIPE-STYLE IMAGE ANIMATION === */
-
-/* The wrapper div for the floating image */
+/* 3. Slanted Image Animation Container */
 .hero-animation {
   position: absolute;
-  top: 5%; /* Position from the top */
-  right: -10%; /* Pushes the image slightly off-screen to the right for an angled, cut-off look */
-  width: 60%; /* Controls how much of the hero section the image area takes up */
-  height: 90%; /* Controls the height of the image area */
-  z-index: 1; /* Places it behind the text content */
+  /* **CHANGE: Start the image from the very top of the hero section** */
+  top: 0; 
+  right: -15%; /* Push it further right for a more dramatic slant */
+  width: 75%;  /* Make it wider to cover more horizontal space */
+  height: 110%; /* **CHANGE: Make it taller than the hero section to create the slant** */
+  z-index: 1;   /* **CRITICAL: Places the image BEHIND the text** */
+  pointer-events: none;
 }
 
-/* The actual image */
+/* 4. The Image Itself */
 .stripe-hero-img {
-  width: 120%; /* Makes the image larger than its container for an oversized feel */
-  max-width: none;
-  height: auto;
-  border-radius: 24px; /* Soft rounded corners */
-  transform: rotate(-6deg); /* The iconic Stripe angle */
-  box-shadow: 0 30px 60px -20px rgba(28, 32, 43, 0.25), 
-              0 15px 30px -15px rgba(28, 32, 43, 0.15); /* A deep shadow to create a "lifting" effect */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container without distortion */
+  border-radius: 24px;
   
-  /* The animation */
-  animation: float-and-sway 8s ease-in-out infinite alternate;
+  /* **CHANGE: Increase the rotation for a more pronounced slant** */
+  transform: rotate(-12deg); 
+  
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  /* You can keep or remove the animation based on your preference */
+  animation: float-and-sway 10s ease-in-out infinite alternate;
 }
 
-/* === KEYFRAMES FOR THE ANIMATION === */
-/* This creates the subtle floating and swaying motion */
+/* 5. Animation Keyframes (Adjusted for a more subtle motion) */
 @keyframes float-and-sway {
   from {
-    transform: translateY(0px) rotate(-6deg);
+    transform: translateY(-10px) rotate(-12deg);
   }
   to {
-    transform: translateY(-20px) rotate(-4deg); /* Moves up and slightly reduces rotation */
+    transform: translateY(10px) rotate(-10deg);
   }
 }
 
-/* === RESPONSIVE ADJUSTMENTS === */
+/* 6. Responsive Fallback (No changes needed here from the previous version) */
 @media (max-width: 900px) {
   .hero {
-    flex-direction: column; /* Stack text on top of the image on smaller screens */
+    flex-direction: column;
     text-align: center;
-    padding: 3rem 5%;
+    padding: 3rem 5% 4rem;
   }
-
   .hero-container {
-    max-width: 100%; /* Allow text to take full width */
-    margin-bottom: 2rem;
+    max-width: 100%;
   }
-  
   .hero-card h1,
   .hero-card h2 {
-    text-align: center; /* Center-align the headings on mobile */
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
   }
-
   .hero-animation {
-    position: relative; /* Change from absolute to relative to place it in the document flow */
+    position: relative;
     width: 100%;
     right: auto;
     top: auto;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
+    height: auto;
   }
-
   .stripe-hero-img {
-    width: 100%; /* Make the image fit within the screen */
-    transform: rotate(0deg); /* Remove rotation on mobile for a cleaner look */
-    animation: none; /* Disable the animation on smaller screens */
+    width: 100%;
+    transform: rotate(0deg);
+    animation: none;
   }
 }
