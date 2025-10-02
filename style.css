@@ -1140,63 +1140,162 @@ html {
   scroll-behavior: smooth; /* smooth scroll */
 }
 
-.hero {
+/* ======================================= */
+/* === HERO BUBBLE ANIMATION & STYLING === */
+/* ======================================= */
+
+/* 1. Main wrapper for the hero section */
+.hero-wrapper {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: left;
-  min-height: 100vh;
-  padding: 4rem 2rem;
-  color: #000;
-  overflow: hidden;
-  
-  /* stripe-style gradient background */
-  background: linear-gradient(135deg,
-    #ffb56b 0%,
-    #f6a6d7 30%,
-    #7bb0f9 60%,
-    #7af0ba 100%
-  );
+  overflow: hidden; /* This clips the bubbles and keeps them contained */
 }
 
-/* content styling */
-.hero-content {
-  max-width: 700px;
-  z-index: 2;
+/* 2. Container for all the bubble images */
+.hero-bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allows clicking through the bubbles */
+  z-index: 1; /* Places bubbles behind the content */
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  background: linear-gradient(180deg, #c00 0%, #0044ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Base bubble animation */
+.bubble {
+  position: absolute;
+  animation: bubble-motion 15s ease-in-out infinite;
+  transform-style: preserve-3d;
 }
 
-.hero p {
-  font-size: 1.125rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  color: #333;
-}
-
-.btn {
-  display: inline-block;
-  background: #c8a76f;
-  color: white;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  text-decoration: none;
-}
-
-/* Mobile tweaks */
-@media (max-width: 900px) {
-  .hero {
-    text-align: center;
-    padding: 3rem 1.5rem;
+/* Keyframes */
+@keyframes bubble-motion {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1) rotateZ(0deg);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translate3d(20px, -40px, 0) scale(1.05) rotateZ(5deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translate3d(-15px, -80px, 0) scale(1) rotateZ(-5deg);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translate3d(15px, -120px, 0) scale(1.08) rotateZ(8deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, -160px, 0) scale(1) rotateZ(0deg);
+    opacity: 0;
   }
 }
+
+/* 5. Desktop Bubble Positioning (Screens wider than 767px) */
+/* This is the default state */
+.hero-image-1 { top: 10%; left: 15%; width: 8vw; max-width: 100px; animation-delay: 0s; }
+.hero-image-2 { top: 20%; left: 85%; width: 7vw; max-width: 90px;  animation-delay: 2s; }
+.hero-image-3 { top: 65%; left: 5%;  width: 12vw; max-width: 150px; animation-delay: 4s; }
+.hero-image-4 { top: 75%; left: 80%; width: 9vw; max-width: 110px;  animation-delay: 6s; }
+.hero-image-5 { top: 40%; left: 50%; width: 10vw; max-width: 130px; animation-delay: 8s; }
+.hero-image-6 { top: 5%;  left: 45%; width: 14vw; max-width: 180px; animation-delay: 10s; }
+.hero-image-7 { top: 85%; left: 30%; width: 8vw; max-width: 100px;  animation-delay: 12s; }
+
+/* 6. Mobile Bubble Positioning (Screens 767px wide or smaller) */
+/* This media query overrides the desktop styles on mobile */
+@media (max-width: 767px) {
+  /* On mobile, we remove the animation delay so all bubbles appear instantly */
+  .bubble {
+    animation-delay: 0s !important;
+  }
+
+  /* And we give them new positions and sizes */
+  .hero-image-1 { top: 8%;  left: 5%;  width: 18vw; max-width: 70px; }
+  .hero-image-2 { top: 15%; left: 70%; width: 15vw; max-width: 60px; }
+  .hero-image-3 { top: 25%; left: 10%; width: 22vw; max-width: 85px; }
+  .hero-image-4 { top: 40%; left: 80%; width: 16vw; max-width: 65px; }
+  .hero-image-5 { top: 55%; left: 15%; width: 20vw; max-width: 80px; }
+  .hero-image-6 { top: 65%; left: 65%; width: 25vw; max-width: 100px; }
+  .hero-image-7 { top: 80%; left: 30%; width: 18vw; max-width: 70px; }
+}
+/* ======================================= */
+/* === HERO BUBBLE ANIMATION & STYLING === */
+/* ======================================= */
+
+/* 1. Main wrapper for the hero section */
+.hero-wrapper {
+  position: relative;
+  overflow: hidden; /* This clips the bubbles and keeps them contained */
+}
+
+/* 2. Container for all the bubble images */
+.hero-bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allows clicking through the bubbles */
+  z-index: 1; /* Places bubbles behind the content */
+}
+
+/* Base bubble animation */
+.bubble {
+  position: absolute;
+  animation: bubble-motion 15s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+/* Keyframes */
+@keyframes bubble-motion {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1) rotateZ(0deg);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translate3d(20px, -40px, 0) scale(1.05) rotateZ(5deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translate3d(-15px, -80px, 0) scale(1) rotateZ(-5deg);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translate3d(15px, -120px, 0) scale(1.08) rotateZ(8deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, -160px, 0) scale(1) rotateZ(0deg);
+    opacity: 0;
+  }
+}
+
+/* 5. Desktop Bubble Positioning (Screens wider than 767px) */
+/* This is the default state */
+.hero-image-1 { top: 10%; left: 15%; width: 8vw; max-width: 100px; animation-delay: 0s; }
+.hero-image-2 { top: 20%; left: 85%; width: 7vw; max-width: 90px;  animation-delay: 2s; }
+.hero-image-3 { top: 65%; left: 5%;  width: 12vw; max-width: 150px; animation-delay: 4s; }
+.hero-image-4 { top: 75%; left: 80%; width: 9vw; max-width: 110px;  animation-delay: 6s; }
+.hero-image-5 { top: 40%; left: 50%; width: 10vw; max-width: 130px; animation-delay: 8s; }
+.hero-image-6 { top: 5%;  left: 45%; width: 14vw; max-width: 180px; animation-delay: 10s; }
+.hero-image-7 { top: 85%; left: 30%; width: 8vw; max-width: 100px;  animation-delay: 12s; }
+
+/* 6. Mobile Bubble Positioning (Screens 767px wide or smaller) */
+/* This media query overrides the desktop styles on mobile */
+@media (max-width: 767px) {
+  /* On mobile, we remove the animation delay so all bubbles appear instantly */
+  .bubble {
+    animation-delay: 0s !important;
+  }
+
+  /* And we give them new positions and sizes */
+  .hero-image-1 { top: 8%;  left: 5%;  width: 18vw; max-width: 70px; }
+  .hero-image-2 { top: 15%; left: 70%; width: 15vw; max-width: 60px; }
+  .hero-image-3 { top: 25%; left: 10%; width: 22vw; max-width: 85px; }
+  .hero-image-4 { top: 40%; left: 80%; width: 16vw; max-width: 65px; }
+  .hero-image-5 { top: 55%; left: 15%; width: 20vw; max-width: 80px; }
+  .hero-image-6 { top: 65%; left: 65%; width: 25vw; max-width: 100px; }
+  .hero-image-7 { top: 80%; left: 30%; width: 18vw; max-width: 70px; }
+}
+
