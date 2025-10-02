@@ -1140,50 +1140,47 @@ html {
   scroll-behavior: smooth; /* smooth scroll */
 }
 
-/* === FINAL STRIPE HERO EFFECT CSS === */
+/* === FINAL & CORRECTED STRIPE HERO CSS === */
 
 /* 1. Main Hero Section Container */
 .hero {
-  position: relative; /* Establishes the positioning context for the image */
+  position: relative;
   display: flex;
-  align-items: center; /* Vertically centers the text container */
+  align-items: center;
   min-height: 90vh;
   padding: 4rem 8%;
-  background-color: #f7f9fc; /* A light background color */
-  overflow: hidden; /* **CRITICAL: Prevents the oversized image from creating scrollbars** */
+  background-color: #f7f9fc;
+  overflow: hidden;
+  
+  /* **FIX: Ensure no background image is applied on desktop by default** */
+  background-image: none !important; 
 }
 
 /* 2. Text Content Container */
 .hero-container {
-  position: relative; /* Allows z-index to work */
-  z-index: 2; /* **CRITICAL: Places text layer ON TOP of the image layer** */
+  position: relative;
+  z-index: 2; /* Text ON TOP */
   max-width: 600px;
 }
 
-/* 3. The Animated Image's Container (The "Slanted Box") */
+/* 3. The Animated Image's Container */
 .hero-animation {
   position: absolute;
-  z-index: 1; /* **CRITICAL: Places image layer BEHIND the text layer** */
-  pointer-events: none; /* Prevents the image from interfering with mouse clicks */
-
-  /* Make the container massive to ensure it covers the area after rotation */
-  width: 100vw;  /* 100% of the viewport width */
-  height: 140vh; /* 140% of the viewport height */
-
-  /* Position it up and to the right, off-screen */
+  z-index: 1; /* Image BEHIND text */
+  pointer-events: none;
+  width: 100vw;
+  height: 140vh;
   top: -20vh;
   right: -25vw;
 }
 
-/* 4. The Actual Image */
+/* 4. The Actual Image inside the HTML */
 .stripe-hero-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Fills the container without stretching */
+  object-fit: cover;
   border-radius: 40px;
   box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.25);
-  
-  /* **This creates the slant and the floating animation** */
   transform: rotate(-15deg);
   animation: float-and-sway 12s ease-in-out infinite alternate;
 }
@@ -1191,40 +1188,35 @@ html {
 /* 5. The Floating Animation */
 @keyframes float-and-sway {
   from {
-    /* Start position of the animation */
     transform: translateY(-15px) rotate(-15deg);
   }
   to {
-    /* End position of the animation */
     transform: translateY(15px) rotate(-13deg);
   }
 }
 
 /* 6. Responsive Fallback for Mobile (screens smaller than 900px) */
 @media (max-width: 900px) {
-  /* Change the hero section to use a background image */
+  /* On mobile, apply the background image to the hero section */
   .hero {
-    /* **REPLACE 'stripe.png' with the path to your image** */
     background-image: linear-gradient(rgba(247, 249, 252, 0.7), rgba(247, 249, 252, 0.9)), 
-                      url('stripe.png');
+                      url('stripe.png') !important;
     background-size: cover;
     background-position: center;
-    
-    /* Center the text */
     justify-content: center;
     text-align: center;
     min-height: 80vh;
     padding: 2rem;
   }
 
-  /* Hide the desktop animated image container completely */
+  /* **FIX: Hide the entire desktop image container on mobile** */
   .hero-animation {
-    display: none;
+    display: none !important;
   }
 
-  /* Ensure text container takes up the full width */
   .hero-container {
     max-width: 100%;
   }
 }
+
 
