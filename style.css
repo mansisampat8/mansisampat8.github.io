@@ -1140,83 +1140,72 @@ html {
   scroll-behavior: smooth; /* smooth scroll */
 }
 
-/* === FINAL & CORRECTED STRIPE HERO CSS === */
-
-/* 1. Main Hero Section Container */
+/* === HERO SECTION === */
 .hero {
-  position: relative;
   display: flex;
   align-items: center;
-  min-height: 90vh;
-  padding: 4rem 8%;
-  background-color: #f7f9fc;
+  justify-content: space-between;
+  padding: 6rem 8%;
+  min-height: 100vh;            /* full screen */
+  background: #f7f9fc;
   overflow: hidden;
-  
-  /* **FIX: Ensure no background image is applied on desktop by default** */
-  background-image: none !important; 
 }
 
-/* 2. Text Content Container */
+/* text content */
 .hero-container {
-  position: relative;
-  z-index: 2; /* Text ON TOP */
   max-width: 600px;
+  z-index: 2;
 }
 
-/* 3. The Animated Image's Container */
+/* floating image container */
 .hero-animation {
-  position: absolute;
-  z-index: 1; /* Image BEHIND text */
+  flex: 1;                      /* take right side space */
+  height: 100vh;                /* make it stretch full height */
+  position: relative;
+  z-index: 1;
   pointer-events: none;
-  width: 100vw;
-  height: 140vh;
-  top: -20vh;
-  right: -25vw;
+  margin-left: 2rem;
+  overflow: hidden;
+  border-radius: 40px;
+  box-shadow: 0 20px 60px -20px rgba(0,0,0,0.3);
 }
 
-/* 4. The Actual Image inside the HTML */
+/* actual image inside container */
 .stripe-hero-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 40px;
-  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.25);
-  transform: rotate(-15deg);
-  animation: float-and-sway 12s ease-in-out infinite alternate;
+  object-fit: cover;             /* stretch + crop */
+  transform: scale(1.2) rotate(-3deg); /* zoom a bit + tilt */
+  animation: float 12s ease-in-out infinite alternate;
 }
 
-/* 5. The Floating Animation */
-@keyframes float-and-sway {
+/* floating effect */
+@keyframes float {
   from {
-    transform: translateY(-15px) rotate(-15deg);
+    transform: translateY(-15px) scale(1.2) rotate(-3deg);
   }
   to {
-    transform: translateY(15px) rotate(-13deg);
+    transform: translateY(15px) scale(1.2) rotate(-2deg);
   }
 }
 
-/* 6. Responsive Fallback for Mobile (screens smaller than 900px) */
+/* === MOBILE === */
 @media (max-width: 900px) {
-  /* On mobile, apply the background image to the hero section */
   .hero {
-    background-image: linear-gradient(rgba(247, 249, 252, 0.7), rgba(247, 249, 252, 0.9)), 
-                      url('stripe.png') !important;
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 1.5rem;
+    min-height: 80vh;
+    
+    /* swap floating panel for bg image */
+    background-image: 
+      linear-gradient(rgba(247, 249, 252, 0.7), rgba(247, 249, 252, 0.9)),
+      url('stripe.png');
     background-size: cover;
     background-position: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 80vh;
-    padding: 2rem;
   }
 
-  /* **FIX: Hide the entire desktop image container on mobile** */
   .hero-animation {
-    display: none !important;
-  }
-
-  .hero-container {
-    max-width: 100%;
+    display: none; /* hide floating image on mobile */
   }
 }
-
-
