@@ -1223,3 +1223,17 @@ html {
   line-height: 1.6;
 }
 
+.toggle-content, .outcome-content, .faq-answer {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.toggle-wrapper.active + .toggle-content,
+.outcome-toggle-wrapper.active .outcome-content,
+.faq-toggle-item.active .faq-answer {
+  height: auto;
+  opacity: 1;
+}
+
