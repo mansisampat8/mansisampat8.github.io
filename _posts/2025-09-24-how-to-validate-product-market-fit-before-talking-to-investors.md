@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to Validate Product-Market Fit (PMF) Before Talking to Investors"
+title: "How to Validate Product-Market Fit (PMF) Before Talking to Investors?"
 date: 2025-09-24
 categories: 
   - product-market-fit
