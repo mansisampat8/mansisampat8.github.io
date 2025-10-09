@@ -1236,4 +1236,67 @@ html {
   height: auto;
   opacity: 1;
 }
+/* Post content styling */
+.post-content {
+  max-width: 800px;
+  margin: 2rem auto;
+  line-height: 1.7;
+  font-family: 'League Spartan', sans-serif;
+  color: #2f2a22;
+  padding: 0 1rem;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  color: #2f2a22;
+}
+
+.post-content p {
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+}
+
+.post-content strong {
+  font-weight: 700;
+}
+
+.post-content em {
+  font-style: italic;
+}
+
+.post-content ul,
+.post-content ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.post-content a {
+  color: #a26b1e;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.post-content a:hover {
+  color: #f4a261;
+  text-decoration: underline;
+}
+
+.post-content blockquote {
+  border-left: 4px solid #a26b1e;
+  padding-left: 1rem;
+  color: #555;
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+
+.post-content img {
+  max-width: 100%;
+  margin: 1rem 0;
+  border-radius: 10px;
+}
+
 
