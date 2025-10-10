@@ -1312,21 +1312,31 @@ html {
 }
 a{ text-decoration:none; }
 
-/* SHARE BAR */
-.share-bar{
-  display:flex;
-  align-items:center;
-  gap:1rem;
-  padding:1rem;
-  border:1px solid var(--line);
-  background: #fff;
-  border-radius: 12px;
-  margin-top: 4rem;  /* Added margin to separate from above content */
-  background-color: lightyellow !important;
-  position: static !important;
-  margin-top: 6rem !important;
-  z-index: auto !important;
+/* === SHARE BAR FIX === */
+.share-bar {
+  position: fixed !important;
+  bottom: 16px !important;  /* moves it to bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  display: flex;
+  gap: 10px;
+  background: #ffffff;
+  padding: 8px 12px;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 9999 !important;
 }
+
+/* Make sure it doesn’t block hero text on mobile */
+@media (max-width: 600px) {
+  .share-bar {
+    bottom: 12px !important;
+    padding: 6px 10px;
+    gap: 8px;
+  }
+}
+
 .share-label{ 
   color:var(--muted); 
   font-weight:600; 
