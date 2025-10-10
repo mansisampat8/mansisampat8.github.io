@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- Page Title -->
   <title>{{ page.title }} | Consumer Kanvas</title>
-  
+
   <!-- SEO Meta Description -->
   {% if page.description %}
     <meta name="description" content="{{ page.description }}">
   {% else %}
     <meta name="description" content="Consumer Kanvas insights for Indian startups, consumer research, pitch decks, and growth strategies.">
   {% endif %}
-  
+
   <!-- Optional Meta Keywords -->
   {% if page.keywords %}
     <meta name="keywords" content="{{ page.keywords }}">
   {% endif %}
-  
+
   <!-- Canonical URL -->
   <link rel="canonical" href="{{ page.url | absolute_url }}">
-  
+
   <!-- Open Graph / Social Sharing -->
   <meta property="og:title" content="{{ page.title }} | Consumer Kanvas">
   <meta property="og:description" content="{{ page.description }}">
@@ -31,7 +31,7 @@
     <meta property="og:image" content="{{ page.image | absolute_url }}">
   {% endif %}
   <meta property="og:site_name" content="Consumer Kanvas">
-  
+
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ page.title }} | Consumer Kanvas">
@@ -39,47 +39,91 @@
   {% if page.image %}
     <meta name="twitter:image" content="{{ page.image | absolute_url }}">
   {% endif %}
-  
+
   <!-- Fonts & Styles -->
   <link rel="stylesheet" href="/style.css">
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <!-- HEADER / NAV -->
-<header>
-  <div class="container header-container">
-    <a href="{{ '/' | relative_url }}" class="logo">Consumer Kanvas</a>
-    <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
-    
-    <nav>
-      <ul class="nav-links">
-        <li><a href="{{ '/' | relative_url }}" class="active">Home</a></li>
-        <li><a href="{{ '/blogs.html' | relative_url }}">Blogs & Insights</a></li>
-        <li><a href="{{ '/about-us.html' | relative_url }}">About Us</a></li>
-        <li><a href="{{ '/Contact.html' | relative_url }}">Contact</a></li> 
-      </ul>
-    </nav>
-  </div>
-</header>
-  <!-- HERO / POST HEADER -->
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-container">
+      <a href="{{ '/' | relative_url }}" class="logo">Consumer Kanvas</a>
+      <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+      
+      <nav>
+        <ul class="nav-links">
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
+          <li><a href="{{ '/blogs.html' | relative_url }}" class="active">Blogs & Insights</a></li>
+          <li><a href="{{ '/about-us.html' | relative_url }}">About Us</a></li>
+          <li><a href="{{ '/Contact.html' | relative_url }}">Contact</a></li> 
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
   <section class="post-hero">
     <div class="container">
-      <h1>{{ page.title }}</h1>
-      {% if page.author %}
-        <p>By {{ page.author }}</p>
-      {% endif %}
-      <p>{{ page.date | date: "%B %d, %Y" }}</p>
       {% if page.image %}
-        <img src="{{ page.image }}" alt="{{ page.title }}">
+        <div class="hero-image-wrap">
+          <img src="{{ page.image }}" alt="{{ page.title }}">
+        </div>
       {% endif %}
+
+      <h1 class="post-title">{{ page.title }}</h1>
+      <div class="meta-details">
+        {% if page.author %}
+          <span>By {{ page.author }}</span> •
+        {% endif %}
+        <span>{{ page.date | date: "%B %d, %Y" }}</span>
+      </div>
     </div>
   </section>
 
-<!-- POST CONTENT -->
-<main class="post-content container">
-  {{ content }}
-</main>
+  <!-- MAIN BLOG CONTENT -->
+  <main class="blog-post container">
+    {{ content }}
+
+    <!-- SHARE BAR -->
+    <div class="share-bar">
+      <p>Share this insight:</p>
+      <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ page.url | absolute_url }}" target="_blank">Twitter</a>
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url }}" target="_blank">LinkedIn</a>
+      <a href="https://wa.me/?text={{ page.title }} - {{ page.url | absolute_url }}" target="_blank">WhatsApp</a>
+    </div>
+
+    <!-- RELATED POSTS -->
+    <section class="related-posts">
+      <h2>More from Consumer Kanvas</h2>
+      <div class="related-grid">
+        {% for post in site.posts limit:3 %}
+          {% if post.url != page.url %}
+            <a href="{{ post.url | relative_url }}" class="related-item">
+              {% if post.image %}
+                <img src="{{ post.image }}" alt="{{ post.title }}">
+              {% endif %}
+              <div class="related-content">
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.description | truncate: 100 }}</p>
+              </div>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- CTA FOOTER -->
+    <section class="cta-footer">
+      <h3>Get the next big insight before everyone else</h3>
+      <form action="#" method="post" class="newsletter-form">
+        <input type="email" name="email" placeholder="Your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
@@ -87,6 +131,7 @@
       <p>© 2025 Consumer Kanvas. All rights reserved.</p>
     </div>
   </footer>
-<script src="/script.js"></script>
+
+  <script src="/script.js"></script>
 </body>
 </html>
