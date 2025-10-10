@@ -1313,7 +1313,13 @@ a{ text-decoration:none; }
   border-radius: 12px;
 }
 .share-label{ color:var(--muted); font-weight:600; }
-.share-actions{ display:flex; gap:.5rem; flex-wrap:wrap; }
+.share-actions{
+  display: flex;
+  gap: .5rem;
+  flex-wrap: nowrap;        /* prevents stacking */
+  justify-content: flex-start;
+  align-items: center;
+}
 .share-btn{
   display:inline-flex; align-items:center; gap:.5rem;
   padding:.55rem .9rem; border-radius:999px;
@@ -1325,10 +1331,20 @@ a{ text-decoration:none; }
 .share-btn.x{ background:#000; color:#fff; }
 .share-btn.linkedin{ background:#0a66c2; color:#fff; }
 .share-btn.whatsapp{ background:#25D366; color:#0b1220; }
+
 @media (max-width:520px){
   .share-label{ display:none; }
   .share-btn span{ display:none; }
-  .share-btn{ padding:.55rem; width:42px; height:42px; justify-content:center; }
+  .share-btn{
+    padding:.55rem;
+    width:42px;
+    height:42px;
+    justify-content:center;
+  }
+  .share-actions{
+    flex-wrap: nowrap !important;   /* force horizontal layout on mobile */
+    overflow-x: auto;               /* allows horizontal scroll if needed */
+  }
 }
 
 /* RELATED POSTS */
