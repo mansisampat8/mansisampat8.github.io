@@ -1365,8 +1365,7 @@ a{ text-decoration:none; }
     flex-wrap: nowrap !important;   /* force horizontal layout on mobile */
     overflow-x: auto;               /* allows horizontal scroll if needed */
   }
-}
-
+  
 /* RELATED POSTS */
 .related-posts{ margin-block:2rem; }
 .related-posts h2{ margin:0 0 .75rem; font-size:1.25rem; }
