@@ -81,42 +81,63 @@
   {{ content }}
 </main>
 
-    <!-- SHARE BAR -->
-    <div class="share-bar">
-      <p>Share this insight:</p>
-      <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ page.url | absolute_url }}" target="_blank">Twitter</a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url }}" target="_blank">LinkedIn</a>
-      <a href="https://wa.me/?text={{ page.title }} - {{ page.url | absolute_url }}" target="_blank">WhatsApp</a>
-    </div>
+   <!-- SHARE BAR -->
+<section class="share-bar" aria-label="Share this insight">
+  <p class="share-label">Share this insight:</p>
+  <nav class="share-actions" aria-label="Share actions">
+    <a class="share-btn x" href="https://twitter.com/intent/tweet?text={{ page.title | uri_escape }}&url={{ page.url | absolute_url | uri_escape }}" target="_blank" rel="noopener"> 
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M..."/></svg>
+      <span>Twitter</span>
+    </a>
+    <a class="share-btn linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url | uri_escape }}" target="_blank" rel="noopener">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M..."/></svg>
+      <span>LinkedIn</span>
+    </a>
+    <a class="share-btn whatsapp" href="https://wa.me/?text={{ page.title | uri_escape }}%20-%20{{ page.url | absolute_url | uri_escape }}" target="_blank" rel="noopener">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M..."/></svg>
+      <span>WhatsApp</span>
+    </a>
+  </nav>
+</section>
 
-    <!-- RELATED POSTS -->
-    <section class="related-posts">
-      <h2>More from Consumer Kanvas</h2>
-      <div class="related-grid">
-        {% for post in site.posts limit:3 %}
-          {% if post.url != page.url %}
-            <a href="{{ post.url | relative_url }}" class="related-item">
-              {% if post.image %}
-                <img src="{{ post.image }}" alt="{{ post.title }}">
-              {% endif %}
-              <div class="related-content">
-                <h3>{{ post.title }}</h3>
-                <p>{{ post.description | truncate: 100 }}</p>
-              </div>
-            </a>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </section>
+<!-- RELATED POSTS -->
+<section class="related-posts" aria-labelledby="related-title">
+  <h2 id="related-title">More from Consumer Kanvas</h2>
+  <div class="related-grid">
+    {% for post in site.posts limit:3 %}
+      {% if post.url != page.url %}
+        <a href="{{ post.url | relative_url }}" class="related-item">
+          <figure class="related-figure">
+            {% if post.image %}
+              <img src="{{ post.image }}" alt="{{ post.title }}">
+            {% else %}
+              <div class="thumb-placeholder" aria-hidden="true"></div>
+            {% endif %}
+          </figure>
+          <div class="related-content">
+            <h3 class="related-title">{{ post.title }}</h3>
+            <p class="related-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 120 }}</p>
+            <span class="related-cta">Read more →</span>
+          </div>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
 
-    <!-- CTA FOOTER -->
-    <section class="cta-footer">
-      <h3>Get the next big insight before everyone else</h3>
-      <form action="#" method="post" class="newsletter-form">
-        <input type="email" name="email" placeholder="Your email" required>
-        <button type="submit">Subscribe</button>
-      </form>
-    </section>
+<!-- CTA FOOTER -->
+<section class="cta-footer" aria-labelledby="cta-title">
+  <div class="cta-inner">
+    <h3 id="cta-title">Get the next big insight</h3>
+    <p class="cta-sub">Founder-focused consumer insights. Actionable, concise. No fluff.</p>
+    <form action="#" method="post" class="newsletter-form" novalidate>
+      <label class="sr-only" for="email">Email</label>
+      <input id="email" type="email" name="email" placeholder="Enter email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <small class="cta-proof">No spam. Unsubscribe anytime.</small>
+  </div>
+</section>
 
   </main>
 
