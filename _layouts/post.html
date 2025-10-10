@@ -85,7 +85,13 @@
 
   <!-- MAIN BLOG CONTENT -->
   <main class="blog-post container">
-    {{ content }}
+
+    {{ content | replace: '>', '<blockquote class="pullquote">' | replace: '</blockquote>', '</blockquote>' }}
+
+    <!-- Example callout box usage for CTAs -->
+    <div class="callout">
+      📩 <strong>Ready to see your product through your customers’ eyes?</strong> Reach out to Consumer Kanvas and plan your first live session.
+    </div>
 
     <!-- SHARE BAR -->
     <div class="share-bar">
@@ -123,6 +129,7 @@
         <button type="submit">Subscribe</button>
       </form>
     </section>
+
   </main>
 
   <!-- FOOTER -->
