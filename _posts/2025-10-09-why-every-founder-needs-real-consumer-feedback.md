@@ -17,7 +17,7 @@ When you ask your family and friends what they think about your product, you’l
 
 Because they want to see you win. That’s support, not insight.  
 
-The market doesn’t care about love — it cares about **fit**: how well your product solves a real problem or fulfills a desire for the people you’re trying to serve.  
+The market doesn’t care about love; it cares about **fit**: how well your product solves a real problem or fulfills a desire for the people you’re trying to serve.  
 
 And that’s exactly where **live consumer feedback changes the game**.
 
@@ -37,7 +37,7 @@ Instead, ask:
 
 > “Would you actually buy this over what you use now?”  
 
-You’ll get the truth. Facial reactions, confusion, excitement, hesitation — these subtle cues help you spot gaps and opportunities before spending big on production or marketing.
+You’ll get the truth. Facial reactions, confusion, excitement, hesitation, these subtle cues help you spot gaps and opportunities before spending big on production or marketing.
 
 At Consumer Kanvas, this is what we do every day. We run **live Focus Group Discussions (FGDs)** that help you test:
 
@@ -53,9 +53,9 @@ You walk away with:
 2. Real-world reactions to refine your offer  
 3. Proof points to show potential investors that your concept works  
 
-> Investors want to see that people actually want what you’re building — not just that you think it’s a good idea.
+> Investors want to see that people actually want what you’re building not just that you think it’s a good idea.
 
-When you provide a **Consumer Insights Report**, you’re not just telling investors your idea works — you’re showing them. Concrete proof from real consumers makes your pitch persuasive and reduces perceived risk.  
+When you provide a **Consumer Insights Report**, you’re not just telling investors your idea works; you’re showing them. Concrete proof from real consumers makes your pitch persuasive and reduces perceived risk.  
 
 ---
 
@@ -69,7 +69,7 @@ Maybe your product is out there. Orders are coming in, but growth feels flat. Yo
 
 Yet something isn’t clicking.  
 
-In most cases, it isn’t marketing — it’s **positioning**. When you don’t fully understand why people buy (or don’t buy), you end up guessing. Maybe your messaging isn’t aligned with what customers truly value. Maybe you’re targeting the wrong audience altogether.  
+In most cases, it isn’t marketing, it’s **positioning**. When you don’t fully understand why people buy (or don’t buy), you end up guessing. Maybe your messaging isn’t aligned with what customers truly value. Maybe you’re targeting the wrong audience altogether.  
 
 This is where **live consumer insights give you the edge**.  
 
@@ -99,7 +99,7 @@ Online surveys and reviews are useful, but they can’t capture **emotion**. A l
 - Hesitates  
 - Says, “Hmm, I’m not sure”  
 
-> That’s the moment of truth — the moment your next breakthrough often comes from.
+> That’s the moment of truth; the moment your next breakthrough often comes from.
 
 At Consumer Kanvas, we don’t just collect opinions. We dig into perceptions, habits, and motivations. Our sessions help founders uncover:
 
@@ -114,7 +114,7 @@ These aren’t random conversations. They’re **structured, professionally mode
 
 ### Why This Matters More Than Ever
 
-Today’s market moves fast. New brands pop up daily, attention spans are shrinking. If you’re not listening in real time, you’re guessing — and guessing is expensive.  
+Today’s market moves fast. New brands pop up daily, attention spans are shrinking. If you’re not listening in real time, you’re guessing and guessing is expensive.  
 
 Think about it:
 
@@ -122,13 +122,13 @@ Think about it:
 - How do you know your brand message lands as intended?  
 - How do you know why people buy from competitors instead of you?  
 
-Without live consumer conversations, you don’t. Assumptions lead to wasted budgets, wrong positioning, and slow growth — all avoidable if you **talk to the right people early**.
+Without live consumer conversations, you don’t. Assumptions lead to wasted budgets, wrong positioning, and slow growth; all avoidable if you **talk to the right people early**.
 
 ---
 
 ### How Consumer Kanvas Helps You Get There
 
-We specialize in **Focus Group Discussions (FGDs)** — live, moderated sessions with real consumers handpicked from your target audience.  
+We specialize in **Focus Group Discussions (FGDs)** ; live, moderated sessions with real consumers handpicked from your target audience.  
 
 We handle everything:
 
@@ -152,9 +152,9 @@ Our clients use these discussions to **validate products and build investor conf
 
 ### Here’s the Bottom Line
 
-Family and friends mean well, but they **cannot represent your market**. They’ll never tell you your product isn’t as good as you think it is — even if that’s the market reality.  
+Family and friends mean well, but they **cannot represent your market**. They’ll never tell you your product isn’t as good as you think it is even if that’s the market reality.  
 
-Your target audience will tell you everything — if you know how to listen.  
+Your target audience will tell you everything, if you know how to listen.  
 
 At Consumer Kanvas, we help you **see what your customers really think**, live, unfiltered, and actionable.
 
@@ -163,7 +163,7 @@ Whether you’re:
 - Building a new product and need validation before launch  
 - Already selling but can’t figure out why growth has slowed  
 
-Start with **real feedback from the people who matter most — your consumers**.  
+Start with **real feedback from the people who matter most; your consumers**.  
 
 Once you understand them deeply, everything else falls into place: messaging, pricing, investor story, and growth strategy.
 
