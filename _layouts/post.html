@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  
   <!-- Page Title -->
   <title>{{ page.title }} | Consumer Kanvas</title>
-
+  
   <!-- SEO Meta Description -->
   {% if page.description %}
     <meta name="description" content="{{ page.description }}">
   {% else %}
     <meta name="description" content="Consumer Kanvas insights for Indian startups, consumer research, pitch decks, and growth strategies.">
   {% endif %}
-
+  
   <!-- Optional Meta Keywords -->
   {% if page.keywords %}
     <meta name="keywords" content="{{ page.keywords }}">
   {% endif %}
-
+  
   <!-- Canonical URL -->
   <link rel="canonical" href="{{ page.url | absolute_url }}">
-
+  
   <!-- Open Graph / Social Sharing -->
   <meta property="og:title" content="{{ page.title }} | Consumer Kanvas">
   <meta property="og:description" content="{{ page.description }}">
@@ -31,7 +31,7 @@
     <meta property="og:image" content="{{ page.image | absolute_url }}">
   {% endif %}
   <meta property="og:site_name" content="Consumer Kanvas">
-
+  
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ page.title }} | Consumer Kanvas">
@@ -39,59 +39,47 @@
   {% if page.image %}
     <meta name="twitter:image" content="{{ page.image | absolute_url }}">
   {% endif %}
-
+  
   <!-- Fonts & Styles -->
   <link rel="stylesheet" href="/style.css">
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-  <!-- HEADER -->
-  <header>
-    <div class="container header-container">
-      <a href="{{ '/' | relative_url }}" class="logo">Consumer Kanvas</a>
-      <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
-      
-      <nav>
-        <ul class="nav-links">
-          <li><a href="{{ '/' | relative_url }}">Home</a></li>
-          <li><a href="{{ '/blogs.html' | relative_url }}" class="active">Blogs & Insights</a></li>
-          <li><a href="{{ '/about-us.html' | relative_url }}">About Us</a></li>
-          <li><a href="{{ '/Contact.html' | relative_url }}">Contact</a></li> 
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO SECTION -->
+  <!-- HEADER / NAV -->
+<header>
+  <div class="container header-container">
+    <a href="{{ '/' | relative_url }}" class="logo">Consumer Kanvas</a>
+    <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+    
+    <nav>
+      <ul class="nav-links">
+        <li><a href="{{ '/' | relative_url }}" class="active">Home</a></li>
+        <li><a href="{{ '/blogs.html' | relative_url }}">Blogs & Insights</a></li>
+        <li><a href="{{ '/about-us.html' | relative_url }}">About Us</a></li>
+        <li><a href="{{ '/Contact.html' | relative_url }}">Contact</a></li> 
+      </ul>
+    </nav>
+  </div>
+</header>
+  <!-- HERO / POST HEADER -->
   <section class="post-hero">
     <div class="container">
-      {% if page.image %}
-        <div class="hero-image-wrap">
-          <img src="{{ page.image }}" alt="{{ page.title }}">
-        </div>
+      <h1>{{ page.title }}</h1>
+      {% if page.author %}
+        <p>By {{ page.author }}</p>
       {% endif %}
-
-      <h1 class="post-title">{{ page.title }}</h1>
-      <div class="meta-details">
-        {% if page.author %}
-          <span>By {{ page.author }}</span> •
-        {% endif %}
-        <span>{{ page.date | date: "%B %d, %Y" }}</span>
-      </div>
+      <p>{{ page.date | date: "%B %d, %Y" }}</p>
+      {% if page.image %}
+        <img src="{{ page.image }}" alt="{{ page.title }}">
+      {% endif %}
     </div>
   </section>
 
-  <!-- MAIN BLOG CONTENT -->
-  <main class="blog-post container">
-
-    {{ content | replace: '>', '<blockquote class="pullquote">' | replace: '</blockquote>', '</blockquote>' }}
-
-    <!-- Example callout box usage for CTAs -->
-    <div class="callout">
-      📩 <strong>Ready to see your product through your customers’ eyes?</strong> Reach out to Consumer Kanvas and plan your first live session.
-    </div>
+<!-- POST CONTENT -->
+<main class="post-content container">
+  {{ content }}
+</main>
 
     <!-- SHARE BAR -->
     <div class="share-bar">
