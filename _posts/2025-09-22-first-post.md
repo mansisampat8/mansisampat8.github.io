@@ -5,7 +5,10 @@ date: 2025-09-23
 categories: 
   - product-market-fit
   - PMF
+image: /assets/images/pmf-journey.png
 ---
+
+![Product-Market Fit Journey](/assets/images/pmf-journey.png)
 
 You spend months refining your product idea, building an MVP, and even running early tests. The feedback looks positive, but when you finally launch, the numbers just don’t add up sales crawl, reviews dip, and momentum fizzles.  
 
