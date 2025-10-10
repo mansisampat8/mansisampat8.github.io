@@ -1299,7 +1299,17 @@ html {
   border-radius: 10px;
 }
 
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.sr-only{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
 a{ text-decoration:none; }
 
 /* SHARE BAR */
@@ -1311,8 +1321,12 @@ a{ text-decoration:none; }
   border:1px solid var(--line);
   background: #fff;
   border-radius: 12px;
+  margin-top: 4rem;  /* Added margin to separate from above content */
 }
-.share-label{ color:var(--muted); font-weight:600; }
+.share-label{ 
+  color:var(--muted); 
+  font-weight:600; 
+}
 .share-actions{
   display: flex;
   gap: .5rem;
@@ -1321,16 +1335,38 @@ a{ text-decoration:none; }
   align-items: center;
 }
 .share-btn{
-  display:inline-flex; align-items:center; gap:.5rem;
-  padding:.55rem .9rem; border-radius:999px;
-  background:#fff; border:1px solid var(--line); color:var(--ink); font-weight:600;
+  display:inline-flex; 
+  align-items:center; 
+  gap:.5rem;
+  padding:.55rem .9rem; 
+  border-radius:999px;
+  background:#fff; 
+  border:1px solid var(--line); 
+  color:var(--ink); 
+  font-weight:600;
   transition: transform .15s ease, box-shadow .15s ease, background .2s;
 }
-.share-btn svg{ width:18px; height:18px; fill:currentColor; }
-.share-btn:hover{ transform:translateY(-1px); box-shadow:0 6px 14px rgba(15,23,42,.08); }
-.share-btn.x{ background:#000; color:#fff; }
-.share-btn.linkedin{ background:#0a66c2; color:#fff; }
-.share-btn.whatsapp{ background:#25D366; color:#0b1220; }
+.share-btn svg{ 
+  width:18px; 
+  height:18px; 
+  fill:currentColor; 
+}
+.share-btn:hover{ 
+  transform:translateY(-1px); 
+  box-shadow:0 6px 14px rgba(15,23,42,.08); 
+}
+.share-btn.x{ 
+  background:#000; 
+  color:#fff; 
+}
+.share-btn.linkedin{ 
+  background:#0a66c2; 
+  color:#fff; 
+}
+.share-btn.whatsapp{ 
+  background:#25D366; 
+  color:#0b1220; 
+}
 
 @media (max-width:520px){
   .share-label{ display:none; }
