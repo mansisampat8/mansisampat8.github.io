@@ -81,6 +81,31 @@
   {{ content }}
 </main>
 
+<!-- RELATED POSTS -->
+<section class="related-posts" aria-labelledby="related-title">
+  <h2 id="related-title">More from Consumer Kanvas</h2>
+  <div class="related-grid">
+    {% for post in site.posts limit:3 %}
+      {% if post.url != page.url %}
+        <a href="{{ post.url | relative_url }}" class="related-item">
+          <figure class="related-figure">
+            {% if post.image %}
+              <img src="{{ post.image }}" alt="{{ post.title }}">
+            {% else %}
+              <div class="thumb-placeholder" aria-hidden="true"></div>
+            {% endif %}
+          </figure>
+          <div class="related-content">
+            <h3 class="related-title">{{ post.title }}</h3>
+            <p class="related-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 120 }}</p>
+            <span class="related-cta">Read more →</span>
+          </div>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
   <!-- SHARE BAR -->
 <section class="share-bar" aria-label="Share this insight">
   <p class="share-label">Share this insight:</p>
@@ -108,31 +133,6 @@
     </a>
 
   </nav>
-</section>
-
-<!-- RELATED POSTS -->
-<section class="related-posts" aria-labelledby="related-title">
-  <h2 id="related-title">More from Consumer Kanvas</h2>
-  <div class="related-grid">
-    {% for post in site.posts limit:3 %}
-      {% if post.url != page.url %}
-        <a href="{{ post.url | relative_url }}" class="related-item">
-          <figure class="related-figure">
-            {% if post.image %}
-              <img src="{{ post.image }}" alt="{{ post.title }}">
-            {% else %}
-              <div class="thumb-placeholder" aria-hidden="true"></div>
-            {% endif %}
-          </figure>
-          <div class="related-content">
-            <h3 class="related-title">{{ post.title }}</h3>
-            <p class="related-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 120 }}</p>
-            <span class="related-cta">Read more →</span>
-          </div>
-        </a>
-      {% endif %}
-    {% endfor %}
-  </div>
 </section>
 
 <!-- CTA FOOTER -->
