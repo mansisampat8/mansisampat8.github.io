@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Startup Quizzes | Consumer Kanvas</title>
-  <meta name="description" content="Explore all Consumer Kanvas startup quizzes to assess your GTM readiness, market strategy, branding, and more. Take the quiz and get actionable insights for your startup.">
+  <meta name="description" content="Explore all Consumer Kanvas founder quizzes to assess your GTM readiness, market strategy, branding, and more. Take the quiz and get actionable insights for your startup.">
 
   <link rel="icon" type="image/png" href="favicon.png">
   
@@ -14,9 +14,8 @@
   <!-- Main CSS -->
   <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
 
-
   <style>
-    /* QUIZZES PAGE */
+    /* QUIZZES PAGE - MATCHING BLOG LAYOUT */
     .quizzes-container {
       max-width: 1000px;
       margin: 3rem auto;
@@ -26,40 +25,37 @@
     }
 
     .quiz-card {
+      border: 1px solid #eee;
       border-radius: 14px;
       padding: 2rem;
       background: #fffdf8;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
       transition: transform 0.2s, box-shadow 0.2s;
-      display: block;
-      text-decoration: none;
-      color: #1c2541;
     }
 
     .quiz-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
     }
 
     .quiz-card h2 {
       font-size: 1.6rem;
+      color: #2f2a22;
       margin-bottom: 0.5rem;
-      font-weight: 900;
     }
 
     .quiz-card p {
       font-size: 1.1rem;
-      color: #6b6b6b;
+      color: #444;
       margin-bottom: 1rem;
     }
 
-    .quiz-card .cta-btn {
+    .quiz-card a {
       font-weight: 700;
       color: #a26b1e;
       text-decoration: none;
     }
 
-    .quiz-card .cta-btn:hover {
+    .quiz-card a:hover {
       color: #f4a261;
     }
 
@@ -96,17 +92,29 @@
     </div>
   </section>
 
-  <!-- QUIZZES LIST -->
+  <!-- QUIZ LIST -->
   <section class="quizzes-container">
     {% for quiz in site.quizzes %}
-      <a href="{{ quiz.url }}" class="quiz-card">
-        <h2>{{ quiz.title }}</h2>
+      <div class="quiz-card">
+        <h2><a href="{{ quiz.url }}">{{ quiz.title }}</a></h2>
         {% if quiz.excerpt %}
           <p>{{ quiz.excerpt }}</p>
         {% endif %}
-        <span class="cta-btn">Take Quiz →</span>
-      </a>
+        <a href="{{ quiz.url }}">Take Quiz →</a>
+      </div>
     {% endfor %}
+  </section>
+
+  <!-- CATEGORIES (Optional Section to Mirror Blog Structure) -->
+  <section class="blog-categories container">
+    <h2>Browse by Category</h2>
+    <ul>
+      {% for category in site.categories %}
+        <li>
+          <a href="/categories/{{ category[0] | slugify }}/">{{ category[0] }}</a>
+        </li>
+      {% endfor %}
+    </ul>
   </section>
 
   <!-- FOOTER -->
@@ -119,4 +127,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
