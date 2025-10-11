@@ -105,18 +105,6 @@
     {% endfor %}
   </section>
 
-  <!-- CATEGORIES (Optional Section to Mirror Blog Structure) -->
-  <section class="blog-categories container">
-    <h2>Browse by Category</h2>
-    <ul>
-      {% for category in site.categories %}
-        <li>
-          <a href="/categories/{{ category[0] | slugify }}/">{{ category[0] }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-  </section>
-
   <!-- FOOTER -->
   <footer>
     <div class="container footer-container">
