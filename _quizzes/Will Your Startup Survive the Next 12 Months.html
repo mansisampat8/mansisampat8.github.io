@@ -115,19 +115,19 @@ permalink: /quizzes/startup-survival/
   <script>
     const questions = [
       {
-        text: "If your cash runway was a Netflix season, how many episodes are left?",
+       text: "How many months of runway do you currently have?",
         options: [
-          { label: "We’re mid-season, praying for renewal", outcome: "Runway too short" },
-          { label: "There’s one cliffhanger left", outcome: "Needs PMF" },
-          { label: "Comfortably streaming into next year", outcome: "Scaling-ready" },
-          { label: "Season 2 is greenlit — we’re funded and calm", outcome: "Investor-attractive" },
+          { label: "Less than 3 months", outcome: "Runway too short" },
+          { label: "3–6 months", outcome: "Needs PMF" },
+          { label: "6–12 months", outcome: "Scaling-ready" },
+          { label: "12+ months", outcome: "Investor-attractive" },
         ]
       },
       {
         text: "What best describes your current traction arc?",
         options: [
           { label: "Still convincing my friends to try it", outcome: "Needs PMF" },
-          { label: "Some early adopters — no hockey stick yet", outcome: "Runway too short" },
+          { label: "Some people love it, just not enough of them yet.", outcome: "Runway too short" },
           { label: "Repeat users, organic pull is growing", outcome: "Scaling-ready" },
           { label: "We’re growing faster than our servers", outcome: "Investor-attractive" },
         ]
@@ -136,7 +136,7 @@ permalink: /quizzes/startup-survival/
         text: "What’s your real founder focus this quarter?",
         options: [
           { label: "Finding what problem we *actually* solve", outcome: "Needs PMF" },
-          { label: "Keeping the lights on", outcome: "Runway too short" },
+          { label: "Just managing to stay afloat.", outcome: "Runway too short" },
           { label: "Tuning our funnel, retention, and ops", outcome: "Scaling-ready" },
           { label: "Pitching, partnerships, and scale plays", outcome: "Investor-attractive" },
         ]
@@ -147,13 +147,13 @@ permalink: /quizzes/startup-survival/
           { label: "Everyone’s rowing in different directions", outcome: "Runway too short" },
           { label: "We’ve got energy but no focus", outcome: "Needs PMF" },
           { label: "Shared KPIs and clear priorities", outcome: "Scaling-ready" },
-          { label: "Crystal alignment — everyone knows the goal", outcome: "Investor-attractive" },
+          { label: "Crystal alignment, everyone knows the goal", outcome: "Investor-attractive" },
         ]
       },
       {
         text: "What’s your current relationship with revenue?",
         options: [
-          { label: "It’s complicated — we’re still testing", outcome: "Needs PMF" },
+          { label: "It’s complicated! We’re still testing", outcome: "Needs PMF" },
           { label: "We make some, burn more", outcome: "Runway too short" },
           { label: "Predictable, healthy revenue engine", outcome: "Scaling-ready" },
           { label: "Multiple streams and recurring revenue", outcome: "Investor-attractive" },
@@ -174,16 +174,16 @@ permalink: /quizzes/startup-survival/
           { label: "We’d need caffeine and a miracle", outcome: "Needs PMF" },
           { label: "We’d ramble, but the spark is there", outcome: "Runway too short" },
           { label: "We’d tell a clear traction-backed story", outcome: "Scaling-ready" },
-          { label: "We’ve rehearsed it — and it lands every time", outcome: "Investor-attractive" },
+          { label: "We’ve rehearsed it and it lands every time", outcome: "Investor-attractive" },
         ]
       }
     ];
 
     const outcomes = {
       "Runway too short": { emoji: "⏳", title: "You’re in the Chaos Phase", text: "You’re juggling survival and validation. Your next 3 decisions will define your year. Focus on extending runway, cutting noise, and doubling down on what’s actually working." },
-      "Needs PMF": { emoji: "🧩", title: "You’re Circling Product–Market Fit", text: "You’re close — your users exist, but you haven’t fully cracked what keeps them. Get out of the spreadsheet, talk to humans, and find your repeat-love signal." },
+      "Needs PMF": { emoji: "🧩", title: "You’re Circling Product–Market Fit", text: "You’re close; your users exist, but you haven’t fully cracked what keeps them. Get out of the spreadsheet, talk to humans, and find your repeat-love signal." },
       "Scaling-ready": { emoji: "🚀", title: "Momentum Is Your Co-Founder", text: "You’ve got rhythm and clarity. It’s time to systemize growth, tighten retention, and delegate chaos. Scale smart, not loud." },
-      "Investor-attractive": { emoji: "💸", title: "You’re the Signal Investors Chase", text: "You’ve got the numbers, story, and timing. Focus now on sharpening your narrative — the right pitch deck could multiply your valuation." }
+      "Investor-attractive": { emoji: "💸", title: "You’re the Signal Investors Chase", text: "You’ve got the numbers, story, and timing. Focus now on sharpening your narrative, the right pitch deck could multiply your valuation." }
     };
 
     const total = questions.length;
