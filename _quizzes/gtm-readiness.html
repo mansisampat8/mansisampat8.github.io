@@ -129,26 +129,44 @@ permalink: /quizzes/gtm-readiness/
       gap: 12px;
     }
 
-    .btn {
-      padding: 12px 18px;
-      border-radius: 999px;
-      font-weight: 900;
-      border: none;
-      cursor: pointer;
-    }
+   .btn-primary, .btn-secondary {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  margin: 1rem auto 0 auto;
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s, color 0.2s;
+  box-shadow: 0 2px 12px rgba(28, 32, 43, 0.10);
+  border: none;
+}
 
-    .btn-secondary {
-      background: transparent;
-      color: #6b6b6b;
-      border: 2px solid #eef2f7;
-    }
+.btn-primary {
+  background: linear-gradient(90deg, #836FFF 0%, var(--primary-color) 100%);
+  color: var(--light-color);
+}
 
-    .btn-primary {
-      background: linear-gradient(90deg,#ffc845, #0d62ae);
-      color: #fff;
-      box-shadow: 0 8px 20px rgba(13,59,102,0.09);
-    }
+.btn-primary:hover,
+.btn-primary:focus {
+  box-shadow: 0 4px 24px rgba(106, 90, 205, 0.4);
+  background: linear-gradient(90deg, #9a85ff 0%, #7c6ee6 100%);
+  color: var(--light-color);
+}
 
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background: var(--primary-color);
+  color: var(--light-color);
+}
     .result-card {
       text-align: center;
       padding: 28px;
