@@ -194,45 +194,85 @@ permalink: /quizzes/gtm-readiness/
     nav {
       display: none;
     }
+    nav {
+      display: none;
+      position: absolute;
+      top: 70px;
+      right: 24px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      padding: 1rem 1.25rem;
+      z-index: 999;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    /* When menu is toggled open */
     nav.active {
       display: block;
-      position: absolute;
-      top: 60px;
-      right: 20px;
-      background: #fff;
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      opacity: 1;
+      transform: translateY(0);
     }
+
     .nav-links {
-      list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 14px;
+      list-style: none;
       margin: 0;
       padding: 0;
     }
+
     .nav-links li a {
-      color: #2f2a22;
-      font-weight: 700;
+      font-family: inherit;
+      color: var(--primary-color);
+      font-weight: 600;
       text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: color 0.3s, border-bottom-color 0.3s;
     }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: var(--primary-color);
+      border-bottom-color: var(--primary-color);
+    }
+
     .menu-toggle {
       display: block;
       background: none;
       border: none;
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       cursor: pointer;
-      color: #2f2a22;
+      color: var(--primary-color);
+      padding: 0;
+      line-height: 1;
     }
   }
 
+  /* Desktop view (same as your main CSS) */
   @media (min-width: 769px) {
     .menu-toggle {
       display: none;
     }
+
     nav {
-      display: block !important;
+      display: flex !important;
+      align-items: center;
+      position: static;
+      background: none;
+      box-shadow: none;
+      padding: 0;
+      opacity: 1;
+      transform: none;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
     }
   }
   </style>
