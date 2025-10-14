@@ -1424,6 +1424,12 @@ a{ text-decoration:none; }
 .cta-proof{ display:block; margin-top:.5rem; color:#94a3b8; }
 @media (max-width:520px){ .newsletter-form{ flex-direction:column; } }
 
+blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1rem;
+  color: #333;
+  font-style: italic;
+}
 
 
 
