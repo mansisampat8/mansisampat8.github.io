@@ -189,6 +189,52 @@ permalink: /quizzes/gtm-readiness/
       cursor: pointer;
       font-weight: 700;
     }
+
+    @media (max-width: 768px) {
+    nav {
+      display: none;
+    }
+    nav.active {
+      display: block;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: #fff;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li a {
+      color: #2f2a22;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .menu-toggle {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #2f2a22;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .menu-toggle {
+      display: none;
+    }
+    nav {
+      display: block !important;
+    }
+  }
   </style>
 </head>
 
