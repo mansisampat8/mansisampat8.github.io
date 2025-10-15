@@ -319,6 +319,10 @@ nav {
   display: flex;
   align-items: center;
 }
+      /* When hamburger is active, show the menu */
+nav.active {
+  display: flex !important;
+}
 
 .nav-links {
   display: flex;
@@ -542,11 +546,12 @@ border-bottom-color: var(--primary-color);
 
   <script>
   const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('nav');
+const navLinks = document.querySelector('nav');
 
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
+  navLinks.classList.toggle('active');
+});
 </script>
 
 
