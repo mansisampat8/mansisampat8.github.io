@@ -294,7 +294,6 @@ header {
   transform: rotate(-45deg) translate(-8px);
 }
 
-/* Mobile only */
 @media (max-width: 700px) {
   nav {
     position: absolute;
@@ -306,7 +305,15 @@ header {
     padding: 1rem 0;
     border-radius: 0 0 0 16px;
     box-shadow: 0 2px 12px rgba(28, 32, 43, 0.15);
-    display: none; /* start hidden */
+    display: none !important; /* force hidden */
+  }
+
+  nav.active {
+    display: flex !important; /* force visible */
+  }
+
+  .menu-toggle {
+    display: block !important; /* show hamburger */
   }
 }
 
