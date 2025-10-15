@@ -12,75 +12,320 @@ permalink: /quizzes/startup-survival/
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Will Your Startup Survive the Next 12 Months? | Consumer Kanvas</title>
 
+  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <!-- League Spartan font -->
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
 
+  <!-- Global site stylesheet -->
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+
   <style>
-    :root{
-      --bg:#fffbf6;
-      --card:#ffffff;
-      --muted:#6b6b6b;
-      --accent1:#ffc845;
-      --accent2:#0d62ae;
-      --primary-gradient: linear-gradient(90deg,var(--accent1) 55%, var(--accent2) 100%);
-      --round:16px;
-      --shadow: 0 8px 30px rgba(12,20,40,0.08);
+    /* QUIZ PAGE CUSTOM STYLES — Scoped */
+    .quiz-section {
+      max-width: 840px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
     }
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:'League Spartan', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(180deg,#fff 0%, #fffaf7 40%);
-      color:#1c2541;
-      display:flex;
-      align-items:flex-start;
-      justify-content:center;
-      padding:40px 18px;
+
+    .quiz-card {
+      background: #fffdf8;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(12,20,40,0.05);
+      padding: 28px;
+      margin-bottom: 20px;
     }
-    .quiz-shell{width:100%;max-width:840px}
-    .brand-row{display:flex;align-items:center;gap:12px;margin-bottom:18px}
-    .logo-btn{display:inline-block;padding:10px 14px;border-radius:999px;background:var(--accent1);box-shadow:0 6px 18px rgba(255,184,66,0.12);font-weight:900;text-decoration:none;color:#1c2541}
-    .quiz-title{font-size:1.05rem;color:var(--muted);margin-left:6px;font-weight:700}
-    .card{background:var(--card);border-radius:var(--round);box-shadow:var(--shadow);padding:28px;margin-bottom:18px;overflow:hidden}
-    .progress-wrap{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-    .progress-bar{flex:1;height:10px;background:#f0f3f8;border-radius:999px;overflow:hidden}
-    .progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#ffd37a, #0680d6);transition:width .35s ease}
-    .progress-text{font-size:0.9rem;color:var(--muted);width:90px;text-align:right}
-    .q-number{font-size:.9rem;color:#9aa3b2;font-weight:700;margin-bottom:8px}
-    .q-text{font-size:1.15rem;line-height:1.3;margin-bottom:16px;font-weight:700}
-    .options{display:grid;grid-template-columns:1fr;gap:10px}
-    .opt{display:block;border-radius:12px;padding:12px 14px;text-align:left;background:#fbfbfe;border:1px solid #eef2f7;cursor:pointer;transition:transform .12s ease, box-shadow .12s ease;font-weight:700}
-    .opt small{display:block;font-weight:400;color:var(--muted);font-size:.9rem;margin-top:4px}
-    .opt:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(12,20,40,0.06)}
-    .opt.selected{background:var(--primary-gradient);color:white;border:1px solid rgba(0,0,0,0.06)}
-    .nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:18px;gap:12px}
-    .btn{padding:12px 18px;border-radius:999px;font-weight:900;text-decoration:none;border:none;cursor:pointer}
-    .btn-secondary{background:transparent;color:var(--muted);border:2px solid #eef2f7}
-    .btn-primary{background:var(--primary-gradient);color:#fff;box-shadow:0 8px 30px rgba(13,59,102,0.09)}
-    .result-card{text-align:center;padding:28px;border-radius:14px;background:linear-gradient(180deg,#fff9f0,#fffdf8)}
-    .result-title{font-size:1.6rem;font-weight:900;margin-bottom:8px}
-    .result-copy{font-size:1.05rem;color:#334155;margin-bottom:12px}
-    .result-emoji{font-size:3rem;margin-bottom:14px;display:block}
-    .share-row{display:flex;gap:8px;justify-content:center;margin-top:12px;flex-wrap:wrap}
-    .share-btn{padding:10px 12px;border-radius:10px;border:none;cursor:pointer;background:#f0f3f8;font-weight:700}
-    @media (max-width:640px){
-      .card{padding:18px}
-      .result-emoji{font-size:2.4rem}
-      .q-text{font-size:1.05rem}
+
+    .quiz-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
     }
+
+    .quiz-header h1 {
+      font-size: 1.4rem;
+      color: #2f2a22;
+      margin: 0;
+    }
+
+    .progress-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .progress-bar {
+      flex: 1;
+      height: 10px;
+      background: #f0f3f8;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg,#ffc845, #0d62ae);
+      transition: width 0.35s ease;
+    }
+
+    .progress-text {
+      font-size: 0.9rem;
+      color: #666;
+      width: 80px;
+      text-align: right;
+    }
+
+    .q-number {
+      font-size: 0.9rem;
+      color: #9aa3b2;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .q-text {
+      font-size: 1.15rem;
+      line-height: 1.3;
+      margin-bottom: 16px;
+      font-weight: 700;
+      color: #2f2a22;
+      text-align: center;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .opt {
+      display: block;
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: #fbfbfe;
+      border: 1px solid #eef2f7;
+      cursor: pointer;
+      font-weight: 700;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .opt:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(12,20,40,0.06);
+    }
+
+    .opt.selected {
+      background: linear-gradient(90deg,#ffc845, #0d62ae);
+      color: #fff;
+      border: none;
+    }
+
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 18px;
+      gap: 12px;
+    }
+
+   .btn-primary, .btn-secondary {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  margin: 1rem auto 0 auto;
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s, color 0.2s;
+  box-shadow: 0 2px 12px rgba(28, 32, 43, 0.10);
+  border: none;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #836FFF 0%, var(--primary-color) 100%);
+  color: var(--light-color);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  box-shadow: 0 4px 24px rgba(106, 90, 205, 0.4);
+  background: linear-gradient(90deg, #9a85ff 0%, #7c6ee6 100%);
+  color: var(--light-color);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background: var(--primary-color);
+  color: var(--light-color);
+}
+    .result-card {
+      text-align: center;
+      padding: 28px;
+      border-radius: 14px;
+      background: #fffdf8;
+    }
+
+    .score {
+      font-size: 2.4rem;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .result-copy {
+      font-size: 1.05rem;
+      color: #334155;
+      margin-bottom: 12px;
+    }
+
+    .result-emoji {
+      font-size: 2.6rem;
+      margin-bottom: 12px;
+    }
+
+    .share-row {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #f0f3f8;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+    nav {
+      display: none;
+    }
+    nav {
+      display: none;
+      position: absolute;
+      top: 70px;
+      right: 24px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      padding: 1rem 1.25rem;
+      z-index: 999;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    /* When menu is toggled open */
+    nav.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li a {
+      font-family: inherit;
+      color: var(--primary-color);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: color 0.3s, border-bottom-color 0.3s;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: var(--primary-color);
+      border-bottom-color: var(--primary-color);
+    }
+
+    .menu-toggle {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 1.9rem;
+      cursor: pointer;
+      color: var(--primary-color);
+      padding: 0;
+      line-height: 1;
+    }
+  }
+
+  /* Desktop view (same as your main CSS) */
+  @media (min-width: 769px) {
+    .menu-toggle {
+      display: none;
+    }
+
+    nav {
+      display: flex !important;
+      align-items: center;
+      position: static;
+      background: none;
+      box-shadow: none;
+      padding: 0;
+      opacity: 1;
+      transform: none;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+    }
+  }
   </style>
 </head>
+
 <body>
-  <div class="quiz-shell">
-
-    <div class="brand-row">
-      <a class="logo-btn" href="/index.html">Consumer Kanvas</a>
-      <div class="quiz-title">Will Your Startup Survive the Next 12 Months?</div>
+  <!-- SITE HEADER (matches blog page) -->
+  <header>
+    <div class="container header-container">
+      <a href="/index.html" class="logo">Consumer Kanvas</a>
+      <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/blogs.html">Blogs & Insights</a></li>
+          <li><a href="/quizzes.html" class="active">Founder Quizzes</a></li>
+          <li><a href="/about-us.html">About Us</a></li>
+          <li><a href="/Contact.html">Contact</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <div class="card" id="quizCard" aria-live="polite">
-      <div class="progress-wrap" aria-hidden="true">
+  <!-- QUIZ BODY -->
+  <section class="quiz-section">
+    <div class="quiz-card" id="quizCard">
+      <div class="quiz-header">
+        <h1>Go To Market Readiness (GTM Readiness) Scorecard</h1>
+      </div>
+
+      <div class="progress-wrap">
         <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
-        <div class="progress-text" id="progressText">1 / 7</div>
+        <div class="progress-text" id="progressText">0 / 6</div>
       </div>
 
       <div id="questionBlock"></div>
@@ -92,11 +337,12 @@ permalink: /quizzes/startup-survival/
       </div>
     </div>
 
-    <div class="card" id="resultCard" style="display:none">
+    <!-- Result -->
+    <div class="quiz-card" id="resultCard" style="display:none">
       <div class="result-card">
         <span id="resultEmoji" class="result-emoji">🔥</span>
-        <div class="result-title" id="finalTitle">You’re Scaling-Ready</div>
-        <div class="result-copy" id="finalText">Result description will appear here.</div>
+        <div class="score" id="finalScore">0 / 30</div>
+        <div class="result-copy" id="finalText">Your result text</div>
 
         <div class="share-row">
           <button class="share-btn" id="waShare">Share on WhatsApp</button>
@@ -105,12 +351,11 @@ permalink: /quizzes/startup-survival/
         </div>
 
         <div style="margin-top:14px">
-          <a class="btn btn-primary" id="ctaBtn" href="/Contact.html">Get a Growth Review</a>
+          <a class="btn btn-primary" id="ctaBtn" href="/Contact.html">Book a Free GTM Call</a>
         </div>
       </div>
     </div>
-
-  </div>
+  </section>
 
   <script>
     const questions = [
@@ -279,5 +524,12 @@ permalink: /quizzes/startup-survival/
 
     renderQuestion(0);
   </script>
+  
+   <!-- FOOTER -->
+  <footer>
+    <div class="container footer-container">
+      <p>© 2025 Consumer Kanvas. The Founder’s Edge System. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
