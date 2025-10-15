@@ -298,6 +298,13 @@ header {
   transform: rotate(-45deg) translate(-8px);
 }
 
+
+/* === NAVIGATION === */
+nav {
+  display: flex;
+  align-items: center;
+}
+      
 /* Mobile only */
 @media (max-width: 700px) {
   nav {
@@ -312,13 +319,6 @@ header {
     box-shadow: 0 2px 12px rgba(28, 32, 43, 0.15);
     display: none; /* start hidden */
   }
-}
-
-/* === NAVIGATION === */
-nav {
-  display: flex;
-  align-items: center;
-}
       /* When hamburger is active, show the menu */
 nav.active {
   display: flex !important;
