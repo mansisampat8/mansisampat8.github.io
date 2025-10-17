@@ -2,6 +2,7 @@
 layout: post
 title: "Pressure-Test Your Brand Story: Why Clarity Beats Cleverness"
 date: 2025-10-13
+author: "Mansi Sampat | Consumer Kanvas"
 categories: 
   - brand-clarity
   - startup-growth
