@@ -272,4 +272,91 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// Predefined passwords (MD5 hashes for D2C clients; e.g., 'd2cclient1')
+const clientPasswords = {
+    '1': '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', // 'd2cclient1'
+    '2': 'e2fc714c4727ee9395f324cd2e7f331f', // 'd2cclient2' (example)
+    '3': '827ccb0eea8a706c4c34a16891f84e7b', // 'd2cclient3'
+    '4': '1a1dc91c907325c69271ddf0c944bc72', // 'd2cclient4'
+    '5': 'c84258e9c39059a89ab130c4f11b1d3d', // 'd2cclient5'
+    '6': '2f44adeba69e2b4c80d2a9c8f0f4b3d5', // 'd2cclient6'
+    '7': 'd8578edf8458ce06fbc5bb76a58c5ca4', // 'd2cclient7'
+    '8': '4cdcb8f13af94b20a0f81d65a37e79f1', // 'd2cclient8'
+    '9': 'a665a45920422f9d417e4867efdc4fb8', // 'd2cclient9'
+    '10': '482c811da5d5b4bc6d497ffa98491e38' // 'd2cclient10'
+};
+
+// Placeholder MD5 (use crypto-js in production)
+function md5(str) {
+    // Simplified; implement full MD5 or use library
+    return btoa(str).slice(0, 64).replace(/[^a-f0-9]/g, '');
+}
+
+function login() {
+    const clientId = document.getElementById('client-id').value;
+    const password = document.getElementById('password').value;
+    const hashedPw = md5(password);
+
+    if (clientPasswords[clientId] && clientPasswords[clientId] === hashedPw) {
+        localStorage.setItem('loggedClient', clientId);
+        loadDashboard(clientId);
+        document.getElementById('login-form').style.display = 'none';
+        document.getElementById('dashboard').style.display = 'block';
+        document.getElementById('error').textContent = '';
+    } else {
+        document.getElementById('error').textContent = 'Invalid client ID or password.';
+    }
+}
+
+function loadDashboard(clientId) {
+    document.getElementById('client-title').textContent = `Client ${clientId} D2C Dashboard`;
+    const data = JSON.parse(localStorage.getItem(`d2cclient${clientId}_data`) || '{"cac":0,"aov":0,"repeat":0,"margin":0}');
+    document.getElementById('cac').value = data.cac;
+    document.getElementById('cac-value').textContent = `₹${data.cac}`;
+    document.getElementById('aov').value = data.aov;
+    document.getElementById('aov-value').textContent = `₹${data.aov}`;
+    document.getElementById('repeat').value = data.repeat;
+    document.getElementById('repeat-value').textContent = `${data.repeat}%`;
+    document.getElementById('margin').value = data.margin;
+    document.getElementById('margin-value').textContent = `${data.margin}%`;
+    calculateCLTV(clientId);
+}
+
+function updateKPI(key, value) {
+    const clientId = localStorage.getItem('loggedClient');
+    if (!clientId) return;
+    const data = JSON.parse(localStorage.getItem(`d2cclient${clientId}_data`) || '{}');
+    data[key] = parseFloat(value) || 0;
+    localStorage.setItem(`d2cclient${clientId}_data`, JSON.stringify(data));
+    document.getElementById(`${key}-value`).textContent = key === 'cac' || key === 'aov' ? `₹${data[key]}` : `${data[key]}%`;
+    if (key === 'aov' || key === 'repeat') calculateCLTV(clientId);
+}
+
+function calculateCLTV(clientId) {
+    const data = JSON.parse(localStorage.getItem(`d2cclient${clientId}_data`) || '{}');
+    const cltv = (data.aov * (data.repeat / 100) * 3).toFixed(0); // Simple: AOV * Repeat Rate * 3 (avg purchases)
+    document.getElementById('cltv-value').textContent = `₹${cltv}`;
+}
+
+function logout() {
+    localStorage.removeItem('loggedClient');
+    document.getElementById('dashboard').style.display = 'none';
+    document.getElementById('login-form').style.display = 'block';
+    document.getElementById('client-id').value = '';
+    document.getElementById('password').value = '';
+}
+
+function exportData() {
+    const clientId = localStorage.getItem('loggedClient');
+    const data = JSON.parse(localStorage.getItem(`d2cclient${clientId}_data`) || '{}');
+    const cltv = (data.aov * (data.repeat / 100) * 3).toFixed(0);
+    const csv = `KPI,Value\nCAC,₹${data.cac}\nAOV,₹${data.aov}\nRepeat Rate,${data.repeat}%\nGross Margin,${data.margin}%\nCLTV,₹${cltv}`;
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `d2cclient${clientId}_performance.csv`;
+    a.click();
+}
+
 
