@@ -15,6 +15,9 @@ But every time you look at your growth numbers, you’re wondering:
 
 > Why does it feel like you’re sprinting just to stay in place?
 
+
+![Growth Lever]({{ site.baseurl }}/assets/images/Growth-Lever.png)
+
 The truth is, most brands exploding right now are either **pushing growth with brute force** or **pulling it in with something more magnetic.**  
 
 I’m talking about **direct vs. indirect growth levers** and getting this balance right could be the edge that turns your hustle into real, lasting momentum.
