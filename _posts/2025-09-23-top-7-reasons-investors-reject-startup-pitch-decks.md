@@ -2,6 +2,7 @@
 layout: post
 title: "Top 7 Reasons Investors Reject Startup Pitch Decks (and How to Fix Them)"
 date: 2025-09-23
+author: "Mansi Sampat | Consumer Kanvas"
 categories: 
   - pitch-decks
   - startup-funding
