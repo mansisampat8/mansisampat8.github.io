@@ -6,7 +6,6 @@ author: "Mansi Sampat | Consumer Kanvas"
 categories: 
   - product-market-fit
   - PMF
-image: "/assets/images/pmf-image.png"
 ---
 
 ![Product Market Fit Journey]({{ site.baseurl }}/assets/images/pmf-image.png)
