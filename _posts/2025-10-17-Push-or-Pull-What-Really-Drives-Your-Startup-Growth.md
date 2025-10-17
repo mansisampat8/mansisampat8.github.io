@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Direct vs. Indirect Growth Levers: Are you Pushing Hard or Pulling Smart?"
+title: "Pushing Hard vs. Pulling Smart: The Growth Levers Every Founder Must Master"
 date: 2025-10-17
 categories:
   - startup-growth
