@@ -2,6 +2,7 @@
 layout: post
 title: "How to Validate Product-Market Fit (PMF) Before Talking to Investors?"
 date: 2025-09-24
+author: "Mansi Sampat | Consumer Kanvas"
 categories: 
   - product-market-fit
   - startup-funding
