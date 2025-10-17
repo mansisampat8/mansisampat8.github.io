@@ -37,13 +37,13 @@ These work like flipping a switch; traffic floods in, conversions spike, dashboa
 
 But here’s the catch:  
 
-> stop spending, and the flow dries up overnight.  
+> Stop spending, and the flow dries up overnight.  
 
 It’s the treadmill effect; great while it’s running, but the moment you stop, you’re back to zero.
 
-Why do founders fall into this trap?  
+**But why do founders fall into this trap?**  
 Because *short-term metrics look amazing*.  
-“Look, 20% MoM growth from ads!”  
+“Look, 10% MoM growth from ads!”  
 But beneath that shine lies fragility; algorithm changes, audience fatigue, rising CAC.  
 
 And soon, you’re not scaling; you’re sustaining a very expensive high.
@@ -68,7 +68,7 @@ These take time; months, not days but the ROI compounds.
 They build *roots*, so every direct effort above the ground becomes stronger.
 
 **Example:**  
-Paytm didn’t just advertise payments; they built an **ecosystem** where users pulled in merchants and merchants pulled in users — classic network effect.  
+Paytm didn’t just advertise payments; they built an **ecosystem** where users pulled in merchants and merchants pulled in users; classic network effect.  
 Or **Ola** every new rider attracted more drivers, every driver attracted more riders. Pull, not push.  
 
 > Indirect levers make your growth magnetic; they make people come to you even when you stop chasing them.
