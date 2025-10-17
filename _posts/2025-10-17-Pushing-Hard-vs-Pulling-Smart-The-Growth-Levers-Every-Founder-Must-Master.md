@@ -2,6 +2,7 @@
 layout: post
 title: "Pushing Hard vs. Pulling Smart: The Growth Levers Every Founder Must Master"
 date: 2025-10-17
+author: "Mansi Sampat | Consumer Kanvas"
 categories:
   - startup-growth
   - brand-strategy
