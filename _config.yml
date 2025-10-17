@@ -14,4 +14,7 @@ collections:
     output: true
     # baseurl: "/consumerkanvas-quizzes"
     permalink: /quizzes/:name/
-    
+
+title: D2C Performance Tracker
+baseurl: ""
+
