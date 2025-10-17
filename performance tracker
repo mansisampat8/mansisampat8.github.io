@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D2C Performance Tracker</title>
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+</head>
+<body>
+    <div id="login-form">
+        <h2>D2C Client Login</h2>
+        <input type="text" id="client-id" placeholder="Client ID (1-10)" maxlength="2">
+        <input type="password" id="password" placeholder="Enter Password">
+        <button onclick="login()">Login</button>
+        <p id="error"></p>
+    </div>
+
+    <div id="dashboard" style="display: none;">
+        <h2 id="client-title">D2C Dashboard</h2>
+        <div class="kpi-grid">
+            <div class="kpi">
+                <label>CAC (₹):</label>
+                <input type="number" id="cac" onchange="updateKPI('cac', this.value)">
+                <span id="cac-value">0</span>
+            </div>
+            <div class="kpi">
+                <label>AOV (₹):</label>
+                <input type="number" id="aov" onchange="updateKPI('aov', this.value)">
+                <span id="aov-value">0</span>
+            </div>
+            <div class="kpi">
+                <label>Repeat Rate (%):</label>
+                <input type="number" id="repeat" onchange="updateKPI('repeat', this.value)" min="0" max="100">
+                <span id="repeat-value">0</span>
+            </div>
+            <div class="kpi">
+                <label>Gross Margin (%):</label>
+                <input type="number" id="margin" onchange="updateKPI('margin', this.value)" min="0" max="100">
+                <span id="margin-value">0</span>
+            </div>
+            <div class="kpi">
+                <label>CLTV (₹):</label>
+                <span id="cltv-value">0</span> <!-- Auto-calculated -->
+            </div>
+        </div>
+        <button onclick="logout()">Logout</button>
+        <button onclick="exportData()">Export CSV</button>
+    </div>
+
+    <script src="{{ site.baseurl }}/assets/js/d2c-tracker.js"></script>
+</body>
+</html>
