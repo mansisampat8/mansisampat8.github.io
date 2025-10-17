@@ -7,6 +7,7 @@ categories:
   - startup-growth
   - brand-strategy
   - founder-insights
+image: "/assets/images/growth-lever.png"
 ---
 
 Hey, founder, let’s cut straight to it.  
