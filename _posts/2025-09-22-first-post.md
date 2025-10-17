@@ -6,10 +6,10 @@ author: "Mansi Sampat | Consumer Kanvas"
 categories: 
   - product-market-fit
   - PMF
-image: "/images/pmf-image.png"
+image: "/assets/images/pmf-image.png"
 ---
 
-![Product Market Fit Journey](/images/pmf-image.png)
+![Product Market Fit Journey]({{ site.baseurl }}/assets/images/pmf-image.png)
 
 
 You spend months refining your product idea, building an MVP, and even running early tests. The feedback looks positive, but when you finally launch, the numbers just don’t add up sales crawl, reviews dip, and momentum fizzles.  
