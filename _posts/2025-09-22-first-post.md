@@ -2,6 +2,7 @@
 layout: post
 title: "Product-Market Fit: What It Is and How to Find It?"
 date: 2025-09-23
+author: "Mansi Sampat | Consumer Kanvas"
 categories: 
   - product-market-fit
   - PMF
