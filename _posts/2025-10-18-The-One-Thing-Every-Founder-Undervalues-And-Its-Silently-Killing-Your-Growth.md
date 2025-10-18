@@ -58,7 +58,9 @@ Blind rate is paid every time you:
 - Tweak the product endlessly when the real problem is positioning.  
 
 It’s brutal because it doesn’t appear on your P&L.  
-It shows up in slow conversions, confused customers, exhausted teams, and missed opportunities.  
+It shows up in slow conversions, confused customers, exhausted teams, and missed opportunities.
+The fix isn’t more hustle.
+It’s clarity; real, ground-level understanding of how your audience thinks, decides, and buys.
 
 ---
 
