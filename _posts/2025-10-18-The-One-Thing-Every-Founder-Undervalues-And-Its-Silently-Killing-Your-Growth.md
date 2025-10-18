@@ -26,6 +26,8 @@ Conversions matter. Conviction… not so much.
 ### Startups Don’t Die From Running Out of Cash  
 They die from running out of **clarity**.  
 
+![One thing founders undervalue]({{ site.baseurl }}/assets/images/One%20thing%20founder%20undervalues.png)
+
 You’re not just selling a product.  
 You’re selling a belief.  
 
