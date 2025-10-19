@@ -7,6 +7,7 @@ categories:
   - brand-strategy
   - founder-insights
   - storytelling
+image: "/assets/images/brand-story-telling.png"
 ---
 
 Hey founder, let’s be honest, you don’t need another blog telling you “storytelling matters.”  
