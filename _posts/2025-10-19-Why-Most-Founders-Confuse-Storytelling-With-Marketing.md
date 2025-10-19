@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Why Most Founders Confuse Storytelling With Marketing"
+title: "Why Most Founders Confuse Storytelling With Marketing?(And How to Make Yours Unforgettable)"
 date: 2025-10-19
 author: "Mansi Sampat | Consumer Kanvas"
 categories:
