@@ -1379,10 +1379,6 @@ a{ text-decoration:none; }
 .related-posts {
   margin-block: 2rem;
 }
-.related-posts h2 {
-  margin: 0 0 .75rem;
-  font-size: 1.25rem;
-}
 
 /* Grid setup */
 .related-grid {
@@ -1403,11 +1399,10 @@ a{ text-decoration:none; }
 
 /* Individual related post cards */
 .related-item {
-  display: flex;
-  flex-direction: column; /* image on top, text below */
-  border: 1px solid var(--line);
+  max-width: 250px;      /* limit the card width */
+  margin: 0 auto;        /* center it horizontally */
+  flex-direction: column;
   border-radius: 12px;
-  overflow: hidden;
   background: #fff;
   transition: transform .15s ease, box-shadow .15s ease;
 }
@@ -1418,9 +1413,10 @@ a{ text-decoration:none; }
 
 /* Image styling */
 .related-figure {
-  width: 100%;
-  height: 140px; /* uniform card image height */
-  overflow: hidden;
+  width: 90px;           /* small square thumbnail */
+  height: 90px;
+  margin: 0.75rem auto 0; /* center horizontally, spacing on top */
+  border-radius: 8px;
   background: linear-gradient(135deg,#eef2f7,#f8fafc);
 }
 .related-figure img {
@@ -1436,20 +1432,21 @@ a{ text-decoration:none; }
 
 /* Text content below image */
 .related-content {
-  padding: .75rem 1rem;
+  padding: 0.5rem 0.75rem 1rem;
+  text-align: center;
   display: flex;
   flex-direction: column;
   gap: .35rem;
 }
 .related-title {
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.35;
   margin: 0;
   font-weight: 600;
   color: var(--ink);
 }
 .related-excerpt {
-  margin: 0;
+  margin: 0.8rem;
   font-size: .875rem;
   color: var(--muted);
 }
