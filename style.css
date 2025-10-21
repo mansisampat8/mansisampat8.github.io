@@ -1401,6 +1401,7 @@ a{ text-decoration:none; }
 .related-item {
   max-width: 250px;      /* limit the card width */
   margin: 0 auto;        /* center it horizontally */
+  display: flex;
   flex-direction: column;
   border-radius: 12px;
   background: #fff;
