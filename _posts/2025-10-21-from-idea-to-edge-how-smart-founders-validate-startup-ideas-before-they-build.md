@@ -176,4 +176,5 @@ It’s the ones who listen hardest, test fastest, and double down on what’s re
 ---
 
 **Want to see how this system works in action?**  
-→ [Explore The Founder’s Edge System](/founders-edge)
+[→ Explore The Founder’s Edge System](/founders-edge#solutions)
+
