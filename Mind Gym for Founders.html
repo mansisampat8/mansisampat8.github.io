@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bias Busters — The Founder's Reality Check</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#ffb86b;--muted:#94a3b8;--glass: rgba(255,255,255,0.03)}
+    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;background:linear-gradient(180deg,#071022 0%, #0b1220 100%);color:#e6eef8}
+    .wrap{max-width:920px;margin:32px auto;padding:28px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);box-shadow:0 8px 40px rgba(2,6,23,0.6);}
+    header{display:flex;align-items:center;gap:16px}
+    h1{margin:0;font-size:20px}
+    .tag{background:var(--glass);padding:6px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
+    .lead{color:var(--muted);margin-top:8px}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));border-radius:10px;padding:18px;margin-top:18px}
+    .scenario{font-weight:600;margin-bottom:8px}
+    .choices{display:grid;grid-template-columns:1fr;gap:10px;margin-top:10px}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:8px;text-align:left;cursor:pointer}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,0.5)}
+    .btn.selected{border-color:var(--accent);box-shadow:inset 0 0 20px rgba(255,184,107,0.04)}
+    footer{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
+
+    .progress{height:8px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden}
+    .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#ffdfb8);width:0%}
+
+    .result{display:none;padding:18px;border-radius:10px;margin-top:14px}
+    .result.show{display:block}
+    .result h2{margin:0}
+    .bias-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .pill{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:999px;font-size:13px}
+
+    .small{font-size:13px;color:var(--muted)}
+    .muted{color:var(--muted)}
+
+    .center{display:flex;flex-direction:column;align-items:center;gap:8px}
+
+    .actions{display:flex;gap:8px}
+    .primary{background:linear-gradient(90deg,var(--accent),#ffdfb8);color:#071022;border:none;padding:10px 14px;border-radius:8px;cursor:pointer}
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:8px;color:var(--muted);cursor:pointer}
+
+    .share{display:flex;gap:8px;margin-top:10px}
+
+    .meta{margin-top:12px;color:var(--muted);font-size:13px}
+
+    @media(min-width:700px){.choices{grid-template-columns:repeat(2,1fr)}}
+  </style>
+</head>
+<body>
+  <div class="wrap" role="main">
+    <header>
+      <div style="width:52px;height:52px;border-radius:9px;background:linear-gradient(180deg,#0b1220,#071022);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.03)">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="url(#g)"/></svg>
+      </div>
+      <div>
+        <h1>Bias Busters — The Founder's Reality Check</h1>
+        <div class="tag">3–5 minutes · Insight game for founders</div>
+        <div class="lead">Spot how friends, family and assumptions steer your decisions. Not a lecture—an honest mirror.</div>
+      </div>
+    </header>
+
+    <div id="game" class="card" aria-live="polite">
+      <div id="intro">
+        <p class="small">You will see short founder scenarios. Pick what you would do. We'll map choices to common biases and give a score at the end. No wrong answers—only clarity.</p>
+        <div style="display:flex;gap:10px;margin-top:12px">
+          <button id="startBtn" class="primary">Start the game</button>
+          <button id="howBtn" class="ghost">How it works</button>
+        </div>
+      </div>
+
+      <div id="playArea" style="display:none">
+        <div class="progress" aria-hidden><i id="progFill"></i></div>
+        <div id="scenarioWrap" style="margin-top:14px"></div>
+        <footer>
+          <div class="small muted">Scenario <span id="index">1</span> / <span id="total">6</span></div>
+          <div class="actions">
+            <button id="prev" class="ghost" disabled>Back</button>
+            <button id="next" class="primary" disabled>Next</button>
+          </div>
+        </footer>
+      </div>
+
+      <div id="resultArea" class="result">
+        <h2 id="resultTitle">Your Bias Profile</h2>
+        <div id="resultDesc" class="muted"></div>
+        <div class="bias-list" id="biasPills"></div>
+        <div style="margin-top:14px" class="center">
+          <div class="meta">Want a real reality check? Use FGDs to hear what paying customers actually think.</div>
+          <div class="share">
+            <button id="retry" class="ghost">Play again</button>
+            <button id="lead" class="primary">Run a Reality FGD</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:14px;font-size:13px;color:var(--muted)">
+      <strong>How we use this:</strong> This game is a diagnostic funnel—players who want depth become leads. No data leaves your browser unless they submit the lead form.
+    </div>
+  </div>
+
+  <script>
+    // Game data: scenarios map choices to bias keys and weights
+    const SCENARIOS = [
+      {
+        id: 's1',
+        scenario: "Your college roommate says your app idea is 'so cool' and promises to tell friends.",
+        choices: [
+          {text: 'Ship fast — friends love it, so customers will too', map: {'validation':2, 'optimism':1}},
+          {text: 'Ask your roommate to bring 5 friends to test it', map: {'validation':0, 'action':1}},
+          {text: 'Set a small test with real target users', map: {'testing':2}}
+        ]
+      },
+      {
+        id: 's2',
+        scenario: "Your co-founder says 'we know the market' because they used a similar product in college.",
+        choices: [
+          {text: 'Trust their experience and proceed', map: {'familiarity':2}},
+          {text: 'Run 10 quick interviews to validate', map: {'testing':2}},
+          {text: 'Build an MVP and chase signals', map: {'optimism':1,'validation':1}}
+        ]
+      },
+      {
+        id: 's3',
+        scenario: "A close family friend says they 'would definitely pay' but gives no specifics.",
+        choices: [
+          {text: 'Start pricing and marketing based on their feedback', map: {'validation':2}},
+          {text: 'Ask for commitment—would they actually pay today?', map: {'testing':2}},
+          {text: 'Ignore the detail and assume intent', map: {'optimism':2}}
+        ]
+      },
+      {
+        id: 's4',
+        scenario: "Beta testers say 'lovely design' but retention is low.",
+        choices: [
+          {text: 'Double down on design to fix engagement', map: {'symptom':1,'optimism':1}},
+          {text: 'Talk to inactive testers to find the drop-off reason', map: {'testing':2}},
+          {text: 'Add more features to bring them back', map: {'feature_bloat':2}}
+        ]
+      },
+      {
+        id: 's5',
+        scenario: "Your investor suggests pivoting to a friend’s industry contacts for quick traction.",
+        choices: [
+          {text: 'Pivot quickly to chase the intro', map: {'bandwagon':2}},
+          {text: 'Map customer fit in both markets before moving', map: {'testing':2}},
+          {text: 'Take the intro but keep product as-is', map: {'compromise':1}}
+        ]
+      },
+      {
+        id: 's6',
+        scenario: "You hear 'everyone loves it' when you demo at a family party.",
+        choices: [
+          {text: 'Use the party feedback in pitches', map: {'validation':2}},
+          {text: 'Ask party-goers which features they actually use', map: {'testing':2}},
+          {text: 'Assume broad appeal and scale marketing', map: {'optimism':2}}
+        ]
+      }
+    ];
+
+    // Bias friendly names + descriptions
+    const BIAS_META = {
+      validation: {label:'Validation Seeker', desc:'You lean heavily on friendly praise. Brutally honest external voices will help.'},
+      optimism: {label:'Optimism Architect', desc:'You bet on potential. Add signal checks to balance speed.'},
+      testing: {label:'Reality Hacker', desc:'You run experiments before conviction. Keep this up.'},
+      familiarity: {label:'Familiarity Trap', desc:'Past use doesn\'t equal market fit. Separate sample from population.'},
+      feature_bloat: {label:'Feature Follower', desc:'You add features to solve symptoms. Focus on root cause.'},
+      symptom: {label:'Symptom Reactor', desc:'You respond to surface issues without digging deeper.'},
+      bandwagon: {label:'Bandwagon Mover', desc:'You chase intros and quick wins. Check long-term fit first.'},
+      action: {label:'Action Seeker', desc:'You convert feedback to action fast — useful when combined with testing.'},
+      compromise: {label:'Compromise Mindset', desc:'You try to serve both sides; that can dilute product clarity.'}
+    };
+
+    // State
+    let state = {index:0, answers:[], scores:{}};
+
+    // Elements
+    const startBtn = document.getElementById('startBtn');
+    const howBtn = document.getElementById('howBtn');
+    const playArea = document.getElementById('playArea');
+    const intro = document.getElementById('intro');
+    const scenarioWrap = document.getElementById('scenarioWrap');
+    const indexEl = document.getElementById('index');
+    const totalEl = document.getElementById('total');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    const progFill = document.getElementById('progFill');
+    const resultArea = document.getElementById('resultArea');
+    const resultTitle = document.getElementById('resultTitle');
+    const resultDesc = document.getElementById('resultDesc');
+    const biasPills = document.getElementById('biasPills');
+    const retry = document.getElementById('retry');
+    const lead = document.getElementById('lead');
+
+    totalEl.textContent = SCENARIOS.length;
+
+    function startGame(){
+      state = {index:0, answers:[], scores:{}};
+      intro.style.display='none';
+      playArea.style.display='block';
+      resultArea.classList.remove('show');
+      renderScenario();
+      updateProgress();
+    }
+
+    function renderScenario(){
+      const s = SCENARIOS[state.index];
+      indexEl.textContent = state.index+1;
+      scenarioWrap.innerHTML = '';
+      const el = document.createElement('div');
+      el.innerHTML = `<div class="scenario">${s.scenario}</div><div class="choices" id="choices"></div>`;
+      scenarioWrap.appendChild(el);
+      const choicesWrap = document.getElementById('choices');
+      s.choices.forEach((c, i)=>{
+        const b = document.createElement('button');
+        b.className='btn';
+        b.setAttribute('data-i', i);
+        b.innerHTML = `<div style="font-weight:600">${c.text}</div>`;
+        b.addEventListener('click', ()=> selectChoice(b, c));
+        choicesWrap.appendChild(b);
+      });
+
+      // restore selection if already answered
+      const prevAnswer = state.answers[state.index];
+      if(prevAnswer!=null){
+        // mark selected
+        const selected = choicesWrap.querySelector(`[data-i='${prevAnswer}']`);
+        if(selected) selected.classList.add('selected');
+        nextBtn.disabled = false;
+      } else {
+        nextBtn.disabled = true;
+      }
+      prevBtn.disabled = state.index===0;
+    }
+
+    function selectChoice(btn, choice){
+      // clear other selections
+      document.querySelectorAll('.btn').forEach(x=>x.classList.remove('selected'));
+      btn.classList.add('selected');
+      // save answer index
+      const i = Number(btn.getAttribute('data-i'));
+      state.answers[state.index] = i;
+      // record scores (we don't compute final until end)
+      state.scores = state.scores || {};
+      // temporarily store the mapping for this slot
+      state.scores[state.index] = choice.map;
+      nextBtn.disabled = false;
+    }
+
+    function updateProgress(){
+      const pct = Math.round((state.index)/(SCENARIOS.length-1)*100);
+      progFill.style.width = pct + '%';
+    }
+
+    function goNext(){
+      if(state.index < SCENARIOS.length -1){
+        state.index++;
+        renderScenario();
+        updateProgress();
+      } else {
+        // finish
+        computeResult();
+      }
+    }
+
+    function goPrev(){
+      if(state.index>0){
+        state.index--;
+        renderScenario();
+        updateProgress();
+      }
+    }
+
+    function computeResult(){
+      // aggregate maps
+      const agg = {};
+      Object.values(state.scores||{}).forEach(map=>{
+        for(const k in map){
+          agg[k] = (agg[k]||0) + map[k];
+        }
+      });
+
+      // sort keys by value
+      const sorted = Object.keys(agg).sort((a,b)=>agg[b]-agg[a]);
+      // pick top 3 biases
+      const top = sorted.slice(0,3);
+
+      // build a profile message
+      let title = 'Your Bias Snapshot';
+      let desc = '';
+      if(top.length===0){
+        title = 'No choices made';
+        desc = 'You didn\'t complete the game. Play again to get a profile.';
+      } else {
+        const head = top[0];
+        title = BIAS_META[head] ? BIAS_META[head].label : 'Curious Mind';
+        desc = BIAS_META[head] ? BIAS_META[head].desc : '';
+      }
+
+      // show results
+      resultTitle.textContent = title;
+      resultDesc.textContent = desc;
+      biasPills.innerHTML = '';
+      top.forEach(k=>{
+        const meta = BIAS_META[k] || {label:k, desc:''};
+        const p = document.createElement('div');
+        p.className='pill';
+        p.title = meta.desc;
+        p.textContent = meta.label + (agg[k] ? ` • ${agg[k]}` : '');
+        biasPills.appendChild(p);
+      });
+
+      // CTA nuance: give tailored message
+      const more = document.createElement('div');
+      more.className='meta';
+      more.style.marginTop='12px';
+      more.textContent = 'What this really means is: these patterns show where friendly feedback could mislead product decisions. A quick FGD shows you what real users actually do.';
+      resultArea.insertAdjacentElement('beforeend', more);
+
+      playArea.style.display='none';
+      resultArea.classList.add('show');
+      progFill.style.width = '100%';
+
+      // persist last result in sessionStorage
+      try{sessionStorage.setItem('biasBusters_last', JSON.stringify({agg, top, title, desc}))}catch(e){}
+    }
+
+    // events
+    startBtn.addEventListener('click', startGame);
+    howBtn.addEventListener('click', ()=> alert('You will see 6 short founder scenarios — choose what you would do. We map choices to common biases (validation bias, optimism, feature bloat etc.). Result gives a concise profile and next-step advice.'));
+    nextBtn.addEventListener('click', ()=> goNext());
+    prevBtn.addEventListener('click', ()=> goPrev());
+    retry.addEventListener('click', ()=> startGame());
+    lead.addEventListener('click', ()=>{
+      // open a modal-ish lead flow — kept simple so it is easy to plug your lead capture
+      const url = prompt('Short note for Consumer Kanvas team (optional). Enter email to be contacted:');
+      if(url){
+        // naive behavior: open mailto
+        window.location.href = 'mailto:hello@consumerkanvas.com?subject=Bias Busters - Reality FGD&body=' + encodeURIComponent(url + '\n---\nFound using Bias Busters');
+      }
+    });
+
+    // keyboard navigation
+    document.addEventListener('keydown', (e)=>{
+      if(playArea.style.display==='block'){
+        if(e.key === 'ArrowRight' && !nextBtn.disabled) nextBtn.click();
+        if(e.key === 'ArrowLeft' && !prevBtn.disabled) prevBtn.click();
+      }
+    });
+
+    // On load: check if last result exists
+    window.addEventListener('load', ()=>{
+      try{
+        const last = JSON.parse(sessionStorage.getItem('biasBusters_last')||'null');
+        if(last){
+          // show tiny summary
+          const small = document.createElement('div');
+          small.className='meta';
+          small.style.marginTop='12px';
+          small.textContent = `You played earlier. Top bias: ${last.title}. Click Start to play again.`;
+          document.querySelector('.wrap').appendChild(small);
+        }
+      }catch(e){}
+    });
+  </script>
+</body>
+</html>
