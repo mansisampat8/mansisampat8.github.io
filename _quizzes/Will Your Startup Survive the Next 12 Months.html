@@ -319,7 +319,9 @@ permalink: /quizzes/startup-survival/
     </div>
   </div>
 
-  <script>
+ <script>
+document.addEventListener("DOMContentLoaded", function() {
+
   const questions = [
     { text: "How many months of runway do you currently have?", options: [
       { label: "Less than 3 months", score: 1 },
@@ -376,6 +378,8 @@ permalink: /quizzes/startup-survival/
   const backBtn = document.getElementById('backBtn');
   const resultCard = document.getElementById('resultCard');
   const quizCard = document.getElementById('quizCard');
+  const introCard = document.getElementById('introCard');
+  const startBtn = document.getElementById('startQuiz');
 
   function renderQuestion(index) {
     const q = questions[index];
@@ -418,6 +422,40 @@ permalink: /quizzes/startup-survival/
     progressText.textContent = `${current} / ${totalQuestions}`;
   }
 
+  function showResult() {
+    let totalScore = answers.reduce((a, b) => a + b, 0);
+    let label = "", emoji = "", text = "";
+
+    if (totalScore <= 14) {
+      label = "You’re in the Danger Zone";
+      emoji = "🛑";
+      text = "Your startup is running on unstable fundamentals. Momentum may feel real, but your foundation needs reinforcing.";
+    } else if (totalScore <= 21) {
+      label = "You’re in the Tipping Zone";
+      emoji = "🔄";
+      text = "Some things are working, some are leaking. The next 12 months depend on tightening systems and sharpening positioning.";
+    } else {
+      label = "Your Startup Is On Track";
+      emoji = "✅";
+      text = "You’re building with clarity, traction, and forward momentum.";
+    }
+
+    quizCard.style.display = 'none';
+    resultCard.style.display = 'block';
+    document.getElementById('resultEmoji').textContent = emoji;
+    document.getElementById('finalScore').textContent = `${totalScore} / 28`;
+    document.getElementById('resultLabel').textContent = label;
+    document.getElementById('finalText').textContent = text;
+  }
+
+  // Event Listeners
+  startBtn.addEventListener('click', function() {
+    introCard.style.display = 'none';
+    quizCard.style.display = 'block';
+    current = 0;
+    renderQuestion(current);
+  });
+
   nextBtn.addEventListener('click', () => {
     if (current < totalQuestions - 1) {
       current++;
@@ -438,42 +476,5 @@ permalink: /quizzes/startup-survival/
     }
   });
 
-  function showResult() {
-    let totalScore = answers.reduce((a, b) => a + b, 0);
-    let label = "", emoji = "", text = "";
-
-    if (totalScore <= 14) {
-      label = "You’re in the Danger Zone";
-      emoji = "🛑";
-      text = "Your startup is running on unstable fundamentals. Momentum may feel real, but your foundation needs reinforcing. Focus on clarity in cash, customer value, and consistent sales.";
-    } else if (totalScore <= 21) {
-      label = "You’re in the Tipping Zone";
-      emoji = "🔄";
-      text = "Some things are working, some are leaking. The next 12 months depend on tightening systems and sharpening positioning. Small improvements here will compound fast.";
-    } else {
-      label = "Your Startup Is On Track";
-      emoji = "✅";
-      text = "You’re building with clarity, traction, and forward momentum. Now focus on scaling without breaking what already works.";
-    }
-
-    quizCard.style.display = 'none';
-    resultCard.style.display = 'block';
-    document.getElementById('resultEmoji').textContent = emoji;
-    document.getElementById('finalScore').textContent = `${totalScore} / 28`;
-    document.getElementById('resultLabel').textContent = label;
-    document.getElementById('finalText').textContent = text;
-  }
-document.addEventListener("DOMContentLoaded", function() {
-  const startBtn = document.getElementById('startQuiz');
-  const introCard = document.getElementById('introCard');
-  const quizCard = document.getElementById('quizCard');
-
-  startBtn.addEventListener('click', function() {
-    introCard.style.display = 'none';
-    quizCard.style.display = 'block';
-    current = 0;
-    renderQuestion(current);
-  });
 });
 </script>
-
