@@ -151,13 +151,13 @@ body {
   <div class="card" id="introCard" style="text-align:center;">
     <h2 style="margin-top:0;">How Ready Is Your Startup to Go to Market?</h2>
     <p style="font-size:1.05rem; line-height:1.45;">
-      Founders often focus on building the product — but scaling requires a <strong>tested, market-ready launch system</strong>. 
+      Founders often focus on building the product but scaling requires a <strong>tested, market-ready launch system</strong>. 
       This 5-minute quiz helps you uncover gaps in your go-to-market strategy before you spend on ads, hires, or PR.
     </p>
     <p style="font-size:1.05rem; line-height:1.45; margin-top:12px;">
       Find out how your GTM strategy scores across clarity, positioning, pricing, and launch execution.
     </p>
-    <button id="startQuiz" class="btn btn-primary" style="margin-top:18px;">Start the Scorecard</button>
+    <button id="startQuiz" class="btn btn-primary" style="margin-top:18px;">Find Your Score</button>
   </div>
 
   <div class="card" id="quizCard" style="display:none;">
@@ -294,17 +294,33 @@ document.getElementById('startQuiz').addEventListener('click',()=>{
   renderQuestion(0);
 });
 
-document.getElementById("waShare").addEventListener("click",()=>{
-  const text=encodeURIComponent("I just took the Go-To-Market Readiness Scorecard by Consumer Kanvas. Check your GTM score!");
-  const url=encodeURIComponent("https://www.consumerkanvas.com/quizzes/gtm-readiness/");
-  window.open(`https://wa.me/?text=${text}%20${url}`,"_blank");
+// === SOCIAL SHARE BUTTONS (GTM READINESS) ===
+document.getElementById("waShare").addEventListener("click", function () {
+  const text = encodeURIComponent(
+    "I just took the 'GTM Readiness Scorecard' on Consumer Kanvas — measure your launch readiness!"
+  );
+  const url = encodeURIComponent("https://www.consumerkanvas.com/quizzes/gtm-readiness/");
+  window.open(`https://wa.me/?text=${text}%20${url}`, "_blank");
 });
 
-document.getElementById("lnShare").addEventListener("click",()=>{
-  const url=encodeURIComponent("https://www.consumerkanvas.com/quizzes/gtm-readiness/");
-  const title=encodeURIComponent("Go-To-Market Readiness Scorecard for Startup Founders");
-  const summary=encodeURIComponent("A free GTM quiz by Consumer Kanvas to assess how ready your startup is to launch and scale.");
-  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}&summary=${summary}`,"_blank");
+document.getElementById("twShare").addEventListener("click", function () {
+  const text = encodeURIComponent(
+    "I just checked my Go-To-Market Readiness Score — find out yours!"
+  );
+  const url = encodeURIComponent("https://www.consumerkanvas.com/quizzes/gtm-readiness/");
+  window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, "_blank");
+});
+
+document.getElementById("lnShare").addEventListener("click", function () {
+  const url = encodeURIComponent("https://www.consumerkanvas.com/quizzes/gtm-readiness/");
+  const title = encodeURIComponent("Go-To-Market Readiness Scorecard");
+  const summary = encodeURIComponent(
+    "A quick scorecard by Consumer Kanvas to assess how prepared your startup is to enter and scale the market."
+  );
+  window.open(
+    `https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}&summary=${summary}`,
+    "_blank"
+  );
 });
 </script>
 </body>
