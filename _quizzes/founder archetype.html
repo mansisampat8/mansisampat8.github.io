@@ -125,138 +125,137 @@ permalink: /quizzes/founder-archetype/
 
   </div>
 
-  <script>
-    const questions = [
-      { text:"When a new idea hits you, what’s your first move?", options:[
-        {label:"Sketch the big dream ✨", archetype:"Visionary"},
-        {label:"Call people & start pitching 📞", archetype:"Hustler"},
-        {label:"Break it into steps 📋", archetype:"Operator"},
-        {label:"Research market & numbers 📊", archetype:"Analyst"},
-        {label:"Craft a killer story 🎤", archetype:"Storyteller"} ]},
-      { text:"Your team describes you as…", options:[
-        {label:"The dreamer with crazy ideas", archetype:"Visionary"},
-        {label:"The relentless go-getter", archetype:"Hustler"},
-        {label:"The one who makes things run", archetype:"Operator"},
-        {label:"The numbers brain", archetype:"Analyst"},
-        {label:"The storyteller who inspires", archetype:"Storyteller"} ]},
-      { text:"If your startup fails tomorrow, what’s your next move?", options:[
-        {label:"Start the next big thing 🚀", archetype:"Visionary"},
-        {label:"Pivot & hustle harder 🔄", archetype:"Hustler"},
-        {label:"Fix bottlenecks & processes 🛠️", archetype:"Operator"},
-        {label:"Deep-dive into data 📈", archetype:"Analyst"},
-        {label:"Turn it into a story ✍️", archetype:"Storyteller"} ]},
-      { text:"Which tool can you *not* live without?", options:[
-        {label:"Whiteboard 🖊️", archetype:"Visionary"},
-        {label:"Phone & CRM 📱", archetype:"Hustler"},
-        {label:"Notion/Asana 📂", archetype:"Operator"},
-        {label:"Excel/Sheets 📑", archetype:"Analyst"},
-        {label:"Canva/Keynote 🎨", archetype:"Storyteller"} ]},
-      { text:"Your superpower in a pitch meeting is…", options:[
-        {label:"Painting a 10-year vision 🌌", archetype:"Visionary"},
-        {label:"Convincing anyone to say yes 💰", archetype:"Hustler"},
-        {label:"Explaining execution ⚙️", archetype:"Operator"},
-        {label:"Throwing data insights 📊", archetype:"Analyst"},
-        {label:"Telling stories people remember 🎬", archetype:"Storyteller"} ]},
-      { text:"What keeps you awake at night?", options:[
-        {label:"How do I change the world? 🌍", archetype:"Visionary"},
-        {label:"How do I close the next deal? 💼", archetype:"Hustler"},
-        {label:"How do I fix bottlenecks? 🔧", archetype:"Operator"},
-        {label:"What do the numbers say? 📉", archetype:"Analyst"},
-        {label:"How do I inspire with my journey? 📖", archetype:"Storyteller"} ]},
-      { text:"If you weren’t building a startup, you’d be…", options:[
-        {label:"Futurist/Inventor 🧠", archetype:"Visionary"},
-        {label:"Sales Maverick 🐅", archetype:"Hustler"},
-        {label:"Project Manager 🛠️", archetype:"Operator"},
-        {label:"Data Scientist 📊", archetype:"Analyst"},
-        {label:"Author/Filmmaker 🎥", archetype:"Storyteller"} ]},
-    ];
+<script>
+  const questions = [
+    { text:"When a new idea hits you, what’s your first move?", options:[
+      {label:"Sketch the big dream", archetype:"Visionary"},
+      {label:"Call people & start pitching", archetype:"Hustler"},
+      {label:"Break it into steps", archetype:"Operator"},
+      {label:"Research market & numbers", archetype:"Analyst"},
+      {label:"Craft a killer story", archetype:"Storyteller"} ]},
+    { text:"Your team describes you as…", options:[
+      {label:"The dreamer with crazy ideas", archetype:"Visionary"},
+      {label:"The relentless go-getter", archetype:"Hustler"},
+      {label:"The one who makes things run", archetype:"Operator"},
+      {label:"The numbers brain", archetype:"Analyst"},
+      {label:"The storyteller who inspires", archetype:"Storyteller"} ]},
+    { text:"If your startup fails tomorrow, what’s your next move?", options:[
+      {label:"Start the next big thing", archetype:"Visionary"},
+      {label:"Pivot & hustle harder", archetype:"Hustler"},
+      {label:"Fix bottlenecks & processes", archetype:"Operator"},
+      {label:"Deep-dive into data", archetype:"Analyst"},
+      {label:"Turn it into a story", archetype:"Storyteller"} ]},
+    { text:"Which tool can you *not* live without?", options:[
+      {label:"Whiteboard", archetype:"Visionary"},
+      {label:"Phone & CRM", archetype:"Hustler"},
+      {label:"Notion/Asana", archetype:"Operator"},
+      {label:"Excel/Sheets", archetype:"Analyst"},
+      {label:"Canva/Keynote", archetype:"Storyteller"} ]},
+    { text:"Your superpower in a pitch meeting is…", options:[
+      {label:"Painting a 10-year vision", archetype:"Visionary"},
+      {label:"Convincing anyone to say yes", archetype:"Hustler"},
+      {label:"Explaining execution", archetype:"Operator"},
+      {label:"Throwing data insights", archetype:"Analyst"},
+      {label:"Telling stories people remember", archetype:"Storyteller"} ]},
+    { text:"What keeps you awake at night?", options:[
+      {label:"How do I change the world?", archetype:"Visionary"},
+      {label:"How do I close the next deal?", archetype:"Hustler"},
+      {label:"How do I fix bottlenecks?", archetype:"Operator"},
+      {label:"What do the numbers say?", archetype:"Analyst"},
+      {label:"How do I inspire with my journey?", archetype:"Storyteller"} ]},
+    { text:"If you weren’t building a startup, you’d be…", options:[
+      {label:"Futurist/Inventor", archetype:"Visionary"},
+      {label:"Sales Maverick", archetype:"Hustler"},
+      {label:"Project Manager", archetype:"Operator"},
+      {label:"Data Scientist", archetype:"Analyst"},
+      {label:"Author/Filmmaker", archetype:"Storyteller"} ]},
+  ];
 
-    const totalQuestions = questions.length;
-    let current = 0;
-    const answers = new Array(totalQuestions).fill(null);
+  const totalQuestions = questions.length;
+  let current = 0;
+  const answers = new Array(totalQuestions).fill(null);
 
-    const questionBlock = document.getElementById('questionBlock');
-    const progressFill = document.getElementById('progressFill');
-    const progressText = document.getElementById('progressText');
-    const nextBtn = document.getElementById('nextBtn');
-    const backBtn = document.getElementById('backBtn');
-    const resultCard = document.getElementById('resultCard');
-    const quizCard = document.getElementById('quizCard');
-
-    function renderQuestion(index){
-      const q = questions[index];
-      questionBlock.innerHTML = '';
-      const qnum = document.createElement('div');
-      qnum.className='q-number';
-      qnum.textContent=`Question ${index+1} of ${totalQuestions}`;
-      questionBlock.appendChild(qnum);
-      const qtext = document.createElement('div');
-      qtext.className='q-text';
-      qtext.textContent=q.text;
-      questionBlock.appendChild(qtext);
-
-      const opts=document.createElement('div'); opts.className='options';
-      q.options.forEach(opt=>{
-        const b=document.createElement('button');
-        b.type='button'; b.className='opt'; b.textContent=opt.label;
-        b.onclick=()=>{
-          answers[index]=opt.archetype;
-          opts.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected'));
-          b.classList.add('selected'); nextBtn.disabled=false;
-        };
-        if(answers[index]===opt.archetype) b.classList.add('selected');
-        opts.appendChild(b);
-      });
-      questionBlock.appendChild(opts);
-      backBtn.style.visibility=index===0?'hidden':'visible';
-      nextBtn.textContent=index===totalQuestions-1?'See Result':'Next';
-      nextBtn.disabled=answers[index]===null;
-      updateProgress();
-    }
-    function updateProgress(){
-      const pct=Math.round((current/totalQuestions)*100);
-      progressFill.style.width=pct+'%';
-      progressText.textContent=`${current} / ${totalQuestions}`;
-    }
-    nextBtn.addEventListener('click',()=>{
-      if(current<totalQuestions-1){current++;renderQuestion(current);}
-      else{ if(answers.includes(null)){alert("Please answer all questions");return;} showResult();}
-    });
-    backBtn.addEventListener('click',()=>{if(current>0){current--;renderQuestion(current);}});
-
-    function showResult(){
-      const tally={Visionary:0,Hustler:0,Operator:0,Analyst:0,Storyteller:0};
-      answers.forEach(a=>{tally[a]++;});
-      const winner=Object.keys(tally).reduce((a,b)=>tally[a]>tally[b]?a:b);
-      let emoji="🔥", text="";
-      switch(winner){
-        case "Visionary": emoji="🚀"; text="You live in the future. Big dreams, bold moves. Just remember: execution makes visions real."; break;
-        case "Hustler": emoji="💼"; text="You’re relentless, scrappy, and unstoppable. Deals close because of you."; break;
-        case "Operator": emoji="⚙️"; text="You make things run. Systems, processes, order — your superpower is execution."; break;
-        case "Analyst": emoji="📊"; text="Numbers don’t lie, and neither do you. Data is your guiding star."; break;
-        case "Storyteller": emoji="🎤"; text="You inspire, persuade, and move people. Stories are your secret weapon."; break;
-      }
-      quizCard.style.display='none'; resultCard.style.display='block';
-      document.getElementById('finalScore').textContent=`You’re a ${winner} Founder`;
-      document.getElementById('finalText').textContent=text;
-      document.getElementById('resultEmoji').textContent=emoji;
-    }
-    <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const startBtn = document.getElementById('startQuiz');
-  const introCard = document.getElementById('introCard');
+  const questionBlock = document.getElementById('questionBlock');
+  const progressFill = document.getElementById('progressFill');
+  const progressText = document.getElementById('progressText');
+  const nextBtn = document.getElementById('nextBtn');
+  const backBtn = document.getElementById('backBtn');
+  const resultCard = document.getElementById('resultCard');
   const quizCard = document.getElementById('quizCard');
 
-  startBtn.addEventListener('click', function() {
-    introCard.style.display = 'none';
-    quizCard.style.display = 'block';
-    renderQuestion(0);
+  function renderQuestion(index){
+    const q = questions[index];
+    questionBlock.innerHTML = '';
+    const qnum = document.createElement('div');
+    qnum.className='q-number';
+    qnum.textContent=`Question ${index+1} of ${totalQuestions}`;
+    questionBlock.appendChild(qnum);
+    const qtext = document.createElement('div');
+    qtext.className='q-text';
+    qtext.textContent=q.text;
+    questionBlock.appendChild(qtext);
+
+    const opts=document.createElement('div'); opts.className='options';
+    q.options.forEach(opt=>{
+      const b=document.createElement('button');
+      b.type='button'; b.className='opt'; b.textContent=opt.label;
+      b.onclick=()=>{
+        answers[index]=opt.archetype;
+        opts.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected'));
+        b.classList.add('selected'); nextBtn.disabled=false;
+      };
+      if(answers[index]===opt.archetype) b.classList.add('selected');
+      opts.appendChild(b);
+    });
+    questionBlock.appendChild(opts);
+    backBtn.style.visibility=index===0?'hidden':'visible';
+    nextBtn.textContent=index===totalQuestions-1?'See Result':'Next';
+    nextBtn.disabled=answers[index]===null;
+    updateProgress();
+  }
+
+  function updateProgress(){
+    const pct=Math.round((current/totalQuestions)*100);
+    progressFill.style.width=pct+'%';
+    progressText.textContent=`${current} / ${totalQuestions}`;
+  }
+
+  nextBtn.addEventListener('click',()=>{
+    if(current<totalQuestions-1){current++;renderQuestion(current);}
+    else{ if(answers.includes(null)){alert("Please answer all questions");return;} showResult();}
   });
-});
+
+  backBtn.addEventListener('click',()=>{if(current>0){current--;renderQuestion(current);}});
+
+  function showResult(){
+    const tally={Visionary:0,Hustler:0,Operator:0,Analyst:0,Storyteller:0};
+    answers.forEach(a=>{tally[a]++;});
+    const winner=Object.keys(tally).reduce((a,b)=>tally[a]>tally[b]?a:b);
+    let emoji="🔥", text="";
+    switch(winner){
+      case "Visionary": emoji="🚀"; text="You live in the future. Big dreams, bold moves. Just remember: execution makes visions real."; break;
+      case "Hustler": emoji="💼"; text="You’re relentless, scrappy, and unstoppable. Deals close because of you."; break;
+      case "Operator": emoji="⚙️"; text="You make things run. Systems, processes, order — your superpower is execution."; break;
+      case "Analyst": emoji="📊"; text="Numbers don’t lie, and neither do you. Data is your guiding star."; break;
+      case "Storyteller": emoji="🎤"; text="You inspire, persuade, and move people. Stories are your secret weapon."; break;
+    }
+    quizCard.style.display='none'; resultCard.style.display='block';
+    document.getElementById('finalScore').textContent=`You’re a ${winner} Founder`;
+    document.getElementById('finalText').textContent=text;
+    document.getElementById('resultEmoji').textContent=emoji;
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const startBtn = document.getElementById('startQuiz');
+    const introCard = document.getElementById('introCard');
+    const quizCard = document.getElementById('quizCard');
+
+    startBtn.addEventListener('click', function() {
+      introCard.style.display = 'none';
+      quizCard.style.display = 'block';
+      renderQuestion(0);
+    });
+  });
 </script>
-
-
-    renderQuestion(0);
-  </script>
 </body>
 </html>
