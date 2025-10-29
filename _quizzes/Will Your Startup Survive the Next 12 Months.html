@@ -1,5 +1,5 @@
 ---
-title: "Startup Survival Scorecard"
+title:"Will Your Startup Survive the Next 12 Months?"
 layout: none
 permalink: /quizzes/startup-survival/
 ---
@@ -9,11 +9,9 @@ permalink: /quizzes/startup-survival/
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Startup Survival Scorecard | Assess Your Startup’s Real Readiness</title>
+<title>Will Your Startup Survive the Next 12 Months? | Startup Survival Quiz for Founders</title>
 
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -262,58 +260,71 @@ permalink: /quizzes/startup-survival/
   }
 </style>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Quiz",
-    "name": "Startup Survival Scorecard",
-    "url": "https://www.consumerkanvas.com/quizzes/startup-survival/",
-    "description": "A quick startup survival assessment to help founders evaluate runway, product-market fit, team alignment, and growth momentum. Find out what phase you're really in — Chaos, PMF Search, Scaling-Ready, or Investor-Attractive.",
-    "creator": {
-      "@type": "Organization",
-      "name": "Consumer Kanvas",
-      "url": "https://www.consumerkanvas.com/"
-    }
-  }
-  </script>
-</head>
 
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Quiz",
+  "name": "Will Your Startup Survive the Next 12 Months?",
+  "url": "https://www.consumerkanvas.com/quizzes/startup-survival/",
+  "description": "A founder self-assessment quiz designed to evaluate whether your startup is positioned to survive and grow over the next 12 months.",
+  "creator": {
+    "@type": "Organization",
+    "name": "Consumer Kanvas",
+    "url": "https://www.consumerkanvas.com/"
+  }
+}
+</script>
+
+</head>
 <body>
   <div class="quiz-shell">
+
     <div class="brand-row">
-      <a class="logo-btn" href="/index.html">Consumer Kanvas</a>
-      <div class="quiz-title">Startup Survival Scorecard</div>
-    </div>
+  <a class="logo-btn" href="/index.html">Consumer Kanvas</a>
+  <div class="quiz-title">Will Your Startup Survive the Next 12 Months?</div>
+</div>
 
-    <div class="card" id="introCard" style="text-align:center;">
-      <h2 style="margin-top:0;">Startup Survival Scorecard</h2>
-      <p style="font-size:1.05rem; line-height:1.45;">
-        Every startup goes through chaos but the difference between those that survive and those that stall is awareness.
-      </p>
-      <p style="font-size:1.05rem; line-height:1.45; margin-top:12px;">
-        Take this 2-minute scorecard to discover your true survival stage and what your next strategic move should be.
-      </p>
-      <button id="startQuiz" class="btn btn-primary" style="margin-top:18px;">Start</button>
-    </div>
+<div class="card" id="introCard" style="text-align:center;">
+  <h2 style="margin-top:0;">Will Your Startup Survive the Next 12 Months?</h2>
 
-    <div class="card" id="quizCard" style="display:none;">
+  <p style="font-size:1.05rem; line-height:1.45;">
+    The first year can make or break a startup. Cash, clarity, momentum, and execution all matter.
+  </p>
+
+  <p style="font-size:1.05rem; line-height:1.45; margin-top:12px;">
+    This quiz shows you where your business actually stands today not where you hope it is so you
+    know what to fix, double down on, or rethink before the next 12 months hit you.
+  </p>
+  <button id="startQuiz" class="btn btn-primary" style="margin-top:18px;">Start</button>
+</div>
+    
+  <div class="card" id="quizCard" aria-live="polite" style="display:none;">
       <div class="progress-wrap">
         <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
-        <div class="progress-text" id="progressText">0 / 6</div>
+        <div class="progress-text" id="progressText">0 / 7</div>
       </div>
+
       <div id="questionBlock"></div>
+
       <div class="nav-row">
-        <button id="backBtn" class="btn btn-secondary" style="visibility:hidden;">Back</button>
-        <div style="flex:1;"></div>
+        <button id="backBtn" class="btn btn-secondary" style="visibility:hidden">Back</button>
+        <div style="flex:1"></div>
         <button id="nextBtn" class="btn btn-primary" disabled>Next</button>
       </div>
     </div>
 
-    <div class="card" id="resultCard" style="display:none;">
-      <div class="result-card">
-        <span id="resultEmoji" class="result-emoji">📈</span>
-        <div class="score" id="finalScore">Your Startup Stage</div>
-        <div class="result-copy" id="finalText">Result details appear here.</div>
+    <div class="result-card">
+  <span id="resultEmoji" class="result-emoji">⚡</span>
+
+  <div class="score-label" id="resultLabel">Your Startup Is On Track</div>
+
+  <div class="score" id="finalScore">24 / 30</div>
+
+  <div class="result-copy" id="finalText">
+    You’re building with clarity and momentum. Your next challenge is scaling without breaking what’s already working. Prioritize process, hiring, and repeatable sales. You have a real shot at compounding growth.
+  </div>
+      
         <div class="share-row">
           <button class="share-btn" id="waShare">WhatsApp</button>
           <button class="share-btn" id="twShare">Twitter</button>
@@ -321,172 +332,212 @@ permalink: /quizzes/startup-survival/
         </div>
       </div>
     </div>
+
   </div>
 
-<script>
 const questions = [
-  { text: "How clearly is your target customer defined?",
+  {
+    text: "How many months of runway do you currently have?",
     options: [
-      {label:"Still exploring who it really is", stage:"Chaos"},
-      {label:"Have a basic sense, not validated yet", stage:"PMF Search"},
-      {label:"Validated with early traction", stage:"Scaling-Ready"},
-      {label:"Well-defined, expanding segments", stage:"Investor-Attractive"} ]},
-  { text: "What best describes your current revenue state?",
+      { label: "Less than 3 months", score: 1 },
+      { label: "3–6 months", score: 2 },
+      { label: "6–12 months", score: 3 },
+      { label: "12+ months", score: 4 }
+    ]
+  },
+  {
+    text: "What best describes your current traction arc?",
     options: [
-      {label:"No consistent revenue yet", stage:"Chaos"},
-      {label:"Some paying customers", stage:"PMF Search"},
-      {label:"Steady growth month-on-month", stage:"Scaling-Ready"},
-      {label:"Predictable recurring revenue", stage:"Investor-Attractive"} ]},
-  { text: "How aligned is your team with your core priorities?",
+      { label: "Still convincing my friends to try it", score: 2 },
+      { label: "Some people love it, just not enough of them yet.", score: 1 },
+      { label: "Repeat users, organic pull is growing", score: 3 },
+      { label: "We’re growing faster than our servers", score: 4 }
+    ]
+  },
+  {
+    text: "What’s your real founder focus this quarter?",
     options: [
-      {label:"We’re all figuring it out", stage:"Chaos"},
-      {label:"Some clarity, but frequent misalignments", stage:"PMF Search"},
-      {label:"Roles are defined, collaboration is strong", stage:"Scaling-Ready"},
-      {label:"Highly aligned, culture supports execution", stage:"Investor-Attractive"} ]},
-  { text: "How long is your current financial runway?",
+      { label: "Finding what problem we *actually* solve", score: 2 },
+      { label: "Just managing to stay afloat.", score: 1 },
+      { label: "Tuning our funnel, retention, and ops", score: 3 },
+      { label: "Pitching, partnerships, and scale plays", score: 4 }
+    ]
+  },
+  {
+    text: "How aligned is your team right now?",
     options: [
-      {label:"Under 3 months", stage:"Chaos"},
-      {label:"3–6 months", stage:"PMF Search"},
-      {label:"6–12 months", stage:"Scaling-Ready"},
-      {label:"12+ months or profitable", stage:"Investor-Attractive"} ]},
-  { text: "How structured is your growth strategy?",
+      { label: "Everyone’s rowing in different directions", score: 1 },
+      { label: "We’ve got energy but no focus", score: 2 },
+      { label: "Shared KPIs and clear priorities", score: 3 },
+      { label: "Crystal alignment, everyone knows the goal", score: 4 }
+    ]
+  },
+  {
+    text: "What’s your current relationship with revenue?",
     options: [
-      {label:"Mostly reactive or experimental", stage:"Chaos"},
-      {label:"Some plan, not always followed", stage:"PMF Search"},
-      {label:"Clear growth roadmap & KPIs", stage:"Scaling-Ready"},
-      {label:"Scalable systems and channels running", stage:"Investor-Attractive"} ]},
-  { text: "How confident are investors/advisors about your traction?",
+      { label: "It’s complicated! We’re still testing", score: 2 },
+      { label: "We make some, burn more", score: 1 },
+      { label: "Predictable, healthy revenue engine", score: 3 },
+      { label: "Multiple streams and recurring revenue", score: 4 }
+    ]
+  },
+  {
+    text: "How often do you talk to users?",
     options: [
-      {label:"Not yet credible or measurable", stage:"Chaos"},
-      {label:"Early proof, mixed confidence", stage:"PMF Search"},
-      {label:"Consistent traction data", stage:"Scaling-Ready"},
-      {label:"High trust, proven momentum", stage:"Investor-Attractive"} ]},
+      { label: "Honestly… can’t remember", score: 1 },
+      { label: "Once in a while, when something breaks", score: 2 },
+      { label: "Weekly check-ins or surveys", score: 3 },
+      { label: "Structured loops and feedback dashboards", score: 4 }
+    ]
+  },
+  {
+    text: "If an investor asked for your story tomorrow…",
+    options: [
+      { label: "We’d need caffeine and a miracle", score: 2 },
+      { label: "We’d ramble, but the spark is there", score: 1 },
+      { label: "We’d tell a clear traction-backed story", score: 3 },
+      { label: "We’ve rehearsed it and it lands every time", score: 4 }
+    ]
+  }
 ];
 
-const totalQuestions = questions.length;
-let current = 0;
-const answers = new Array(totalQuestions).fill(null);
 
-const questionBlock = document.getElementById('questionBlock');
-const progressFill = document.getElementById('progressFill');
-const progressText = document.getElementById('progressText');
-const nextBtn = document.getElementById('nextBtn');
-const backBtn = document.getElementById('backBtn');
-const resultCard = document.getElementById('resultCard');
-const quizCard = document.getElementById('quizCard');
+  const totalQuestions = questions.length;
+  let current = 0;
+  const answers = new Array(totalQuestions).fill(null);
 
-function renderQuestion(index) {
-  const q = questions[index];
-  questionBlock.innerHTML = '';
-  const qnum = document.createElement('div');
-  qnum.className = 'q-number';
-  qnum.textContent = `Question ${index + 1} of ${totalQuestions}`;
-  questionBlock.appendChild(qnum);
+  const questionBlock = document.getElementById('questionBlock');
+  const progressFill = document.getElementById('progressFill');
+  const progressText = document.getElementById('progressText');
+  const nextBtn = document.getElementById('nextBtn');
+  const backBtn = document.getElementById('backBtn');
+  const resultCard = document.getElementById('resultCard');
+  const quizCard = document.getElementById('quizCard');
 
-  const qtext = document.createElement('div');
-  qtext.className = 'q-text';
-  qtext.textContent = q.text;
-  questionBlock.appendChild(qtext);
+  function renderQuestion(index){
+    const q = questions[index];
+    questionBlock.innerHTML = '';
+    const qnum = document.createElement('div');
+    qnum.className='q-number';
+    qnum.textContent=`Question ${index+1} of ${totalQuestions}`;
+    questionBlock.appendChild(qnum);
+    const qtext = document.createElement('div');
+    qtext.className='q-text';
+    qtext.textContent=q.text;
+    questionBlock.appendChild(qtext);
 
-  const opts = document.createElement('div');
-  opts.className = 'options';
-  q.options.forEach(opt => {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'opt';
-    b.textContent = opt.label;
-    b.onclick = () => {
-      answers[index] = opt.stage;
-      opts.querySelectorAll('.opt').forEach(x => x.classList.remove('selected'));
-      b.classList.add('selected');
-      nextBtn.disabled = false;
-    };
-    if (answers[index] === opt.stage) b.classList.add('selected');
-    opts.appendChild(b);
+    const opts=document.createElement('div'); opts.className='options';
+    q.options.forEach(opt=>{
+      const b=document.createElement('button');
+      b.type='button'; b.className='opt'; b.textContent=opt.label;
+      b.onclick=()=>{
+        answers[index]=opt.archetype;
+        opts.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected'));
+        b.classList.add('selected'); nextBtn.disabled=false;
+      };
+      if(answers[index]===opt.archetype) b.classList.add('selected');
+      opts.appendChild(b);
+    });
+    questionBlock.appendChild(opts);
+    backBtn.style.visibility=index===0?'hidden':'visible';
+    nextBtn.textContent=index===totalQuestions-1?'See Result':'Next';
+    nextBtn.disabled=answers[index]===null;
+    updateProgress();
+  }
+
+  function updateProgress(){
+    const pct=Math.round((current/totalQuestions)*100);
+    progressFill.style.width=pct+'%';
+    progressText.textContent=`${current} / ${totalQuestions}`;
+  }
+
+  nextBtn.addEventListener('click',()=>{
+    if(current<totalQuestions-1){current++;renderQuestion(current);}
+    else{ if(answers.includes(null)){alert("Please answer all questions");return;} showResult();}
   });
-  questionBlock.appendChild(opts);
 
-  backBtn.style.visibility = index === 0 ? 'hidden' : 'visible';
-  nextBtn.textContent = index === totalQuestions - 1 ? 'See Result' : 'Next';
-  nextBtn.disabled = answers[index] === null;
-  updateProgress();
+  backBtn.addEventListener('click',()=>{if(current>0){current--;renderQuestion(current);}});
+
+  function showResult() {
+  let totalScore = 0;
+  answers.forEach(a => { totalScore += a; }); // `a` is the score pushed for each answer
+
+  let label = "";
+  let emoji = "";
+  let text = "";
+
+  // Score ranges (7 questions total; score range = 7 to 28)
+  if (totalScore <= 14) {
+    label = "You’re in the Danger Zone";
+    emoji = "🛑";
+    text = "Your startup is running on unstable fundamentals. Momentum may feel real right now, but the foundation needs reinforcing. Focus on clarity in cash, customer value, and consistent sales before anything else.";
+  } 
+  else if (totalScore <= 21) {
+    label = "You’re in the Tipping Zone";
+    emoji = "🔄";
+    text = "Some things are working, some things are leaking. The next 12 months depend on whether you tighten systems, sharpen positioning, and stay disciplined in execution. Small improvements here will compound fast.";
+  } 
+  else {
+    label = "Your Startup Is On Track";
+    emoji = "✅";
+    text = "You’re building with clarity, traction, and forward momentum. Your next challenge is scaling without breaking what already works. Focus on repeatability, process, and smart hiring to compound growth.";
+  }
+
+  // Update UI
+  quizCard.style.display = 'none';
+  resultCard.style.display = 'block';
+
+  document.getElementById('resultEmoji').textContent = emoji;
+  document.getElementById('finalScore').textContent = `${totalScore} / 28`;
+  document.getElementById('resultLabel').textContent = label;  // Make sure this exists in your HTML
+  document.getElementById('finalText').textContent = text;
 }
 
-function updateProgress() {
-  const pct = Math.round((current / totalQuestions) * 100);
-  progressFill.style.width = pct + '%';
-  progressText.textContent = `${current} / ${totalQuestions}`;
-}
-
-nextBtn.addEventListener('click', () => {
-  if (current < totalQuestions - 1) {
-    current++;
-    renderQuestion(current);
-  } else {
-    if (answers.includes(null)) {
-      alert("Please answer all questions");
-      return;
-    }
-    showResult();
-  }
-});
-
-backBtn.addEventListener('click', () => {
-  if (current > 0) { current--; renderQuestion(current); }
-});
-
-function showResult() {
-  const tally = { Chaos: 0, "PMF Search": 0, "Scaling-Ready": 0, "Investor-Attractive": 0 };
-  answers.forEach(a => { tally[a]++; });
-  const winner = Object.keys(tally).reduce((a, b) => tally[a] > tally[b] ? a : b);
-  let emoji = "📉", text = "";
-  switch (winner) {
-    case "Chaos":
-      emoji = "⚠️";
-      text = "You’re in the Chaos Stage, move fast but start adding focus. Clarify your customer and validate your idea fast.";
-      break;
-    case "PMF Search":
-      emoji = "🔍";
-      text = "You’re hunting for Product-Market Fit. Keep testing, learning, and tightening your offering before scaling.";
-      break;
-    case "Scaling-Ready":
-      emoji = "📈";
-      text = "You’ve found traction. Build systems, hire smart, and focus on repeatable growth levers.";
-      break;
-    case "Investor-Attractive":
-      emoji = "💰";
-      text = "Strong metrics, clear focus, confident team, you’re ready for strategic partnerships or investment.";
-      break;
-  }
-  quizCard.style.display='none'; resultCard.style.display='block';
+    quizCard.style.display='none'; resultCard.style.display='block';
     document.getElementById('finalScore').textContent=`You’re a ${winner} Founder`;
     document.getElementById('finalText').textContent=text;
     document.getElementById('resultEmoji').textContent=emoji;
   }
 
- // === START QUIZ BUTTON ===
-const startBtn = document.getElementById('startQuiz');
-const introCard = document.getElementById('introCard');
+  document.addEventListener("DOMContentLoaded", function() {
+    const startBtn = document.getElementById('startQuiz');
+    const introCard = document.getElementById('introCard');
+    const quizCard = document.getElementById('quizCard');
 
-if (startBtn) {
-  startBtn.addEventListener('click', function() {
-    introCard.style.display = 'none';
-    quizCard.style.display = 'block';
-    renderQuestion(0);
+    startBtn.addEventListener('click', function() {
+      introCard.style.display = 'none';
+      quizCard.style.display = 'block';
+      renderQuestion(0);
+    });
   });
-}
-
-// === Social Share ===
+  // === SOCIAL SHARE BUTTONS ===
 document.getElementById("waShare").addEventListener("click", function () {
-  const text = encodeURIComponent("I just took the Startup Survival Scorecard on Consumer Kanvas, find out your startup’s real stage!");
-  const url = encodeURIComponent("https://www.consumerkanvas.com/quizzes/startup-survival/");
+  const text = encodeURIComponent(
+    "I just took the 'What Kind of Founder Are You?' quiz on Consumer Kanvas — find out your founder type!"
+  );
+  const url = encodeURIComponent("https://www.consumerkanvas.com/quizzes/founder-archetype/");
   window.open(`https://wa.me/?text=${text}%20${url}`, "_blank");
 });
+
 document.getElementById("twShare").addEventListener("click", function () {
-  const text = encodeURIComponent("I just found my Startup Survival Stage take the quiz and discover yours!");
-  const url = encodeURIComponent("https://www.consumerkanvas.com/quizzes/startup-survival/");
+  const text = encodeURIComponent(
+    "I just found out my Founder Archetype — take the quiz and see yours!"
+  );
+  const url = encodeURIComponent("https://www.consumerkanvas.com/quizzes/founder-archetype/");
   window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, "_blank");
 });
+
 document.getElementById("lnShare").addEventListener("click", function () {
-  const url = encodeURIComponent("https://www.consumerkanvas.com/quizzes/startup-survival/");
-  const title = encodeURIComponent("Startup Survival
+  const url = encodeURIComponent("https://www.consumerkanvas.com/quizzes/founder-archetype/");
+  const title = encodeURIComponent("What Kind of Founder Are You?");
+  const summary = encodeURIComponent(
+    "A quick quiz by Consumer Kanvas to reveal your natural founder style — Visionary, Hustler, Operator, Analyst, or Storyteller."
+  );
+  window.open(
+    `https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}&summary=${summary}`,
+    "_blank"
+  );
+});
+</script>
+</body>
+</html>
