@@ -1,28 +1,24 @@
 ---
-title: "Test Your Go To Market Readiness (GTM Readiness)"
+title: "Go-To-Market Readiness Scorecard for Startup Founders"
 layout: none
 permalink: /quizzes/gtm-readiness/
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Go To Market Readiness (GTM Readiness) | Consumer Kanvas</title>
-  <meta name="description" content="Test your Go To Market readiness and find out how prepared your strategy really is.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Go-To-Market Readiness Scorecard | Free GTM Readiness Quiz for Startups</title>
+  <meta name="description" content="Test your Go-To-Market (GTM) readiness with this free startup scorecard. Find out how prepared your startup is to launch, scale, and attract early customers.">
+  <meta name="keywords" content="go to market readiness quiz, gtm scorecard, startup launch checklist, startup go to market strategy, product market fit quiz">
 
-  <link rel="icon" type="image/png" href="favicon.png">
-  
-  <!-- League Spartan font -->
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
 
-  <!-- Global site stylesheet -->
-  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
-
-  <style>
-  :root {
-  --primary-color: #6a5acd; /* Modern purple */
+<style>
+/* ==== STYLES (same base as your archetype quiz) ==== */
+:root {
+  --primary-color: #6a5acd;
   --dark-color: #1c202b;
   --light-color: #ffffff;
   --bg-color: #f7f9fc;
@@ -31,527 +27,285 @@ permalink: /quizzes/gtm-readiness/
   --border-color: #e5e5e5;
   --font-heading: 'League Spartan', sans-serif;
   --font-body: 'Inter', sans-serif;
+  --primary-gradient: linear-gradient(90deg, #7b68ee 0%, #6a5acd 100%);
+  --round: 16px;
+  --shadow: 0 8px 30px rgba(12, 20, 40, 0.08);
 }
-    
-    /* QUIZ PAGE CUSTOM STYLES — Scoped */
-    .quiz-section {
-      max-width: 840px;
-      margin: 4rem auto;
-      padding: 0 1.5rem;
-    }
 
-    .quiz-card {
-      background: #fffdf8;
-      border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(12,20,40,0.05);
-      padding: 28px;
-      margin-bottom: 20px;
-    }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: linear-gradient(180deg, #fff 0%, var(--bg-color) 40%);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  padding: 40px 18px;
+}
 
-    .quiz-header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
+.quiz-shell { max-width: 840px; width: 100%; }
 
-    .quiz-header h1 {
-      font-size: 1.4rem;
-      color: #2f2a22;
-      margin: 0;
-    }
+.brand-row { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
 
-    .progress-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
+.logo-btn {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--primary-color);
+  letter-spacing: -0.3px;
+}
 
-    .progress-bar {
-      flex: 1;
-      height: 10px;
-      background: #f0f3f8;
-      border-radius: 999px;
-      overflow: hidden;
-    }
+.quiz-title { font-size: 1.05rem; color: var(--text-light); font-weight: 700; }
 
-    .progress-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg,#ffc845, #0d62ae);
-      transition: width 0.35s ease;
-    }
+.card {
+  background: var(--light-color);
+  border-radius: var(--round);
+  box-shadow: var(--shadow);
+  padding: 28px;
+  margin-bottom: 18px;
+}
 
-    .progress-text {
-      font-size: 0.9rem;
-      color: #666;
-      width: 80px;
-      text-align: right;
-    }
+.progress-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
 
-    .q-number {
-      font-size: 0.9rem;
-      color: #9aa3b2;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
+.progress-bar { flex: 1; height: 10px; background: #eceef3; border-radius: 999px; overflow: hidden; }
+.progress-fill { height: 100%; width: 0%; background: var(--primary-gradient); transition: width 0.35s ease; }
 
-    .q-text {
-      font-size: 1.15rem;
-      line-height: 1.3;
-      margin-bottom: 16px;
-      font-weight: 700;
-      color: #2f2a22;
-      text-align: center;
-    }
+.progress-text { font-size: 0.9rem; color: var(--text-light); width: 90px; text-align: right; }
 
-    .options {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
+.q-number { font-size: 0.9rem; color: var(--text-light); font-weight: 700; margin-bottom: 8px; }
+.q-text { font-size: 1.15rem; line-height: 1.3; margin-bottom: 16px; font-weight: 700; color: var(--dark-color); }
 
-    .opt {
-      display: block;
-      border-radius: 12px;
-      padding: 12px 14px;
-      background: #fbfbfe;
-      border: 1px solid #eef2f7;
-      cursor: pointer;
-      font-weight: 700;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
+.options { display: grid; gap: 10px; }
+.opt {
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: #fbfbfe;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--dark-color);
+  transition: all 0.2s ease;
+}
+.opt small { display: block; font-weight: 400; color: var(--text-light); font-size: 0.9rem; margin-top: 4px; }
+.opt:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(12, 20, 40, 0.06); }
+.opt.selected { background: var(--primary-gradient); color: white; }
 
-    .opt:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 18px rgba(12,20,40,0.06);
-    }
+.nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; gap: 12px; }
 
-    .opt.selected {
-      background: linear-gradient(90deg,#ffc845, #0d62ae);
-      color: #fff;
-      border: none;
-    }
-
-    .nav-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 18px;
-      gap: 12px;
-    }
-
-   .btn-primary, .btn-secondary {
+.btn-primary, .btn-secondary {
   font-family: var(--font-heading);
   font-weight: 700;
   border-radius: 999px;
   padding: 1rem 2rem;
   text-decoration: none;
-  text-align: center;
   display: inline-block;
-  margin: 1rem auto 0 auto;
   cursor: pointer;
-  transition: box-shadow 0.2s, background 0.2s, color 0.2s;
   box-shadow: 0 2px 12px rgba(28, 32, 43, 0.10);
   border: none;
 }
 
-.btn-primary {
-  background: linear-gradient(90deg, #836FFF 0%, var(--primary-color) 100%);
-  color: var(--light-color);
-}
+.btn-primary { background: var(--primary-gradient); color: white; }
+.btn-secondary { background: transparent; border: 2px solid var(--primary-color); color: var(--primary-color); }
 
-.btn-primary:hover,
-.btn-primary:focus {
-  box-shadow: 0 4px 24px rgba(106, 90, 205, 0.4);
-  background: linear-gradient(90deg, #9a85ff 0%, #7c6ee6 100%);
-  color: var(--light-color);
-}
-
-.btn-secondary {
-  background: transparent;
+.result-card { text-align: center; padding: 32px; border-radius: 18px; background: linear-gradient(180deg,#ffffff 0%,#f6f5ff 100%); box-shadow: var(--shadow); }
+.score { font-size: 2rem; font-weight: 900; margin-bottom: 8px; color: var(--dark-color); }
+.result-copy { font-size: 1.05rem; color: var(--text-color); margin-bottom: 12px; }
+.result-emoji { font-size: 2.6rem; margin-bottom: 12px; display: block; }
+.share-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 12px; }
+.share-btn {
+  padding: 10px 14px;
+  border-radius: 999px;
   border: 2px solid var(--primary-color);
-  color: var(--primary-color);
-}
-
-.btn-secondary:hover,
-.btn-secondary:focus {
-  background: var(--primary-color);
-  color: var(--light-color);
-}
-    .result-card {
-      text-align: center;
-      padding: 28px;
-      border-radius: 14px;
-      background: #fffdf8;
-    }
-
-    .score {
-      font-size: 2.4rem;
-      font-weight: 900;
-      margin-bottom: 6px;
-    }
-
-    .result-copy {
-      font-size: 1.05rem;
-      color: #334155;
-      margin-bottom: 12px;
-    }
-
-    .result-emoji {
-      font-size: 2.6rem;
-      margin-bottom: 12px;
-    }
-
-    .share-row {
-      display: flex;
-      gap: 8px;
-      justify-content: center;
-      margin-top: 12px;
-      flex-wrap: wrap;
-    }
-
-    .share-btn {
-      padding: 10px 12px;
-      border-radius: 10px;
-      background: #f0f3f8;
-      border: none;
-      cursor: pointer;
-      font-weight: 700;
-    }
-
-    /* === HEADER === */
-header {
-  background-color: var(--light-color);
-  border-bottom: 1px solid var(--border-color);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 3px 8px rgba(28, 32, 43, 0.13);
-}
-
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 0;
-}
-
-.logo {
-  font-family: var(--font-heading);
-  font-weight: 900;
-  font-size: 1.8rem;
-  color: var(--primary-color);
-  text-decoration: none;
-  letter-spacing: -1px;
-  transition: color 0.23s;
-}
-
-.logo:hover {
-  color: var(--light-color);
-}
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1001;
-}
-.menu-icon {
-  display: block;
-  width: 32px;
-  height: 3px;
-  background: var(--light-color);
-  border-radius: 3px;
-  position: relative;
-  transition: background .3s;
-}
-.menu-icon::before,
-.menu-icon::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  background: var(--light-color);
-  width: 100%;
-  height: 3px;
-  border-radius: 3px;
-  transition: 0.3s;
-}
-.menu-icon::before { top: -10px; }
-.menu-icon::after { top: 10px; }
-
-/* Hamburger animation for open state */
-.menu-toggle.active .menu-icon {
   background: transparent;
-}
-.menu-toggle.active .menu-icon::before {
-  transform: rotate(45deg) translate(8px);
-}
-.menu-toggle.active .menu-icon::after {
-  transform: rotate(-45deg) translate(-8px);
-}
-
-@media (max-width: 700px) {
-  nav {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    flex-direction: column;
-    background: var(--dark-color);
-    width: 180px;
-    padding: 1rem 0;
-    border-radius: 0 0 0 16px;
-    box-shadow: 0 2px 12px rgba(28, 32, 43, 0.15);
-    display: none !important; /* force hidden */
-  }
-
-  nav.active {
-    display: flex !important; /* force visible */
-  }
-
-  .menu-toggle {
-    display: block !important; /* show hamburger */
-  }
-}
-
-/* === NAVIGATION === */
-nav {
-  display: flex;
-  align-items: center;
-}
-
-.nav-links {
-  display: flex;
-  gap: 30px;
-  list-style: none;
-}
-
-.nav-links li a {
-  font-family: inherit;
-  color: var(--primary-color);;
-  font-weight: 600;
-  text-decoration: none;
-  padding-bottom: 5px;
-  border-bottom: 2px solid transparent;
-  transition: color 0.3s, border-bottom-color 0.3s;
-}
-
-.nav-links li a:hover,
-.nav-links li a.active {
- color: var(--primary-color);
-border-bottom-color: var(--primary-color);
-}
-
-/* Hamburger */
-.menu-toggle {
-  display: none;
-  font-size: 2rem;
-  background: none;
-  border: none;
- color: var(--primary-color);
+  color: var(--primary-color);
+  font-weight: 700;
   cursor: pointer;
-  margin-left: 1rem;
+  transition: all 0.2s ease;
 }
-  </style>
+.share-btn:hover { background: var(--primary-gradient); color: white; }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Quiz",
+  "name": "Go-To-Market Readiness Scorecard",
+  "description": "A free GTM readiness quiz for startup founders. Assess your go-to-market strategy across product-market fit, audience clarity, pricing, messaging, and launch systems.",
+  "url": "https://www.consumerkanvas.com/quizzes/gtm-readiness/",
+  "creator": {
+    "@type": "Organization",
+    "name": "Consumer Kanvas",
+    "url": "https://www.consumerkanvas.com/"
+  }
+}
+</script>
 </head>
-
 <body>
-  <!-- SITE HEADER (matches blog page) -->
-  <header>
-    <div class="container header-container">
-      <a href="/index.html" class="logo">Consumer Kanvas</a>
-      <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/blogs.html">Blogs & Insights</a></li>
-          <li><a href="/quizzes.html" class="active">Founder Quizzes</a></li>
-          <li><a href="/about-us.html">About Us</a></li>
-          <li><a href="/Contact.html">Contact</a></li>
-        </ul>
-      </nav>
+  <div class="quiz-shell">
+
+  <div class="brand-row">
+    <a class="logo-btn" href="/">Consumer Kanvas</a>
+    <div class="quiz-title">Go-To-Market Readiness Quiz</div>
+  </div>
+
+  <div class="card" id="introCard" style="text-align:center;">
+    <h2 style="margin-top:0;">How Ready Is Your Startup to Go to Market?</h2>
+    <p style="font-size:1.05rem; line-height:1.45;">
+      Founders often focus on building the product — but scaling requires a <strong>tested, market-ready launch system</strong>. 
+      This 5-minute quiz helps you uncover gaps in your go-to-market strategy before you spend on ads, hires, or PR.
+    </p>
+    <p style="font-size:1.05rem; line-height:1.45; margin-top:12px;">
+      Find out how your GTM strategy scores across clarity, positioning, pricing, and launch execution.
+    </p>
+    <button id="startQuiz" class="btn btn-primary" style="margin-top:18px;">Start the Scorecard</button>
+  </div>
+
+  <div class="card" id="quizCard" style="display:none;">
+    <div class="progress-wrap">
+      <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
+      <div class="progress-text" id="progressText">0 / 10</div>
     </div>
-  </header>
-
-  <!-- QUIZ BODY -->
-  <section class="quiz-section">
-    <div class="quiz-card" id="quizCard">
-      <div class="quiz-header">
-        <h1>Go To Market Readiness (GTM Readiness) Scorecard</h1>
-      </div>
-
-      <div class="progress-wrap">
-        <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
-        <div class="progress-text" id="progressText">0 / 6</div>
-      </div>
-
-      <div id="questionBlock"></div>
-
-      <div class="nav-row">
-        <button id="backBtn" class="btn btn-secondary" style="visibility:hidden">Back</button>
-        <div style="flex:1"></div>
-        <button id="nextBtn" class="btn btn-primary" disabled>Next</button>
-      </div>
+    <div id="questionBlock"></div>
+    <div class="nav-row">
+      <button id="backBtn" class="btn btn-secondary" style="visibility:hidden">Back</button>
+      <button id="nextBtn" class="btn btn-primary" disabled>Next</button>
     </div>
+  </div>
 
-    <!-- Result -->
-    <div class="quiz-card" id="resultCard" style="display:none">
-      <div class="result-card">
-        <span id="resultEmoji" class="result-emoji">🔥</span>
-        <div class="score" id="finalScore">0 / 30</div>
-        <div class="result-copy" id="finalText">Your result text</div>
-
-        <div class="share-row">
-          <button class="share-btn" id="waShare">Share on WhatsApp</button>
-          <button class="share-btn" id="twShare">Share on Twitter</button>
-          <button class="share-btn" id="lnShare">Share on LinkedIn</button>
-        </div>
-
-        <div style="margin-top:14px">
-          <a class="btn btn-primary" id="ctaBtn" href="/Contact.html">Book a Free GTM Call</a>
-        </div>
+  <div class="card" id="resultCard" style="display:none;">
+    <div class="result-card">
+      <span id="resultEmoji" class="result-emoji">🔥</span>
+      <div class="score" id="finalScore">Your GTM Score: 0%</div>
+      <div class="result-copy" id="finalText"></div>
+      <div class="share-row">
+        <button class="share-btn" id="waShare">WhatsApp</button>
+        <button class="share-btn" id="lnShare">LinkedIn</button>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-container">
-      <p>© 2025 Consumer Kanvas. The Founder’s Edge System. All rights reserved.</p>
-    </div>
-  </footer>
+  </div>
 
-  <script>
-    // (same quiz script as before)
-    const questions = [
-      { id:'q1', title:'Target Audience', text:'Have you defined your core customer...', options:[
-        {label:'No clear audience defined', value:0},
-        {label:'Demographic profile only', value:1},
-        {label:'Based on assumed needs', value:2},
-        {label:'Basic survey feedback', value:3},
-        {label:'Qualitative insight used', value:4},
-        {label:'Sharp behavioural segmentation', value:5},
-      ]},
-      { id:'q2', title:'Market Segmentation', text:'How well have you segmented...', options:[
-        {label:'No segmentation', value:0},
-        {label:'Broad view', value:1},
-        {label:'Segmented by price/age', value:2},
-        {label:'Internal only', value:3},
-        {label:'Attitudinal segmentation', value:4},
-        {label:'Validated, sized segments', value:5},
-      ]},
-      { id:'q3', title:'Distribution Model', text:'Are your acquisition channels proven?', options:[
-        {label:'No channel clarity', value:0},
-        {label:'Single-channel', value:1},
-        {label:'Multi, low ROI understanding', value:2},
-        {label:'Based on competitors', value:3},
-        {label:'Early experiments', value:4},
-        {label:'Data-backed channels', value:5},
-      ]},
-      { id:'q4', title:'Product Positioning', text:'Is your product position tested?', options:[
-        {label:'No positioning', value:0},
-        {label:'Me-too messaging', value:1},
-        {label:'Superiority claims', value:2},
-        {label:'Hook not tested', value:3},
-        {label:'Insight-driven', value:4},
-        {label:'Validated proposition', value:5},
-      ]},
-      { id:'q5', title:'Brand Messaging', text:'Does your messaging use direct language from customers?', options:[
-        {label:'No brand voice', value:0},
-        {label:'Tagline only', value:1},
-        {label:'Not insight linked', value:2},
-        {label:'Some consumer language', value:3},
-        {label:'Based on FGDs', value:4},
-        {label:'Refined via feedback', value:5},
-      ]},
-      { id:'q6', title:'Pricing Strategy', text:'Is your pricing validated for value?', options:[
-        {label:'Arbitrary pricing', value:0},
-        {label:'Match competitors', value:1},
-        {label:'Early testing only', value:2},
-        {label:'Elasticity tested', value:3},
-        {label:'Perceived value aligned', value:4},
-        {label:'Validated + tiered', value:5},
-      ]}
-    ];
+<script>
+const questions = [
+  { text:"Have you clearly defined your primary customer segment?", options:[
+    {label:"Yes, with detailed personas", score:5},
+    {label:"Somewhat clear", score:3},
+    {label:"Not really", score:1}
+  ]},
+  { text:"Do you have validated customer pain points (through interviews, data, or feedback)?", options:[
+    {label:"Yes, validated with real users", score:5},
+    {label:"Some assumptions tested", score:3},
+    {label:"No, still assumptions", score:1}
+  ]},
+  { text:"How well does your product messaging communicate the value?", options:[
+    {label:"Crystal clear and tested with audience", score:5},
+    {label:"Some clarity but needs refinement", score:3},
+    {label:"Not validated yet", score:1}
+  ]},
+  { text:"Do you have a clear pricing strategy aligned with perceived value?", options:[
+    {label:"Yes, validated and benchmarked", score:5},
+    {label:"Somewhat, but untested", score:3},
+    {label:"No structured pricing yet", score:1}
+  ]},
+  { text:"Have you tested your acquisition channels (organic, paid, referral, etc.)?", options:[
+    {label:"Yes, and know what scales", score:5},
+    {label:"Testing in progress", score:3},
+    {label:"Not started yet", score:1}
+  ]},
+  { text:"Do you have a defined GTM plan with timelines and responsibilities?", options:[
+    {label:"Yes, detailed plan", score:5},
+    {label:"Somewhat structured", score:3},
+    {label:"Not yet", score:1}
+  ]},
+  { text:"How strong is your post-launch feedback system?", options:[
+    {label:"Robust system for ongoing feedback", score:5},
+    {label:"Occasional feedback loops", score:3},
+    {label:"No system in place", score:1}
+  ]},
+  { text:"Is your marketing message consistent across all channels?", options:[
+    {label:"Yes, fully consistent", score:5},
+    {label:"Partially consistent", score:3},
+    {label:"Not aligned yet", score:1}
+  ]},
+  { text:"How confident are you in your launch readiness?", options:[
+    {label:"Completely ready", score:5},
+    {label:"Some gaps left", score:3},
+    {label:"Not ready yet", score:1}
+  ]},
+  { text:"Do you have measurable success metrics (KPIs) for your GTM?", options:[
+    {label:"Yes, defined and tracked", score:5},
+    {label:"Some metrics defined", score:3},
+    {label:"No clear KPIs yet", score:1}
+  ]}
+];
 
-    const totalQuestions = questions.length;
-    let current = 0;
-    const answers = new Array(totalQuestions).fill(null);
+let current=0, answers=new Array(questions.length).fill(null);
+const qBlock=document.getElementById('questionBlock');
+const nextBtn=document.getElementById('nextBtn');
+const backBtn=document.getElementById('backBtn');
+const resultCard=document.getElementById('resultCard');
+const quizCard=document.getElementById('quizCard');
+const progressFill=document.getElementById('progressFill');
+const progressText=document.getElementById('progressText');
 
-    const questionBlock = document.getElementById('questionBlock');
-    const progressFill = document.getElementById('progressFill');
-    const progressText = document.getElementById('progressText');
-    const nextBtn = document.getElementById('nextBtn');
-    const backBtn = document.getElementById('backBtn');
-    const resultCard = document.getElementById('resultCard');
-    const quizCard = document.getElementById('quizCard');
+function renderQuestion(i){
+  const q=questions[i];
+  qBlock.innerHTML=`<div class='q-number'>Question ${i+1} of ${questions.length}</div><div class='q-text'>${q.text}</div>`;
+  const opts=document.createElement('div'); opts.className='options';
+  q.options.forEach(opt=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt.label;
+    b.onclick=()=>{answers[i]=opt.score; opts.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected')); b.classList.add('selected'); nextBtn.disabled=false;};
+    if(answers[i]===opt.score) b.classList.add('selected');
+    opts.appendChild(b);
+  });
+  qBlock.appendChild(opts);
+  nextBtn.textContent=i===questions.length-1?'See Result':'Next';
+  backBtn.style.visibility=i===0?'hidden':'visible';
+  nextBtn.disabled=answers[i]===null;
+  progressFill.style.width=Math.round((i/questions.length)*100)+'%';
+  progressText.textContent=`${i} / ${questions.length}`;
+}
 
-    function renderQuestion(index){
-      const q = questions[index];
-      questionBlock.innerHTML = `
-        <div class='q-number'>Question ${index+1} of ${totalQuestions}</div>
-        <div class='q-text'>${q.title} — ${q.text}</div>
-        <div class='options'>
-          ${q.options.map(opt => `
-            <button type='button' class='opt ${answers[index]===opt.value?'selected':''}'>
-              ${opt.label}
-            </button>`).join('')}
-        </div>`;
-      document.querySelectorAll('.opt').forEach((b, i) => {
-        b.onclick = () => {
-          answers[index] = q.options[i].value;
-          document.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected'));
-          b.classList.add('selected');
-          nextBtn.disabled = false;
-        };
-      });
-      backBtn.style.visibility = index === 0 ? 'hidden' : 'visible';
-      nextBtn.textContent = index === totalQuestions - 1 ? 'See Result' : 'Next';
-      nextBtn.disabled = answers[index] === null;
-      const pct = Math.round((index / totalQuestions) * 100);
-      progressFill.style.width = pct + '%';
-      progressText.textContent = `${index} / ${totalQuestions}`;
-    }
+nextBtn.addEventListener('click',()=>{
+  if(current<questions.length-1){current++;renderQuestion(current);}
+  else showResult();
+});
+backBtn.addEventListener('click',()=>{if(current>0){current--;renderQuestion(current);}});
 
-    nextBtn.onclick = () => {
-      if(current < totalQuestions - 1){ current++; renderQuestion(current); }
-      else if(!answers.includes(null)) showResult();
-      else alert('Please answer all questions first.');
-    };
-    backBtn.onclick = () => { if(current>0){ current--; renderQuestion(current); } };
+function showResult(){
+  const total=answers.reduce((a,b)=>a+b,0);
+  const max=questions.length*5;
+  const pct=Math.round((total/max)*100);
+  let text="",emoji="🔥";
+  if(pct>=80){text="Excellent GTM readiness! You’re ready to launch and scale confidently.";emoji="🚀";}
+  else if(pct>=50){text="Moderately ready. You have strong foundations but need sharper clarity in positioning and channels.";emoji="⚙️";}
+  else{text="Early stage. Strengthen your audience clarity and GTM execution before scaling.";emoji="🧩";}
+  quizCard.style.display='none'; resultCard.style.display='block';
+  document.getElementById('finalScore').textContent=`Your GTM Score: ${pct}%`;
+  document.getElementById('finalText').textContent=text;
+  document.getElementById('resultEmoji').textContent=emoji;
+}
 
-    function showResult(){
-      const total = answers.reduce((s,v)=>s + v, 0);
-      let resultText="", emoji="🔥";
-      if(total <= 10){ resultText="🚨 High risk: Strategy built on assumptions."; emoji="🚨"; }
-      else if(total <= 20){ resultText="⚠️ Mid-risk: Some validation but leaks likely."; emoji="⚠️"; }
-      else if(total <= 25){ resultText="✅ Strong foundation. Minor refinements needed."; emoji="✅"; }
-      else { resultText="🔥 Conversion-ready: Deeply consumer-backed."; emoji="🔥"; }
+document.getElementById('startQuiz').addEventListener('click',()=>{
+  document.getElementById('introCard').style.display='none';
+  quizCard.style.display='block';
+  renderQuestion(0);
+});
 
-      quizCard.style.display = 'none';
-      resultCard.style.display = 'block';
-      document.getElementById('finalScore').textContent = `${total} / 30`;
-      document.getElementById('finalText').textContent = resultText;
-      document.getElementById('resultEmoji').textContent = emoji;
-    }
+document.getElementById("waShare").addEventListener("click",()=>{
+  const text=encodeURIComponent("I just took the Go-To-Market Readiness Scorecard by Consumer Kanvas. Check your GTM score!");
+  const url=encodeURIComponent("https://www.consumerkanvas.com/quizzes/gtm-readiness/");
+  window.open(`https://wa.me/?text=${text}%20${url}`,"_blank");
+});
 
-    renderQuestion(0);
-    
-  </script>
-
-  <script>
-  const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('nav');
-
-menuToggle.addEventListener('click', () => {
-  menuToggle.classList.toggle('active');
-  navLinks.classList.toggle('active');
+document.getElementById("lnShare").addEventListener("click",()=>{
+  const url=encodeURIComponent("https://www.consumerkanvas.com/quizzes/gtm-readiness/");
+  const title=encodeURIComponent("Go-To-Market Readiness Scorecard for Startup Founders");
+  const summary=encodeURIComponent("A free GTM quiz by Consumer Kanvas to assess how ready your startup is to launch and scale.");
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}&summary=${summary}`,"_blank");
 });
 </script>
-
-
 </body>
 </html>
