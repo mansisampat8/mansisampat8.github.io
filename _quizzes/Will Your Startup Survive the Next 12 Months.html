@@ -463,21 +463,18 @@ permalink: /quizzes/startup-survival/
     document.getElementById('resultLabel').textContent = label;
     document.getElementById('finalText').textContent = text;
   }
+ <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const startBtn = document.getElementById('startQuiz');
+  const introCard = document.getElementById('introCard');
+  const quizCard = document.getElementById('quizCard');
 
-  document.addEventListener("DOMContentLoaded", function() {
-    const startBtn = document.getElementById('startQuiz');
-    const introCard = document.getElementById('introCard');
-    startBtn.addEventListener('click', function() {
-      introCard
-  <script>
-document.getElementById('startQuiz').addEventListener('click', function() {
-  document.getElementById('introCard').style.display = 'none';
-  const quizContainer = document.getElementById('quizContainer');
-  if (quizContainer) {
-    quizContainer.style.display = 'block';
-  } else {
-    console.error("Quiz container not found. Make sure an element with id='quizContainer' exists.");
-  }
+  startBtn.addEventListener('click', function() {
+    introCard.style.display = 'none';
+    quizCard.style.display = 'block';
+    current = 0;
+    renderQuestion(current);
+  });
 });
 </script>
 
