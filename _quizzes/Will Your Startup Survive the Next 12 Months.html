@@ -469,3 +469,15 @@ permalink: /quizzes/startup-survival/
     const introCard = document.getElementById('introCard');
     startBtn.addEventListener('click', function() {
       introCard
+  <script>
+document.getElementById('startQuiz').addEventListener('click', function() {
+  document.getElementById('introCard').style.display = 'none';
+  const quizContainer = document.getElementById('quizContainer');
+  if (quizContainer) {
+    quizContainer.style.display = 'block';
+  } else {
+    console.error("Quiz container not found. Make sure an element with id='quizContainer' exists.");
+  }
+});
+</script>
+
