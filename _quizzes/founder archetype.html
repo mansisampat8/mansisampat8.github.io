@@ -457,6 +457,34 @@ permalink: /quizzes/founder-archetype/
       renderQuestion(0);
     });
   });
+  // === SOCIAL SHARE BUTTONS ===
+document.getElementById("waShare").addEventListener("click", function () {
+  const text = encodeURIComponent(
+    "I just took the 'What Kind of Founder Are You?' quiz on Consumer Kanvas — find out your founder type!"
+  );
+  const url = encodeURIComponent("https://www.consumerkanvas.com/quizzes/founder-archetype/");
+  window.open(`https://wa.me/?text=${text}%20${url}`, "_blank");
+});
+
+document.getElementById("twShare").addEventListener("click", function () {
+  const text = encodeURIComponent(
+    "I just found out my Founder Archetype — take the quiz and see yours!"
+  );
+  const url = encodeURIComponent("https://www.consumerkanvas.com/quizzes/founder-archetype/");
+  window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, "_blank");
+});
+
+document.getElementById("lnShare").addEventListener("click", function () {
+  const url = encodeURIComponent("https://www.consumerkanvas.com/quizzes/founder-archetype/");
+  const title = encodeURIComponent("What Kind of Founder Are You?");
+  const summary = encodeURIComponent(
+    "A quick quiz by Consumer Kanvas to reveal your natural founder style — Visionary, Hustler, Operator, Analyst, or Storyteller."
+  );
+  window.open(
+    `https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}&summary=${summary}`,
+    "_blank"
+  );
+});
 </script>
 </body>
 </html>
