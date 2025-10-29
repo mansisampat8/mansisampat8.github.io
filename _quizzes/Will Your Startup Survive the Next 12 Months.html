@@ -1,5 +1,5 @@
 ---
-title: "Will Your Startup Survive the Next 12 Months?"
+title: "Startup Survival Scorecard"
 layout: none
 permalink: /quizzes/startup-survival/
 ---
@@ -9,13 +9,15 @@ permalink: /quizzes/startup-survival/
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Will Your Startup Survive the Next 12 Months? | Founder Quiz for Startups</title>
+  <title>Startup Survival Scorecard | Assess Your Startup’s Real Readiness</title>
 
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
 
-  <style>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
   :root {
-    --primary-color: #6a5acd;
+    --primary-color: #6a5acd; /* matches homepage */
     --dark-color: #1c202b;
     --light-color: #ffffff;
     --bg-color: #f7f9fc;
@@ -52,18 +54,18 @@ permalink: /quizzes/startup-survival/
   }
 
   .logo-btn {
-    font-family: var(--font-heading);
-    font-weight: 900;
-    font-size: 1.2rem;
-    text-decoration: none;
-    color: var(--primary-color);
-    letter-spacing: -0.3px;
-    transition: color 0.2s ease;
-  }
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--primary-color);
+  letter-spacing: -0.3px;
+  transition: color 0.2s ease;
+}
 
-  .logo-btn:hover {
-    color: #7b68ee;
-  }
+.logo-btn:hover {
+  color: #7b68ee; /* a touch lighter for hover */
+}
 
   .quiz-title {
     font-size: 1.05rem;
@@ -140,6 +142,14 @@ permalink: /quizzes/startup-survival/
     transition: all 0.2s ease;
   }
 
+  .opt small {
+    display: block;
+    font-weight: 400;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-top: 4px;
+  }
+
   .opt:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(12, 20, 40, 0.06);
@@ -158,6 +168,7 @@ permalink: /quizzes/startup-survival/
     gap: 12px;
   }
 
+  /* === BUTTONS (Unified with Homepage) === */
   .btn-primary, .btn-secondary {
     font-family: var(--font-heading);
     font-weight: 700;
@@ -178,8 +189,11 @@ permalink: /quizzes/startup-survival/
     color: var(--light-color);
   }
 
-  .btn-primary:hover {
+  .btn-primary:hover,
+  .btn-primary:focus {
     box-shadow: 0 4px 24px rgba(106, 90, 205, 0.4);
+    background: linear-gradient(90deg, #8c7bff 0%, #6a5acd 100%);
+    color: #ffffff;
   }
 
   .btn-secondary {
@@ -188,11 +202,30 @@ permalink: /quizzes/startup-survival/
     color: var(--primary-color);
   }
 
-  .btn-secondary:hover {
+  .btn-secondary:hover,
+  .btn-secondary:focus {
     background: var(--primary-color);
     color: var(--light-color);
   }
 
+  .share-btn {
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .share-btn:hover {
+    background: var(--primary-gradient);
+    color: white;
+    box-shadow: 0 4px 20px rgba(106, 90, 205, 0.25);
+  }
+
+  /* === RESULT CARD (Unified Look) === */
   .result-card {
     text-align: center;
     padding: 32px;
@@ -227,25 +260,8 @@ permalink: /quizzes/startup-survival/
     margin-top: 12px;
     flex-wrap: wrap;
   }
+</style>
 
-  .share-btn {
-    padding: 10px 14px;
-    border-radius: 999px;
-    border: 2px solid var(--primary-color);
-    background: transparent;
-    color: var(--primary-color);
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .share-btn:hover {
-    background: var(--primary-gradient);
-    color: white;
-    box-shadow: 0 4px 20px rgba(106, 90, 205, 0.25);
-  }
-  </style>
-   
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -261,173 +277,215 @@ permalink: /quizzes/startup-survival/
   }
   </script>
 </head>
+
 <body>
   <div class="quiz-shell">
-
     <div class="brand-row">
       <a class="logo-btn" href="/index.html">Consumer Kanvas</a>
-      <div class="quiz-title">Will Your Startup Survive the Next 12 Months?</div>
+      <div class="quiz-title">Startup Survival Scorecard</div>
     </div>
 
-    <div class="card" id="quizCard">
+    <div class="card" id="introCard" style="text-align:center;">
+      <h2 style="margin-top:0;">Startup Survival Scorecard</h2>
+      <p style="font-size:1.05rem; line-height:1.45;">
+        Every startup goes through chaos but the difference between those that survive and those that stall is awareness.
+      </p>
+      <p style="font-size:1.05rem; line-height:1.45; margin-top:12px;">
+        Take this 2-minute scorecard to discover your true survival stage and what your next strategic move should be.
+      </p>
+      <button id="startQuiz" class="btn btn-primary" style="margin-top:18px;">Start</button>
+    </div>
+
+    <div class="card" id="quizCard" style="display:none;">
       <div class="progress-wrap">
         <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
-        <div class="progress-text" id="progressText">0 / 7</div>
+        <div class="progress-text" id="progressText">0 / 6</div>
       </div>
-
       <div id="questionBlock"></div>
-
       <div class="nav-row">
-        <button id="backBtn" class="btn btn-secondary" style="visibility:hidden">Back</button>
-        <div style="flex:1"></div>
+        <button id="backBtn" class="btn btn-secondary" style="visibility:hidden;">Back</button>
+        <div style="flex:1;"></div>
         <button id="nextBtn" class="btn btn-primary" disabled>Next</button>
       </div>
     </div>
 
-    <div class="card" id="resultCard" style="display:none">
+    <div class="card" id="resultCard" style="display:none;">
       <div class="result-card">
-        <span id="resultEmoji" class="result-emoji">🔥</span>
-        <div class="score" id="finalTitle">Your Result</div>
-        <div class="result-copy" id="finalText"></div>
-
+        <span id="resultEmoji" class="result-emoji">📈</span>
+        <div class="score" id="finalScore">Your Startup Stage</div>
+        <div class="result-copy" id="finalText">Result details appear here.</div>
         <div class="share-row">
           <button class="share-btn" id="waShare">WhatsApp</button>
           <button class="share-btn" id="twShare">Twitter</button>
           <button class="share-btn" id="lnShare">LinkedIn</button>
         </div>
-
-        <div style="margin-top:14px">
-          <a class="btn btn-primary" id="ctaBtn" href="/Contact.html">Book a Free GTM Call</a>
-        </div>
       </div>
     </div>
   </div>
 
-  <script>
-    const questions = [
-      { text: "How many months of runway do you currently have?", options: [
-        { label: "Less than 3 months", outcome: "Runway too short" },
-        { label: "3–6 months", outcome: "Needs PMF" },
-        { label: "6–12 months", outcome: "Scaling-ready" },
-        { label: "12+ months", outcome: "Investor-attractive" },
-      ]},
-      { text: "What best describes your current traction arc?", options: [
-        { label: "Still convincing my friends to try it", outcome: "Needs PMF" },
-        { label: "Some people love it, just not enough of them yet.", outcome: "Runway too short" },
-        { label: "Repeat users, organic pull is growing", outcome: "Scaling-ready" },
-        { label: "We’re growing faster than our servers", outcome: "Investor-attractive" },
-      ]},
-      { text: "What’s your real founder focus this quarter?", options: [
-        { label: "Finding what problem we *actually* solve", outcome: "Needs PMF" },
-        { label: "Just managing to stay afloat.", outcome: "Runway too short" },
-        { label: "Tuning our funnel, retention, and ops", outcome: "Scaling-ready" },
-        { label: "Pitching, partnerships, and scale plays", outcome: "Investor-attractive" },
-      ]},
-      { text: "How aligned is your team right now?", options: [
-        { label: "Everyone’s rowing in different directions", outcome: "Runway too short" },
-        { label: "We’ve got energy but no focus", outcome: "Needs PMF" },
-        { label: "Shared KPIs and clear priorities", outcome: "Scaling-ready" },
-        { label: "Crystal alignment, everyone knows the goal", outcome: "Investor-attractive" },
-      ]},
-      { text: "What’s your current relationship with revenue?", options: [
-        { label: "It’s complicated! We’re still testing", outcome: "Needs PMF" },
-        { label: "We make some, burn more", outcome: "Runway too short" },
-        { label: "Predictable, healthy revenue engine", outcome: "Scaling-ready" },
-        { label: "Multiple streams and recurring revenue", outcome: "Investor-attractive" },
-      ]},
-      { text: "How often do you talk to users?", options: [
-        { label: "Honestly… can’t remember", outcome: "Runway too short" },
-        { label: "Once in a while, when something breaks", outcome: "Needs PMF" },
-        { label: "Weekly check-ins or surveys", outcome: "Scaling-ready" },
-        { label: "Structured loops and feedback dashboards", outcome: "Investor-attractive" },
-      ]},
-      { text: "If an investor asked for your story tomorrow…", options: [
-        { label: "We’d need caffeine and a miracle", outcome: "Needs PMF" },
-        { label: "We’d ramble, but the spark is there", outcome: "Runway too short" },
-        { label: "We’d tell a clear traction-backed story", outcome: "Scaling-ready" },
-        { label: "We’ve rehearsed it and it lands every time", outcome: "Investor-attractive" },
-      ]}
-    ];
+<script>
+const questions = [
+  { text: "How clearly is your target customer defined?",
+    options: [
+      {label:"Still exploring who it really is", stage:"Chaos"},
+      {label:"Have a basic sense, not validated yet", stage:"PMF Search"},
+      {label:"Validated with early traction", stage:"Scaling-Ready"},
+      {label:"Well-defined, expanding segments", stage:"Investor-Attractive"} ]},
+  { text: "What best describes your current revenue state?",
+    options: [
+      {label:"No consistent revenue yet", stage:"Chaos"},
+      {label:"Some paying customers", stage:"PMF Search"},
+      {label:"Steady growth month-on-month", stage:"Scaling-Ready"},
+      {label:"Predictable recurring revenue", stage:"Investor-Attractive"} ]},
+  { text: "How aligned is your team with your core priorities?",
+    options: [
+      {label:"We’re all figuring it out", stage:"Chaos"},
+      {label:"Some clarity, but frequent misalignments", stage:"PMF Search"},
+      {label:"Roles are defined, collaboration is strong", stage:"Scaling-Ready"},
+      {label:"Highly aligned, culture supports execution", stage:"Investor-Attractive"} ]},
+  { text: "How long is your current financial runway?",
+    options: [
+      {label:"Under 3 months", stage:"Chaos"},
+      {label:"3–6 months", stage:"PMF Search"},
+      {label:"6–12 months", stage:"Scaling-Ready"},
+      {label:"12+ months or profitable", stage:"Investor-Attractive"} ]},
+  { text: "How structured is your growth strategy?",
+    options: [
+      {label:"Mostly reactive or experimental", stage:"Chaos"},
+      {label:"Some plan, not always followed", stage:"PMF Search"},
+      {label:"Clear growth roadmap & KPIs", stage:"Scaling-Ready"},
+      {label:"Scalable systems and channels running", stage:"Investor-Attractive"} ]},
+  { text: "How confident are investors/advisors about your traction?",
+    options: [
+      {label:"Not yet credible or measurable", stage:"Chaos"},
+      {label:"Early proof, mixed confidence", stage:"PMF Search"},
+      {label:"Consistent traction data", stage:"Scaling-Ready"},
+      {label:"High trust, proven momentum", stage:"Investor-Attractive"} ]},
+];
 
-    const outcomes = {
-      "Runway too short": { emoji: "⏳", title: "You’re in the Chaos Phase", text: "You’re juggling survival and validation. Focus on extending runway, cutting noise, and doubling down on what’s actually working." },
-      "Needs PMF": { emoji: "🧩", title: "You’re Circling Product–Market Fit", text: "You’re close; your users exist, but you haven’t fully cracked what keeps them. Get out of the spreadsheet, talk to humans, and find your repeat-love signal." },
-      "Scaling-ready": { emoji: "🚀", title: "Momentum Is Your Co-Founder", text: "You’ve got rhythm and clarity. It’s time to systemize growth, tighten retention, and delegate chaos. Scale smart, not loud." },
-      "Investor-attractive": { emoji: "💸", title: "You’re the Signal Investors Chase", text: "You’ve got the numbers, story, and timing. Focus now on sharpening your narrative — the right pitch deck could multiply your valuation." }
+const totalQuestions = questions.length;
+let current = 0;
+const answers = new Array(totalQuestions).fill(null);
+
+const questionBlock = document.getElementById('questionBlock');
+const progressFill = document.getElementById('progressFill');
+const progressText = document.getElementById('progressText');
+const nextBtn = document.getElementById('nextBtn');
+const backBtn = document.getElementById('backBtn');
+const resultCard = document.getElementById('resultCard');
+const quizCard = document.getElementById('quizCard');
+
+function renderQuestion(index) {
+  const q = questions[index];
+  questionBlock.innerHTML = '';
+  const qnum = document.createElement('div');
+  qnum.className = 'q-number';
+  qnum.textContent = `Question ${index + 1} of ${totalQuestions}`;
+  questionBlock.appendChild(qnum);
+
+  const qtext = document.createElement('div');
+  qtext.className = 'q-text';
+  qtext.textContent = q.text;
+  questionBlock.appendChild(qtext);
+
+  const opts = document.createElement('div');
+  opts.className = 'options';
+  q.options.forEach(opt => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'opt';
+    b.textContent = opt.label;
+    b.onclick = () => {
+      answers[index] = opt.stage;
+      opts.querySelectorAll('.opt').forEach(x => x.classList.remove('selected'));
+      b.classList.add('selected');
+      nextBtn.disabled = false;
     };
+    if (answers[index] === opt.stage) b.classList.add('selected');
+    opts.appendChild(b);
+  });
+  questionBlock.appendChild(opts);
 
-    const total = questions.length;
-    let current = 0;
-    const answers = new Array(total).fill(null);
+  backBtn.style.visibility = index === 0 ? 'hidden' : 'visible';
+  nextBtn.textContent = index === totalQuestions - 1 ? 'See Result' : 'Next';
+  nextBtn.disabled = answers[index] === null;
+  updateProgress();
+}
 
-    const questionBlock = document.getElementById('questionBlock');
-    const progressFill = document.getElementById('progressFill');
-    const progressText = document.getElementById('progressText');
-    const nextBtn = document.getElementById('nextBtn');
-    const backBtn = document.getElementById('backBtn');
-    const resultCard = document.getElementById('resultCard');
-    const quizCard = document.getElementById('quizCard');
+function updateProgress() {
+  const pct = Math.round((current / totalQuestions) * 100);
+  progressFill.style.width = pct + '%';
+  progressText.textContent = `${current} / ${totalQuestions}`;
+}
 
-    function renderQuestion(i) {
-      const q = questions[i];
-      questionBlock.innerHTML = `
-        <div class="q-number">Question ${i+1} of ${total}</div>
-        <div class="q-text">${q.text}</div>
-        <div class="options">
-          ${q.options.map(opt => `
-            <button type="button" class="opt ${answers[i] === opt.outcome ? 'selected' : ''}">
-              ${opt.label}
-            </button>
-          `).join('')}
-        </div>
-      `;
-
-      document.querySelectorAll('.opt').forEach((btn, idx) => {
-        btn.onclick = () => {
-          answers[i] = q.options[idx].outcome;
-          document.querySelectorAll('.opt').forEach(x => x.classList.remove('selected'));
-          btn.classList.add('selected');
-          nextBtn.disabled = false;
-        };
-      });
-
-      backBtn.style.visibility = i === 0 ? 'hidden' : 'visible';
-      nextBtn.textContent = i === total - 1 ? 'See Result' : 'Next';
-      nextBtn.disabled = answers[i] === null;
-      updateProgress();
+nextBtn.addEventListener('click', () => {
+  if (current < totalQuestions - 1) {
+    current++;
+    renderQuestion(current);
+  } else {
+    if (answers.includes(null)) {
+      alert("Please answer all questions");
+      return;
     }
+    showResult();
+  }
+});
 
-    function updateProgress(){
-      progressFill.style.width = `${Math.round(((current + 1) / total) * 100)}%`;
-      progressText.textContent = `${current + 1} / ${total}`;
-    }
+backBtn.addEventListener('click', () => {
+  if (current > 0) { current--; renderQuestion(current); }
+});
 
-    nextBtn.onclick = () => {
-      if (current < total - 1) { current++; renderQuestion(current); }
-      else showResult();
-    };
+function showResult() {
+  const tally = { Chaos: 0, "PMF Search": 0, "Scaling-Ready": 0, "Investor-Attractive": 0 };
+  answers.forEach(a => { tally[a]++; });
+  const winner = Object.keys(tally).reduce((a, b) => tally[a] > tally[b] ? a : b);
+  let emoji = "📉", text = "";
+  switch (winner) {
+    case "Chaos":
+      emoji = "⚠️";
+      text = "You’re in the Chaos Stage, move fast but start adding focus. Clarify your customer and validate your idea fast.";
+      break;
+    case "PMF Search":
+      emoji = "🔍";
+      text = "You’re hunting for Product-Market Fit. Keep testing, learning, and tightening your offering before scaling.";
+      break;
+    case "Scaling-Ready":
+      emoji = "📈";
+      text = "You’ve found traction. Build systems, hire smart, and focus on repeatable growth levers.";
+      break;
+    case "Investor-Attractive":
+      emoji = "💰";
+      text = "Strong metrics, clear focus, confident team, you’re ready for strategic partnerships or investment.";
+      break;
+  }
+  quizCard.style.display = 'none';
+  resultCard.style.display = 'block';
+  document.getElementById('finalScore').textContent = `Stage: ${winner}`;
+  document.getElementById('finalText').textContent = text;
+  document.getElementById('resultEmoji').textContent = emoji;
+}
 
-    backBtn.onclick = () => { if (current > 0) { current--; renderQuestion(current); } };
-
-    function showResult(){
-      const tally = {};
-      answers.forEach(a => tally[a] = (tally[a] || 0) + 1);
-      const top = Object.keys(tally).reduce((a,b) => tally[a] > tally[b] ? a : b);
-      const r = outcomes[top] || outcomes["Needs PMF"];
-      quizCard.style.display = 'none';
-      resultCard.style.display = 'block';
-      document.getElementById('resultEmoji').textContent = r.emoji;
-      document.getElementById('finalTitle').textContent = r.title;
-      document.getElementById('finalText').textContent = r.text;
-
-      const shareText = encodeURIComponent(`I got "${r.title}" on the Startup Survival Quiz — try it here: ${window.location.href}`);
-      const pageUrl = encodeURIComponent(window.location.href);
-      document.getElementById('waShare').onclick = ()=> window.open(`https://wa.me/?text=${shareText}`,'_blank');
-      document.getElementById('twShare').onclick = ()=> window.open(`https://twitter.com/intent/tweet?text=${shareText}`,'_blank');
-      document.getElementById('lnShare').onclick = ()=> window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`,'_blank');
-    }
-
+document.addEventListener("DOMContentLoaded", function() {
+  const startBtn = document.getElementById('startQuiz');
+  const introCard = document.getElementById('introCard');
+  startBtn.addEventListener('click', function() {
+    introCard.style.display = 'none';
+    quizCard.style.display = 'block';
     renderQuestion(0);
-  </script>
-</body>
-</html>
+  });
+});
+
+// === Social Share ===
+document.getElementById("waShare").addEventListener("click", function () {
+  const text = encodeURIComponent("I just took the Startup Survival Scorecard on Consumer Kanvas, find out your startup’s real stage!");
+  const url = encodeURIComponent("https://www.consumerkanvas.com/quizzes/startup-survival/");
+  window.open(`https://wa.me/?text=${text}%20${url}`, "_blank");
+});
+document.getElementById("twShare").addEventListener("click", function () {
+  const text = encodeURIComponent("I just found my Startup Survival Stage take the quiz and discover yours!");
+  const url = encodeURIComponent("https://www.consumerkanvas.com/quizzes/startup-survival/");
+  window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, "_blank");
+});
+document.getElementById("lnShare").addEventListener("click", function () {
+  const url = encodeURIComponent("https://www.consumerkanvas.com/quizzes/startup-survival/");
+  const title = encodeURIComponent("Startup Survival
