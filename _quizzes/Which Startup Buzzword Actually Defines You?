@@ -1,6 +1,4 @@
----
 title: "Which Startup Buzzword Actually Defines You?"
-subtitle: "A 2-minute founder quiz to see which startup buzzword fits your playbook"
 layout: none
 permalink: /quizzes/which-buzzword-defines-you/
 ---
@@ -10,68 +8,290 @@ permalink: /quizzes/which-buzzword-defines-you/
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Which Startup Buzzword Actually Defines You? | Consumer Kanvas</title>
-  <meta name="description" content="Which startup buzzword defines your approach? Take this 2-minute quiz to find out if you're The Hustler, The Pivot Master, The Sustainable Growthie, or The Fundraising Junkie — and get tips to level up." />
+  <title>Which Startup Buzzword Actually Defines You? | Quick Buzzword Quiz for Founders</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Which startup buzzword actually defines your approach — Growth Hacking, Disruptive, Scalable, Data-Driven, or Customer-Centric? Take this quick quiz to find out and get practical next steps.">
 
-  <style>
-    :root{
-      --bg:#fffaf7;
-      --card:#ffffff;
-      --muted:#6b6b6b;
-      --accent1:#ffc845;
-      --accent2:#0d62ae;
-      --primary-gradient: linear-gradient(90deg,var(--accent1) 55%, var(--accent2) 100%);
-      --round:16px;
-      --shadow: 0 10px 36px rgba(12,20,40,0.08);
+  <!-- Open Graph -->
+  <meta property="og:title" content="Which Startup Buzzword Actually Defines You?" />
+  <meta property="og:description" content="Which startup buzzword actually defines your approach — and how to lean into it strategically." />
+  <meta property="og:url" content="https://www.consumerkanvas.com/quizzes/which-buzzword-defines-you/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.consumerkanvas.com/assets/images/quizzes/buzzword-quiz-share.png" />
+
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --primary-color: #6a5acd;
+    --dark-color: #1c202b;
+    --light-color: #ffffff;
+    --bg-color: #f7f9fc;
+    --text-color: #333333;
+    --text-light: #5e5e5e;
+    --border-color: #e5e5e5;
+    --font-heading: 'League Spartan', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --primary-gradient: linear-gradient(90deg, #7b68ee 0%, #6a5acd 100%);
+    --round: 16px;
+    --shadow: 0 8px 30px rgba(12, 20, 40, 0.08);
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    background: linear-gradient(180deg, #fff 0%, var(--bg-color) 40%);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    padding: 40px 18px;
+  }
+
+  .quiz-shell {
+    width: 100%;
+    max-width: 840px;
+  }
+
+  .brand-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .logo-btn {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--primary-color);
+    letter-spacing: -0.3px;
+    transition: color 0.2s ease;
+  }
+
+  .logo-btn:hover {
+    color: #7b68ee;
+  }
+
+  .quiz-title {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    font-weight: 700;
+  }
+
+  .card {
+    background: var(--light-color);
+    border-radius: var(--round);
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin-bottom: 18px;
+  }
+
+  .progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .progress-bar {
+    flex: 1;
+    height: 10px;
+    background: #eceef3;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--primary-gradient);
+    transition: width 0.35s ease;
+  }
+
+  .progress-text {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    width: 90px;
+    text-align: right;
+  }
+
+  .q-number {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .q-text {
+    font-size: 1.15rem;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    font-weight: 700;
+    color: var(--dark-color);
+  }
+
+  .options {
+    display: grid;
+    gap: 10px;
+  }
+
+  .opt {
+    border-radius: 12px;
+    padding: 12px 14px;
+    text-align: left;
+    background: #fbfbfe;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--dark-color);
+    transition: all 0.2s ease;
+  }
+
+  .opt small {
+    display: block;
+    font-weight: 400;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-top: 4px;
+  }
+
+  .opt:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(12, 20, 40, 0.06);
+  }
+
+  .opt.selected {
+    background: var(--primary-gradient);
+    color: white;
+  }
+
+  .nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+    gap: 12px;
+  }
+
+  .btn-primary, .btn-secondary {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    margin: 1rem auto 0 auto;
+    cursor: pointer;
+    transition: box-shadow 0.2s, background 0.2s, color 0.2s;
+    box-shadow: 0 2px 12px rgba(28, 32, 43, 0.10);
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--primary-gradient);
+    color: var(--light-color);
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus {
+    box-shadow: 0 4px 24px rgba(106, 90, 205, 0.4);
+    background: linear-gradient(90deg, #8c7bff 0%, #6a5acd 100%);
+    color: #ffffff;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+  }
+
+  .btn-secondary:hover,
+  .btn-secondary:focus {
+    background: var(--primary-color);
+    color: var(--light-color);
+  }
+
+  .share-btn {
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .share-btn:hover {
+    background: var(--primary-gradient);
+    color: white;
+    box-shadow: 0 4px 20px rgba(106, 90, 205, 0.25);
+  }
+
+  .result-card {
+    text-align: center;
+    padding: 32px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ffffff 0%, #f6f5ff 100%);
+    box-shadow: 0 8px 30px rgba(12, 20, 40, 0.08);
+  }
+
+  .score {
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin-bottom: 6px;
+    color: var(--dark-color);
+  }
+
+  .result-copy {
+    font-size: 1.05rem;
+    color: var(--text-color);
+    margin-bottom: 12px;
+  }
+
+  .result-emoji {
+    font-size: 2.6rem;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .share-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* responsive tweaks */
+  @media (max-width: 560px) {
+    body { padding: 28px 12px; }
+    .card { padding: 18px; }
+    .btn-primary, .btn-secondary { padding: 12px 18px; }
+    .score { font-size: 1.6rem; }
+  }
+</style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Quiz",
+    "name": "Which Startup Buzzword Actually Defines You?",
+    "url": "https://www.consumerkanvas.com/quizzes/which-buzzword-defines-you/",
+    "description": "Quick quiz to reveal which startup buzzword best matches your approach — Growth Hacking, Disruptive, Scalable, Data-Driven, or Customer-Centric.",
+    "creator": {
+      "@type": "Organization",
+      "name": "Consumer Kanvas",
+      "url": "https://www.consumerkanvas.com/"
     }
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(180deg,#fff 0%, #fffaf7 40%);
-      color:#1c2541;
-      display:flex;
-      align-items:flex-start;
-      justify-content:center;
-      padding:40px 18px;
-    }
-    .quiz-shell{width:100%;max-width:920px}
-    .brand-row{display:flex;align-items:center;gap:12px;margin-bottom:18px}
-    .logo-btn{display:inline-block;padding:10px 14px;border-radius:999px;background:var(--accent1);box-shadow:0 6px 18px rgba(255,184,66,0.12);font-weight:900;text-decoration:none;color:#1c2541}
-    .quiz-title{font-size:1.05rem;color:var(--muted);margin-left:6px;font-weight:700}
-    .intro-copy{background:var(--card);padding:18px;border-radius:var(--round);box-shadow:var(--shadow);margin-bottom:18px;font-size:1.02rem;line-height:1.45}
-    .card{background:var(--card);border-radius:var(--round);box-shadow:var(--shadow);padding:26px;margin-bottom:18px;overflow:hidden}
-    .progress-wrap{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-    .progress-bar{flex:1;height:10px;background:#f0f3f8;border-radius:999px;overflow:hidden}
-    .progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#ffd37a, #0680d6);transition:width .35s ease}
-    .progress-text{font-size:0.9rem;color:var(--muted);width:90px;text-align:right}
-    .q-number{font-size:.9rem;color:#9aa3b2;font-weight:700;margin-bottom:8px}
-    .q-text{font-size:1.15rem;line-height:1.35;margin-bottom:14px;font-weight:700}
-    .options{display:grid;grid-template-columns:1fr;gap:10px}
-    .opt{display:block;border-radius:12px;padding:12px 14px;text-align:left;background:#fbfbfe;border:1px solid #eef2f7;cursor:pointer;transition:transform .12s ease, box-shadow .12s ease;font-weight:700}
-    .opt small{display:block;font-weight:400;color:var(--muted);font-size:.9rem;margin-top:4px}
-    .opt:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(12,20,40,0.06)}
-    .opt.selected{background:var(--primary-gradient);color:white;border:1px solid rgba(0,0,0,0.06)}
-    .nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:18px;gap:12px}
-    .btn{padding:12px 18px;border-radius:999px;font-weight:900;text-decoration:none;border:none;cursor:pointer}
-    .btn-secondary{background:transparent;color:var(--muted);border:2px solid #eef2f7}
-    .btn-primary{background:var(--primary-gradient);color:#fff;box-shadow:0 8px 30px rgba(13,59,102,0.09)}
-    .result-card{text-align:center;padding:26px;border-radius:14px;background:linear-gradient(180deg,#fff9f0,#fffdf8)}
-    .result-title{font-size:1.5rem;font-weight:900;margin-bottom:8px}
-    .result-copy{font-size:1rem;color:#334155;margin-bottom:12px}
-    .result-emoji{font-size:3rem;margin-bottom:14px;display:block}
-    .share-row{display:flex;gap:8px;justify-content:center;margin-top:12px;flex-wrap:wrap}
-    .share-btn{padding:10px 12px;border-radius:10px;border: none;cursor:pointer;background:#f0f3f8;font-weight:700}
-    .muted-note{font-size:0.9rem;color:#6b6b6b;margin-top:12px}
-    .retake{margin-top:14px;display:inline-block}
-    @media (max-width:720px){
-      .card{padding:18px}
-      .result-emoji{font-size:2.6rem}
-      .q-text{font-size:1.05rem}
-    }
-  </style>
+  }
+  </script>
 </head>
 <body>
   <div class="quiz-shell">
@@ -81,19 +301,24 @@ permalink: /quizzes/which-buzzword-defines-you/
       <div class="quiz-title">Which Startup Buzzword Actually Defines You?</div>
     </div>
 
-    <div class="intro-copy">
-      Founders love buzzwords — but which one truly describes your approach? This quick 2-minute quiz maps your instincts across fundraising, growth, pivoting and PMF to one defining label. Honest answers get you a practical outcome and a one-line tip to level up.
+    <div class="card" id="introCard" style="text-align:center;">
+      <h2 style="margin-top:0;">Which Startup Buzzword Actually Defines You?</h2>
+      <p style="font-size:1.05rem; line-height:1.45;">
+        Buzzwords are shorthand — honest signals of how you think and what you prioritize. Some founders are growth hackers, others obsess over scale or data. This quiz tells you which buzzword actually fits your approach.
+      </p>
+      <p style="font-size:1.05rem; line-height:1.45; margin-top:12px;">
+        You’ll get a single buzzword plus practical next steps: what to double down on and what to fix. Ready? This takes under two minutes.
+      </p>
+      <button id="startQuiz" class="btn btn-primary" style="margin-top:18px;">Start</button>
     </div>
 
-    <div class="card" id="quizCard" aria-live="polite">
-      <div class="progress-wrap" aria-hidden="true">
+    <div class="card" id="quizCard" aria-live="polite" style="display:none;">
+      <div class="progress-wrap">
         <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
-        <div class="progress-text" id="progressText">1 / 8</div>
+        <div class="progress-text" id="progressText">0 / 7</div>
       </div>
 
-      <div id="questionBlock">
-        <!-- injected by JS -->
-      </div>
+      <div id="questionBlock"></div>
 
       <div class="nav-row">
         <button id="backBtn" class="btn btn-secondary" style="visibility:hidden">Back</button>
@@ -104,281 +329,231 @@ permalink: /quizzes/which-buzzword-defines-you/
 
     <div class="card" id="resultCard" style="display:none">
       <div class="result-card">
-        <span id="resultEmoji" class="result-emoji">✨</span>
-        <div class="result-title" id="finalTitle">Your Buzzword Match</div>
-        <div class="result-copy" id="finalText">Result description will appear here.</div>
-
+        <span id="resultEmoji" class="result-emoji">💬</span>
+        <div class="score" id="finalScore">Your Buzzword</div>
+        <div class="result-copy" id="finalText"></div>
         <div class="share-row">
-          <button class="share-btn" id="waShare">Share on WhatsApp</button>
-          <button class="share-btn" id="twShare">Tweet</button>
-          <button class="share-btn" id="lnShare">Share on LinkedIn</button>
-        </div>
-
-        <div class="muted-note" id="oneLineTip">One-line tip will appear here.</div>
-
-        <div style="margin-top:14px">
-          <a class="btn btn-primary" id="ctaBtn" href="/Contact.html">Get a Quick Audit →</a>
-          <button id="retakeBtn" class="btn btn-secondary retake">Retake Quiz</button>
+          <button class="share-btn" id="waShare">WhatsApp</button>
+          <button class="share-btn" id="twShare">Twitter</button>
+          <button class="share-btn" id="lnShare">LinkedIn</button>
         </div>
       </div>
     </div>
 
   </div>
 
-  <script>
-    /**
-     * Research notes (brief):
-     * - Founders focused on short-term growth often prioritize momentum, quick traction and hustle -> "The Hustler".
-     * - Founders who pivot based on learning and market signals -> "The Pivot Master".
-     * - Founders building for sustainable unit economics and retention -> "The Sustainable Growthie".
-     * - Founders who chase capital and optimize storytelling for fundraising -> "The Fundraising Junkie".
-     *
-     * We'll use 8 questions and tally points toward each label. Some answers map to multiple labels to reflect nuance.
-     */
+<script>
+  /* Quiz content — 7 questions, strategic/practical tone */
+  const questions = [
+    { text:"When you talk about your startup, you emphasize:", options:[
+      {label:"Rapid experiments that unlock quick growth", archetype:"GrowthHacker"},
+      {label:"Changing how people do something entirely", archetype:"Disruptive"},
+      {label:"Building something that scales without breaking", archetype:"Scalable"},
+      {label:"Metrics, tests and repeatable signals", archetype:"DataDriven"},
+      {label:"Solving a real customer pain and delighting users", archetype:"CustomerCentric"} ]},
 
-    const questions = [
-      { text: "When you get a growth channel that works, you usually:",
-        options: [
-          { label: "Double down immediately and scale with any capital we can raise.", map: { Hustler:1, Fundraiser:1 } },
-          { label: "Test retention and unit economics before scaling.", map: { Sustainable:1 } },
-          { label: "Consider whether this channel fits our long-term thesis.", map: { PivotMaster:1 } },
-        ]
-      },
-      { text: "Your deck’s strongest slide is:",
-        options: [
-          { label: "Growth graphs and activation funnels.", map: { Hustler:1 } },
-          { label: "Customer interviews and learning loops.", map: { PivotMaster:1, Sustainable:1 } },
-          { label: "Market size and fundraising ask.", map: { Fundraiser:1 } },
-        ]
-      },
-      { text: "If your early users stop using the product, you:",
-        options: [
-          { label: "Hustle more acquisition — more users will fix it.", map: { Hustler:1 } },
-          { label: "Run qualitative interviews and change the core flow.", map: { PivotMaster:1 } },
-          { label: "Analyze CAC vs LTV and rework pricing.", map: { Sustainable:1 } },
-          { label: "Use the story to explain to investors and secure runway.", map: { Fundraiser:1 } },
-        ]
-      },
-      { text: "When an investor asks for traction, you usually:",
-        options: [
-          { label: "Show fast growth months and viral loops.", map: { Hustler:1 } },
-          { label: "Share validated learnings and your next experiment.", map: { PivotMaster:1 } },
-          { label: "Present solid unit economics and recurring revenue.", map: { Sustainable:1 } },
-          { label: "Tailor the deck to their thesis and close the round.", map: { Fundraiser:1 } },
-        ]
-      },
-      { text: "Your team debates whether to pivot. You:",
-        options: [
-          { label: "Make the pivot quickly if data points point to a win.", map: { PivotMaster:1 } },
-          { label: "Avoid pivoting until unit economics are proven.", map: { Sustainable:1 } },
-          { label: "Pivot if it helps a faster growth story for investors.", map: { Fundraiser:1, Hustler:1 } },
-        ]
-      },
-      { text: "What keeps you up at night?",
-        options: [
-          { label: "Missing the next growth window.", map: { Hustler:1 } },
-          { label: "Running out of runway before a big milestone.", map: { Fundraiser:1 } },
-          { label: "Churn and poor retention.", map: { Sustainable:1 } },
-          { label: "Being blind to deeper market signals that require a pivot.", map: { PivotMaster:1 } },
-        ]
-      },
-      { text: "When you read industry reports, you:",
-        options: [
-          { label: "Look for channels to copy and scale fast.", map: { Hustler:1 } },
-          { label: "Pull evidence that supports or refutes your thesis.", map: { PivotMaster:1 } },
-          { label: "Extract benchmarks to validate unit economics.", map: { Sustainable:1 } },
-          { label: "Make a list of VC names to pitch with a tailored angle.", map: { Fundraiser:1 } },
-        ]
-      },
-      { text: "Your ideal next hire is:",
-        options: [
-          { label: "A growth marketer who can scale acquisition.", map: { Hustler:1 } },
-          { label: "A product researcher who runs customer interviews.", map: { PivotMaster:1 } },
-          { label: "A financial operator who tightens margins.", map: { Sustainable:1 } },
-          { label: "A fundraising lead or investor relations person.", map: { Fundraiser:1 } },
-        ]
-      }
-    ];
+    { text:"Your go-to metric is:", options:[
+      {label:"Viral coefficient or activation rate", archetype:"GrowthHacker"},
+      {label:"Market share shift or category adoption", archetype:"Disruptive"},
+      {label:"Unit economics at scale", archetype:"Scalable"},
+      {label:"Cohort retention and LTV/CAC", archetype:"DataDriven"},
+      {label:"NPS and repeat purchase rate", archetype:"CustomerCentric"} ]},
 
-    const outcomes = {
-      Hustler: {
-        emoji: "🔥",
-        title: "The Hustler",
-        copy: "You move fast, chase channels and prioritize momentum. You can scale rapidly, but watch unit economics speed without sustainability burns out runway.",
-        tip: "Before doubling spend, run a short retention test to validate customers stick."
-      },
-      PivotMaster: {
-        emoji: "🔄",
-        title: "The Pivot Master",
-        copy: "You listen, learn, and adapt. Your strength is turning customer signals into product direction. Don’t pivot too often — keep experiments structured.",
-        tip: "Document learnings and commit to measurable success criteria for each pivot."
-      },
-      Sustainable: {
-        emoji: "🌱",
-        title: "The Sustainable Growthie",
-        copy: "You prioritise unit economics, retention, and long-term value. Investors love this profile when demonstrated with data — but don’t forget to show growth potential.",
-        tip: "Run a small paid test that scales only if CAC < LTV threshold."
-      },
-      Fundraiser: {
-        emoji: "💼",
-        title: "The Fundraising Junkie",
-        copy: "You’re excellent at storytelling, building investor relationships and securing runway. Make sure your narrative is supported by customer evidence and real traction.",
-        tip: "Pair your pitch with 2–3 customer quotes or quick case studies to back your story."
-      }
-    };
+    { text:"Your team praises you for:", options:[
+      {label:"Creative hacks that move the needle fast", archetype:"GrowthHacker"},
+      {label:"Seeing opportunities others dismiss", archetype:"Disruptive"},
+      {label:"Designing systems that run cleanly as you grow", archetype:"Scalable"},
+      {label:"Turning messy data into decisive action", archetype:"DataDriven"},
+      {label:"Knowing customers by name and need", archetype:"CustomerCentric"} ]},
 
-    // internal keys: Hustler, PivotMaster, Sustainable, Fundraiser
-    const keyMap = { Hustler: 'Hustler', PivotMaster: 'PivotMaster', Sustainable: 'Sustainable', Fundraiser: 'Fundraiser' };
+    { text:"In a crisis, you respond by:", options:[
+      {label:"Trying a bold experiment immediately", archetype:"GrowthHacker"},
+      {label:"Reframing how the product is positioned", archetype:"Disruptive"},
+      {label:"Fixing the bottleneck that blocks scale", archetype:"Scalable"},
+      {label:"Looking into the data and isolating causes", archetype:"DataDriven"},
+      {label:"Talking to customers and solving the pain", archetype:"CustomerCentric"} ]},
 
-    const totalQuestions = questions.length;
-    let current = 0;
-    const answers = new Array(totalQuestions).fill(null);
+    { text:"Your pitch line most often includes:", options:[
+      {label:"A quick growth hack we used to beat competitors", archetype:"GrowthHacker"},
+      {label:"How we make an old industry irrelevant", archetype:"Disruptive"},
+      {label:"How we’ll grow 10x without doubling costs", archetype:"Scalable"},
+      {label:"The tests that prove demand", archetype:"DataDriven"},
+      {label:"Stories of customers who switched and loved us", archetype:"CustomerCentric"} ]},
 
-    // DOM refs
-    const questionBlock = document.getElementById('questionBlock');
-    const progressFill = document.getElementById('progressFill');
-    const progressText = document.getElementById('progressText');
-    const nextBtn = document.getElementById('nextBtn');
-    const backBtn = document.getElementById('backBtn');
-    const resultCard = document.getElementById('resultCard');
-    const quizCard = document.getElementById('quizCard');
+    { text:"Where do you invest most effort today?", options:[
+      {label:"Creative acquisition experiments", archetype:"GrowthHacker"},
+      {label:"Refining the core insight that differentiates us", archetype:"Disruptive"},
+      {label:"Automating and removing manual touchpoints", archetype:"Scalable"},
+      {label:"Instrumentation and measurement", archetype:"DataDriven"},
+      {label:"Customer success and experience", archetype:"CustomerCentric"} ]},
 
-    function renderQuestion(index){
-      const q = questions[index];
-      questionBlock.innerHTML = '';
+    { text:"If you had to strengthen one thing next, it would be:", options:[
+      {label:"More reproducible tactics that scale", archetype:"GrowthHacker"},
+      {label:"Stronger defensibility against incumbents", archetype:"Disruptive"},
+      {label:"Better systems for predictable growth", archetype:"Scalable"},
+      {label:"Cleaner data and faster learning loops", archetype:"DataDriven"},
+      {label:"Deeper customer research and product fit", archetype:"CustomerCentric"} ]}
+  ];
 
-      const qnum = document.createElement('div');
-      qnum.className = 'q-number';
-      qnum.textContent = `Question ${index+1} of ${totalQuestions}`;
-      questionBlock.appendChild(qnum);
+  const totalQuestions = questions.length;
+  let current = 0;
+  const answers = new Array(totalQuestions).fill(null);
 
-      const qtext = document.createElement('div');
-      qtext.className = 'q-text';
-      qtext.textContent = q.text;
-      questionBlock.appendChild(qtext);
+  const questionBlock = document.getElementById('questionBlock');
+  const progressFill = document.getElementById('progressFill');
+  const progressText = document.getElementById('progressText');
+  const nextBtn = document.getElementById('nextBtn');
+  const backBtn = document.getElementById('backBtn');
 
-      const opts = document.createElement('div');
-      opts.className = 'options';
-      q.options.forEach((opt, i) => {
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'opt';
-        b.innerHTML = `<span class="opt-label">${opt.label}</span>`;
-        b.onclick = () => {
-          answers[index] = opt.map; // store the map
-          opts.querySelectorAll('.opt').forEach(x => x.classList.remove('selected'));
-          b.classList.add('selected');
-          nextBtn.disabled = false;
-        };
-        // mark selected if answers exist
-        if (answers[index] && answers[index] === opt.map) b.classList.add('selected');
-        opts.appendChild(b);
-      });
-      questionBlock.appendChild(opts);
+  function renderQuestion(index){
+    const q = questions[index];
+    questionBlock.innerHTML = '';
 
-      backBtn.style.visibility = index === 0 ? 'hidden' : 'visible';
-      nextBtn.textContent = index === totalQuestions - 1 ? 'See Result' : 'Next';
-      nextBtn.disabled = answers[index] === null;
-      updateProgress();
-      // focus first option for accessibility
-      setTimeout(()=> { const first = opts.querySelector('.opt'); if(first) first.focus(); },40);
-    }
+    const qnum = document.createElement('div');
+    qnum.className='q-number';
+    qnum.textContent=`Question ${index+1} of ${totalQuestions}`;
+    questionBlock.appendChild(qnum);
 
-    function updateProgress(){
-      const pct = Math.round(((current + 1) / totalQuestions) * 100);
-      progressFill.style.width = pct + '%';
-      progressText.textContent = `${current + 1} / ${totalQuestions}`;
-    }
+    const qtext = document.createElement('div');
+    qtext.className='q-text';
+    qtext.textContent=q.text;
+    questionBlock.appendChild(qtext);
 
-    nextBtn.addEventListener('click', ()=> {
-      if (current < totalQuestions - 1){
-        current++;
-        renderQuestion(current);
-      } else {
-        // ensure all answered
-        if (answers.some(a => a === null)){
-          alert('Please answer all questions before viewing your result.');
-          return;
-        }
-        showResult();
-      }
+    const opts=document.createElement('div'); opts.className='options';
+    q.options.forEach(opt=>{
+      const b=document.createElement('button');
+      b.type='button'; b.className='opt'; b.textContent=opt.label;
+      b.onclick=()=>{
+        answers[index]=opt.archetype;
+        opts.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected'));
+        b.classList.add('selected');
+        nextBtn.disabled=false;
+      };
+      if(answers[index]===opt.archetype) b.classList.add('selected');
+      opts.appendChild(b);
     });
+    questionBlock.appendChild(opts);
 
-    backBtn.addEventListener('click', ()=> {
-      if (current > 0){
-        current--;
-        renderQuestion(current);
+    backBtn.style.visibility=index===0?'hidden':'visible';
+    nextBtn.textContent=index===totalQuestions-1?'See Result':'Next';
+    nextBtn.disabled=answers[index]===null;
+    updateProgress();
+  }
+
+  function updateProgress(){
+    const pct = Math.round(((current+1)/totalQuestions)*100);
+    progressFill.style.width = pct + '%';
+    progressText.textContent = `${current+1} / ${totalQuestions}`;
+  }
+
+  nextBtn.addEventListener('click',()=>{
+    if(current<totalQuestions-1){
+      current++;
+      renderQuestion(current);
+    } else {
+      if(answers.includes(null)){ alert("Please answer all questions before viewing results."); return; }
+      showResult();
+    }
+  });
+
+  backBtn.addEventListener('click',()=>{ if(current>0){ current--; renderQuestion(current); } });
+
+  function showResult(){
+    const tally={GrowthHacker:0,Disruptive:0,Scalable:0,DataDriven:0,CustomerCentric:0};
+    answers.forEach(a=>{ if(a && tally.hasOwnProperty(a)) tally[a]++; });
+
+    // winner with tie-breaker based on earliest appearance
+    const winner = Object.keys(tally).reduce((best, key) => {
+      if(tally[key] > (tally[best] || 0)) return key;
+      if(tally[key] === (tally[best] || 0)) {
+        const firstIndexKey = answers.findIndex(a => a===key);
+        const firstIndexBest = answers.findIndex(a => a===best);
+        return (firstIndexKey !== -1 && firstIndexBest !== -1) ? (firstIndexKey < firstIndexBest ? key : best) : best;
       }
-    });
+      return best;
+    }, Object.keys(tally)[0]);
 
-    function showResult(){
-      // tally using numeric scores
-      const tally = { Hustler:0, PivotMaster:0, Sustainable:0, Fundraiser:0 };
-      answers.forEach(mapObj => {
-        // mapObj holds keys mapping to increments e.g. {Hustler:1, Fundraiser:1}
-        for(const k in mapObj){
-          const key = k === 'Sustainable' ? 'Sustainable' : (k === 'PivotMaster' ? 'PivotMaster' : k);
-          if (tally[key] !== undefined) tally[key] += mapObj[k];
-        }
-      });
+    let title="", text="", emoji="💬", nextSteps="";
 
-      // handle tie: choose the label with highest score; tie-breaker: earliest answer occurrence
-      const maxScore = Math.max(...Object.values(tally));
-      const tied = Object.keys(tally).filter(k => tally[k] === maxScore);
-
-      let winner = tied[0];
-      if (tied.length > 1){
-        // pick earliest occurrence among answers that mapped to tied keys
-        for (let i = 0; i < answers.length; i++){
-          const map = answers[i];
-          for (const k in map){
-            if (tied.includes(k)){
-              winner = k;
-              break;
-            }
-          }
-          if (tied.includes(winner)) break;
-        }
-      }
-
-      // read outcome data
-      const data = (winner === 'PivotMaster') ? outcomes.PivotMaster :
-                   (winner === 'Sustainable') ? outcomes.Sustainable :
-                   (winner === 'Fundraiser') ? outcomes.Fundraiser :
-                   outcomes.Hustler;
-
-      document.getElementById('resultEmoji').textContent = data.emoji;
-      document.getElementById('finalTitle').textContent = data.title;
-      document.getElementById('finalText').textContent = data.copy;
-      document.getElementById('oneLineTip').textContent = "Tip: " + data.tip;
-
-      quizCard.style.display = 'none';
-      resultCard.style.display = 'block';
-
-      // share text
-      const pageUrl = encodeURIComponent(window.location.href);
-      const shareTextRaw = `${data.title} — I took the quiz "Which Startup Buzzword Defines Me?" Try it: ${window.location.href}`;
-      const shareText = encodeURIComponent(shareTextRaw);
-
-      document.getElementById('waShare').onclick = ()=> window.open(`https://wa.me/?text=${shareText}`, '_blank');
-      document.getElementById('twShare').onclick = ()=> window.open(`https://twitter.com/intent/tweet?text=${shareText}`, '_blank');
-      document.getElementById('lnShare').onclick = ()=> window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`, '_blank');
-
-      // CTA stays same
-      document.getElementById('ctaBtn').href = '/Contact.html';
-      document.getElementById('retakeBtn').onclick = resetQuiz;
+    switch(winner){
+      case "GrowthHacker":
+        title = "Growth Hacking";
+        emoji = "⚡";
+        text = "You prioritise high-impact experiments and creative acquisition tactics. You move fast, test cheap, and scale winners quickly.";
+        nextSteps = "Double down on repeatable funnels: document successful hacks, turn them into playbooks, and invest in small automation to scale the tactics.";
+        break;
+      case "Disruptive":
+        title = "Disruptive";
+        emoji = "🚧";
+        text = "You aim to rewrite category rules. Your strength is big insight and reframing problems others accept as fixed.";
+        nextSteps = "Sharpen your defensibility: map incumbents, clarify why customers will change behaviour, and outline the sequence of moves to win adoption.";
+        break;
+      case "Scalable":
+        title = "Scalable";
+        emoji = "📈";
+        text = "You think systems first. You design for growth without adding proportional cost — predictable scaling is your north star.";
+        nextSteps = "Invest in reliability: automate manual work, standardise onboarding, and measure unit economics across growth scenarios.";
+        break;
+      case "DataDriven":
+        title = "Data-Driven";
+        emoji = "📊";
+        text = "You make decisions from signals. Tests, cohorts, and clear metrics guide you — you trust what you can measure and improve.";
+        nextSteps = "Clean your instrumentation, prioritise A/B tests with clear hypotheses, and build dashboards that focus the team on learning velocity.";
+        break;
+      case "CustomerCentric":
+        title = "Customer-Centric";
+        emoji = "❤️";
+        text = "You centre the product around real human needs. You win loyal users who become advocates because you obsess over experience.";
+        nextSteps = "Scale your customer voice: systematise feedback loops, prioritise feature decisions by customer value, and measure experience metrics alongside growth.";
+        break;
+      default:
+        title = "Hybrid Approach";
+        text = "You show a mix of approaches. Choose one axis to sharpen first — metrics, narrative, or systems — then align the team."
+        nextSteps = "Pick the most actionable next step from the guidance above and run a 30-day plan to show measurable improvement.";
     }
 
-    function resetQuiz(){
-      for(let i=0;i<answers.length;i++) answers[i]=null;
-      current = 0;
-      quizCard.style.display = 'block';
-      resultCard.style.display = 'none';
+    document.getElementById('quizCard').style.display='none';
+    document.getElementById('resultCard').style.display='block';
+    document.getElementById('finalScore').textContent = title;
+    document.getElementById('finalText').innerHTML = `<strong>${text}</strong><br><br>${nextSteps}`;
+    document.getElementById('resultEmoji').textContent = emoji;
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const startBtn = document.getElementById('startQuiz');
+    const introCard = document.getElementById('introCard');
+    const quizCardLocal = document.getElementById('quizCard');
+
+    startBtn.addEventListener('click', function() {
+      introCard.style.display = 'none';
+      quizCardLocal.style.display = 'block';
       renderQuestion(0);
-    }
+    });
 
-    // initial render
-    renderQuestion(0);
-  </script>
+    document.addEventListener('keydown', function(e){
+      if(document.activeElement && document.activeElement.classList && document.activeElement.classList.contains('opt') && (e.key === 'Enter' || e.key === ' ')){
+        document.activeElement.click();
+      }
+    });
+  });
+
+  // === SOCIAL SHARE BUTTONS ===
+  const pageUrl = encodeURIComponent("https://www.consumerkanvas.com/quizzes/which-buzzword-defines-you/");
+  document.getElementById("waShare").addEventListener("click", function () {
+    const text = encodeURIComponent("Which startup buzzword defines you? I just took this quick quiz on Consumer Kanvas — try it.");
+    window.open(`https://wa.me/?text=${text}%20${pageUrl}`, "_blank");
+  });
+
+  document.getElementById("twShare").addEventListener("click", function () {
+    const text = encodeURIComponent("Which startup buzzword defines you? I just found mine — take the quiz.");
+    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${pageUrl}`, "_blank");
+  });
+
+  document.getElementById("lnShare").addEventListener("click", function () {
+    const title = encodeURIComponent("Which Startup Buzzword Actually Defines You?");
+    const summary = encodeURIComponent("Quick quiz by Consumer Kanvas that reveals which startup buzzword matches your approach — and practical next steps.");
+    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}&title=${title}&summary=${summary}`, "_blank");
+  });
+</script>
 </body>
 </html>
