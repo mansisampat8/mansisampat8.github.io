@@ -295,7 +295,6 @@ permalink: /quizzes/which-investor/
 
       let winner = tied[0];
       if (tied.length > 1) {
-        // pick earliest occurrence in answers
         for (let i = 0; i < answers.length; i++){
           if (tied.includes(answers[i])){
             winner = answers[i];
@@ -358,18 +357,17 @@ permalink: /quizzes/which-investor/
       const shareTextRaw = `${title} — I took the quiz "Which Investor Would Actually Fund You?" Try it: ${window.location.href}`;
       const shareText = encodeURIComponent(shareTextRaw);
 
-      document.getElementById('waShare').onclick = ()=> {
+      document.getElementById('waShare').onclick = () => {
         window.open(`https://wa.me/?text=${shareText}`, '_blank');
       };
-      document.getElementById('twShare').onclick = ()=> {
+      document.getElementById('twShare').onclick = () => {
         window.open(`https://twitter.com/intent/tweet?text=${shareText}`, '_blank');
       };
-      document.getElementById('lnShare').onclick = ()=> {
-        // LinkedIn share prefers a URL; we include title and url
+      document.getElementById('lnShare').onclick = () => {
         window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`, '_blank');
       };
 
-      // CTA
+      // CTA button link update
       document.getElementById('ctaBtn').href = '/Contact.html';
     }
 
