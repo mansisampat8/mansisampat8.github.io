@@ -1,6 +1,4 @@
----
-title: "Find Out Which Investor Archetype Would Actually Fund Your Startup?"
-subtitle: "A fun founder quiz to see which investor archetype matches your startup"
+title: "Which Investor Archetype Will Fund Your Startup?"
 layout: none
 permalink: /quizzes/which-investor/
 ---
@@ -10,15 +8,22 @@ permalink: /quizzes/which-investor/
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Which Investor Would Actually Fund You? | Consumer Kanvas</title>
+  <title>Which Investor Archetype Will Fund Your Startup? | Investor Fit Quiz for Founders</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
+  <meta name="description" content="Find out which investor archetype is most likely to fund your startup — Vision-driven angels, traction-first operators, market-proof VCs, data-led funds, or brand-story consumer investors. Practical tips on how to pitch each.">
 
- <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap" rel="stylesheet">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Which Investor Archetype Will Fund Your Startup?" />
+  <meta property="og:description" content="Find out which investor archetype is most likely to fund your startup — and learn how to pitch them." />
+  <meta property="og:url" content="https://www.consumerkanvas.com/quizzes/which-investor/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.consumerkanvas.com/assets/images/quizzes/investor-archetype-share.png" />
+
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
   :root {
-    --primary-color: #6a5acd; /* matches homepage */
+    --primary-color: #6a5acd;
     --dark-color: #1c202b;
     --light-color: #ffffff;
     --bg-color: #f7f9fc;
@@ -30,6 +35,10 @@ permalink: /quizzes/which-investor/
     --primary-gradient: linear-gradient(90deg, #7b68ee 0%, #6a5acd 100%);
     --round: 16px;
     --shadow: 0 8px 30px rgba(12, 20, 40, 0.08);
+  }
+
+  html, body {
+    height: 100%;
   }
 
   body {
@@ -55,18 +64,18 @@ permalink: /quizzes/which-investor/
   }
 
   .logo-btn {
-  font-family: var(--font-heading);
-  font-weight: 900;
-  font-size: 1.2rem;
-  text-decoration: none;
-  color: var(--primary-color);
-  letter-spacing: -0.3px;
-  transition: color 0.2s ease;
-}
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--primary-color);
+    letter-spacing: -0.3px;
+    transition: color 0.2s ease;
+  }
 
-.logo-btn:hover {
-  color: #7b68ee; /* a touch lighter for hover */
-}
+  .logo-btn:hover {
+    color: #7b68ee;
+  }
 
   .quiz-title {
     font-size: 1.05rem;
@@ -169,7 +178,6 @@ permalink: /quizzes/which-investor/
     gap: 12px;
   }
 
-  /* === BUTTONS (Unified with Homepage) === */
   .btn-primary, .btn-secondary {
     font-family: var(--font-heading);
     font-weight: 700;
@@ -226,7 +234,6 @@ permalink: /quizzes/which-investor/
     box-shadow: 0 4px 20px rgba(106, 90, 205, 0.25);
   }
 
-  /* === RESULT CARD (Unified Look) === */
   .result-card {
     text-align: center;
     padding: 32px;
@@ -261,14 +268,23 @@ permalink: /quizzes/which-investor/
     margin-top: 12px;
     flex-wrap: wrap;
   }
+
+  /* responsive tweaks */
+  @media (max-width: 560px) {
+    body { padding: 28px 12px; }
+    .card { padding: 18px; }
+    .btn-primary, .btn-secondary { padding: 12px 18px; }
+    .score { font-size: 1.6rem; }
+  }
 </style>
- <script type="application/ld+json">
+
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Quiz",
-    "name":  "Which Investor Would Actually Fund You?",
+    "name": "Which Investor Archetype Will Fund Your Startup?",
     "url": "https://www.consumerkanvas.com/quizzes/which-investor/",
-    "description": "A fun founder quiz to find out which investor archetype matches your startup's fundraising style.",
+    "description": "Quiz to identify which type of investor your startup is best aligned with, based on traction, narrative, founder mindset, and market approach.",
     "creator": {
       "@type": "Organization",
       "name": "Consumer Kanvas",
@@ -282,26 +298,27 @@ permalink: /quizzes/which-investor/
 
     <div class="brand-row">
       <a class="logo-btn" href="/index.html">Consumer Kanvas</a>
-      <div class="quiz-title">Which Investor Would Actually Fund You?</div>
-      <h2 style="margin-top:0;">What Kind of Founder Are You?</h2>
-  <p style="font-size:1.05rem; line-height:1.45;">
-   Every startup needs the right investor fit. This fun quiz reveals which investor archetype is most likely to fund your startup. 
-  </p>
-  <p style="font-size:1.05rem; line-height:1.45; margin-top:12px;">
-    Discover your fundraising style so you can tailor your pitch and attract the right investors with confidence.
-  </p>
-  <button id="startQuiz" class="btn btn-primary" style="margin-top:18px;">Find Your Match</button>
+      <div class="quiz-title">Which Investor Archetype Will Fund Your Startup?</div>
     </div>
 
-    <div class="card" id="quizCard" aria-live="polite">
-      <div class="progress-wrap" aria-hidden="true">
+    <div class="card" id="introCard" style="text-align:center;">
+      <h2 style="margin-top:0;">Find Out Which Investor Archetype Will Actually Back You</h2>
+      <p style="font-size:1.05rem; line-height:1.45;">
+        Not every investor is right for every founder. Some back vision. Some back traction. Others look for market structure or disciplined validation. This quick quiz tells you which investor type is most likely to fund your startup — and how to position your pitch.
+      </p>
+      <p style="font-size:1.05rem; line-height:1.45; margin-top:12px;">
+        You’ll get one clear archetype and practical next steps: what to emphasize and how to follow-up. Start — it takes less than two minutes.
+      </p>
+      <button id="startQuiz" class="btn btn-primary" style="margin-top:18px;">Start</button>
+    </div>
+
+    <div class="card" id="quizCard" aria-live="polite" style="display:none;">
+      <div class="progress-wrap">
         <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
-        <div class="progress-text" id="progressText">1 / 7</div>
+        <div class="progress-text" id="progressText">0 / 7</div>
       </div>
 
-      <div id="questionBlock">
-        <!-- injected by JS -->
-      </div>
+      <div id="questionBlock"></div>
 
       <div class="nav-row">
         <button id="backBtn" class="btn btn-secondary" style="visibility:hidden">Back</button>
@@ -312,307 +329,241 @@ permalink: /quizzes/which-investor/
 
     <div class="card" id="resultCard" style="display:none">
       <div class="result-card">
-        <span id="resultEmoji" class="result-emoji">🎯</span>
-        <div class="result-title" id="finalTitle">You’d attract the Thesis-Driven Fund</div>
-        <div class="result-copy" id="finalText">Result description will appear here.</div>
-
+        <span id="resultEmoji" class="result-emoji">💡</span>
+        <div class="score" id="finalScore">Your Ideal Investor</div>
+        <div class="result-copy" id="finalText"></div>
         <div class="share-row">
-          <button class="share-btn" id="waShare">Share on WhatsApp</button>
-          <button class="share-btn" id="twShare">Share on Twitter</button>
-          <button class="share-btn" id="lnShare">Share on LinkedIn</button>
-        </div>
-
-        <div style="margin-top:14px">
-          <a class="btn btn-primary" id="ctaBtn" href="/Contact.html">Book a Fundraising Call</a>
+          <button class="share-btn" id="waShare">WhatsApp</button>
+          <button class="share-btn" id="twShare">Twitter</button>
+          <button class="share-btn" id="lnShare">LinkedIn</button>
         </div>
       </div>
     </div>
 
   </div>
 
-  <script>
-    // Questions mapped to 6 investor archetypes
-    const questions = [
-      {
-        text: "You’re raising your first round. What’s your opening line to investors?",
-        options: [
-          { label: "We’ve de-risked the model and have predictable unit economics.", archetype: "Cautious VC" },
-          { label: "We’re growing 30% month-on-month with paying users.", archetype: "Growth-Hungry Angel" },
-          { label: "We’re building the future of clean mobility — fits your thesis.", archetype: "Thesis-Driven Fund" },
-          { label: "We can partner to unlock distribution and product synergies.", archetype: "Strategic Corporate Investor" },
-          { label: "Ex-founders love our team — they’d mentor and invest.", archetype: "Community-Backer" },
-          { label: "We deliver measurable environmental and social impact.", archetype: "Impact Investor" },
-        ]
-      },
-      {
-        text: "How do you prep your pitch deck?",
-        options: [
-          { label: "Data-heavy, risk mitigations and financial model.", archetype: "Cautious VC" },
-          { label: "Few slides showing traction, customers & momentum.", archetype: "Growth-Hungry Angel" },
-          { label: "Research-packed with market thesis & trend maps.", archetype: "Thesis-Driven Fund" },
-          { label: "Show strategic fit and commercial collaboration ideas.", archetype: "Strategic Corporate Investor" },
-          { label: "Highlight founder journey, community referrals & ops help.", archetype: "Community-Backer" },
-          { label: "Show impact metrics and measurable outcomes.", archetype: "Impact Investor" },
-        ]
-      },
-      {
-        text: "What’s your dream investor behaviour after the pitch?",
-        options: [
-          { label: "Deep diligence, then a solid term sheet.", archetype: "Cautious VC" },
-          { label: "Wires money quickly if they believe in you.", archetype: "Growth-Hungry Angel" },
-          { label: "Sends reports proving the sector matches their thesis.", archetype: "Thesis-Driven Fund" },
-          { label: "Introduces you to partnership teams inside the corp.", archetype: "Strategic Corporate Investor" },
-          { label: "Offers hands-on support and intros to their founder network.", archetype: "Community-Backer" },
-          { label: "Asks about long-term impact KPIs and reporting cadence.", archetype: "Impact Investor" },
-        ]
-      },
-      {
-        text: "Your biggest brag in a pitch is…",
-        options: [
-          { label: "We’ve stress-tested the financial model.", archetype: "Cautious VC" },
-          { label: "Users love us — growth & retention are strong.", archetype: "Growth-Hungry Angel" },
-          { label: "We fit squarely into an emerging sector thesis.", archetype: "Thesis-Driven Fund" },
-          { label: "We can integrate with an existing product line.", archetype: "Strategic Corporate Investor" },
-          { label: "Our founding team is battle-tested and networked.", archetype: "Community-Backer" },
-          { label: "We improve livelihoods / reduce emissions measurably.", archetype: "Impact Investor" },
-        ]
-      },
-      {
-        text: "Which metric do you obsess over?",
-        options: [
-          { label: "Burn rate, runway and solidity of unit economics.", archetype: "Cautious VC" },
-          { label: "Growth rate, conversion & early revenue.", archetype: "Growth-Hungry Angel" },
-          { label: "TAM, trend growth and thesis fit.", archetype: "Thesis-Driven Fund" },
-          { label: "Partnership conversion and channel LTV.", archetype: "Strategic Corporate Investor" },
-          { label: "Customer referrals and operator-led metrics.", archetype: "Community-Backer" },
-          { label: "Impact KPIs (e.g., CO₂ avoided, beneficiaries reached).", archetype: "Impact Investor" },
-        ]
-      },
-      {
-        text: "If an investor ghosts you after a meeting, how do you react?",
-        options: [
-          { label: "Assume they’re doing deep diligence and wait patiently.", archetype: "Cautious VC" },
-          { label: "Move on and hustle the next investor fast.", archetype: "Growth-Hungry Angel" },
-          { label: "Send a short note tying your progress to their thesis.", archetype: "Thesis-Driven Fund" },
-          { label: "Follow up with specific partnership ideas to re-engage.", archetype: "Strategic Corporate Investor" },
-          { label: "Ask a mutual founder to warm-intro again.", archetype: "Community-Backer" },
-          { label: "Share recent impact metrics that show momentum.", archetype: "Impact Investor" },
-        ]
-      },
-      {
-        text: "If you weren’t fundraising, you’d spend your time…",
-        options: [
-          { label: "Tightening the financial model and risk plan.", archetype: "Cautious VC" },
-          { label: "Signing up the next batch of customers.", archetype: "Growth-Hungry Angel" },
-          { label: "Reading trend reports and refining thesis fit.", archetype: "Thesis-Driven Fund" },
-          { label: "Building product integrations and commercial pilots.", archetype: "Strategic Corporate Investor" },
-          { label: "Mentoring founders & growing your operator network.", archetype: "Community-Backer" },
-          { label: "Measuring and improving your social impact.", archetype: "Impact Investor" },
-        ]
-      },
-    ];
+<script>
+  /* Quiz data: strategic + practical tone (Tone B) */
+  const questions = [
+    { text:"When you describe your startup, you lead with:", options:[
+      {label:"The long-term problem and your unique insight", archetype:"Vision"},
+      {label:"Current traction and key metrics", archetype:"Traction"},
+      {label:"How the market is structured and where you fit", archetype:"MarketProof"},
+      {label:"Validated customer data and tests", archetype:"DataLed"},
+      {label:"The brand story and community behind it", archetype:"BrandStory"} ]},
 
-    const totalQuestions = questions.length;
-    let current = 0;
-    const answers = new Array(totalQuestions).fill(null);
+    { text:"What makes you most likely to win a funding conversation?", options:[
+      {label:"A bold, defensible insight about the future", archetype:"Vision"},
+      {label:"Clear, repeatable traction you can prove", archetype:"Traction"},
+      {label:"A specific, scalable market wedge", archetype:"MarketProof"},
+      {label:"Strong evidence and rigorous validation", archetype:"DataLed"},
+      {label:"A compelling narrative that converts customers", archetype:"BrandStory"} ]},
 
-    // DOM refs
-    const questionBlock = document.getElementById('questionBlock');
-    const progressFill = document.getElementById('progressFill');
-    const progressText = document.getElementById('progressText');
-    const nextBtn = document.getElementById('nextBtn');
-    const backBtn = document.getElementById('backBtn');
-    const resultCard = document.getElementById('resultCard');
-    const quizCard = document.getElementById('quizCard');
+    { text:"Your strongest internal lever today is:", options:[
+      {label:"A founder insight or technical idea others miss", archetype:"Vision"},
+      {label:"A growing set of paying customers", archetype:"Traction"},
+      {label:"A well-mapped distribution or channel strategy", archetype:"MarketProof"},
+      {label:"Customer behavior and cohort analysis", archetype:"DataLed"},
+      {label:"Creative positioning and brand loyalty", archetype:"BrandStory"} ]},
 
-    function renderQuestion(index){
-      const q = questions[index];
-      questionBlock.innerHTML = '';
+    { text:"How do you approach decisions in the business?", options:[
+      {label:"I prioritise long-term impact over short-term noise", archetype:"Vision"},
+      {label:"I choose actions that drive measurable outcomes", archetype:"Traction"},
+      {label:"I map decisions to market moves and defensibility", archetype:"MarketProof"},
+      {label:"I run tests, measure, and iterate based on data", archetype:"DataLed"},
+      {label:"I decide based on what strengthens the brand story", archetype:"BrandStory"} ]},
 
-      const qnum = document.createElement('div');
-      qnum.className = 'q-number';
-      qnum.textContent = `Question ${index+1} of ${totalQuestions}`;
-      questionBlock.appendChild(qnum);
+    { text:"If an investor asks for one thing to persuade them, you’d give them:", options:[
+      {label:"A clear 5–10 year vision and milestones", archetype:"Vision"},
+      {label:"Recent growth metrics and customer examples", archetype:"Traction"},
+      {label:"Market sizing, competitive map, and expansion path", archetype:"MarketProof"},
+      {label:"Raw test results, cohort tables and LTV/CAC", archetype:"DataLed"},
+      {label:"Customer testimonials, media mentions, and brand metrics", archetype:"BrandStory"} ]},
 
-      const qtext = document.createElement('div');
-      qtext.className = 'q-text';
-      qtext.textContent = q.text;
-      questionBlock.appendChild(qtext);
+    { text:"Which part of your pitch deck is strongest right now?", options:[
+      {label:"Vision & product insight", archetype:"Vision"},
+      {label:"Traction slides (revenue, retention)", archetype:"Traction"},
+      {label:"Go-to-market & market thesis", archetype:"MarketProof"},
+      {label:"Experimentation and validation details", archetype:"DataLed"},
+      {label:"Brand narrative & positioning", archetype:"BrandStory"} ]},
 
-      const opts = document.createElement('div');
-      opts.className = 'options';
-      q.options.forEach((opt) => {
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'opt';
-        b.textContent = opt.label;
-        b.onclick = () => {
-          answers[index] = opt.archetype;
-          opts.querySelectorAll('.opt').forEach(x => x.classList.remove('selected'));
-          b.classList.add('selected');
-          nextBtn.disabled = false;
-        };
-        if (answers[index] === opt.archetype) b.classList.add('selected');
-        opts.appendChild(b);
-      });
-      questionBlock.appendChild(opts);
+    { text:"What should you improve next to be more fundable?", options:[
+      {label:"Operational discipline and milestones", archetype:"Vision"},
+      {label:"Faster, repeatable growth levers", archetype:"Traction"},
+      {label:"Competitive moats and defensibility", archetype:"MarketProof"},
+      {label:"Systematic data collection and metrics hygiene", archetype:"DataLed"},
+      {label:"Stronger narrative and community activation", archetype:"BrandStory"} ]}
+  ];
 
-      backBtn.style.visibility = index === 0 ? 'hidden' : 'visible';
-      nextBtn.textContent = index === totalQuestions - 1 ? 'See Result' : 'Next';
-      nextBtn.disabled = answers[index] === null;
-      updateProgress();
-      setTimeout(()=>{
-        const first = opts.querySelector('.opt');
-        if(first) first.focus();
-      },40);
-    }
+  const totalQuestions = questions.length;
+  let current = 0;
+  const answers = new Array(totalQuestions).fill(null);
 
-    function updateProgress(){
-      const pct = Math.round(((current + 1) / totalQuestions) * 100);
-      progressFill.style.width = pct + '%';
-      progressText.textContent = `${current + 1} / ${totalQuestions}`;
-    }
+  const questionBlock = document.getElementById('questionBlock');
+  const progressFill = document.getElementById('progressFill');
+  const progressText = document.getElementById('progressText');
+  const nextBtn = document.getElementById('nextBtn');
+  const backBtn = document.getElementById('backBtn');
+  const resultCard = document.getElementById('resultCard');
+  const quizCard = document.getElementById('quizCard');
 
-    nextBtn.addEventListener('click', ()=>{
-      if (current < totalQuestions - 1){
-        current++;
-        renderQuestion(current);
-      } else {
-        if (answers.some(v => v === null)){
-          alert('Please answer all questions before viewing the result.');
-          return;
-        }
-        showResult();
-      }
-    });
+  function renderQuestion(index){
+    const q = questions[index];
+    questionBlock.innerHTML = '';
 
-    backBtn.addEventListener('click', ()=>{
-      if (current > 0){
-        current--;
-        renderQuestion(current);
-      }
-    });
+    const qnum = document.createElement('div');
+    qnum.className='q-number';
+    qnum.textContent=`Question ${index+1} of ${totalQuestions}`;
+    questionBlock.appendChild(qnum);
 
-    function showResult(){
-      // tally
-      const tally = {
-        "Cautious VC": 0,
-        "Growth-Hungry Angel": 0,
-        "Thesis-Driven Fund": 0,
-        "Strategic Corporate Investor": 0,
-        "Community-Backer": 0,
-        "Impact Investor": 0
+    const qtext = document.createElement('div');
+    qtext.className='q-text';
+    qtext.textContent=q.text;
+    questionBlock.appendChild(qtext);
+
+    const opts=document.createElement('div'); opts.className='options';
+    q.options.forEach(opt=>{
+      const b=document.createElement('button');
+      b.type='button'; b.className='opt'; b.textContent=opt.label;
+      b.onclick=()=>{
+        answers[index]=opt.archetype;
+        opts.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected'));
+        b.classList.add('selected');
+        nextBtn.disabled=false;
       };
-      answers.forEach(a => { if (a) tally[a]++; });
+      if(answers[index]===opt.archetype) b.classList.add('selected');
+      opts.appendChild(b);
+    });
+    questionBlock.appendChild(opts);
 
-      // find winner; if tie, pick the archetype whose answer appears earliest in user's answers
-      const maxCount = Math.max(...Object.values(tally));
-      const tied = Object.keys(tally).filter(k => tally[k] === maxCount);
+    backBtn.style.visibility=index===0?'hidden':'visible';
+    nextBtn.textContent=index===totalQuestions-1?'See Result':'Next';
+    nextBtn.disabled=answers[index]===null;
+    updateProgress();
+  }
 
-      let winner = tied[0];
-      if (tied.length > 1) {
-        for (let i = 0; i < answers.length; i++){
-          if (tied.includes(answers[i])){
-            winner = answers[i];
-            break;
-          }
-        }
+  function updateProgress(){
+    // show current question number and progress visually
+    const pct = Math.round(((current+1)/totalQuestions)*100);
+    progressFill.style.width = pct + '%';
+    progressText.textContent = `${current+1} / ${totalQuestions}`;
+  }
+
+  nextBtn.addEventListener('click',()=>{
+    if(current<totalQuestions-1){
+      current++;
+      renderQuestion(current);
+    } else {
+      // last question
+      if(answers.includes(null)){ alert("Please answer all questions before viewing results."); return; }
+      showResult();
+    }
+  });
+
+  backBtn.addEventListener('click',()=>{ if(current>0){ current--; renderQuestion(current); } });
+
+  function showResult(){
+    const tally={Vision:0,Traction:0,MarketProof:0,DataLed:0,BrandStory:0};
+    answers.forEach(a=>{ if(a && tally.hasOwnProperty(a)) tally[a]++; });
+
+    // determine winner; in tie, prefer the archetype that appears earliest in the questions answers order
+    const winner = Object.keys(tally).reduce((best, key) => {
+      if(tally[key] > (tally[best] || 0)) return key;
+      if(tally[key] === (tally[best] || 0)) {
+        // tie-breaker: count appearances in answers order
+        const firstIndexKey = answers.findIndex(a => a===key);
+        const firstIndexBest = answers.findIndex(a => a===best);
+        return (firstIndexKey !== -1 && firstIndexBest !== -1) ? (firstIndexKey < firstIndexBest ? key : best) : best;
       }
+      return best;
+    }, Object.keys(tally)[0]);
 
-      // friendly copy
-      let emoji = "🎯";
-      let title = "";
-      let copy = "";
+    let title="", text="", emoji="💡", nextSteps="";
 
-      switch(winner){
-        case "Cautious VC":
-          emoji = "🛡️";
-          title = "You’d attract the Cautious VC";
-          copy = "You present a de-risked, fundamentals-first story. Expect rigorous diligence, constructive pushback, and term sheets after careful review.";
-          break;
-        case "Growth-Hungry Angel":
-          emoji = "🚀";
-          title = "You’d attract the Growth-Hungry Angel";
-          copy = "You show momentum and urgency. Angels who love fast bets and founder hustle are likely to back you early and move quickly.";
-          break;
-        case "Thesis-Driven Fund":
-          emoji = "🎯";
-          title = "You’d attract a Thesis-Driven Fund";
-          copy = "Your business aligns with a sector trend or theme. Funds that invest by thesis will be excited by your strategic fit and long-term potential.";
-          break;
-        case "Strategic Corporate Investor":
-          emoji = "💎";
-          title = "You’d attract a Strategic Corporate Investor";
-          copy = "You offer partnership value and distribution synergies. Corporates may invest to strengthen their own product or market position.";
-          break;
-        case "Community-Backer":
-          emoji = "🤝";
-          title = "You’d attract the Community-Backer (Operator Angel)";
-          copy = "Ex-founders and operators who back people (not just ideas) will rally around you. Expect hands-on support and warm intros.";
-          break;
-        case "Impact Investor":
-          emoji = "🌍";
-          title = "You’d attract the Impact Investor";
-          copy = "Your measurable social/environmental impact stands out. Impact funds will value mission-aligned metrics alongside returns.";
-          break;
-        default:
-          emoji = "🎯";
-          title = "Investor match";
-          copy = "You have a mix of signals — different investors could be interested based on what you emphasize next.";
-      }
+    switch(winner){
+      case "Vision":
+        title = "Vision-Driven Angel";
+        emoji = "🌙";
+        text = "This investor backs bold founders who see what others don’t. They prioritise unique insights and long-term potential.";
+        nextSteps = "How to pitch: Lead with the insight, show the 5–10 year north star, and outline clear early milestones that prove you're on the right path.";
+        break;
+      case "Traction":
+        title = "Traction-First Operator Investor";
+        emoji = "⚡";
+        text = "This investor funds founders who show consistent, repeatable progress. Metrics and execution matter more than promises.";
+        nextSteps = "How to pitch: Focus on retention, unit economics, growth channels, and predictable revenue. Bring recent metrics and examples of repeatable wins.";
+        break;
+      case "MarketProof":
+        title = "Market-Proof VC";
+        emoji = "🌍";
+        text = "This investor wants a clear market logic: timing, white-space, and an obvious expansion path. They fund structural bets.";
+        nextSteps = "How to pitch: Present TAM/SAM/SOM, competitor map, defensible wedge, and a realistic scaling plan that leverages market dynamics.";
+        break;
+      case "DataLed":
+        title = "Data-Led Institutional Fund";
+        emoji = "📊";
+        text = "This investor makes decisions from evidence. They want strong validation, clean metrics, and learning loops that de-risk your assumptions.";
+        nextSteps = "How to pitch: Share experiments, cohort analysis, LTV/CAC, and the testing plan going forward. Show you know what you know — and how you'll learn the rest.";
+        break;
+      case "BrandStory":
+        title = "Brand-Story Consumer Investor";
+        emoji = "🎙️";
+        text = "This investor invests in identity-driven brands with community pull. They value narrative, positioning, and emotional connection.";
+        nextSteps = "How to pitch: Lead with your brand story, community signals, creative playbook, and how brand equity translates into commercial metrics.";
+        break;
+      default:
+        title = "Investor Fit";
+        text = "A mix of signals — consider strengthening your story and metrics before approaching investors.";
+        nextSteps = "Review your pitch deck, choose a target investor type, and align your next milestones to what they value.";
+    }
 
-      // show result
-      quizCard.style.display = 'none';
-      resultCard.style.display = 'block';
-      document.getElementById('resultEmoji').textContent = emoji;
-      document.getElementById('finalTitle').textContent = title;
-      document.getElementById('finalText').textContent = copy;
+    document.getElementById('quizCard').style.display='none';
+    document.getElementById('resultCard').style.display='block';
+    document.getElementById('finalScore').textContent = title;
+    document.getElementById('finalText').innerHTML = `<strong>${text}</strong><br><br>${nextSteps}`;
 
-      quizCard.style.display='none'; resultCard.style.display='block';
-    document.getElementById('finalScore').textContent=`You’re a ${winner} Founder`;
-    document.getElementById('finalText').textContent=text;
-    document.getElementById('resultEmoji').textContent=emoji;
+    document.getElementById('resultEmoji').textContent = emoji;
+
+    // optional: analytics hook (no-op here, leave comment for devs)
+    // window.dataLayer && window.dataLayer.push({event:'quiz_result', archetype:winner});
   }
 
   document.addEventListener("DOMContentLoaded", function() {
     const startBtn = document.getElementById('startQuiz');
     const introCard = document.getElementById('introCard');
-    const quizCard = document.getElementById('quizCard');
+    const quizCardLocal = document.getElementById('quizCard');
 
     startBtn.addEventListener('click', function() {
       introCard.style.display = 'none';
-      quizCard.style.display = 'block';
+      quizCardLocal.style.display = 'block';
       renderQuestion(0);
     });
+
+    // keyboard accessibility: Enter on options
+    document.addEventListener('keydown', function(e){
+      if(document.activeElement && document.activeElement.classList && document.activeElement.classList.contains('opt') && (e.key === 'Enter' || e.key === ' ')){
+        document.activeElement.click();
+      }
+    });
   });
+
   // === SOCIAL SHARE BUTTONS ===
-document.getElementById("waShare").addEventListener("click", function () {
-  const text = encodeURIComponent(
-    "I just took the 'What Kind of Founder Are You?' quiz on Consumer Kanvas — find out your founder type!"
-  );
-  const url = encodeURIComponent("https://www.consumerkanvas.com/quizzes/founder-archetype/");
-  window.open(`https://wa.me/?text=${text}%20${url}`, "_blank");
-});
+  const pageUrl = encodeURIComponent("https://www.consumerkanvas.com/quizzes/which-investor/");
+  document.getElementById("waShare").addEventListener("click", function () {
+    const text = encodeURIComponent("I just found my ideal investor type on Consumer Kanvas — see which investor would back your startup.");
+    window.open(`https://wa.me/?text=${text}%20${pageUrl}`, "_blank");
+  });
 
-document.getElementById("twShare").addEventListener("click", function () {
-  const text = encodeURIComponent(
-    "I just found out my Founder Archetype — take the quiz and see yours!"
-  );
-  const url = encodeURIComponent("https://www.consumerkanvas.com/quizzes/founder-archetype/");
-  window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, "_blank");
-});
+  document.getElementById("twShare").addEventListener("click", function () {
+    const text = encodeURIComponent("Which investor would fund your startup? I just found out — try the quiz.");
+    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${pageUrl}`, "_blank");
+  });
 
-document.getElementById("lnShare").addEventListener("click", function () {
-  const url = encodeURIComponent("https://www.consumerkanvas.com/quizzes/founder-archetype/");
-  const title = encodeURIComponent("What Kind of Founder Are You?");
-  const summary = encodeURIComponent(
-    "A quick quiz by Consumer Kanvas to reveal your natural founder style — Visionary, Hustler, Operator, Analyst, or Storyteller."
-  );
-  window.open(
-    `https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}&summary=${summary}`,
-    "_blank"
-  );
-});
+  document.getElementById("lnShare").addEventListener("click", function () {
+    const title = encodeURIComponent("Which Investor Archetype Will Fund Your Startup?");
+    const summary = encodeURIComponent("Quick quiz by Consumer Kanvas that reveals which investor type is most likely to fund your startup — plus practical pitch tips.");
+    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}&title=${title}&summary=${summary}`, "_blank");
+  });
 </script>
 </body>
 </html>
