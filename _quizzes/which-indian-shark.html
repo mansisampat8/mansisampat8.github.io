@@ -178,7 +178,11 @@ permalink: /quizzes/which-indian-shark/
   body {
     min-height: 100dvh;
   }
-  .card#introCard {
+
+  /* Make all major screens full-height */
+  .card#introCard,
+  .card.quiz-step,
+  .card.result-card {
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
@@ -190,7 +194,10 @@ permalink: /quizzes/which-indian-shark/
   body {
     min-height: 100vh;
   }
-  .card#introCard {
+
+  .card#introCard,
+  .card.quiz-step,
+  .card.result-card {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
