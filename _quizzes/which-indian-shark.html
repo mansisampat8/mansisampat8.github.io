@@ -175,6 +175,21 @@ permalink: /quizzes/which-indian-shark/
     .btn-primary, .btn-secondary { padding:12px 18px; }
     .score { font-size:1.6rem; }
   }
+ /* ✅ Covers all extra-tall modern phones, not just iPhone 16 Pro Max */
+@media screen and (min-height: 880px) {
+  body {
+    min-height: 100vh;
+    height: 100vh;
+    padding: 0;
+    justify-content: center;
+  }
+  .card#introCard {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
 </style>
 
 <script type="application/ld+json">
